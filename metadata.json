@@ -1,0 +1,9 @@
+{
+  "name": "1201260829 - profil - Mübarekçe",
+  "description": "Kapsamlı bir İslami yaşam uygulaması. Namaz vakitleri, Kıble bulucu, Zikirmatik ve yapay zeka destekli dini asistan.",
+  "requestFramePermissions": [
+    "geolocation",
+    "microphone",
+    "camera"
+  ]
+}

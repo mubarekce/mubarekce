@@ -1,0 +1,35 @@
+rules_version = '2';
+
+// Bu dosyayı Firebase Console > Firestore Database > Kurallar (Rules)
+// sekmesine YAPIŞTIRIP "Yayınla / Publish" demeniz gerekiyor.
+// Aksi halde varsayılan kurallar ya veritabanını herkese kapalı (hiçbir
+// şey çalışmaz) ya da tamamen açık (güvensiz) bırakır.
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // users/{uid} -> Her kullanıcının kendi özel verisi
+    // (namaz kayıtları, zikir sayaçları, kaza takibi, hatim ilerlemesi,
+    // aile modu, bildirim tercihleri, premium durumu vb. hepsi burada).
+    // Sadece belgenin sahibi okuyup yazabilir.
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // duaRequests -> "Kardeşlik" sekmesindeki herkese açık dua istekleri.
+    // Giriş yapmış herkes okuyabilir ve yeni istek ekleyebilir.
+    // Var olan bir isteği SADECE "amin" listesine kendi e-postasını eklemek
+    // için güncelleyebilir; başkasının yazdığı başlık/içeriği değiştiremez
+    // ya da silemez (silme burada tamamen kapalı bırakıldı).
+    match /duaRequests/{requestId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null
+        && request.resource.data.userName is string
+        && request.resource.data.title is string
+        && request.resource.data.content is string;
+      allow update: if request.auth != null
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['aminUsers']);
+      allow delete: if false;
+    }
+  }
+}
