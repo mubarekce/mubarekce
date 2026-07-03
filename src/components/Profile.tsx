@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { User } from '../types';
 import { useUserData } from '../contexts/UserDataContext';
+import { isAdminEmail } from '../services/admin';
+import AdminPanel from './AdminPanel';
 
 interface ProfileProps {
   user: User;
@@ -11,7 +13,7 @@ interface ProfileProps {
 }
 
 type ProfileView = 'main' | 'notif_detail' | 'mosque_detail';
-type SettingType = 'notifications' | 'location' | 'language' | 'theme' | 'rate' | 'sound' | 'none';
+type SettingType = 'notifications' | 'location' | 'language' | 'theme' | 'rate' | 'sound' | 'admin' | 'none';
 
 interface SoundItem {
   id: string;
@@ -40,6 +42,7 @@ const NOTIF_SOUNDS: SoundItem[] = [
 const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark, onLogout }) => {
   const { getField, setField } = useUserData();
   const [currentView, setCurrentView] = useState<ProfileView>('main');
+  const [showAdminPanel, setShowAdminPanel] = useState(false);
   const [selectedSoundId, setSelectedSoundId] = useState(() => getField('pref_notif_sound_id', 'ussak'));
   const [previewingId, setPreviewingId] = useState<string | null>(null);
   const audioRef = useRef<HTMLAudioElement>(new Audio());
@@ -84,11 +87,12 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
   // Removed 'location' from settingItems as requested
   const settingItems = useMemo(() => [
+    ...(isAdminEmail(user.email) ? [{ id: 'admin' as SettingType, label: 'Yönetim Paneli', icon: '🛠️', color: 'bg-emerald-700', val: '', options: [] }] : []),
     { id: 'notifications' as SettingType, label: 'Ses & Bildirim', icon: '🔔', color: 'bg-indigo-500', val: selectedSoundId, options: [] },
     { id: 'language' as SettingType, label: 'Dil Seçimi', icon: '🌍', color: 'bg-blue-500', val: languagePref, options: ['Türkçe', 'English', 'Arabic', 'Urdu'] },
     { id: 'theme' as SettingType, label: 'Gece Modu', icon: '🌙', color: 'bg-slate-800', val: isDark ? 'Açık' : 'Kapalı', options: [] },
     { id: 'rate' as SettingType, label: 'Bizi Puanlayın', icon: '⭐', color: 'bg-amber-500', val: 'V5.0', isLink: true, options: [] },
-  ], [selectedSoundId, languagePref, isDark]);
+  ], [selectedSoundId, languagePref, isDark, user.email]);
 
   // Added handleStartPurchase function for line 389 fix
   const handleStartPurchase = () => {
@@ -367,6 +371,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
                onClick={() => { 
                  if (item.id === 'theme') { setIsDark(!isDark); if (window.navigator.vibrate) window.navigator.vibrate(20); } 
                  else if (item.id === 'notifications') { setCurrentView('notif_detail'); }
+                 else if (item.id === 'admin') { setShowAdminPanel(true); }
                  else if ('isLink' in item && item.isLink) alert("Desteğiniz için teşekkürler!"); 
                  else { setActiveModal(item.id); } 
                }} 
@@ -588,6 +593,8 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
   );
 
   // Switch View Rendering
+  if (showAdminPanel) return <AdminPanel onBack={() => setShowAdminPanel(false)} />;
+
   switch (currentView) {
     case 'notif_detail': return renderNotifDetail();
     case 'mosque_detail': return renderMosqueDetail();

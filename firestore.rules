@@ -31,5 +31,18 @@ service cloud.firestore {
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['aminUsers']);
       allow delete: if false;
     }
+
+    // app_config/global -> Kategori kilitleri ve Ramazan modu gibi uygulama
+    // genelindeki ayarlar. Herkes okuyabilir (Kütüphane ekranı buna göre
+    // kilit gösterir), sadece admin e-postaları yazabilir.
+    // NOT: Buradaki listeyi src/services/admin.ts içindeki ADMIN_EMAILS ile
+    // aynı tutun.
+    match /app_config/{docId} {
+      allow read: if request.auth != null;
+      allow write: if request.auth != null
+        && request.auth.token.email in [
+          // 'admin@mubarekce.com'
+        ];
+    }
   }
 }

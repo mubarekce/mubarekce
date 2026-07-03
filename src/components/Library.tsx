@@ -27,6 +27,8 @@ import ReligiousRadios from './ReligiousRadios';
 import FridayMessages from './FridayMessages';
 import CamiBul from './CamiBul';
 import { LocationData } from '../types';
+import { useUserData } from '../contexts/UserDataContext';
+import { AppConfig, DEFAULT_APP_CONFIG, subscribeAppConfig } from '../services/appConfig';
 
 interface LibraryTool {
   id: string;
@@ -45,6 +47,17 @@ const IconWrapper = ({ children }: { children?: React.ReactNode }) => (
 );
 
 const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => {
+  const { getField } = useUserData();
+  const isPremium = getField('is_premium_user', false);
+  const [appConfig, setAppConfig] = useState<AppConfig>(DEFAULT_APP_CONFIG);
+  const [lockedAttempt, setLockedAttempt] = useState<LibraryTool | null>(null);
+  const [showRamadanLocked, setShowRamadanLocked] = useState(false);
+
+  useEffect(() => {
+    const unsub = subscribeAppConfig(setAppConfig);
+    return () => unsub();
+  }, []);
+
   const [searchTerm, setSearchTerm] = useState('');
   const [view, setView] = useState<'grid' | 'quran' | 'zikir' | 'kible' | 'esma' | 'ayet-bul' | 'hafizlik' | 'elifba' | 'tecvid' | 'hatim-org' | 'kaza' | 'cevsen' | 'ruya' | 'uyku' | 'aile' | 'kutubsitte' | 'peygamberler' | 'tarih' | 'forty-hadis' | 'helal-scanner' | 'zekat-hesapla' | 'ramazan-ozel' | 'abdest' | 'live-streams' | 'radyo' | 'friday-messages' | 'camiler' | 'detail'>('grid');
   const [layoutMode, setLayoutMode] = useState<'list' | 'grid'>('list');
@@ -225,6 +238,16 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
   ];
 
   const handleToolClick = (tool: LibraryTool) => {
+    // Premium kilidi: kategori adminden kilitlendiyse ve kullanıcı premium değilse durdur
+    if (appConfig.lockedCategories.includes(tool.cat) && !isPremium) {
+      setLockedAttempt(tool);
+      return;
+    }
+    // Ramazan Özel: admin panelinden açılmadıysa erişimi engelle
+    if (tool.id === 'ramazan' && !appConfig.ramadanModeEnabled) {
+      setShowRamadanLocked(true);
+      return;
+    }
     if (tool.id === 'quran') setView('quran');
     else if (tool.id === 'zikir') setView('zikir');
     else if (tool.id === 'kible') setView('kible');
@@ -263,7 +286,9 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
     t.cat.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const ToolListItem: React.FC<{ tool: LibraryTool }> = ({ tool }) => (
+  const ToolListItem: React.FC<{ tool: LibraryTool }> = ({ tool }) => {
+    const locked = appConfig.lockedCategories.includes(tool.cat) && !isPremium;
+    return (
     <div 
       onClick={() => handleToolClick(tool)}
       className="flex items-center gap-5 p-5 bg-white rounded-[2rem] border border-slate-50 hover:bg-slate-50/50 hover:border-emerald-100/50 transition-all duration-300 cursor-pointer group active:scale-[0.98]"
@@ -275,7 +300,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
         {tool.icon}
       </div>
       <div className="flex-1">
-        <h4 className="text-sm font-black text-slate-900 group-hover:text-emerald-700 transition-colors">{tool.title}</h4>
+        <h4 className="text-sm font-black text-slate-900 group-hover:text-emerald-700 transition-colors flex items-center gap-1.5">{tool.title} {locked && <span className="text-amber-500 text-xs">🔒</span>}</h4>
         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider opacity-70 mt-0.5">{tool.desc}</p>
       </div>
       <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 opacity-0 group-hover:opacity-100 transition-all">
@@ -285,12 +310,16 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
       </div>
     </div>
   );
+  };
 
-  const ToolGridItem: React.FC<{ tool: LibraryTool }> = ({ tool }) => (
+  const ToolGridItem: React.FC<{ tool: LibraryTool }> = ({ tool }) => {
+    const locked = appConfig.lockedCategories.includes(tool.cat) && !isPremium;
+    return (
     <div 
       onClick={() => handleToolClick(tool)}
-      className="bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-emerald-100 hover:shadow-xl hover:shadow-emerald-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center"
+      className="bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-emerald-100 hover:shadow-xl hover:shadow-emerald-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center relative"
     >
+      {locked && <span className="absolute top-4 right-4 text-amber-500 text-xs">🔒</span>}
       <div 
         className={`transition-all duration-500 group-hover:scale-110 flex items-center justify-center w-14 h-14 mb-4 ${tool.color}`}
         style={{ filter: `drop-shadow(0 0 10px ${tool.glowColor})` }}
@@ -301,6 +330,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
       <p className="text-[9px] font-bold text-slate-400 leading-tight uppercase tracking-wider opacity-70 line-clamp-2">{tool.desc}</p>
     </div>
   );
+  };
 
   if (view === 'quran') return <QuranReader onBack={() => setView('grid')} />;
   if (view === 'zikir') return (
@@ -440,6 +470,28 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
       <div className="text-center py-10 opacity-30">
         <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.6em]">TÜM İÇERİKLER DİYANET UYUMLUDUR</p>
       </div>
+
+      {(lockedAttempt || showRamadanLocked) && (
+        <div className="fixed inset-0 z-[1000] bg-black/50 flex items-end justify-center" onClick={() => { setLockedAttempt(null); setShowRamadanLocked(false); }}>
+          <div className="bg-white w-full max-w-lg rounded-t-[2.5rem] p-8 text-center space-y-3" onClick={e => e.stopPropagation()}>
+            <div className="text-4xl">{lockedAttempt ? '🔒' : '🌙'}</div>
+            <h3 className="text-lg font-black text-slate-900">
+              {lockedAttempt ? `${lockedAttempt.title} Premium'a Özel` : 'Ramazan Özel Henüz Açılmadı'}
+            </h3>
+            <p className="text-sm text-slate-400">
+              {lockedAttempt
+                ? 'Bu bölüme erişmek için Mübarekçe PRO+ üyeliğine geçmeniz gerekiyor.'
+                : 'Bu bölüm Ramazan ayı boyunca aktif edilir. Şimdilik erişime kapalı.'}
+            </p>
+            <button
+              onClick={() => { setLockedAttempt(null); setShowRamadanLocked(false); }}
+              className="w-full py-4 bg-emerald-600 text-white font-black rounded-2xl text-xs uppercase tracking-widest mt-2"
+            >
+              Anladım
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
