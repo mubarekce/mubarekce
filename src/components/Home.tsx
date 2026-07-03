@@ -114,9 +114,9 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
         </svg>
       ), 
-      color: 'border-emerald-400',
+      color: 'border-teal-400',
       glow: 'shadow-[0_0_15px_rgba(52,211,153,0.4)]',
-      iconColor: 'text-emerald-500'
+      iconColor: 'text-teal-500'
     },
     { 
       label: 'HADİS', 
@@ -182,20 +182,20 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
         <div 
           className="absolute inset-0 opacity-[0.02] transition-opacity duration-1000" 
           style={{ 
-            backgroundImage: `radial-gradient(#065f46 1px, transparent 1px)`,
+            backgroundImage: `radial-gradient(#115e59 1px, transparent 1px)`,
             backgroundSize: '20px 20px'
           }} 
         />
         
         {/* 2. Top "Nur" Ambient Glow - Specific sizing/blur from user request */}
-        <div className="fixed top-[-150px] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-emerald-400/30 blur-[100px] rounded-full pointer-events-none z-0" />
+        <div className="fixed top-[-150px] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-teal-400/30 blur-[100px] rounded-full pointer-events-none z-0" />
         
         {/* 3. Bottom Ambient Glow (Subtle Amber/Gold) */}
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[500px] h-[400px] bg-amber-200/10 blur-[100px] rounded-full transition-all duration-1000" />
       </div>
 
       {/* MAIN CARD - PASTEL DARK GREEN (EMERALD) */}
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-[#065f46] text-emerald-50 shadow-[0_20px_60px_-12px_rgba(6,78,59,0.4)] border border-emerald-800/50 z-10">
+      <div className="relative overflow-hidden rounded-[2.5rem] bg-[#115e59] text-teal-50 shadow-[0_20px_60px_-12px_rgba(17,94,89,0.4)] border border-teal-800/50 z-10">
         
         {/* Mosque Background Silhouette */}
         <div className="absolute right-[-20px] bottom-4 opacity-5 pointer-events-none transition-all duration-1000">
@@ -217,16 +217,16 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
               <h1 className="text-[3.8rem] font-black tracking-tighter leading-none text-white drop-shadow-lg">
                 {currentTime.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}
               </h1>
-              <p className="text-[11px] font-black text-emerald-300 uppercase tracking-[0.2em] mt-1.5 ml-1">
+              <p className="text-[11px] font-black text-teal-300 uppercase tracking-[0.2em] mt-1.5 ml-1">
                 {currentTime.toLocaleDateString('tr-TR', { day: 'numeric', month: 'long', weekday: 'short' })}
               </p>
             </div>
             
             {/* HICRI BOX */}
             <div className="bg-white/10 backdrop-blur-xl rounded-2xl px-3.5 py-2.5 border border-white/10 text-right flex items-center gap-3 shadow-sm">
-              <div className="w-8 h-8 rounded-xl bg-emerald-400/20 flex items-center justify-center text-[10px]">🌙</div>
+              <div className="w-8 h-8 rounded-xl bg-teal-400/20 flex items-center justify-center text-[10px]">🌙</div>
               <div>
-                <p className="text-[8px] font-black text-emerald-300 uppercase tracking-[0.2em] mb-0.5">HİCRİ</p>
+                <p className="text-[8px] font-black text-teal-300 uppercase tracking-[0.2em] mb-0.5">HİCRİ</p>
                 <p className="text-[10px] font-bold text-white leading-none">
                   {prayerData?.hijri.day} {prayerData?.hijri.month.tr} {prayerData?.hijri.year}
                 </p>
@@ -235,10 +235,10 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
           </div>
 
           <div className="mt-8 mb-7">
-            <h2 className="text-xl font-bold tracking-tight text-emerald-100/70 italic">Selam, <span className="text-white font-black not-italic">{user.name.split(' ')[0]}</span></h2>
+            <h2 className="text-xl font-bold tracking-tight text-teal-100/70 italic">Selam, <span className="text-white font-black not-italic">{user.name.split(' ')[0]}</span></h2>
             <div className="flex items-center gap-3 mt-1.5">
-              <div className="w-8 h-[1px] bg-emerald-400/50"></div>
-              <p className="text-emerald-300 text-[8.5px] font-black uppercase tracking-[0.35em]">RUHUN ŞİFASI İBADETTİR</p>
+              <div className="w-8 h-[1px] bg-teal-400/50"></div>
+              <p className="text-teal-300 text-[8.5px] font-black uppercase tracking-[0.35em]">RUHUN ŞİFASI İBADETTİR</p>
             </div>
           </div>
           
@@ -246,34 +246,34 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
              {/* NEXT PRAYER BOX */}
              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-4 border border-white/5 shadow-sm">
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="text-emerald-300">
+                  <div className="text-teal-300">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0" /><path d="M8 17a1 1 0 0 1-1-1v-5a5 5 0 0 1 10 0v5a1 1 0 0 1-1 1H8z" /><path d="M12 2v3" />
                     </svg>
                   </div>
-                  <p className="text-[8px] font-black uppercase text-emerald-300/60 tracking-widest">SIRADAKİ</p>
+                  <p className="text-[8px] font-black uppercase text-teal-300/60 tracking-widest">SIRADAKİ</p>
                 </div>
                 <p className="text-sm font-black text-white mb-0.5">{nextPrayer?.name || 'Vakit'}</p>
-                <p className="text-[11px] font-bold text-emerald-200 tabular-nums">{nextPrayer?.time || '--:--'}</p>
+                <p className="text-[11px] font-bold text-teal-200 tabular-nums">{nextPrayer?.time || '--:--'}</p>
              </div>
 
              {/* ZIKIR BOX - UPDATED: Dynamic Count & Navigation to Zikirmatik */}
              <div className="bg-white/10 backdrop-blur-md rounded-3xl p-4 border border-white/5 shadow-sm cursor-pointer active:scale-95 transition-transform" onClick={handleZikirClick}>
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="text-emerald-300">
+                  <div className="text-teal-300">
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="3" /><circle cx="12" cy="5" r="1" /><circle cx="12" cy="19" r="1" /><circle cx="5" cy="12" r="1" /><circle cx="19" cy="12" r="1" />
                     </svg>
                   </div>
-                  <p className="text-[8px] font-black uppercase text-emerald-300/60 tracking-widest">ZİKİR</p>
+                  <p className="text-[8px] font-black uppercase text-teal-300/60 tracking-widest">ZİKİR</p>
                 </div>
                 <div className="flex items-baseline gap-1">
                   <p className="text-sm font-black text-white">{currentDhikrCount}</p>
-                  <p className="text-[9px] font-bold text-emerald-400/40">/ 99</p>
+                  <p className="text-[9px] font-bold text-teal-400/40">/ 99</p>
                 </div>
                 <div className="w-full h-1 bg-white/10 rounded-full mt-2.5 overflow-hidden">
                    <div 
-                    className="h-full bg-emerald-400 transition-all duration-700 shadow-[0_0_8px_rgba(52,211,153,0.5)]" 
+                    className="h-full bg-teal-400 transition-all duration-700 shadow-[0_0_8px_rgba(52,211,153,0.5)]" 
                     style={{ width: `${Math.min(100, (currentDhikrCount / 99) * 100)}%` }}
                    ></div>
                 </div>
@@ -285,22 +285,22 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
         <div className="bg-black/10 border-t border-white/5 p-4 backdrop-blur-sm">
            <div className="grid grid-cols-3 gap-1">
               <div className="text-center py-1">
-                 <p className="text-[7px] font-black text-emerald-300 uppercase mb-1 tracking-widest">İMSAK</p>
+                 <p className="text-[7px] font-black text-teal-300 uppercase mb-1 tracking-widest">İMSAK</p>
                  <p className="text-[13px] font-black text-white tabular-nums">{prayerData?.times.Fajr || '--:--'}</p>
               </div>
               <div className="text-center py-1 border-x border-white/5 px-2">
-                 <p className="text-[7px] font-black text-emerald-300 uppercase mb-1 tracking-widest">GÜNEŞ</p>
+                 <p className="text-[7px] font-black text-teal-300 uppercase mb-1 tracking-widest">GÜNEŞ</p>
                  <p className="text-[13px] font-black text-white tabular-nums">{prayerData?.times.Sunrise || '--:--'}</p>
               </div>
               <div className="text-center py-1">
-                 <p className="text-[7px] font-black text-emerald-300 uppercase mb-1 tracking-widest">AKŞAM</p>
+                 <p className="text-[7px] font-black text-teal-300 uppercase mb-1 tracking-widest">AKŞAM</p>
                  <p className="text-[13px] font-black text-white tabular-nums">{prayerData?.times.Maghrib || '--:--'}</p>
               </div>
            </div>
            <div className="mt-3 flex justify-center">
              <button 
                 onClick={() => setShowImsakiyeModal(true)}
-                className="text-[8px] font-black text-emerald-300/60 uppercase tracking-[0.4em] hover:text-white transition-colors py-1.5 px-5 rounded-full border border-white/5 bg-white/5 active:scale-95"
+                className="text-[8px] font-black text-teal-300/60 uppercase tracking-[0.4em] hover:text-white transition-colors py-1.5 px-5 rounded-full border border-white/5 bg-white/5 active:scale-95"
               >
                 GÜNLÜK İMSAKİYE LİSTESİ →
               </button>
@@ -333,7 +333,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
       <div className="px-1 relative z-10">
          <div 
            onClick={() => setActiveOverlay('camiler')}
-           className="bg-[#052e16] rounded-[2.5rem] p-6 flex items-center justify-between border border-emerald-800 shadow-xl shadow-emerald-900/10 cursor-pointer group active:scale-[0.98] transition-all overflow-hidden relative"
+           className="bg-[#022e2c] rounded-[2.5rem] p-6 flex items-center justify-between border border-teal-800 shadow-xl shadow-teal-900/10 cursor-pointer group active:scale-[0.98] transition-all overflow-hidden relative"
          >
             {/* Map Texture Overlay - Refined according to user prompt */}
             <div 
@@ -350,10 +350,10 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
                <div className="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-2xl shadow-inner border border-white/10">📍</div>
                <div>
                   <h4 className="text-white font-black text-lg tracking-tight leading-none">Yakındaki Camiler</h4>
-                  <p className="text-emerald-400 text-[9px] font-black uppercase tracking-[0.2em] mt-1.5">En Yakın Mescitleri Bul</p>
+                  <p className="text-teal-400 text-[9px] font-black uppercase tracking-[0.2em] mt-1.5">En Yakın Mescitleri Bul</p>
                </div>
             </div>
-            <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-white group-hover:bg-emerald-500 transition-colors">
+            <div className="w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center text-white group-hover:bg-teal-500 transition-colors">
                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="9 18 15 12 9 6"/></svg>
             </div>
          </div>
@@ -364,13 +364,13 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
         <SectionHeader title="GÜNÜN MANEVİYATI" />
 
         {/* Daily Verse Card */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-[2rem] p-7 border border-emerald-100 shadow-[0_8px_30px_rgba(6,78,59,0.04)] relative overflow-hidden transition-all hover:translate-y-[-2px] hover:shadow-[0_12px_40px_rgba(6,78,59,0.08)] text-center">
-          <span className="inline-block bg-emerald-600/10 text-emerald-700 text-[11px] font-black px-5 py-1.5 rounded-full mb-5 tracking-widest uppercase">GÜNÜN AYETİ</span>
-          <p className="arabic-text text-3xl text-emerald-900/90 mb-4" dir="rtl" lang="ar">إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</p>
+        <div className="bg-white/80 backdrop-blur-sm rounded-[2rem] p-7 border border-teal-100 shadow-[0_8px_30px_rgba(17,94,89,0.04)] relative overflow-hidden transition-all hover:translate-y-[-2px] hover:shadow-[0_12px_40px_rgba(17,94,89,0.08)] text-center">
+          <span className="inline-block bg-teal-600/10 text-teal-700 text-[11px] font-black px-5 py-1.5 rounded-full mb-5 tracking-widest uppercase">GÜNÜN AYETİ</span>
+          <p className="arabic-text text-3xl text-teal-900/90 mb-4" dir="rtl" lang="ar">إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</p>
           <p className="text-slate-800 font-medium leading-relaxed text-lg mb-3">
             "Allah, sabredenlerle beraberdir."
           </p>
-          <p className="text-emerald-900/40 text-[9px] font-bold uppercase tracking-[0.4em]">BAKARA, 153</p>
+          <p className="text-teal-900/40 text-[9px] font-bold uppercase tracking-[0.4em]">BAKARA, 153</p>
         </div>
 
         {/* Daily Hadith Card */}

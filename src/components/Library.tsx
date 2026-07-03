@@ -84,7 +84,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
     { 
       id: 'quran', 
       icon: <IconWrapper><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></IconWrapper>, 
-      title: 'Kuran-ı Kerim', desc: 'Sesli, Meal & Arapça', cat: 'Kuran Akademisi', color: 'text-emerald-500', glowColor: 'rgba(16,185,129,0.5)' 
+      title: 'Kuran-ı Kerim', desc: 'Sesli, Meal & Arapça', cat: 'Kuran Akademisi', color: 'text-teal-500', glowColor: 'rgba(20,184,166,0.5)' 
     },
     { 
       id: 'tecvid-hoca', 
@@ -111,7 +111,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
     { 
       id: 'zikir', 
       icon: <IconWrapper><circle cx="12" cy="12" r="3"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></IconWrapper>, 
-      title: 'Zikirmatik', desc: 'Akıllı Tesbihat', cat: 'İbadet Merkezi', color: 'text-emerald-500', glowColor: 'rgba(16,185,129,0.5)' 
+      title: 'Zikirmatik', desc: 'Akıllı Tesbihat', cat: 'İbadet Merkezi', color: 'text-teal-500', glowColor: 'rgba(20,184,166,0.5)' 
     },
     { 
       id: 'hatim-org', 
@@ -281,9 +281,11 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
   };
 
   const filteredTools = tools.filter(t => 
-    t.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
-    t.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    t.cat.toLowerCase().includes(searchTerm.toLowerCase())
+    !appConfig.hiddenTools.includes(t.id) && (
+      t.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      t.desc.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      t.cat.toLowerCase().includes(searchTerm.toLowerCase())
+    )
   );
 
   const ToolListItem: React.FC<{ tool: LibraryTool }> = ({ tool }) => {
@@ -291,7 +293,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
     return (
     <div 
       onClick={() => handleToolClick(tool)}
-      className="flex items-center gap-5 p-5 bg-white rounded-[2rem] border border-slate-50 hover:bg-slate-50/50 hover:border-emerald-100/50 transition-all duration-300 cursor-pointer group active:scale-[0.98]"
+      className="flex items-center gap-5 p-5 bg-white rounded-[2rem] border border-slate-50 hover:bg-slate-50/50 hover:border-teal-100/50 transition-all duration-300 cursor-pointer group active:scale-[0.98]"
     >
       <div 
         className={`transition-all duration-500 group-hover:scale-110 flex-shrink-0 flex items-center justify-center w-12 h-12 ${tool.color}`}
@@ -300,7 +302,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
         {tool.icon}
       </div>
       <div className="flex-1">
-        <h4 className="text-sm font-black text-slate-900 group-hover:text-emerald-700 transition-colors flex items-center gap-1.5">{tool.title} {locked && <span className="text-amber-500 text-xs">🔒</span>}</h4>
+        <h4 className="text-sm font-black text-slate-900 group-hover:text-teal-700 transition-colors flex items-center gap-1.5">{tool.title} {locked && <span className="text-amber-500 text-xs">🔒</span>}</h4>
         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider opacity-70 mt-0.5">{tool.desc}</p>
       </div>
       <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 opacity-0 group-hover:opacity-100 transition-all">
@@ -317,7 +319,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
     return (
     <div 
       onClick={() => handleToolClick(tool)}
-      className="bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-emerald-100 hover:shadow-xl hover:shadow-emerald-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center relative"
+      className="bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-teal-100 hover:shadow-xl hover:shadow-teal-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center relative"
     >
       {locked && <span className="absolute top-4 right-4 text-amber-500 text-xs">🔒</span>}
       <div 
@@ -326,7 +328,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
       >
         <div className="scale-125">{tool.icon}</div>
       </div>
-      <h4 className="text-sm font-black text-slate-900 mb-1 group-hover:text-emerald-700 transition-colors">{tool.title}</h4>
+      <h4 className="text-sm font-black text-slate-900 mb-1 group-hover:text-teal-700 transition-colors">{tool.title}</h4>
       <p className="text-[9px] font-bold text-slate-400 leading-tight uppercase tracking-wider opacity-70 line-clamp-2">{tool.desc}</p>
     </div>
   );
@@ -387,9 +389,9 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
              "{selectedTool.title}" özelliği çok yakında Pro+ üyeleri için aktif edilecektir.
            </p>
            <div className="mt-8 flex gap-2.5">
-             <div className="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse"></div>
-             <div className="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse delay-75"></div>
-             <div className="w-2.5 h-2.5 bg-emerald-400 rounded-full animate-pulse delay-150"></div>
+             <div className="w-2.5 h-2.5 bg-teal-400 rounded-full animate-pulse"></div>
+             <div className="w-2.5 h-2.5 bg-teal-400 rounded-full animate-pulse delay-75"></div>
+             <div className="w-2.5 h-2.5 bg-teal-400 rounded-full animate-pulse delay-150"></div>
            </div>
         </div>
       </div>
@@ -405,7 +407,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
         </div>
         <button 
           onClick={() => setLayoutMode(prev => prev === 'list' ? 'grid' : 'list')}
-          className="w-12 h-12 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600 active:scale-90 transition-transform"
+          className="w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 active:scale-90 transition-transform"
         >
           {layoutMode === 'list' ? (
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -420,7 +422,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
       </div>
 
       <div className="relative group">
-        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-emerald-500 transition-colors">
+        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-teal-500 transition-colors">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
@@ -430,7 +432,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="İçerik, dua veya araç ara..."
-          className="w-full bg-slate-50 border-2 border-transparent focus:border-emerald-100 focus:bg-white rounded-[1.8rem] pl-14 pr-6 py-4.5 outline-none font-bold text-sm text-slate-900 transition-all placeholder:text-slate-300 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]"
+          className="w-full bg-slate-50 border-2 border-transparent focus:border-teal-100 focus:bg-white rounded-[1.8rem] pl-14 pr-6 py-4.5 outline-none font-bold text-sm text-slate-900 transition-all placeholder:text-slate-300 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]"
         />
       </div>
 
@@ -439,11 +441,11 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
           categories.map(cat => (
             <div key={cat} className="space-y-4">
               <div className="flex items-center gap-3 ml-2 mb-4">
-                <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
+                <div className="w-2 h-2 bg-teal-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(20,184,166,0.5)]"></div>
                 <h3 className="text-[10px] font-black text-slate-900/40 uppercase tracking-[0.4em]">{cat}</h3>
               </div>
               <div className={layoutMode === 'list' ? "flex flex-col gap-3" : "grid grid-cols-2 gap-4"}>
-                {tools.filter(t => t.cat === cat).map((tool, i) => (
+                {tools.filter(t => t.cat === cat && !appConfig.hiddenTools.includes(t.id)).map((tool, i) => (
                   layoutMode === 'list' 
                     ? <ToolListItem key={i} tool={tool} /> 
                     : <ToolGridItem key={i} tool={tool} />
@@ -485,7 +487,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
             </p>
             <button
               onClick={() => { setLockedAttempt(null); setShowRamadanLocked(false); }}
-              className="w-full py-4 bg-emerald-600 text-white font-black rounded-2xl text-xs uppercase tracking-widest mt-2"
+              className="w-full py-4 bg-teal-600 text-white font-black rounded-2xl text-xs uppercase tracking-widest mt-2"
             >
               Anladım
             </button>

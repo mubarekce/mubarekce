@@ -25,7 +25,7 @@ const CATEGORIES: HistoryCategory[] = [
     id: 'prophetic',
     name: 'Asr-ı Saadet',
     era: '571 - 632',
-    color: 'text-emerald-600',
+    color: 'text-teal-600',
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>,
     events: [
       { id: 'birth', year: '571', title: 'Veladet (Doğum)', type: 'dönüm noktası', desc: 'Peygamber Efendimiz (sav) Mekke\'de dünyaya teşrif etti.', detailedDesc: 'İslam tarihindeki en büyük dönüm noktasıdır. Rebiülevvel ayının 12. gecesi gerçekleşmiştir.' },
@@ -213,7 +213,7 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                      <div className="flex justify-between items-start mb-2">
                         <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{ev.year}</span>
                         <span className={`text-[7px] font-black px-2 py-0.5 rounded-full uppercase ${
-                          ev.type === 'dönüm noktası' ? 'bg-emerald-50 text-emerald-600' :
+                          ev.type === 'dönüm noktası' ? 'bg-teal-50 text-teal-600' :
                           ev.type === 'savaş' ? 'bg-rose-50 text-rose-600' :
                           ev.type === 'bilim' ? 'bg-blue-50 text-blue-600' : 'bg-amber-50 text-amber-600'
                         }`}>

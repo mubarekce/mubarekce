@@ -139,7 +139,7 @@ const RuyaTabiri: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 </div>
              </div>
 
-             <div className="bg-emerald-50/50 p-8 rounded-[2.5rem] border border-dashed border-emerald-200 flex items-start gap-5">
+             <div className="bg-teal-50/50 p-8 rounded-[2.5rem] border border-dashed border-teal-200 flex items-start gap-5">
                 <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-xl shadow-sm shrink-0">🛡️</div>
                 <p className="text-[11px] font-bold text-slate-500 leading-relaxed italic">
                   "Rüya anlatırken yalan söylemekten sakınınız. Görülen rüyalar müjdecidir veya birer uyarıdır. Hayra yormak esastır."

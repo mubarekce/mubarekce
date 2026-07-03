@@ -139,7 +139,7 @@ const CamiBul: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   const mLon = m.lon || (m as any).center?.lon;
                   window.open(`https://www.google.com/maps/dir/?api=1&destination=${mLat},${mLon}`, '_blank');
                 }}
-                className="w-9 h-9 bg-emerald-600 text-white rounded-xl flex items-center justify-center shadow-lg"
+                className="w-9 h-9 bg-teal-600 text-white rounded-xl flex items-center justify-center shadow-lg"
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="9 18 15 12 9 6"/></svg>
               </button>

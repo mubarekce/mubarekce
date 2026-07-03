@@ -13,8 +13,8 @@ interface StoryContent {
 // Günlük içerik havuzu (Her gün tarih bazlı bir tanesi seçilir)
 const STORY_DATA: Record<string, StoryContent[]> = {
   AYET: [
-    { id: 'a1', type: 'AYET', title: 'GÜNÜN AYETİ', arabic: 'وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ', content: 'Sabır ve namazla Allah’tan yardım isteyin.', source: 'Bakara, 45', bgGradient: 'from-emerald-900 via-emerald-800 to-teal-900' },
-    { id: 'a2', type: 'AYET', title: 'GÜNÜN AYETİ', arabic: 'إِنَّ مَعَ الْعُسْرِ يُسْرًا', content: 'Şüphesiz güçlükle beraber bir kolaylık vardır.', source: 'İnşirah, 6', bgGradient: 'from-emerald-900 via-teal-800 to-emerald-950' }
+    { id: 'a1', type: 'AYET', title: 'GÜNÜN AYETİ', arabic: 'وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ', content: 'Sabır ve namazla Allah’tan yardım isteyin.', source: 'Bakara, 45', bgGradient: 'from-teal-900 via-teal-800 to-teal-900' },
+    { id: 'a2', type: 'AYET', title: 'GÜNÜN AYETİ', arabic: 'إِنَّ مَعَ الْعُسْرِ يُسْرًا', content: 'Şüphesiz güçlükle beraber bir kolaylık vardır.', source: 'İnşirah, 6', bgGradient: 'from-teal-900 via-teal-800 to-teal-950' }
   ],
   HADİS: [
     { id: 'h1', type: 'HADİS', title: 'GÜNÜN HADİSİ', arabic: 'اَلدِّينُ النَّصِيحَةُ', content: 'Din samimiyettir (nasihattir).', source: 'Müslim, Îmân, 95', bgGradient: 'from-amber-800 via-orange-800 to-amber-950' },

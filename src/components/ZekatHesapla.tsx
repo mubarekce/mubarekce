@@ -92,7 +92,7 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               <div className="flex justify-between items-center">
                  <p className="text-sky-600 text-[9px] font-black uppercase tracking-[0.4em]">ÖDENMESİ GEREKEN ZEKAT</p>
                  {totalValue >= NISAB_VALUE && (
-                    <span className="bg-emerald-500 text-white text-[7px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest">NİSAB ÜSTÜ</span>
+                    <span className="bg-teal-500 text-white text-[7px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest">NİSAB ÜSTÜ</span>
                  )}
               </div>
               <h3 className="text-5xl font-black tracking-tighter leading-none">₺{zekatAmount.toLocaleString('tr-TR', { minimumFractionDigits: 2 })}</h3>

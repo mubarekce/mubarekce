@@ -6,7 +6,7 @@ import { fetchAllUsers, setUserPremium, AdminUserRow } from '../services/adminUs
 const Toggle: React.FC<{ checked: boolean; onChange: () => void }> = ({ checked, onChange }) => (
   <button
     onClick={onChange}
-    className={`w-12 h-7 rounded-full flex items-center px-1 transition-colors shrink-0 ${checked ? 'bg-emerald-600 justify-end' : 'bg-slate-200 justify-start'}`}
+    className={`w-12 h-7 rounded-full flex items-center px-1 transition-colors shrink-0 ${checked ? 'bg-teal-600 justify-end' : 'bg-slate-200 justify-start'}`}
   >
     <div className="w-5 h-5 bg-white rounded-full shadow" />
   </button>
@@ -67,6 +67,14 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     });
   };
 
+  const toggleHidden = (id: string) => {
+    const isHidden = config.hiddenTools.includes(id);
+    persist({
+      ...config,
+      hiddenTools: isHidden ? config.hiddenTools.filter(t => t !== id) : [...config.hiddenTools, id],
+    });
+  };
+
   const toggleRamadan = () => persist({ ...config, ramadanModeEnabled: !config.ramadanModeEnabled });
 
   const togglePremium = async (u: AdminUserRow) => {
@@ -88,7 +96,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="h-[70px] px-5 flex items-center gap-4 bg-white border-b border-slate-100 shrink-0">
         <button onClick={onBack} className="w-9 h-9 bg-slate-50 rounded-xl flex items-center justify-center">←</button>
         <h2 className="text-[16px] font-black text-slate-900 uppercase">Yönetim Paneli</h2>
-        {saving && <span className="text-[10px] text-emerald-600 font-bold ml-auto">Kaydediliyor…</span>}
+        {saving && <span className="text-[10px] text-teal-600 font-bold ml-auto">Kaydediliyor…</span>}
       </div>
 
       <div className="flex gap-2 px-5 py-3 bg-white border-b border-slate-100 shrink-0">
@@ -100,7 +108,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <button
             key={key}
             onClick={() => setTab(key)}
-            className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wide ${tab === key ? 'bg-emerald-600 text-white' : 'bg-slate-50 text-slate-500'}`}
+            className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wide ${tab === key ? 'bg-teal-600 text-white' : 'bg-slate-50 text-slate-500'}`}
           >
             {label}
           </button>
@@ -149,7 +157,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {tab === 'bolumler' && (
           <div className="space-y-6">
             <p className="text-[10px] text-slate-400 ml-1 leading-relaxed">
-              Buradan kategoriden bağımsız olarak tek tek bölümleri kilitleyebilirsin (örn. sadece "Rüya Tabiri"ni kilitle, kategorinin diğer bölümleri açık kalsın).
+              Her bölüm için iki ayrı anahtar var: <span className="font-black text-amber-500">🔒 Kilitli</span> (sadece premium olmayanlara kapalı, bölüm listede görünür ama tıklayınca premium ekranına yönlenir) ve <span className="font-black text-slate-500">🚫 Gizli</span> (herkesten, premium dahil, tamamen kaybolur — geliştirme aşamasındaki özellikleri saklamak için kullanışlı).
             </p>
             {LIBRARY_CATEGORIES.map(cat => (
               <div key={cat}>
@@ -157,13 +165,23 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <div className="bg-white rounded-[1.5rem] border border-slate-100 divide-y divide-slate-50 overflow-hidden">
                   {LIBRARY_TOOLS.filter(t => t.cat === cat).map(t => {
                     const locked = config.lockedTools.includes(t.id);
+                    const hidden = config.hiddenTools.includes(t.id);
                     return (
-                      <div key={t.id} className="p-4 px-5 flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                          <span className="text-base">{locked ? '🔒' : '🔓'}</span>
-                          <span className="text-sm font-bold text-slate-700">{t.title}</span>
+                      <div key={t.id} className={`p-4 px-5 flex items-center justify-between gap-3 ${hidden ? 'opacity-40' : ''}`}>
+                        <div className="flex items-center gap-3 min-w-0">
+                          <span className="text-base shrink-0">{hidden ? '🚫' : locked ? '🔒' : '🔓'}</span>
+                          <span className="text-sm font-bold text-slate-700 truncate">{t.title}</span>
                         </div>
-                        <Toggle checked={locked} onChange={() => toggleTool(t.id)} />
+                        <div className="flex items-center gap-4 shrink-0">
+                          <div className="flex flex-col items-center gap-1">
+                            <span className="text-[7px] font-black text-slate-300 uppercase tracking-widest">Kilitli</span>
+                            <Toggle checked={locked} onChange={() => toggleTool(t.id)} />
+                          </div>
+                          <div className="flex flex-col items-center gap-1">
+                            <span className="text-[7px] font-black text-slate-300 uppercase tracking-widest">Gizli</span>
+                            <Toggle checked={hidden} onChange={() => toggleHidden(t.id)} />
+                          </div>
+                        </div>
                       </div>
                     );
                   })}

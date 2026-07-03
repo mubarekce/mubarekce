@@ -11,9 +11,9 @@ interface RadioStation {
 
 const STATIONS: RadioStation[] = [
   { id: 'diyanet', name: 'Diyanet Radyo', slogan: 'Sizin Sesiniz', url: 'https://dd7928.radioca.st/stream', logo: '📡', color: 'bg-sky-600' },
-  { id: 'diyanet_kuran', name: 'Diyanet Kur\'an', slogan: 'Kur\'an Sesi', url: 'https://dd7928.radioca.st/kuran', logo: '📖', color: 'bg-emerald-600' },
+  { id: 'diyanet_kuran', name: 'Diyanet Kur\'an', slogan: 'Kur\'an Sesi', url: 'https://dd7928.radioca.st/kuran', logo: '📖', color: 'bg-teal-600' },
   { id: 'diyanet_risalet', name: 'Diyanet Risalet', slogan: 'Sünnetin Sesi', url: 'https://dd7928.radioca.st/risalet', logo: '🛡️', color: 'bg-amber-600' },
-  { id: 'mevlana', name: 'Radyo Mevlana', slogan: 'Gönül Bahçesi', url: 'https://yayin.radyomevlana.com:8020/stream', logo: '🕌', color: 'bg-emerald-700' },
+  { id: 'mevlana', name: 'Radyo Mevlana', slogan: 'Gönül Bahçesi', url: 'https://yayin.radyomevlana.com:8020/stream', logo: '🕌', color: 'bg-teal-700' },
   { id: 'moral', name: 'Moral FM', slogan: 'Ailenizin Radyosu', url: 'https://yayin1.yayindes.com:1082/stream', logo: '✨', color: 'bg-indigo-600' },
   { id: 'akra', name: 'Akra FM', slogan: 'Hakka Çağrı', url: 'https://akra.canliyayin.org/akra-64', logo: '🎙️', color: 'bg-sky-700' },
 ];

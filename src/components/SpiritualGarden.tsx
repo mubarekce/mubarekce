@@ -25,7 +25,7 @@ const SpiritualGarden: React.FC<SpiritualGardenProps> = ({ score, lastActionTrig
 
   // Renk Paleti (Dinamik)
   const colors = {
-    pot: isDead ? '#451a03' : isHealthy ? '#064e3b' : '#1e293b',
+    pot: isDead ? '#451a03' : isHealthy ? '#134e4a' : '#1e293b',
     soil: isDead ? '#78350f' : isHealthy ? '#14532d' : '#451a03',
     leaf: isDead ? '#a16207' : isHealthy ? '#10b981' : '#4ade80',
     accent: isGolden ? '#fbbf24' : '#60a5fa'
@@ -119,7 +119,7 @@ const SpiritualGarden: React.FC<SpiritualGardenProps> = ({ score, lastActionTrig
               : isHealthy 
                 ? "M100,148 Q100,100 100,60" // Dik ve Uzun
                 : "M100,148 Q100,120 100,110", // Orta
-            stroke: isDead ? '#78350f' : '#065f46',
+            stroke: isDead ? '#78350f' : '#115e59',
             strokeWidth: isHealthy ? 5 : 3
           }}
           fill="none"

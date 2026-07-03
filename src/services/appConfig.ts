@@ -11,6 +11,8 @@ export interface AppConfig {
   lockedCategories: string[];
   /** Premium olmayan kullanıcılara kilitli gösterilecek TEK TEK bölüm id'leri (kategoriden bağımsız, ince ayar) */
   lockedTools: string[];
+  /** HERKESTEN tamamen gizlenecek bölüm id'leri (premium/standart fark etmeksizin, kütüphanede hiç görünmez) */
+  hiddenTools: string[];
   /** Ramazan Özel bölümünün herkese açık olup olmadığı */
   ramadanModeEnabled: boolean;
 }
@@ -18,6 +20,7 @@ export interface AppConfig {
 export const DEFAULT_APP_CONFIG: AppConfig = {
   lockedCategories: [],
   lockedTools: [],
+  hiddenTools: [],
   ramadanModeEnabled: false,
 };
 
@@ -32,6 +35,7 @@ export const subscribeAppConfig = (cb: (config: AppConfig) => void) => {
         cb({
           lockedCategories: Array.isArray(data.lockedCategories) ? data.lockedCategories : [],
           lockedTools: Array.isArray(data.lockedTools) ? data.lockedTools : [],
+          hiddenTools: Array.isArray(data.hiddenTools) ? data.hiddenTools : [],
           ramadanModeEnabled: !!data.ramadanModeEnabled,
         });
       } else {

@@ -14,7 +14,7 @@ interface AmbientSound {
 
 const SOUNDS: AmbientSound[] = [
   { id: 'rain', name: 'Rahmet Yağmuru', icon: '🌧️', color: 'bg-blue-50 text-blue-500', url: 'https://assets.mixkit.co/active_storage/sfx/2407/2407-preview.mp3', desc: 'Derin odaklanma ve huzur' },
-  { id: 'night', name: 'Gece Ormanı', icon: '🌲', color: 'bg-emerald-50 text-emerald-600', url: 'https://assets.mixkit.co/active_storage/sfx/1118/1118-preview.mp3', desc: 'Doğanın sakinleştirici sesi' },
+  { id: 'night', name: 'Gece Ormanı', icon: '🌲', color: 'bg-teal-50 text-teal-600', url: 'https://assets.mixkit.co/active_storage/sfx/1118/1118-preview.mp3', desc: 'Doğanın sakinleştirici sesi' },
   { id: 'wind', name: 'Sakin Rüzgar', icon: '🌬️', color: 'bg-slate-100 text-slate-500', url: 'https://assets.mixkit.co/active_storage/sfx/2443/2443-preview.mp3', desc: 'Zihni boşaltan esinti' },
   { id: 'ocean', name: 'Derin Deniz', icon: '🌊', color: 'bg-cyan-50 text-cyan-600', url: 'https://assets.mixkit.co/active_storage/sfx/2412/2412-preview.mp3', desc: 'Ruhsal dinginlik ve ritim' },
   { id: 'fire', name: 'Huzur Ateşi', icon: '🔥', color: 'bg-orange-50 text-orange-600', url: 'https://assets.mixkit.co/active_storage/sfx/2400/2400-preview.mp3', desc: 'Sıcak ve güvenli atmosfer' },

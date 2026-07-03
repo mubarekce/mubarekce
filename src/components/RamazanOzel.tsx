@@ -256,19 +256,19 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="bg-white rounded-[3rem] p-8 border border-slate-50 shadow-xl shadow-slate-900/5 space-y-6">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-3">
-            <div className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></div>
+            <div className="w-1.5 h-1.5 bg-teal-500 rounded-full animate-pulse"></div>
             <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">BUGÜNKÜ HEDEFLERİM</h4>
           </div>
-          <span className="text-[10px] font-black text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full">{dailyTasks.filter(t => t.completed).length} / {dailyTasks.length}</span>
+          <span className="text-[10px] font-black text-teal-600 bg-teal-50 px-3 py-1 rounded-full">{dailyTasks.filter(t => t.completed).length} / {dailyTasks.length}</span>
         </div>
         <div className="space-y-3">
           {dailyTasks.map((task) => (
-            <div key={task.id} onClick={() => toggleTask(task.id)} className={`flex items-center justify-between p-5 rounded-[1.8rem] transition-all duration-500 cursor-pointer border ${task.completed ? 'bg-emerald-50/50 border-emerald-100' : 'bg-slate-50/30 border-slate-100 hover:border-sky-100'}`}>
+            <div key={task.id} onClick={() => toggleTask(task.id)} className={`flex items-center justify-between p-5 rounded-[1.8rem] transition-all duration-500 cursor-pointer border ${task.completed ? 'bg-teal-50/50 border-teal-100' : 'bg-slate-50/30 border-slate-100 hover:border-sky-100'}`}>
               <div className="flex items-center gap-4">
                 <span className={`text-xl transition-transform ${task.completed ? 'scale-110' : 'grayscale opacity-40'}`}>{task.icon}</span>
-                <span className={`text-[13px] font-black uppercase tracking-tight ${task.completed ? 'text-emerald-900' : 'text-slate-400'}`}>{task.label}</span>
+                <span className={`text-[13px] font-black uppercase tracking-tight ${task.completed ? 'text-teal-900' : 'text-slate-400'}`}>{task.label}</span>
               </div>
-              <div className={`w-8 h-8 rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${task.completed ? 'bg-emerald-500 border-emerald-500 text-white shadow-lg' : 'bg-white border-slate-100'}`}>
+              <div className={`w-8 h-8 rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${task.completed ? 'bg-teal-500 border-teal-500 text-white shadow-lg' : 'bg-white border-slate-100'}`}>
                 {task.completed && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><polyline points="20 6 9 17 4 12"></polyline></svg>}
               </div>
             </div>

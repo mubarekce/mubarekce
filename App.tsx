@@ -138,7 +138,7 @@ const App: React.FC = () => {
   if (!authChecked) {
     return (
       <div className="min-h-screen w-full flex items-center justify-center bg-white dark:bg-slate-950">
-        <div className="w-10 h-10 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin" />
+        <div className="w-10 h-10 border-4 border-teal-600 border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
@@ -177,7 +177,7 @@ const App: React.FC = () => {
                     window.dispatchEvent(new Event('resetLibraryView'));
                   }}
                   className={`flex flex-col items-center justify-center gap-1 flex-1 py-2 rounded-2xl transition-all ${
-                    isActive ? 'text-emerald-600' : 'text-slate-400'
+                    isActive ? 'text-teal-600' : 'text-slate-400'
                   }`}
                 >
                   <span className={`text-xl transition-transform ${isActive ? 'scale-110' : ''}`}>{item.icon}</span>

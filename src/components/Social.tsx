@@ -151,7 +151,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
         </div>
         <button 
           onClick={() => setShowModal(true)}
-          className="w-14 h-14 bg-emerald-600 text-white rounded-[1.8rem] shadow-xl shadow-emerald-200 flex items-center justify-center text-3xl active:scale-90 transition-transform border-4 border-white"
+          className="w-14 h-14 bg-teal-600 text-white rounded-[1.8rem] shadow-xl shadow-teal-200 flex items-center justify-center text-3xl active:scale-90 transition-transform border-4 border-white"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
@@ -165,7 +165,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
             onClick={() => setSelectedCat(cat.id)}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${
               selectedCat === cat.id 
-                ? 'bg-emerald-600 text-white border-emerald-500 shadow-lg shadow-emerald-100' 
+                ? 'bg-teal-600 text-white border-teal-500 shadow-lg shadow-teal-100' 
                 : 'bg-white text-slate-400 border-slate-100 hover:bg-slate-50'
             }`}
           >
@@ -182,14 +182,14 @@ const Social: React.FC<SocialProps> = ({ user }) => {
             <div className="flex justify-between items-start">
               <div className="flex items-center gap-3.5">
                 <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-xl font-black border-2 ${
-                  req.userName === user.name ? 'bg-indigo-50 text-indigo-600 border-indigo-100' : 'bg-emerald-50 text-emerald-600 border-emerald-100'
+                  req.userName === user.name ? 'bg-indigo-50 text-indigo-600 border-indigo-100' : 'bg-teal-50 text-teal-600 border-teal-100'
                 }`}>
                   {req.userName[0]}
                 </div>
                 <div>
                   <h5 className="text-[15px] font-black text-slate-900 tracking-tight">{req.userName === user.name ? 'Ben' : req.userName}</h5>
                   <div className="flex items-center gap-2">
-                    <span className="text-[9px] font-black text-emerald-500 bg-emerald-50 px-2 py-0.5 rounded uppercase tracking-wider">{req.category}</span>
+                    <span className="text-[9px] font-black text-teal-500 bg-teal-50 px-2 py-0.5 rounded uppercase tracking-wider">{req.category}</span>
                     <span className="w-1 h-1 bg-slate-200 rounded-full"></span>
                     <p className="text-[9px] font-bold text-slate-300 uppercase tracking-widest">
                       {req.timestamp.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' })}
@@ -198,7 +198,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
                 </div>
               </div>
               <button 
-                className="w-9 h-9 rounded-xl bg-slate-50 text-slate-300 flex items-center justify-center hover:bg-emerald-50 hover:text-emerald-500 transition-colors"
+                className="w-9 h-9 rounded-xl bg-slate-50 text-slate-300 flex items-center justify-center hover:bg-teal-50 hover:text-teal-500 transition-colors"
                 onClick={() => alert("Yakında...")}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
@@ -237,8 +237,8 @@ const Social: React.FC<SocialProps> = ({ user }) => {
                   disabled={req.aminUsers.includes(user.email)}
                   className={`flex items-center gap-2 px-6 py-2.5 rounded-2xl text-[11px] font-black uppercase tracking-widest active:scale-95 transition-all shadow-sm border ${
                     req.aminUsers.includes(user.email)
-                      ? 'bg-emerald-600 text-white border-emerald-600'
-                      : 'bg-emerald-50 text-emerald-600 border-emerald-100/50 group-hover:bg-emerald-600 group-hover:text-white group-hover:border-emerald-600'
+                      ? 'bg-teal-600 text-white border-teal-600'
+                      : 'bg-teal-50 text-teal-600 border-teal-100/50 group-hover:bg-teal-600 group-hover:text-white group-hover:border-teal-600'
                   }`}
                 >
                   🤲 Amin ({req.aminCount})
@@ -251,7 +251,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><path d="M12 7v5l3 3"/></svg>
                 </button>
               </div>
-              <button className="w-11 h-11 bg-slate-50 text-slate-300 rounded-2xl flex items-center justify-center active:scale-90 transition-all hover:bg-emerald-50 hover:text-emerald-500">
+              <button className="w-11 h-11 bg-slate-50 text-slate-300 rounded-2xl flex items-center justify-center active:scale-90 transition-all hover:bg-teal-50 hover:text-teal-500">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
               </button>
             </div>
@@ -260,7 +260,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
 
         {loadingFeed && (
           <div className="py-20 text-center opacity-30 space-y-4">
-            <div className="w-8 h-8 mx-auto border-4 border-emerald-300 border-t-emerald-600 rounded-full animate-spin"></div>
+            <div className="w-8 h-8 mx-auto border-4 border-teal-300 border-t-teal-600 rounded-full animate-spin"></div>
             <p className="text-sm font-black uppercase tracking-widest">Dua akışı yükleniyor...</p>
           </div>
         )}
@@ -276,10 +276,10 @@ const Social: React.FC<SocialProps> = ({ user }) => {
       {showModal && (
         <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-6 animate-in fade-in duration-300">
           <div className="bg-white w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl relative overflow-hidden">
-             <div className="absolute top-0 left-0 w-full h-2 bg-emerald-600"></div>
+             <div className="absolute top-0 left-0 w-full h-2 bg-teal-600"></div>
              <div className="text-center space-y-1">
                 <h3 className="text-2xl font-black text-slate-900 tracking-tight">Dua İsteği Paylaş</h3>
-                <p className="text-[10px] font-black text-emerald-600 uppercase tracking-widest">Kardeşlerinin dualarına ortak ol</p>
+                <p className="text-[10px] font-black text-teal-600 uppercase tracking-widest">Kardeşlerinin dualarına ortak ol</p>
              </div>
 
              <div className="space-y-5">
@@ -291,7 +291,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
                          key={cat.id}
                          onClick={() => setNewRequest({...newRequest, category: cat.id})}
                          className={`py-3 rounded-2xl text-[9px] font-black transition-all border ${
-                           newRequest.category === cat.id ? 'bg-emerald-600 text-white border-emerald-500 shadow-md' : 'bg-slate-50 text-slate-400 border-slate-100'
+                           newRequest.category === cat.id ? 'bg-teal-600 text-white border-teal-500 shadow-md' : 'bg-slate-50 text-slate-400 border-slate-100'
                          }`}
                        >
                          {cat.label}
@@ -325,7 +325,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
 
              <div className="flex gap-4">
                <button onClick={() => setShowModal(false)} className="flex-1 bg-slate-100 text-slate-400 font-black py-4 rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">VAZGEÇ</button>
-               <button onClick={handlePost} disabled={posting} className="flex-1 bg-emerald-600 disabled:opacity-60 text-white font-black py-4 rounded-2xl text-[10px] uppercase tracking-widest shadow-xl shadow-emerald-900/10 active:scale-95 transition-all">{posting ? 'PAYLAŞILIYOR...' : 'PAYLAŞ'}</button>
+               <button onClick={handlePost} disabled={posting} className="flex-1 bg-teal-600 disabled:opacity-60 text-white font-black py-4 rounded-2xl text-[10px] uppercase tracking-widest shadow-xl shadow-teal-900/10 active:scale-95 transition-all">{posting ? 'PAYLAŞILIYOR...' : 'PAYLAŞ'}</button>
              </div>
           </div>
         </div>
@@ -333,8 +333,8 @@ const Social: React.FC<SocialProps> = ({ user }) => {
 
       {/* Daily Spiritual Quote */}
       <div className="bg-slate-900 rounded-[3rem] p-10 text-center space-y-6 shadow-2xl relative overflow-hidden mt-12 mb-20">
-         <div className="absolute top-0 left-0 w-full h-1 bg-emerald-500 opacity-50"></div>
-         <p className="text-emerald-400 text-[10px] font-black uppercase tracking-[0.5em]">GÜNÜN KARDEŞLİK NOTU</p>
+         <div className="absolute top-0 left-0 w-full h-1 bg-teal-500 opacity-50"></div>
+         <p className="text-teal-400 text-[10px] font-black uppercase tracking-[0.5em]">GÜNÜN KARDEŞLİK NOTU</p>
          <p className="text-white font-medium text-[16px] italic leading-relaxed px-4 opacity-90">"Bir Müslüman'ın, yanında bulunmayan din kardeşi için yaptığı dua kabul olunur."</p>
          <div className="flex flex-col items-center gap-2">
             <div className="h-px w-8 bg-slate-700"></div>

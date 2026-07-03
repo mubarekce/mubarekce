@@ -228,7 +228,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
       <div className="bg-slate-100/60 p-1.5 rounded-[2.2rem] flex border border-slate-200/50 shadow-inner">
         <button 
           onClick={() => setMainTab('garden')}
-          className={`flex-1 py-4 text-[10px] font-black uppercase tracking-[0.1em] rounded-[1.8rem] transition-all duration-500 ${mainTab === 'garden' ? 'bg-emerald-600 text-white shadow-xl scale-100' : 'text-slate-400 hover:text-slate-600 scale-95'}`}
+          className={`flex-1 py-4 text-[10px] font-black uppercase tracking-[0.1em] rounded-[1.8rem] transition-all duration-500 ${mainTab === 'garden' ? 'bg-teal-600 text-white shadow-xl scale-100' : 'text-slate-400 hover:text-slate-600 scale-95'}`}
         >
           Bahçem
         </button>
@@ -253,11 +253,11 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
             
             <div className="flex justify-between items-start relative z-10">
               <div className="space-y-1">
-                <h4 className="text-[11px] font-black text-emerald-600 uppercase tracking-[0.4em]">MANEVİ DURUM PANELİ</h4>
+                <h4 className="text-[11px] font-black text-teal-600 uppercase tracking-[0.4em]">MANEVİ DURUM PANELİ</h4>
                 <p className="text-2xl font-black text-slate-900">Genel İlerleme</p>
               </div>
               <div className="text-right">
-                 <span className="text-[3.8rem] font-black text-emerald-600 tracking-tighter leading-none">%{gardenScore}</span>
+                 <span className="text-[3.8rem] font-black text-teal-600 tracking-tighter leading-none">%{gardenScore}</span>
                  <p className="text-[9px] font-black text-slate-300 uppercase tracking-widest mt-1">GÜNLÜK SKOR</p>
               </div>
             </div>
@@ -269,11 +269,11 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                   <div className="space-y-2">
                     <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-slate-500">
                       <span>Vakit Namazları</span>
-                      <span className="text-emerald-600">{(Object.values(prayerStatuses) as PrayerStatus[]).filter(s => s !== 'not_yet' && s !== 'missed').length} / 5</span>
+                      <span className="text-teal-600">{(Object.values(prayerStatuses) as PrayerStatus[]).filter(s => s !== 'not_yet' && s !== 'missed').length} / 5</span>
                     </div>
                     <div className="h-3 bg-slate-50 rounded-full overflow-hidden border border-slate-100 p-0.5">
                       <div 
-                        className="h-full bg-emerald-500 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(16,185,129,0.3)]" 
+                        className="h-full bg-teal-500 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(20,184,166,0.3)]" 
                         style={{ width: `${((Object.values(prayerStatuses) as PrayerStatus[]).filter(s => s !== 'not_yet' && s !== 'missed').length / 5) * 100}%` }}
                       ></div>
                     </div>
@@ -331,7 +331,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
           </div>
 
           {/* DİNAMİK MANEVİ BAHÇE (Yeni Bileşen) */}
-          <div className={`rounded-[3rem] p-10 border text-center relative overflow-hidden transition-all duration-1000 shadow-xl ${gardenScore >= 50 ? 'bg-emerald-950 border-emerald-900' : 'bg-amber-950 border-amber-900'}`}>
+          <div className={`rounded-[3rem] p-10 border text-center relative overflow-hidden transition-all duration-1000 shadow-xl ${gardenScore >= 50 ? 'bg-teal-950 border-teal-900' : 'bg-amber-950 border-amber-900'}`}>
              <div className="relative z-10 space-y-6">
                 <h4 className="text-[10px] font-black text-white/40 uppercase tracking-[0.6em]">MANEVİ BAHÇEM</h4>
                 
@@ -348,7 +348,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
           <div className="space-y-4">
             <div className="flex items-center justify-between ml-2 px-1">
                <div className="flex items-center gap-3">
-                 <div className="w-2 h-2 bg-emerald-500 rounded-full shadow-[0_0_10px_rgba(16,185,129,0.5)]"></div>
+                 <div className="w-2 h-2 bg-teal-500 rounded-full shadow-[0_0_10px_rgba(20,184,166,0.5)]"></div>
                  <h5 className="text-[11px] font-black text-slate-400 uppercase tracking-[0.4em]">Günlük Namaz Takvimi</h5>
                </div>
                <span className="text-[9px] font-black text-slate-300 uppercase tracking-widest">{dateKey}</span>
@@ -357,7 +357,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
             {prayers.map((p) => {
               const status = prayerStatuses[p.name] || 'not_yet';
               return (
-                <div key={p.name} className="bg-white rounded-[2.5rem] border border-slate-50 p-6 shadow-sm space-y-5 transition-all hover:border-emerald-100">
+                <div key={p.name} className="bg-white rounded-[2.5rem] border border-slate-50 p-6 shadow-sm space-y-5 transition-all hover:border-teal-100">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center text-2xl shadow-inner border border-slate-100">{p.icon}</div>
@@ -367,8 +367,8 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                       </div>
                     </div>
                     <div className={`px-4 py-1.5 rounded-full text-[9px] font-black uppercase tracking-widest shadow-sm ${
-                      status === 'congregation' ? 'bg-emerald-600 text-white' :
-                      status === 'done' ? 'bg-emerald-100 text-emerald-700' :
+                      status === 'congregation' ? 'bg-teal-600 text-white' :
+                      status === 'done' ? 'bg-teal-100 text-teal-700' :
                       status === 'late' ? 'bg-orange-100 text-orange-700' :
                       status === 'missed' ? 'bg-rose-100 text-rose-700' :
                       'bg-slate-50 text-slate-300 border border-slate-100'
@@ -378,8 +378,8 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                   </div>
                   
                   <div className="grid grid-cols-4 gap-2">
-                     <button onClick={() => updatePrayerStatus(p.name, 'done')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'done' ? 'bg-emerald-500 border-emerald-400 text-white shadow-md' : 'bg-slate-50 border-slate-50 text-slate-400'}`}>TEK</button>
-                     <button onClick={() => updatePrayerStatus(p.name, 'congregation')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'congregation' ? 'bg-emerald-600 border-emerald-500 text-white shadow-md' : 'bg-slate-50 border-slate-50 text-slate-400'}`}>CEMAAT</button>
+                     <button onClick={() => updatePrayerStatus(p.name, 'done')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'done' ? 'bg-teal-500 border-teal-400 text-white shadow-md' : 'bg-slate-50 border-slate-50 text-slate-400'}`}>TEK</button>
+                     <button onClick={() => updatePrayerStatus(p.name, 'congregation')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'congregation' ? 'bg-teal-600 border-teal-500 text-white shadow-md' : 'bg-slate-50 border-slate-50 text-slate-400'}`}>CEMAAT</button>
                      <button onClick={() => updatePrayerStatus(p.name, 'late')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'late' ? 'bg-orange-500 border-orange-400 text-white shadow-md' : 'bg-slate-50 border-slate-50 text-slate-400'}`}>GEÇ</button>
                      <button onClick={() => updatePrayerStatus(p.name, 'missed')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'missed' ? 'bg-rose-500 border-rose-400 text-white shadow-md' : 'bg-slate-50 border-slate-50 text-slate-400'}`}>KAZA</button>
                   </div>
@@ -519,7 +519,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                   {groupedLogs[date].map(log => (
                     <div key={log.id} className="p-4 flex items-center justify-between group active:bg-slate-50 transition-colors">
                        <div className="flex items-center gap-4">
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shadow-inner border border-slate-50/50 ${log.type === 'prayer' ? 'bg-emerald-50 text-emerald-600' : 'bg-sky-50 text-sky-600'}`}>
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shadow-inner border border-slate-50/50 ${log.type === 'prayer' ? 'bg-teal-50 text-teal-600' : 'bg-sky-50 text-sky-600'}`}>
                             {log.type === 'prayer' ? '🕌' : '✨'}
                           </div>
                           <div className="min-w-0">
@@ -541,8 +541,8 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
       )}
 
       <div className="bg-slate-900 rounded-[3rem] p-10 text-center space-y-6 shadow-2xl relative overflow-hidden">
-         <div className="absolute top-0 left-0 w-full h-1 bg-emerald-500 opacity-50"></div>
-         <p className="text-emerald-400 text-[10px] font-black uppercase tracking-[0.5em]">GÜNÜN REHBERİ</p>
+         <div className="absolute top-0 left-0 w-full h-1 bg-teal-500 opacity-50"></div>
+         <p className="text-teal-400 text-[10px] font-black uppercase tracking-[0.5em]">GÜNÜN REHBERİ</p>
          <p className="text-white font-medium text-[16px] italic leading-relaxed px-4 opacity-90">"İbadetin en hayırlısı, az da olsa devamlı olanıdır."</p>
          <div className="flex flex-col items-center gap-2">
             <div className="h-px w-8 bg-slate-700"></div>
