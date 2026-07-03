@@ -86,7 +86,6 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
   const [editAvatar, setEditAvatar] = useState(user.avatar || user.name[0]?.toUpperCase() || '👤');
 
   // Removed 'location' from settingItems as requested
-  console.log('DEBUG email:', JSON.stringify(user.email));
   const settingItems = useMemo(() => [
     ...(isAdminEmail(user.email) ? [{ id: 'admin' as SettingType, label: 'Yönetim Paneli', icon: '🛠️', color: 'bg-emerald-700', val: '', options: [] }] : []),
     { id: 'notifications' as SettingType, label: 'Ses & Bildirim', icon: '🔔', color: 'bg-indigo-500', val: selectedSoundId, options: [] },

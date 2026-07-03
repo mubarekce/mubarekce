@@ -52,6 +52,8 @@ const App: React.FC = () => {
   // --- Firestore'daki profil belgesini (isim, avatar) gerçek zamanlı dinle ---
   useEffect(() => {
     if (!firebaseUser) return;
+    // Admin panelinin kullanıcı listesinde e-posta görünebilsin diye bir kere yazıyoruz
+    setDoc(doc(db, 'users', firebaseUser.uid), { email: firebaseUser.email }, { merge: true }).catch(() => {});
     const profileRef = doc(db, 'users', firebaseUser.uid);
     const unsubscribe = onSnapshot(
       profileRef,

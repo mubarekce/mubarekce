@@ -9,12 +9,15 @@ import { db } from '../firebase';
 export interface AppConfig {
   /** Premium olmayan kullanıcılara kilitli gösterilecek kategori adları (Library.tsx'teki `cat` değerleri) */
   lockedCategories: string[];
+  /** Premium olmayan kullanıcılara kilitli gösterilecek TEK TEK bölüm id'leri (kategoriden bağımsız, ince ayar) */
+  lockedTools: string[];
   /** Ramazan Özel bölümünün herkese açık olup olmadığı */
   ramadanModeEnabled: boolean;
 }
 
 export const DEFAULT_APP_CONFIG: AppConfig = {
   lockedCategories: [],
+  lockedTools: [],
   ramadanModeEnabled: false,
 };
 
@@ -28,6 +31,7 @@ export const subscribeAppConfig = (cb: (config: AppConfig) => void) => {
         const data = snap.data();
         cb({
           lockedCategories: Array.isArray(data.lockedCategories) ? data.lockedCategories : [],
+          lockedTools: Array.isArray(data.lockedTools) ? data.lockedTools : [],
           ramadanModeEnabled: !!data.ramadanModeEnabled,
         });
       } else {

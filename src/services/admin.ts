@@ -4,8 +4,8 @@
  * girişi Profil sekmesinde görünmez.
  */
 export const ADMIN_EMAILS: string[] = [
-  // 'admin@mubarekce.com',
+ 'admin@mubarekce.com',
 ];
 
 export const isAdminEmail = (email?: string | null): boolean =>
-  !!email && ADMIN_EMAILS.includes(email.toLowerCase());
+  !!email && ADMIN_EMAILS.map(e => e.toLowerCase()).includes(email.toLowerCase());

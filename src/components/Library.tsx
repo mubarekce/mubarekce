@@ -238,8 +238,8 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
   ];
 
   const handleToolClick = (tool: LibraryTool) => {
-    // Premium kilidi: kategori adminden kilitlendiyse ve kullanıcı premium değilse durdur
-    if (appConfig.lockedCategories.includes(tool.cat) && !isPremium) {
+    // Premium kilidi: kategori VEYA tek tek bölüm kilitliyse ve kullanıcı premium değilse durdur
+    if ((appConfig.lockedCategories.includes(tool.cat) || appConfig.lockedTools.includes(tool.id)) && !isPremium) {
       setLockedAttempt(tool);
       return;
     }
@@ -287,7 +287,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
   );
 
   const ToolListItem: React.FC<{ tool: LibraryTool }> = ({ tool }) => {
-    const locked = appConfig.lockedCategories.includes(tool.cat) && !isPremium;
+    const locked = (appConfig.lockedCategories.includes(tool.cat) || appConfig.lockedTools.includes(tool.id)) && !isPremium;
     return (
     <div 
       onClick={() => handleToolClick(tool)}
@@ -313,7 +313,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
   };
 
   const ToolGridItem: React.FC<{ tool: LibraryTool }> = ({ tool }) => {
-    const locked = appConfig.lockedCategories.includes(tool.cat) && !isPremium;
+    const locked = (appConfig.lockedCategories.includes(tool.cat) || appConfig.lockedTools.includes(tool.id)) && !isPremium;
     return (
     <div 
       onClick={() => handleToolClick(tool)}
