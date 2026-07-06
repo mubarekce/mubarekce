@@ -358,7 +358,7 @@ import { User } from '../types';
   if (view === 'cevsen') return <CevsenKebir onBack={() => setView('grid')} />;
   if (view === 'ruya') return <RuyaTabiri onBack={() => setView('grid')} />;
   if (view === 'uyku') return <UykuTefekkur onBack={() => setView('grid')} />;
-  if (view === 'aile') return <AileModu onBack={() => setView('grid')} />;
+  if (view === 'aile') return <AileModu user={user} onBack={() => setView('grid')} />;
   if (view === 'kutubsitte') return <KutubSitte onBack={() => setView('grid')} />;
   if (view === 'peygamberler') return <ProphetsList onBack={() => setView('grid')} />;
   if (view === 'tarih') return <IslamHistory onBack={() => setView('grid')} />;

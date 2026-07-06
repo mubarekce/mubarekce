@@ -1,6 +1,10 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
-import { useUserData } from '../contexts/UserDataContext';
+import { User } from '../types';
+import { db } from '../firebase';
+import {
+  doc, getDoc, setDoc, updateDoc, onSnapshot,
+  collection, query, where, getDocs, serverTimestamp,
+} from 'firebase/firestore';
 
 interface FamilyMember {
   id: string;
@@ -27,6 +31,8 @@ interface ContributionMap {
 }
 
 type Timeframe = 'GÜNLÜK' | 'HAFTALIK' | 'AYLIK' | 'YILLIK';
+
+const generateInviteCode = () => Math.random().toString(36).substring(2, 8).toUpperCase();
 
 // Neon efektli modern ikon bileşeni
 const GoalIcon = ({ id, className }: { id: string; className?: string }) => {
@@ -57,38 +63,25 @@ const GoalIcon = ({ id, className }: { id: string; className?: string }) => {
   }
 };
 
-const AileModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
-  const { getField, setField } = useUserData();
+const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }) => {
   const [timeframe, setTimeframe] = useState<Timeframe>('HAFTALIK');
 
-  const [familyMembers, setFamilyMembers] = useState<FamilyMember[]>(() => {
-    let list: FamilyMember[] = getField('family_members_v5', [] as FamilyMember[]);
+  const [familyId, setFamilyId] = useState<string | null>(null);
+  const [inviteCode, setInviteCode] = useState<string>('');
+  const [dataLoaded, setDataLoaded] = useState(false);
+  const [showInviteModal, setShowInviteModal] = useState(false);
+  const [showJoinModal, setShowJoinModal] = useState(false);
+  const [joinCodeInput, setJoinCodeInput] = useState('');
+  const [joinError, setJoinError] = useState<string | null>(null);
+  const [joining, setJoining] = useState(false);
 
-    if (!list.some(m => m.id === 'me')) {
-      const me: FamilyMember = {
-        id: 'me',
-        name: 'BEN',
-        role: 'Siz',
-        avatar: '👤',
-        points: 0,
-        prayersToday: [false, false, false, false, false]
-      };
-      list = [me, ...list];
-    }
-    return list;
-  });
-
-  const [goals, setGoals] = useState<SharedGoal[]>(() =>
-    getField('family_goals_v5', [
-      { id: 'hatim', title: 'HATİM', target: 30, icon: 'hatim', color: 'bg-teal-500', unit: 'Cüz' },
-      { id: 'sadaka', title: 'SADAKA', target: 1000, icon: 'sadaka', color: 'bg-amber-500', unit: 'TL' },
-      { id: 'esma', title: 'ESMA EZBER', target: 99, icon: 'esma', color: 'bg-purple-500', unit: 'İsim' },
-    ] as SharedGoal[])
-  );
-
-  const [contributions, setContributions] = useState<ContributionMap>(() =>
-    getField('family_contributions_v5', { hatim: {}, sadaka: {}, esma: {} } as ContributionMap)
-  );
+  const [familyMembers, setFamilyMembers] = useState<FamilyMember[]>([]);
+  const [goals, setGoals] = useState<SharedGoal[]>([
+    { id: 'hatim', title: 'HATİM', target: 30, icon: 'hatim', color: 'bg-teal-500', unit: 'Cüz' },
+    { id: 'sadaka', title: 'SADAKA', target: 1000, icon: 'sadaka', color: 'bg-amber-500', unit: 'TL' },
+    { id: 'esma', title: 'ESMA EZBER', target: 99, icon: 'esma', color: 'bg-purple-500', unit: 'İsim' },
+  ]);
+  const [contributions, setContributions] = useState<ContributionMap>({ hatim: {}, sadaka: {}, esma: {} });
 
   const [manualAmounts, setManualAmounts] = useState<Record<string, string>>({});
   const [showAddMember, setShowAddMember] = useState(false);
@@ -101,14 +94,97 @@ const AileModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   const [editMainCount, setEditMainCount] = useState(0); // Hatim/Esma Tekrar Sayısı
   const [editExtraCount, setEditExtraCount] = useState(0); // Ekstra Cüz/İsim
 
+  // --- Kullanıcının ailesini bul ya da oluştur, sonra gerçek zamanlı dinle ---
   useEffect(() => {
-    setField('family_members_v5', familyMembers);
-  }, [familyMembers]);
+    let unsubscribeFamily: (() => void) | null = null;
+
+    const init = async () => {
+      const userRef = doc(db, 'users', user.uid);
+      const userSnap = await getDoc(userRef);
+      let fid = userSnap.exists() ? userSnap.data().familyId : null;
+
+      if (!fid) {
+        const meMember: FamilyMember = {
+          id: user.uid,
+          name: user.name || 'BEN',
+          role: 'Siz',
+          avatar: '👤',
+          points: 0,
+          prayersToday: [false, false, false, false, false],
+        };
+        const familyRef = doc(collection(db, 'families'));
+        await setDoc(familyRef, {
+          memberUids: [user.uid],
+          inviteCode: generateInviteCode(),
+          familyMembers: [meMember],
+          goals: [
+            { id: 'hatim', title: 'HATİM', target: 30, icon: 'hatim', color: 'bg-teal-500', unit: 'Cüz' },
+            { id: 'sadaka', title: 'SADAKA', target: 1000, icon: 'sadaka', color: 'bg-amber-500', unit: 'TL' },
+            { id: 'esma', title: 'ESMA EZBER', target: 99, icon: 'esma', color: 'bg-purple-500', unit: 'İsim' },
+          ],
+          contributions: { hatim: {}, sadaka: {}, esma: {} },
+          createdAt: serverTimestamp(),
+        });
+        await updateDoc(userRef, { familyId: familyRef.id });
+        fid = familyRef.id;
+      }
+
+      setFamilyId(fid);
+
+      unsubscribeFamily = onSnapshot(doc(db, 'families', fid), (snap) => {
+        if (!snap.exists()) return;
+        const data = snap.data();
+        let members: FamilyMember[] = data.familyMembers || [];
+        if (!members.some(m => m.id === user.uid)) {
+          members = [{ id: user.uid, name: user.name || 'BEN', role: 'Siz', avatar: '👤', points: 0, prayersToday: [false, false, false, false, false] }, ...members];
+        }
+        setFamilyMembers(members);
+        setGoals(data.goals || []);
+        setContributions(data.contributions || { hatim: {}, sadaka: {}, esma: {} });
+        setInviteCode(data.inviteCode || '');
+        setDataLoaded(true);
+      });
+    };
+
+    init();
+    return () => { if (unsubscribeFamily) unsubscribeFamily(); };
+  }, [user.uid]);
+
+  // --- Yerel değişiklikleri Firestore'a geri yaz ---
+  useEffect(() => {
+    if (!dataLoaded || !familyId) return;
+    updateDoc(doc(db, 'families', familyId), { familyMembers }).catch(err => console.error('Üyeler kaydedilemedi:', err));
+  }, [familyMembers, dataLoaded, familyId]);
 
   useEffect(() => {
-    setField('family_contributions_v5', contributions);
-    setField('family_goals_v5', goals);
-  }, [contributions, goals]);
+    if (!dataLoaded || !familyId) return;
+    updateDoc(doc(db, 'families', familyId), { contributions, goals }).catch(err => console.error('İlerleme kaydedilemedi:', err));
+  }, [contributions, goals, dataLoaded, familyId]);
+
+  const handleJoinFamily = async () => {
+    const code = joinCodeInput.trim().toUpperCase();
+    if (!code) return;
+    setJoining(true);
+    setJoinError(null);
+    try {
+      const q = query(collection(db, 'families'), where('inviteCode', '==', code));
+      const snap = await getDocs(q);
+      if (snap.empty) {
+        setJoinError('Bu kodla eşleşen bir aile bulunamadı.');
+        return;
+      }
+      const targetFamily = snap.docs[0];
+      await updateDoc(doc(db, 'users', user.uid), { familyId: targetFamily.id });
+      setJoinCodeInput('');
+      setShowJoinModal(false);
+      window.location.reload();
+    } catch (err) {
+      console.error('Aileye katılınamadı:', err);
+      setJoinError('Bir hata oluştu, tekrar dener misin?');
+    } finally {
+      setJoining(false);
+    }
+  };
 
   const handleAddMember = () => {
     if (!newName.trim()) return;
@@ -232,8 +308,60 @@ const AileModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <p className="text-[9px] font-black text-teal-600 uppercase tracking-[0.25em] mt-1">PRO+ ÖZEL PLATFORM</p>
           </div>
         </div>
-        <div className="w-11 h-11 bg-teal-100/50 rounded-2xl flex items-center justify-center text-xl shadow-inner border border-teal-200/50">🏘️</div>
+        <div className="flex items-center gap-2">
+          <button onClick={() => setShowJoinModal(true)} className="w-11 h-11 bg-white rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 active:scale-90 transition-transform text-slate-500" title="Kod ile Katıl">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+          </button>
+          <button onClick={() => setShowInviteModal(true)} className="w-11 h-11 bg-teal-100/50 rounded-2xl flex items-center justify-center text-xl shadow-inner border border-teal-200/50">🏘️</button>
+        </div>
       </div>
+
+      {/* Invite Modal */}
+      {showInviteModal && (
+        <div className="fixed inset-0 z-[500] bg-slate-900/70 backdrop-blur-md flex items-center justify-center p-6 animate-in fade-in duration-300">
+          <div className="bg-white w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl text-center">
+            <div className="space-y-1">
+              <h3 className="text-xl font-black text-slate-900 tracking-tight">Aileni Davet Et</h3>
+              <p className="text-[9px] font-black text-teal-500 uppercase tracking-widest">Bu kodu paylaştığın kişi kendi telefonundan "Kod ile Katıl" diyerek ailene katılabilir</p>
+            </div>
+            <div className="bg-teal-50 border-2 border-dashed border-teal-200 rounded-[2rem] py-8 px-4">
+              <p className="text-4xl font-black text-teal-700 tracking-[0.3em]">{inviteCode}</p>
+            </div>
+            <div className="flex gap-4">
+              <button onClick={() => { if (navigator.clipboard) navigator.clipboard.writeText(inviteCode); }} className="flex-1 py-4 bg-teal-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">KODU KOPYALA</button>
+              <button onClick={() => setShowInviteModal(false)} className="flex-1 py-4 bg-slate-100 text-slate-400 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">KAPAT</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Join Modal */}
+      {showJoinModal && (
+        <div className="fixed inset-0 z-[500] bg-slate-900/70 backdrop-blur-md flex items-center justify-center p-6 animate-in fade-in duration-300">
+          <div className="bg-white w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl">
+            <div className="text-center space-y-1">
+              <h3 className="text-xl font-black text-slate-900 tracking-tight">Aileye Katıl</h3>
+              <p className="text-[9px] font-black text-teal-500 uppercase tracking-widest">Sana gönderilen davet kodunu gir</p>
+              <p className="text-[9px] font-bold text-amber-500 mt-2">Not: Bir aileye katılınca, kendi kurduğun aile verisinden çıkmış olursun.</p>
+            </div>
+            <div className="space-y-2">
+              <input
+                type="text"
+                value={joinCodeInput}
+                onChange={(e) => { setJoinCodeInput(e.target.value); setJoinError(null); }}
+                placeholder="Örn: A1B2C3"
+                maxLength={6}
+                className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none font-black text-center text-slate-900 placeholder:text-slate-300 shadow-inner uppercase tracking-[0.3em]"
+              />
+              {joinError && <p className="text-[10px] font-bold text-rose-500 text-center">{joinError}</p>}
+            </div>
+            <div className="flex gap-4">
+              <button onClick={() => { setShowJoinModal(false); setJoinError(null); setJoinCodeInput(''); }} className="flex-1 py-4 bg-slate-100 text-slate-400 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">VAZGEÇ</button>
+              <button onClick={handleJoinFamily} disabled={joining} className="flex-1 py-4 bg-teal-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest shadow-lg shadow-teal-200 active:scale-95 transition-all disabled:opacity-60">{joining ? 'KATILIYOR...' : 'KATIL'}</button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <div className="flex-1 overflow-y-auto px-6 pb-40 no-scrollbar space-y-8 pt-4">
         
@@ -322,7 +450,7 @@ const AileModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
           <div className="grid grid-cols-1 gap-2">
             {familyMembers.map(member => {
-              const isMe = member.id === 'me';
+              const isMe = member.id === user.uid;
               let totalPct = 0;
               goals.forEach(goal => {
                 const val = contributions[goal.id]?.[member.id] || 0;
@@ -439,7 +567,7 @@ const AileModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                       
                       <div className="flex flex-col">
                         {familyMembers.map((member) => {
-                          const isMe = member.id === 'me';
+                          const isMe = member.id === user.uid;
                           const memberContribution = contributions[goal.id]?.[member.id] || 0;
                           const inputKey = `${goal.id}_${member.id}`;
                           const manualVal = manualAmounts[inputKey] || '';
