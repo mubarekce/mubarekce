@@ -26,7 +26,7 @@ import NamazRehberi from './NamazRehberi';
 import LiveStreams from './LiveStreams';
 import ReligiousRadios from './ReligiousRadios';
 import FridayMessages from './FridayMessages';
-import CamiBul from './CamiBul';
+import MosqueMap from './MosqueMap';
 import { LocationData } from '../types';
 import { useUserData } from '../contexts/UserDataContext';
 import { AppConfig, DEFAULT_APP_CONFIG, subscribeAppConfig } from '../services/appConfig';
@@ -377,7 +377,7 @@ import { User } from '../types';
   if (view === 'live-streams') return <LiveStreams onBack={() => setView('grid')} />;
   if (view === 'radyo') return <ReligiousRadios onBack={() => setView('grid')} />;
   if (view === 'friday-messages') return <FridayMessages onBack={() => setView('grid')} />;
-  if (view === 'camiler') return <CamiBul onBack={() => setView('grid')} />;
+  if (view === 'camiler') return <MosqueMap onBack={() => setView('grid')} />;
 
   if (view === 'detail' && selectedTool) {
     return (
