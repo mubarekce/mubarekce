@@ -61,6 +61,10 @@ import { User } from '../types';
 
   const [searchTerm, setSearchTerm] = useState('');
   const [view, setView] = useState<'grid' | 'quran' | 'zikir' | 'kible' | 'esma' | 'ayet-bul' | 'hafizlik' | 'elifba' | 'tecvid' | 'hatim-org' | 'kaza' | 'cevsen' | 'ruya' | 'uyku' | 'aile' | 'kutubsitte' | 'peygamberler' | 'tarih' | 'forty-hadis' | 'helal-scanner' | 'zekat-hesapla' | 'ramazan-ozel' | 'abdest' | 'live-streams' | 'radyo' | 'friday-messages' | 'camiler' | 'detail'>('grid');
+
+  useEffect(() => {
+    document.getElementById('app-main-scroll')?.scrollTo({ top: 0, behavior: 'auto' });
+  }, [view]);
   const [layoutMode, setLayoutMode] = useState<'list' | 'grid'>('list');
   const [selectedTool, setSelectedTool] = useState<LibraryTool | null>(null);
 
@@ -294,7 +298,7 @@ import { User } from '../types';
     return (
     <div 
       onClick={() => handleToolClick(tool)}
-      className="flex items-center gap-5 p-5 bg-white rounded-[2rem] border border-slate-50 hover:bg-slate-50/50 hover:border-teal-100/50 transition-all duration-300 cursor-pointer group active:scale-[0.98]"
+      className="flex items-center gap-5 p-5 bg-gradient-to-br from-teal-50/60 to-white rounded-[2rem] border border-teal-100/40 hover:from-teal-50 hover:border-teal-200 transition-all duration-300 cursor-pointer group active:scale-[0.98]"
     >
       <div 
         className={`transition-all duration-500 group-hover:scale-110 flex-shrink-0 flex items-center justify-center w-12 h-12 ${tool.color}`}
@@ -320,7 +324,7 @@ import { User } from '../types';
     return (
     <div 
       onClick={() => handleToolClick(tool)}
-      className="bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-teal-100 hover:shadow-xl hover:shadow-teal-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center relative"
+      className="bg-gradient-to-br from-teal-50/60 to-white p-6 rounded-[2.5rem] border border-teal-100/40 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-teal-200 hover:shadow-xl hover:shadow-teal-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center relative"
     >
       {locked && <span className="absolute top-4 right-4 text-amber-500 text-xs">🔒</span>}
       <div 

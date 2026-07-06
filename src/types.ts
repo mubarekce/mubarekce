@@ -27,6 +27,7 @@ export interface User {
   email: string;
   isLoggedIn: boolean;
   avatar?: string;
+  bio?: string;
 }
 
 export enum AppTab {

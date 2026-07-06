@@ -42,6 +42,10 @@ const NOTIF_SOUNDS: SoundItem[] = [
 const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark, onLogout }) => {
   const { getField, setField } = useUserData();
   const [currentView, setCurrentView] = useState<ProfileView>('main');
+
+  useEffect(() => {
+    document.getElementById('app-main-scroll')?.scrollTo({ top: 0, behavior: 'auto' });
+  }, [currentView]);
   const [showAdminPanel, setShowAdminPanel] = useState(false);
   const [selectedSoundId, setSelectedSoundId] = useState(() => getField('pref_notif_sound_id', 'ussak'));
   const [previewingId, setPreviewingId] = useState<string | null>(null);
@@ -82,7 +86,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
   // Düzenleme Formu Durumları
   const [editName, setEditName] = useState(user.name);
-  const [editEmail, setEditEmail] = useState(user.email);
+  const [editBio, setEditBio] = useState(user.bio || '');
   const [editAvatar, setEditAvatar] = useState(user.avatar || user.name[0]?.toUpperCase() || '👤');
 
   // Removed 'location' from settingItems as requested
@@ -107,7 +111,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
   // Added handleSaveProfile function for line 425 fix
   const handleSaveProfile = () => {
-    onUpdateUser({ ...user, name: editName, email: editEmail, avatar: editAvatar });
+    onUpdateUser({ ...user, name: editName, bio: editBio, avatar: editAvatar });
     setIsEditModalOpen(false);
   };
 
@@ -273,33 +277,36 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
       {/* DİNAMİK MÜBAREKÇE KİMLİK KARTI */}
       <div 
-        className={`aspect-[1.58/1] w-full rounded-[2.5rem] p-8 text-white relative overflow-hidden shadow-2xl transition-all duration-700 border border-white/10 group ${
+        className={`aspect-[1.58/1] w-full rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl transition-all duration-700 border group ${
           isPremium 
-            ? 'bg-gradient-to-br from-teal-900 to-[#042f2e] shadow-teal-900/40' 
-            : 'bg-gradient-to-br from-slate-800 to-slate-950 shadow-slate-900/40'
+            ? 'bg-gradient-to-br from-teal-500 via-teal-600 to-cyan-700 text-white border-white/10 shadow-teal-900/30' 
+            : 'bg-gradient-to-br from-teal-50 via-cyan-50 to-white text-teal-950 border-teal-100 shadow-teal-900/5'
         }`}
       >
-        <div className="absolute inset-0 opacity-[0.07] pointer-events-none mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L35 25L60 30L35 35L30 60L25 35L0 30L25 25Z' fill='%23ffffff'/%3E%3C/svg%3E")`, backgroundSize: '40px 40px' }} />
-        <div className="absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-tr from-transparent via-white/5 to-transparent rotate-45 pointer-events-none transition-transform duration-1000 group-hover:translate-x-20"></div>
-        <div className={`absolute left-0 top-0 bottom-0 w-1.5 transition-colors duration-700 ${isPremium ? 'bg-amber-400 opacity-30' : 'bg-slate-400 opacity-20'}`}></div>
+        <div className="absolute inset-0 opacity-[0.07] pointer-events-none mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L35 25L60 30L35 35L30 60L25 35L0 30L25 25Z' fill='%23${isPremium ? 'ffffff' : '0d9488'}'/%3E%3C/svg%3E")`, backgroundSize: '40px 40px' }} />
+        <div className={`absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-tr from-transparent to-transparent rotate-45 pointer-events-none transition-transform duration-1000 group-hover:translate-x-20 ${isPremium ? 'via-white/10' : 'via-teal-200/30'}`}></div>
+        <div className={`absolute left-0 top-0 bottom-0 w-1.5 transition-colors duration-700 ${isPremium ? 'bg-amber-400 opacity-30' : 'bg-teal-400 opacity-40'}`}></div>
         
         <div className="relative z-10 h-full flex flex-col justify-between">
           <div className="flex justify-between items-start">
-            <div className={`w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center border border-white/20 shadow-xl transition-all duration-700 ${isPremium ? 'ring-2 ring-amber-400/40' : 'ring-2 ring-white/10'}`}>
-               <span className={`text-2xl font-black ${isPremium ? 'text-amber-400' : 'text-white'}`}>{user.avatar || user.name[0]?.toUpperCase()}</span>
+            <div className={`w-14 h-14 backdrop-blur-md rounded-2xl flex items-center justify-center border shadow-xl transition-all duration-700 ${isPremium ? 'bg-white/10 border-white/20 ring-2 ring-amber-400/40' : 'bg-white border-teal-100 ring-2 ring-teal-100'}`}>
+               <span className={`text-2xl font-black ${isPremium ? 'text-amber-400' : 'text-teal-600'}`}>{user.avatar || user.name[0]?.toUpperCase()}</span>
             </div>
             {isPremium ? (
               <div className="bg-amber-400 text-teal-950 text-[9px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-widest shadow-lg shadow-black/20 flex items-center gap-1.5 border border-white/20">
                 <span className="w-1.5 h-1.5 bg-teal-900 rounded-full animate-pulse"></span>PREMİUM ÜYE
               </div>
             ) : (
-              <div className="bg-white/20 backdrop-blur-md text-white text-[9px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-1.5 border border-white/10">STANDART</div>
+              <div className="bg-teal-600/10 backdrop-blur-md text-teal-700 text-[9px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-1.5 border border-teal-200">STANDART</div>
             )}
           </div>
           
           <div className="space-y-0.5">
-            <h3 className="text-xl font-black tracking-tight uppercase leading-none drop-shadow-md truncate">{user.name}</h3>
-            <p className={`text-[10px] font-medium tracking-widest truncate ${isPremium ? 'text-teal-300/80' : 'text-slate-400'}`}>{user.email}</p>
+            <h3 className="text-xl font-black tracking-tight uppercase leading-none truncate">{user.name}</h3>
+            <p className={`text-[10px] font-medium tracking-widest truncate ${isPremium ? 'text-teal-100/80' : 'text-teal-700/60'}`}>{user.email}</p>
+            {user.bio && (
+              <p className={`text-[11px] font-medium italic truncate pt-0.5 ${isPremium ? 'text-white/70' : 'text-teal-900/50'}`}>{user.bio}</p>
+            )}
             {isPremium && (
               <div className="pt-2 flex items-center gap-2 animate-in fade-in slide-in-from-left duration-700">
                 <div className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse"></div>
@@ -308,7 +315,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
             )}
           </div>
 
-          <button onClick={() => setIsEditModalOpen(true)} className="absolute bottom-0 right-0 w-11 h-11 bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl flex items-center justify-center text-white/80 hover:text-white hover:bg-white/20 transition-all active:scale-90 group/edit shadow-lg">
+          <button onClick={() => setIsEditModalOpen(true)} className={`absolute bottom-0 right-0 w-11 h-11 backdrop-blur-lg border rounded-2xl flex items-center justify-center transition-all active:scale-90 group/edit shadow-lg ${isPremium ? 'bg-white/10 border-white/20 text-white/80 hover:text-white hover:bg-white/20' : 'bg-white border-teal-100 text-teal-600 hover:bg-teal-50'}`}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/edit:rotate-12 transition-transform"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
           </button>
           
@@ -318,15 +325,15 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
       {/* MANEVİ İSTATİSTİKLER */}
       <div className="grid grid-cols-3 gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-         <div className="bg-white dark:bg-slate-900 p-5 rounded-[2rem] shadow-sm border border-slate-50 dark:border-slate-800 text-center space-y-1">
+         <div className="bg-gradient-to-br from-teal-50 to-white dark:from-slate-900 dark:to-slate-900 p-5 rounded-[2rem] shadow-sm border border-teal-100/70 dark:border-slate-800 text-center space-y-1">
             <p className="text-[18px] font-black text-teal-600 tracking-tighter tabular-nums">7</p>
             <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">İSTİKRAR</p>
          </div>
-         <div className="bg-white dark:bg-slate-900 p-5 rounded-[2rem] shadow-sm border border-slate-50 dark:border-slate-800 text-center space-y-1">
+         <div className="bg-gradient-to-br from-cyan-50 to-white dark:from-slate-900 dark:to-slate-900 p-5 rounded-[2rem] shadow-sm border border-cyan-100/70 dark:border-slate-800 text-center space-y-1">
             <p className="text-[18px] font-black text-sky-600 tracking-tighter tabular-nums">%12</p>
             <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">HATİM</p>
          </div>
-         <div className="bg-white dark:bg-slate-900 p-5 rounded-[2rem] shadow-sm border border-slate-50 dark:border-slate-800 text-center space-y-1">
+         <div className="bg-gradient-to-br from-amber-50 to-white dark:from-slate-900 dark:to-slate-900 p-5 rounded-[2rem] shadow-sm border border-amber-100/70 dark:border-slate-800 text-center space-y-1">
             <p className="text-[18px] font-black text-amber-600 tracking-tighter tabular-nums">{zikirCount}</p>
             <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">ZİKİR</p>
          </div>
@@ -510,10 +517,24 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
                 </div>
                 <div className="relative">
                   <span className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 text-sm">✉️</span>
-                  <input type="email" value={editEmail} onChange={e => setEditEmail(e.target.value)} className="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-2xl pl-12 pr-6 py-4 outline-none font-bold text-slate-900 dark:text-white shadow-inner text-sm" placeholder="E-posta..." />
+                  <div className="w-full bg-slate-100 dark:bg-slate-800/60 border-none rounded-2xl pl-12 pr-6 py-4 font-bold text-slate-400 dark:text-slate-500 shadow-inner text-sm flex items-center justify-between gap-2">
+                    <span className="truncate">{user.email}</span>
+                    <span className="text-[8px] font-black uppercase tracking-widest bg-slate-200 dark:bg-slate-700 text-slate-500 px-2 py-1 rounded-lg shrink-0">Sabit</span>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <div className="space-y-2">
+              <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em] ml-2">Hakkımda</p>
+              <textarea
+                value={editBio}
+                onChange={e => setEditBio(e.target.value.slice(0, 80))}
+                rows={2}
+                placeholder="Kendini birkaç kelimeyle tanıt…"
+                className="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-2xl px-5 py-4 outline-none font-medium text-slate-900 dark:text-white shadow-inner text-sm resize-none"
+              />
+              <p className="text-[9px] text-slate-300 text-right pr-1">{editBio.length}/80</p>
 
             <div className="flex gap-3 pt-1">
               <button onClick={() => setIsEditModalOpen(false)} className="flex-1 py-4.5 bg-slate-100 dark:bg-slate-800 text-slate-400 font-black rounded-3xl text-[10px] uppercase">İPTAL</button>

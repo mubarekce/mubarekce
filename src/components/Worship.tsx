@@ -44,6 +44,10 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
   // Main Page Tabs
   const [mainTab, setMainTab] = useState<'garden' | 'habits' | 'history'>('garden');
 
+  useEffect(() => {
+    document.getElementById('app-main-scroll')?.scrollTo({ top: 0, behavior: 'auto' });
+  }, [mainTab]);
+
   // States (Firestore'dan gelen kayıtlı değerlerle başlatılır, kullanıcı hesabında saklanır)
   const [prayerStatuses, setPrayerStatuses] = useState<Record<string, PrayerStatus>>(() =>
     getField(`prayers_${dateKey}`, {} as Record<string, PrayerStatus>)

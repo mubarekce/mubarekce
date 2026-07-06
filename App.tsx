@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { onAuthStateChanged, signOut, updateProfile, User as FirebaseUser } from 'firebase/auth';
 import { doc, onSnapshot, setDoc } from 'firebase/firestore';
 import { auth, db } from './src/firebase';
@@ -27,6 +27,12 @@ const App: React.FC = () => {
   const [user, setUser] = useState<User | null>(null);
   const [authChecked, setAuthChecked] = useState(false);
   const [activeTab, setActiveTab] = useState<AppTab>(AppTab.Home);
+  const mainScrollRef = useRef<HTMLElement>(null);
+
+  // Sekme değiştiğinde sayfayı her zaman en üstten aç
+  useEffect(() => {
+    mainScrollRef.current?.scrollTo({ top: 0, behavior: 'auto' });
+  }, [activeTab]);
 
   const [location, setLocation] = useState<LocationData | null>(null);
   const [prayerData, setPrayerData] = useState<{ times: PrayerTimes; hijri: HijriDate; city: string } | null>(null);
@@ -65,6 +71,7 @@ const App: React.FC = () => {
           email: firebaseUser.email || '',
           isLoggedIn: true,
           avatar: profile.avatar || firebaseUser.photoURL || undefined,
+          bio: profile.bio || '',
         });
         setAuthChecked(true);
       },
@@ -122,7 +129,7 @@ const App: React.FC = () => {
     try {
       await setDoc(
         doc(db, 'users', firebaseUser.uid),
-        { name: updated.name, avatar: updated.avatar || null },
+        { name: updated.name, avatar: updated.avatar || null, bio: updated.bio || '' },
         { merge: true }
       );
       await updateProfile(firebaseUser, {
@@ -151,7 +158,7 @@ const App: React.FC = () => {
   return (
     <UserDataProvider uid={firebaseUser.uid}>
       <div className="min-h-screen w-full flex flex-col bg-[#fcfdfd] dark:bg-slate-950">
-        <main className="flex-1 overflow-y-auto no-scrollbar pb-24">
+        <main id="app-main-scroll" ref={mainScrollRef} className="flex-1 overflow-y-auto no-scrollbar pb-24">
           {activeTab === AppTab.Home && (
             <Home user={user} prayerData={prayerData} currentTime={currentTime} onAction={handleTabAction} />
           )}
