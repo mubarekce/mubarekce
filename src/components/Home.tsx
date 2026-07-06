@@ -195,7 +195,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
       </div>
 
       {/* MAIN CARD - PASTEL DARK GREEN (EMERALD) */}
-      <div className="relative overflow-hidden rounded-[2.5rem] bg-[#115e59] text-teal-50 shadow-[0_20px_60px_-12px_rgba(17,94,89,0.4)] border border-teal-800/50 z-10">
+      <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-teal-600 via-teal-700 to-cyan-800 text-teal-50 shadow-[0_20px_60px_-12px_rgba(17,94,89,0.4)] border border-teal-800/50 z-10 transition-transform duration-300 active:scale-[0.99]">
         
         {/* Mosque Background Silhouette */}
         <div className="absolute right-[-20px] bottom-4 opacity-5 pointer-events-none transition-all duration-1000">

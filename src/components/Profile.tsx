@@ -277,12 +277,24 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
       {/* DİNAMİK MÜBAREKÇE KİMLİK KARTI */}
       <div 
-        className={`aspect-[1.58/1] w-full rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl transition-all duration-700 border group ${
+        className={`aspect-[1.58/1] w-full rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl transition-all duration-300 border group cursor-pointer active:scale-[0.98] ${
           isPremium 
             ? 'bg-gradient-to-br from-teal-500 via-teal-600 to-cyan-700 text-white border-white/10 shadow-teal-900/30' 
             : 'bg-gradient-to-br from-teal-50 via-cyan-50 to-white text-teal-950 border-teal-100 shadow-teal-900/5'
         }`}
       >
+        {/* Cami Silüeti */}
+        <div className={`absolute right-[-10px] bottom-0 pointer-events-none transition-transform duration-700 group-active:scale-105 group-active:translate-y-[-2px] ${isPremium ? 'opacity-[0.12]' : 'opacity-[0.06]'}`}>
+          <svg width="220" height="140" viewBox="0 0 100 100" fill={isPremium ? 'white' : '#0d9488'}>
+            <path d="M30 65 Q50 35 70 65 L70 95 L30 95 Z" />
+            <path d="M48 35 L52 35 L50 30 Z" />
+            <rect x="22" y="45" width="4" height="50" rx="1" />
+            <path d="M21 45 L27 45 L24 38 Z" />
+            <rect x="74" y="45" width="4" height="50" rx="1" />
+            <path d="M73 45 L79 45 L76 38 Z" />
+            <circle cx="50" cy="27" r="2" />
+          </svg>
+        </div>
         <div className="absolute inset-0 opacity-[0.07] pointer-events-none mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L35 25L60 30L35 35L30 60L25 35L0 30L25 25Z' fill='%23${isPremium ? 'ffffff' : '0d9488'}'/%3E%3C/svg%3E")`, backgroundSize: '40px 40px' }} />
         <div className={`absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-tr from-transparent to-transparent rotate-45 pointer-events-none transition-transform duration-1000 group-hover:translate-x-20 ${isPremium ? 'via-white/10' : 'via-teal-200/30'}`}></div>
         <div className={`absolute left-0 top-0 bottom-0 w-1.5 transition-colors duration-700 ${isPremium ? 'bg-amber-400 opacity-30' : 'bg-teal-400 opacity-40'}`}></div>
@@ -535,6 +547,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
                 className="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-2xl px-5 py-4 outline-none font-medium text-slate-900 dark:text-white shadow-inner text-sm resize-none"
               />
               <p className="text-[9px] text-slate-300 text-right pr-1">{editBio.length}/80</p>
+            </div>
 
             <div className="flex gap-3 pt-1">
               <button onClick={() => setIsEditModalOpen(false)} className="flex-1 py-4.5 bg-slate-100 dark:bg-slate-800 text-slate-400 font-black rounded-3xl text-[10px] uppercase">İPTAL</button>
