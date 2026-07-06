@@ -22,6 +22,7 @@ export interface LocationData {
 }
 
 export interface User {
+  uid: string;
   name: string;
   email: string;
   isLoggedIn: boolean;
