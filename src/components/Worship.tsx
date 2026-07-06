@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { LocationData, PrayerTimes, HijriDate, PrayerStatus, HabitTask } from '../types';
+import { resetAllScroll } from '../utils/scrollReset';
 import SpiritualGarden from './SpiritualGarden';
 import { useUserData } from '../contexts/UserDataContext';
 
@@ -45,7 +46,9 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
   const [mainTab, setMainTab] = useState<'garden' | 'habits' | 'history'>('garden');
 
   useEffect(() => {
-    document.getElementById('app-main-scroll')?.scrollTo({ top: 0, behavior: 'auto' });
+    resetAllScroll();
+    const id = requestAnimationFrame(resetAllScroll);
+    return () => cancelAnimationFrame(id);
   }, [mainTab]);
 
   // States (Firestore'dan gelen kayıtlı değerlerle başlatılır, kullanıcı hesabında saklanır)

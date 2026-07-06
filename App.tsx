@@ -3,6 +3,7 @@ import { onAuthStateChanged, signOut, updateProfile, User as FirebaseUser } from
 import { doc, onSnapshot, setDoc } from 'firebase/firestore';
 import { auth, db } from './src/firebase';
 import { User, AppTab, LocationData, PrayerTimes, HijriDate } from './src/types';
+import { resetAllScroll } from './src/utils/scrollReset';
 import { fetchPrayerTimes } from './src/services/prayerService';
 import { UserDataProvider } from './src/contexts/UserDataContext';
 
@@ -31,7 +32,10 @@ const App: React.FC = () => {
 
   // Sekme değiştiğinde sayfayı her zaman en üstten aç
   useEffect(() => {
-    mainScrollRef.current?.scrollTo({ top: 0, behavior: 'auto' });
+    resetAllScroll();
+    // Bazı içerikler bir sonraki render'da yerleşiyor, o yüzden bir kare sonra da tekrar dene
+    const id = requestAnimationFrame(resetAllScroll);
+    return () => cancelAnimationFrame(id);
   }, [activeTab]);
 
   const [location, setLocation] = useState<LocationData | null>(null);

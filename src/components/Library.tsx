@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { resetAllScroll } from '../utils/scrollReset';
 import QuranReader from './QuranReader';
 import Zikirmatik from './Zikirmatik';
 import KibleCompass from './KibleCompass';
@@ -63,7 +64,9 @@ import { User } from '../types';
   const [view, setView] = useState<'grid' | 'quran' | 'zikir' | 'kible' | 'esma' | 'ayet-bul' | 'hafizlik' | 'elifba' | 'tecvid' | 'hatim-org' | 'kaza' | 'cevsen' | 'ruya' | 'uyku' | 'aile' | 'kutubsitte' | 'peygamberler' | 'tarih' | 'forty-hadis' | 'helal-scanner' | 'zekat-hesapla' | 'ramazan-ozel' | 'abdest' | 'live-streams' | 'radyo' | 'friday-messages' | 'camiler' | 'detail'>('grid');
 
   useEffect(() => {
-    document.getElementById('app-main-scroll')?.scrollTo({ top: 0, behavior: 'auto' });
+    resetAllScroll();
+    const id = requestAnimationFrame(resetAllScroll);
+    return () => cancelAnimationFrame(id);
   }, [view]);
   const [layoutMode, setLayoutMode] = useState<'list' | 'grid'>('list');
   const [selectedTool, setSelectedTool] = useState<LibraryTool | null>(null);

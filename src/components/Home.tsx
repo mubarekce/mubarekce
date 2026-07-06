@@ -1,6 +1,7 @@
 
 import React, { useState, useMemo, useEffect } from 'react';
 import { User, PrayerTimes, HijriDate, AppTab } from '../types';
+import { resetAllScroll } from '../utils/scrollReset';
 import AISor from './AISor';
 import MosqueMap from './MosqueMap';
 import StoryViewer from './StoryViewer';
@@ -44,6 +45,12 @@ const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
 const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) => {
   const { getField, data } = useUserData();
   const [activeOverlay, setActiveOverlay] = useState<'none' | 'ai' | 'camiler' | 'story'>('none');
+
+  useEffect(() => {
+    resetAllScroll();
+    const id = requestAnimationFrame(resetAllScroll);
+    return () => cancelAnimationFrame(id);
+  }, [activeOverlay]);
   const [activeStoryCategory, setActiveStoryCategory] = useState<string | null>(null);
   const [showImsakiyeModal, setShowImsakiyeModal] = useState(false);
 

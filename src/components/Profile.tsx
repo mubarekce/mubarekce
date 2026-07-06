@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { User } from '../types';
 import { useUserData } from '../contexts/UserDataContext';
+import { resetAllScroll } from '../utils/scrollReset';
 import { isAdminEmail } from '../services/admin';
 import AdminPanel from './AdminPanel';
 
@@ -44,7 +45,9 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
   const [currentView, setCurrentView] = useState<ProfileView>('main');
 
   useEffect(() => {
-    document.getElementById('app-main-scroll')?.scrollTo({ top: 0, behavior: 'auto' });
+    resetAllScroll();
+    const id = requestAnimationFrame(resetAllScroll);
+    return () => cancelAnimationFrame(id);
   }, [currentView]);
   const [showAdminPanel, setShowAdminPanel] = useState(false);
   const [selectedSoundId, setSelectedSoundId] = useState(() => getField('pref_notif_sound_id', 'ussak'));
