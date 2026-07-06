@@ -60,6 +60,7 @@ const App: React.FC = () => {
       (snap) => {
         const profile = snap.exists() ? snap.data() : {};
         setUser({
+          uid: firebaseUser.uid,
           name: profile.name || firebaseUser.displayName || firebaseUser.email?.split('@')[0] || 'Kullanıcı',
           email: firebaseUser.email || '',
           isLoggedIn: true,
