@@ -1,5 +1,10 @@
-
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useEffect } from 'react';
+import { User } from '../types';
+import { db } from '../firebase';
+import {
+  collection, addDoc, doc, updateDoc, query, where, onSnapshot,
+  arrayUnion, arrayRemove, getDocs, serverTimestamp,
+} from 'firebase/firestore';
 
 interface JuzAssignment {
   status: 'available' | 'reserved' | 'completed';
@@ -11,132 +16,165 @@ interface HatimCircle {
   id: string;
   name: string;
   creator: string;
+  creatorUid: string;
   type: 'Kuran' | 'Cevşen' | 'Tefsir';
   totalParts: number;
   completedParts: number;
   deadline: string;
-  participants: string[]; // Havuzdaki katılımcı isimleri
+  participants: string[];
+  memberUids: string[];
+  inviteCode: string;
   assignments: Record<number, JuzAssignment>;
 }
 
-const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
+const generateInviteCode = () => Math.random().toString(36).substring(2, 8).toUpperCase();
+
+const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }) => {
   const [activeTab, setActiveTab] = useState<'halkalar' | 'istatistik'>('halkalar');
   const [selectedHalkalaId, setSelectedHalkalaId] = useState<string | null>(null);
   const [showCreateModal, setShowCreateModal] = useState(false);
   const [showAssignModal, setShowAssignModal] = useState<{ juzIndex: number } | null>(null);
   const [showActionMenu, setShowActionMenu] = useState<{ juzIndex: number; assignment: JuzAssignment } | null>(null);
   const [showParticipantsModal, setShowParticipantsModal] = useState(false);
-  
-  // Form States
+
   const [newHalkaName, setNewHalkaName] = useState('');
   const [newHalkaDate, setNewHalkaDate] = useState('');
   const [noTargetDate, setNoTargetDate] = useState(false);
   const [tempParticipantName, setTempParticipantName] = useState('');
+  const [showJoinModal, setShowJoinModal] = useState(false);
+  const [showInviteModal, setShowInviteModal] = useState(false);
+  const [joinCodeInput, setJoinCodeInput] = useState('');
+  const [joinError, setJoinError] = useState<string | null>(null);
+  const [joining, setJoining] = useState(false);
 
   const [halkalar, setHalkalar] = useState<HatimCircle[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const q = query(collection(db, 'hatimCircles'), where('memberUids', 'array-contains', user.uid));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const items: HatimCircle[] = snapshot.docs.map((d) => {
+        const data = d.data();
+        return {
+          id: d.id,
+          name: data.name,
+          creator: data.creator,
+          creatorUid: data.creatorUid,
+          type: data.type || 'Kuran',
+          totalParts: data.totalParts || 30,
+          completedParts: data.completedParts || 0,
+          deadline: data.deadline || 'Belirlenmedi',
+          participants: data.participants || [],
+          memberUids: data.memberUids || [],
+          inviteCode: data.inviteCode || '',
+          assignments: data.assignments || {},
+        };
+      });
+      setHalkalar(items);
+      setLoading(false);
+    }, (err) => { console.error('Hatim halkaları alınamadı:', err); setLoading(false); });
+    return () => unsubscribe();
+  }, [user.uid]);
 
   const selectedHalkala = halkalar.find(h => h.id === selectedHalkalaId);
 
-  // İstatistik hesaplamaları
   const stats = useMemo(() => {
     const totalJuz = halkalar.reduce((acc, h) => acc + (Object.values(h.assignments) as JuzAssignment[]).filter(a => a.status === 'completed').length, 0);
     const activeCircles = halkalar.length;
     const myJuzCount = halkalar.reduce((acc, h) => acc + (Object.values(h.assignments) as JuzAssignment[]).filter(a => a.isMe).length, 0);
     const myCompletedJuz = halkalar.reduce((acc, h) => acc + (Object.values(h.assignments) as JuzAssignment[]).filter(a => a.isMe && a.status === 'completed').length, 0);
-    
     return { totalJuz, activeCircles, myJuzCount, myCompletedJuz };
   }, [halkalar]);
 
-  const handleCreateHalka = () => {
+  const handleCreateHalka = async () => {
     if (!newHalkaName.trim()) return;
-    
     const initialAssignments: Record<number, JuzAssignment> = {};
-    for (let i = 0; i < 30; i++) {
-      initialAssignments[i] = { status: 'available' };
-    }
+    for (let i = 0; i < 30; i++) initialAssignments[i] = { status: 'available' };
 
-    const newHalka: HatimCircle = {
-      id: Date.now().toString(),
-      name: newHalkaName.toUpperCase(),
-      creator: 'Siz',
-      type: 'Kuran',
-      totalParts: 30,
-      completedParts: 0,
-      deadline: noTargetDate ? 'Hedef Yok' : (newHalkaDate || 'Belirlenmedi'),
-      participants: [],
-      assignments: initialAssignments
-    };
-
-    setHalkalar([newHalka, ...halkalar]);
-    setNewHalkaName('');
-    setNewHalkaDate('');
-    setNoTargetDate(false);
-    setShowCreateModal(false);
-    if (window.navigator.vibrate) window.navigator.vibrate(50);
+    try {
+      await addDoc(collection(db, 'hatimCircles'), {
+        name: newHalkaName.toUpperCase(),
+        creator: user.name,
+        creatorUid: user.uid,
+        type: 'Kuran',
+        totalParts: 30,
+        completedParts: 0,
+        deadline: noTargetDate ? 'Hedef Yok' : (newHalkaDate || 'Belirlenmedi'),
+        participants: [],
+        memberUids: [user.uid],
+        inviteCode: generateInviteCode(),
+        assignments: initialAssignments,
+        createdAt: serverTimestamp(),
+      });
+      setNewHalkaName(''); setNewHalkaDate(''); setNoTargetDate(false); setShowCreateModal(false);
+      if (window.navigator.vibrate) window.navigator.vibrate(50);
+    } catch (err) { console.error('Halka oluşturulamadı:', err); }
   };
 
-  const handleAddParticipantToPool = () => {
-    if (!tempParticipantName.trim() || !selectedHalkalaId) return;
-    
-    setHalkalar(prev => prev.map(h => {
-      if (h.id === selectedHalkalaId) {
-        if (h.participants.includes(tempParticipantName.trim())) return h;
-        return { ...h, participants: [...h.participants, tempParticipantName.trim()] };
-      }
-      return h;
-    }));
-    setTempParticipantName('');
+  const handleJoinByCode = async () => {
+    const code = joinCodeInput.trim().toUpperCase();
+    if (!code) return;
+    setJoining(true); setJoinError(null);
+    try {
+      const q = query(collection(db, 'hatimCircles'), where('inviteCode', '==', code));
+      const snap = await getDocs(q);
+      if (snap.empty) { setJoinError('Bu kodla eşleşen bir halka bulunamadı.'); return; }
+      await updateDoc(doc(db, 'hatimCircles', snap.docs[0].id), { memberUids: arrayUnion(user.uid) });
+      setJoinCodeInput(''); setShowJoinModal(false);
+      if (window.navigator.vibrate) window.navigator.vibrate(50);
+    } catch (err) { console.error('Katılınamadı:', err); setJoinError('Bir hata oluştu.'); }
+    finally { setJoining(false); }
   };
 
-  const handleAssignJuz = (name: string, isMe: boolean = false) => {
-    if (!selectedHalkalaId || !showAssignModal) return;
-
-    setHalkalar(prev => prev.map(h => {
-      if (h.id === selectedHalkalaId) {
-        const newAssignments = { ...h.assignments };
-        newAssignments[showAssignModal.juzIndex] = {
-          status: 'reserved',
-          participantName: isMe ? 'BEN' : name,
-          isMe: isMe
-        };
-        return { ...h, assignments: newAssignments };
-      }
-      return h;
-    }));
-
-    setShowAssignModal(null);
-    if (window.navigator.vibrate) window.navigator.vibrate(30);
+  const handleAddParticipantToPool = async () => {
+    if (!tempParticipantName.trim() || !selectedHalkalaId || !selectedHalkala) return;
+    if (selectedHalkala.participants.includes(tempParticipantName.trim())) return;
+    try {
+      await updateDoc(doc(db, 'hatimCircles', selectedHalkalaId), { participants: arrayUnion(tempParticipantName.trim()) });
+      setTempParticipantName('');
+    } catch (err) { console.error('Katılımcı eklenemedi:', err); }
   };
 
-  const updateJuzStatus = (index: number, newStatus: 'available' | 'completed') => {
+  const handleRemoveParticipant = async (name: string) => {
     if (!selectedHalkalaId) return;
-    
-    setHalkalar(prev => prev.map(h => {
-      if (h.id === selectedHalkalaId) {
-        const newAssignments = { ...h.assignments };
-        if (newStatus === 'available') {
-          newAssignments[index] = { status: 'available' };
-        } else {
-          newAssignments[index] = { ...newAssignments[index], status: 'completed' };
-        }
-        const completedCount = (Object.values(newAssignments) as JuzAssignment[]).filter(a => a.status === 'completed').length;
-        return { ...h, assignments: newAssignments, completedParts: completedCount };
-      }
-      return h;
-    }));
-    setShowActionMenu(null);
-    if (window.navigator.vibrate) window.navigator.vibrate(40);
+    try {
+      await updateDoc(doc(db, 'hatimCircles', selectedHalkalaId), { participants: arrayRemove(name) });
+    } catch (err) { console.error('Katılımcı silinemedi:', err); }
+  };
+
+  const handleAssignJuz = async (name: string, isMe: boolean = false) => {
+    if (!selectedHalkalaId || !showAssignModal || !selectedHalkala) return;
+    const newAssignments = { ...selectedHalkala.assignments };
+    newAssignments[showAssignModal.juzIndex] = {
+      status: 'reserved',
+      participantName: isMe ? user.name.toUpperCase() : name,
+      isMe: isMe,
+    };
+    try {
+      await updateDoc(doc(db, 'hatimCircles', selectedHalkalaId), { assignments: newAssignments });
+      setShowAssignModal(null);
+      if (window.navigator.vibrate) window.navigator.vibrate(30);
+    } catch (err) { console.error('Cüz atanamadı:', err); }
+  };
+
+  const updateJuzStatus = async (index: number, newStatus: 'available' | 'completed') => {
+    if (!selectedHalkalaId || !selectedHalkala) return;
+    const newAssignments = { ...selectedHalkala.assignments };
+    if (newStatus === 'available') newAssignments[index] = { status: 'available' };
+    else newAssignments[index] = { ...newAssignments[index], status: 'completed' };
+    const completedCount = (Object.values(newAssignments) as JuzAssignment[]).filter(a => a.status === 'completed').length;
+    try {
+      await updateDoc(doc(db, 'hatimCircles', selectedHalkalaId), { assignments: newAssignments, completedParts: completedCount });
+      setShowActionMenu(null);
+      if (window.navigator.vibrate) window.navigator.vibrate(40);
+    } catch (err) { console.error('Durum güncellenemedi:', err); }
   };
 
   const toggleJuzStatus = (index: number) => {
     if (!selectedHalkalaId || !selectedHalkala) return;
-    
     const assignment = selectedHalkala.assignments[index] as JuzAssignment;
-    if (assignment.status === 'available') {
-      setShowAssignModal({ juzIndex: index });
-    } else {
-      setShowActionMenu({ juzIndex: index, assignment });
-    }
+    if (assignment.status === 'available') setShowAssignModal({ juzIndex: index });
+    else setShowActionMenu({ juzIndex: index, assignment });
   };
 
   const renderHalkalaDetail = () => {
@@ -219,7 +257,7 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
         <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white/95 to-transparent pb-[calc(1.5rem+env(safe-area-inset-bottom))]">
           <button 
-            onClick={() => alert("Halka daveti yakında paylaşım menüsüne bağlanacaktır!")}
+            onClick={() => setShowInviteModal(true)}
             className="w-full py-5 bg-teal-700 text-white rounded-[2rem] font-black text-[11px] uppercase tracking-[0.25em] shadow-xl shadow-teal-900/10 active:scale-95 transition-all hover:bg-teal-800"
           >
             HALKAYA DAVET ET
@@ -233,7 +271,6 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     <div className="flex-1 flex flex-col bg-[#FCFDFD] h-full relative animate-in fade-in duration-500 overflow-hidden">
       {selectedHalkalaId && renderHalkalaDetail()}
       
-      {/* Main Header */}
       <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-white border-b border-slate-100/50 sticky top-0 z-20">
         <div className="flex items-center gap-5">
           <button onClick={onBack} className="w-10 h-10 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 active:scale-90 transition-transform">
@@ -249,7 +286,6 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </button>
       </div>
 
-      {/* Tabs */}
       <div className="px-6 pt-6 pb-2">
         <div className="bg-slate-100/80 p-1.5 rounded-[1.8rem] flex border border-slate-100 shadow-sm">
           <button 
@@ -275,9 +311,14 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                <div className="relative z-10">
                   <h3 className="text-2xl font-black tracking-tighter mb-2">Yeni Hatim Başlat</h3>
                   <p className="text-teal-400/80 text-[10px] font-black uppercase tracking-[0.25em] mb-10 leading-relaxed">Sevdiklerinle beraber<br/>tilavetin bereketini paylaş</p>
-                  <button onClick={() => setShowCreateModal(true)} className="bg-teal-500 hover:bg-teal-400 text-white font-black text-[10px] px-10 py-4.5 rounded-[1.5rem] uppercase tracking-widest shadow-[0_15px_30px_rgba(20,184,166,0.3)] transition-all active:scale-95 border border-teal-400/20">
-                    Halka Oluştur
-                  </button>
+                  <div className="flex gap-3">
+                    <button onClick={() => setShowCreateModal(true)} className="bg-teal-500 hover:bg-teal-400 text-white font-black text-[10px] px-8 py-4.5 rounded-[1.5rem] uppercase tracking-widest shadow-[0_15px_30px_rgba(20,184,166,0.3)] transition-all active:scale-95 border border-teal-400/20">
+                      Halka Oluştur
+                    </button>
+                    <button onClick={() => setShowJoinModal(true)} className="bg-white/10 hover:bg-white/20 text-white font-black text-[10px] px-8 py-4.5 rounded-[1.5rem] uppercase tracking-widest transition-all active:scale-95 border border-white/20">
+                      Kod ile Katıl
+                    </button>
+                  </div>
                </div>
             </div>
 
@@ -374,9 +415,6 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         )}
       </div>
 
-      {/* Modals */}
-      
-      {/* Create Halka Modal */}
       {showCreateModal && (
         <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
           <div className="bg-white w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl">
@@ -429,7 +467,6 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
       )}
 
-      {/* Assign Juz Modal */}
       {showAssignModal && selectedHalkala && (
         <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
           <div className="bg-white w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl max-h-[80vh] flex flex-col">
@@ -439,7 +476,6 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
              </div>
              
              <div className="flex-1 overflow-y-auto pr-2 no-scrollbar space-y-3">
-                {/* Me Option */}
                 <button 
                   onClick={() => handleAssignJuz('BEN', true)}
                   className="w-full flex items-center justify-between p-5 bg-[#fef3c7] border border-[#fbbf24] rounded-2xl group active:scale-[0.98] transition-all"
@@ -451,7 +487,6 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                    <span className="text-[10px] font-black text-[#d97706] uppercase tracking-widest">SEÇ</span>
                 </button>
 
-                {/* Pool Participants */}
                 {selectedHalkala.participants.map((p, idx) => (
                   <button 
                     key={idx}
@@ -481,7 +516,6 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
       )}
 
-      {/* NEW: Action Menu Modal for Reserved/Completed Juz */}
       {showActionMenu && (
         <div className="fixed inset-0 z-[450] bg-slate-900/70 backdrop-blur-md flex items-end justify-center p-6 animate-in fade-in duration-300">
            <div className="bg-white w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in slide-in-from-bottom-20 duration-500 shadow-2xl">
@@ -524,7 +558,6 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
       )}
 
-      {/* Participants Management Modal */}
       {showParticipantsModal && selectedHalkala && (
         <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
            <div className="bg-white w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl max-h-[85vh] flex flex-col">
@@ -565,14 +598,7 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                          <p className="text-xs font-black text-slate-900">{p}</p>
                       </div>
                       <button 
-                        onClick={() => {
-                          setHalkalar(prev => prev.map(h => {
-                            if (h.id === selectedHalkalaId) {
-                              return { ...h, participants: h.participants.filter(name => name !== p) };
-                            }
-                            return h;
-                          }));
-                        }}
+                        onClick={() => handleRemoveParticipant(p)}
                         className="text-rose-400 p-2 active:scale-90 transition-transform"
                       >
                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
@@ -594,7 +620,43 @@ const HatimOrganizatoru: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
       )}
 
-      {/* Brand Footer */}
+      {showInviteModal && selectedHalkala && (
+        <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
+          <div className="bg-white w-full max-w-sm rounded-[3rem] p-10 space-y-8 shadow-2xl text-center">
+            <div className="space-y-1">
+              <h3 className="text-xl font-black text-slate-900 tracking-tight">Halkaya Davet Et</h3>
+              <p className="text-[9px] font-black text-teal-500 uppercase tracking-widest">Bu kodu paylaştığın kişi "Kod ile Katıl" diyerek halkana katılabilir</p>
+            </div>
+            <div className="bg-teal-50 border-2 border-dashed border-teal-200 rounded-[2rem] py-8 px-4">
+              <p className="text-4xl font-black text-teal-700 tracking-[0.3em]">{selectedHalkala.inviteCode}</p>
+            </div>
+            <div className="flex gap-4">
+              <button onClick={() => { if (navigator.clipboard) navigator.clipboard.writeText(selectedHalkala.inviteCode); }} className="flex-1 py-4 bg-teal-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest">KODU KOPYALA</button>
+              <button onClick={() => setShowInviteModal(false)} className="flex-1 py-4 bg-slate-100 text-slate-400 font-black rounded-2xl text-[10px] uppercase tracking-widest">KAPAT</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {showJoinModal && (
+        <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
+          <div className="bg-white w-full max-w-sm rounded-[3rem] p-10 space-y-8 shadow-2xl">
+            <div className="text-center space-y-1">
+              <h3 className="text-xl font-black text-slate-900 tracking-tight">Kod ile Katıl</h3>
+              <p className="text-[9px] font-black text-teal-500 uppercase tracking-widest">Sana gönderilen davet kodunu gir</p>
+            </div>
+            <div className="space-y-2">
+              <input type="text" value={joinCodeInput} onChange={(e) => { setJoinCodeInput(e.target.value); setJoinError(null); }} placeholder="Örn: A1B2C3" maxLength={6} className="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 outline-none font-black text-center text-slate-900 uppercase tracking-[0.3em]" />
+              {joinError && <p className="text-[10px] font-bold text-rose-500 text-center">{joinError}</p>}
+            </div>
+            <div className="flex gap-4">
+              <button onClick={() => { setShowJoinModal(false); setJoinError(null); setJoinCodeInput(''); }} className="flex-1 py-4 bg-slate-100 text-slate-400 font-black rounded-2xl text-[10px] uppercase tracking-widest">VAZGEÇ</button>
+              <button onClick={handleJoinByCode} disabled={joining} className="flex-1 py-4 bg-teal-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest disabled:opacity-60">{joining ? 'KATILIYOR...' : 'KATIL'}</button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <div className="fixed bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-white via-white/80 to-transparent pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-center pointer-events-none z-10">
         <p className="text-[8px] font-black text-slate-300 uppercase tracking-[0.65em]">Grup İbadet Platformu V1.2</p>
       </div>

@@ -46,7 +46,8 @@ const IconWrapper = ({ children }: { children?: React.ReactNode }) => (
   </svg>
 );
 
-const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => {
+import { User } from '../types';
+  const Library: React.FC<{ location?: LocationData | null; user: User }> = ({ location, user }) => {
   const { getField } = useUserData();
   const isPremium = getField('is_premium_user', false);
   const [appConfig, setAppConfig] = useState<AppConfig>(DEFAULT_APP_CONFIG);
@@ -352,7 +353,7 @@ const Library: React.FC<{ location?: LocationData | null }> = ({ location }) => 
   if (view === 'hafizlik') return <HafizlikModu onBack={() => setView('grid')} />;
   if (view === 'elifba') return <ElifBa onBack={() => setView('grid')} />;
   if (view === 'tecvid') return <TecvidHocasi onBack={() => setView('grid')} />;
-  if (view === 'hatim-org') return <HatimOrganizatoru onBack={() => setView('grid')} />;
+  if (view === 'hatim-org') return <HatimOrganizatoru user={user} onBack={() => setView('grid')} />;
   if (view === 'kaza') return <KazaTakibi onBack={() => setView('grid')} />;
   if (view === 'cevsen') return <CevsenKebir onBack={() => setView('grid')} />;
   if (view === 'ruya') return <RuyaTabiri onBack={() => setView('grid')} />;

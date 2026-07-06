@@ -154,7 +154,7 @@ const App: React.FC = () => {
           {activeTab === AppTab.Home && (
             <Home user={user} prayerData={prayerData} currentTime={currentTime} onAction={handleTabAction} />
           )}
-          {activeTab === AppTab.Library && <Library location={location} />}
+          {activeTab === AppTab.Library && <Library location={location} user={user} />}
           {activeTab === AppTab.Worship && (
             <Worship location={location} prayerData={prayerData} onUpdateLocation={updateLocation} />
           )}
