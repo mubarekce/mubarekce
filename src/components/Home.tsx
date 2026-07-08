@@ -28,16 +28,16 @@ const FULL_IMSAKIYE = Array.from({ length: 30 }, (_, i) => ({
 
 const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
   <div className="flex items-center justify-center gap-4 py-2 relative z-10">
-    <div className="flex items-center gap-1.5 opacity-20">
-      <div className="w-8 h-[1px] bg-slate-900"></div>
-      <div className="w-1 h-1 rotate-45 border border-slate-900"></div>
+    <div className="flex items-center gap-1.5 opacity-20 dark:opacity-30">
+      <div className="w-8 h-[1px] bg-slate-900 dark:bg-white"></div>
+      <div className="w-1 h-1 rotate-45 border border-slate-900 dark:border-white"></div>
     </div>
-    <h3 className="text-[10px] font-black text-slate-900/30 uppercase tracking-[0.4em] whitespace-nowrap">
+    <h3 className="text-[10px] font-black text-slate-900/30 dark:text-white/40 uppercase tracking-[0.4em] whitespace-nowrap">
       {title}
     </h3>
-    <div className="flex items-center gap-1.5 opacity-20">
-      <div className="w-1 h-1 rotate-45 border border-slate-900"></div>
-      <div className="w-8 h-[1px] bg-slate-900"></div>
+    <div className="flex items-center gap-1.5 opacity-20 dark:opacity-30">
+      <div className="w-1 h-1 rotate-45 border border-slate-900 dark:border-white"></div>
+      <div className="w-8 h-[1px] bg-slate-900 dark:bg-white"></div>
     </div>
   </div>
 );
@@ -62,11 +62,12 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
     setCurrentDhikrCount(Number(data['serbest_count'] || 0));
   }, [data['serbest_count']]);
 
-  const handleZikirClick = () => {
-    // Kütüphane sekmesine zikirmatik'i açması için bir sinyal gönderiyoruz
-    localStorage.setItem('goto_zikirmatik', 'true');
+  const goToLibraryTool = (viewId: string) => {
+    localStorage.setItem('goto_library_view', viewId);
     onAction(AppTab.Library);
   };
+
+  const handleZikirClick = () => goToLibraryTool('zikir');
 
   const openStory = (category: string) => {
     setActiveStoryCategory(category);
@@ -315,6 +316,29 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
         </div>
       </div>
 
+      {/* HIZLI ERİŞİM - Büyük, sade, herkesin kolayca kullanabileceği kısayollar */}
+      <div className="space-y-3 relative z-10">
+        <SectionHeader title="HIZLI ERİŞİM" />
+        <div className="grid grid-cols-2 gap-3">
+          {[
+            { id: 'kible', label: 'Kıble Bulucu', desc: 'Yönünü Bul', emoji: '🧭', bg: 'from-teal-50 to-white dark:from-teal-950/40 dark:to-slate-900', ring: 'border-teal-100 dark:border-teal-900/50' },
+            { id: 'zikir', label: 'Zikirmatik', desc: 'Zikir Çek', emoji: '📿', bg: 'from-amber-50 to-white dark:from-amber-950/30 dark:to-slate-900', ring: 'border-amber-100 dark:border-amber-900/40' },
+            { id: 'quran', label: 'Kuran-ı Kerim', desc: 'Oku & Dinle', emoji: '📖', bg: 'from-cyan-50 to-white dark:from-cyan-950/30 dark:to-slate-900', ring: 'border-cyan-100 dark:border-cyan-900/40' },
+            { id: 'camiler', label: 'Yakın Camiler', desc: 'Mescit Bul', emoji: '🕌', bg: 'from-emerald-50 to-white dark:from-emerald-950/30 dark:to-slate-900', ring: 'border-emerald-100 dark:border-emerald-900/40' },
+          ].map(item => (
+            <button
+              key={item.id}
+              onClick={() => goToLibraryTool(item.id)}
+              className={`bg-gradient-to-br ${item.bg} border ${item.ring} rounded-[2rem] p-5 flex flex-col items-center gap-2 text-center shadow-sm active:scale-95 transition-transform`}
+            >
+              <span className="text-4xl leading-none">{item.emoji}</span>
+              <span className="text-[14px] font-black text-slate-800 dark:text-white leading-tight">{item.label}</span>
+              <span className="text-[10px] font-bold text-slate-400 dark:text-slate-400 uppercase tracking-wide">{item.desc}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Stories Section */}
       <div className="space-y-3 relative z-10">
         <SectionHeader title="MANEVİ HİKAYELER" />
@@ -325,12 +349,12 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
               onClick={() => story.special ? setActiveOverlay('ai') : openStory(story.label)}
               className="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group"
             >
-              <div className={`w-[52px] h-[52px] rounded-full p-[2px] border-2 ${story.color} ${story.glow} group-active:scale-90 transition-all duration-300 bg-white shadow-sm`}>
-                <div className={`w-full h-full bg-white rounded-full flex items-center justify-center ${story.iconColor} group-hover:scale-110 transition-transform`}>
+              <div className={`w-[52px] h-[52px] rounded-full p-[2px] border-2 ${story.color} ${story.glow} group-active:scale-90 transition-all duration-300 bg-white dark:bg-slate-900 shadow-sm`}>
+                <div className={`w-full h-full bg-white dark:bg-slate-900 rounded-full flex items-center justify-center ${story.iconColor} group-hover:scale-110 transition-transform`}>
                   {story.icon}
                 </div>
               </div>
-              <span className="text-[7px] font-black text-slate-400 uppercase tracking-widest text-center whitespace-nowrap">{story.label}</span>
+              <span className="text-[7px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest text-center whitespace-nowrap">{story.label}</span>
             </div>
           ))}
         </div>
@@ -371,45 +395,45 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
         <SectionHeader title="GÜNÜN MANEVİYATI" />
 
         {/* Daily Verse Card */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-[2rem] p-7 border border-teal-100 shadow-[0_8px_30px_rgba(17,94,89,0.04)] relative overflow-hidden transition-all hover:translate-y-[-2px] hover:shadow-[0_12px_40px_rgba(17,94,89,0.08)] text-center">
-          <span className="inline-block bg-teal-600/10 text-teal-700 text-[11px] font-black px-5 py-1.5 rounded-full mb-5 tracking-widest uppercase">GÜNÜN AYETİ</span>
+        <div className="bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm rounded-[2rem] p-7 border border-teal-100 dark:border-teal-900/40 shadow-[0_8px_30px_rgba(17,94,89,0.04)] relative overflow-hidden transition-all hover:translate-y-[-2px] hover:shadow-[0_12px_40px_rgba(17,94,89,0.08)] text-center">
+          <span className="inline-block bg-teal-600/10 dark:bg-teal-400/10 text-teal-700 dark:text-teal-300 text-[11px] font-black px-5 py-1.5 rounded-full mb-5 tracking-widest uppercase">GÜNÜN AYETİ</span>
           <p className="arabic-text text-3xl text-teal-900/90 mb-4" dir="rtl" lang="ar">إِنَّ اللَّهَ مَعَ الصَّابِرِينَ</p>
-          <p className="text-slate-800 font-medium leading-relaxed text-lg mb-3">
+          <p className="text-slate-800 dark:text-slate-200 font-medium leading-relaxed text-lg mb-3">
             "Allah, sabredenlerle beraberdir."
           </p>
-          <p className="text-teal-900/40 text-[9px] font-bold uppercase tracking-[0.4em]">BAKARA, 153</p>
+          <p className="text-teal-900/40 dark:text-teal-300/40 text-[9px] font-bold uppercase tracking-[0.4em]">BAKARA, 153</p>
         </div>
 
         {/* Daily Hadith Card */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-[2rem] p-7 border border-amber-100 shadow-[0_8px_30px_rgba(180,83,9,0.04)] relative overflow-hidden transition-all hover:translate-y-[-2px] hover:shadow-[0_12px_40px_rgba(180,83,9,0.08)] text-center">
-          <span className="inline-block bg-amber-600/10 text-amber-700 text-[11px] font-black px-5 py-1.5 rounded-full mb-5 tracking-widest uppercase">GÜNÜN HADİS-İ ŞERİFİ</span>
+        <div className="bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm rounded-[2rem] p-7 border border-amber-100 dark:border-amber-900/40 shadow-[0_8px_30px_rgba(180,83,9,0.04)] relative overflow-hidden transition-all hover:translate-y-[-2px] hover:shadow-[0_12px_40px_rgba(180,83,9,0.08)] text-center">
+          <span className="inline-block bg-amber-600/10 dark:bg-amber-400/10 text-amber-700 dark:text-amber-300 text-[11px] font-black px-5 py-1.5 rounded-full mb-5 tracking-widest uppercase">GÜNÜN HADİS-İ ŞERİFİ</span>
           <p className="arabic-text text-2xl text-amber-900/90 mb-4" dir="rtl" lang="ar">يَسِّرُوا وَلَا تُعَسِّرُوا، وَبَشِّرُوا وَلَا تُنَفِّرُوا</p>
-          <p className="text-slate-800 font-medium leading-relaxed text-lg mb-3">
+          <p className="text-slate-800 dark:text-slate-200 font-medium leading-relaxed text-lg mb-3">
             "Kolaylaştırınız, zorlaştırmayınız; müjdeleyiniz, nefret ettirmeyiniz."
           </p>
-          <p className="text-amber-900/40 text-[9px] font-bold uppercase tracking-[0.4em]">BUHÂRÎ, İLİM, 11</p>
+          <p className="text-amber-900/40 dark:text-amber-300/40 text-[9px] font-bold uppercase tracking-[0.4em]">BUHÂRÎ, İLİM, 11</p>
         </div>
 
         {/* Daily Dua Card */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-[2rem] p-7 border border-indigo-100 shadow-[0_8px_30px_rgba(99,102,241,0.04)] relative overflow-hidden transition-all hover:translate-y-[-2px] hover:shadow-[0_12px_40px_rgba(99,102,241,0.08)] text-center">
-          <span className="inline-block bg-indigo-600/10 text-indigo-700 text-[11px] font-black px-5 py-1.5 rounded-full mb-5 tracking-widest uppercase">GÜNÜN DUASI</span>
+        <div className="bg-white/80 dark:bg-slate-900/60 backdrop-blur-sm rounded-[2rem] p-7 border border-indigo-100 dark:border-indigo-900/40 shadow-[0_8px_30px_rgba(99,102,241,0.04)] relative overflow-hidden transition-all hover:translate-y-[-2px] hover:shadow-[0_12px_40px_rgba(99,102,241,0.08)] text-center">
+          <span className="inline-block bg-indigo-600/10 dark:bg-indigo-400/10 text-indigo-700 dark:text-indigo-300 text-[11px] font-black px-5 py-1.5 rounded-full mb-5 tracking-widest uppercase">GÜNÜN DUASI</span>
           <p className="arabic-text text-2xl text-indigo-900/90 mb-4" dir="rtl" lang="ar">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p>
-          <p className="text-slate-800 font-medium leading-relaxed text-[16px] mb-3">
+          <p className="text-slate-800 dark:text-slate-200 font-medium leading-relaxed text-[16px] mb-3">
             "Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver ve bizi ateş azabından koru."
           </p>
-          <p className="text-indigo-900/40 text-[9px] font-bold uppercase tracking-[0.4em]">BAKARA, 201</p>
+          <p className="text-indigo-900/40 dark:text-indigo-300/40 text-[9px] font-bold uppercase tracking-[0.4em]">BAKARA, 201</p>
         </div>
 
         {/* Footer with Calligraphy Ornaments */}
-        <div className="flex items-center justify-center gap-6 py-10 opacity-20 relative z-10">
+        <div className="flex items-center justify-center gap-6 py-10 opacity-20 dark:opacity-30 relative z-10">
           <div className="flex items-center gap-2">
-            <div className="w-16 h-[0.5px] bg-slate-900"></div>
-            <div className="w-2 h-2 rotate-45 border-[0.5px] border-slate-900"></div>
+            <div className="w-16 h-[0.5px] bg-slate-900 dark:bg-white"></div>
+            <div className="w-2 h-2 rotate-45 border-[0.5px] border-slate-900 dark:border-white"></div>
           </div>
-          <p className="text-[9px] font-black uppercase tracking-[0.6em] whitespace-nowrap">HAYIRLI VAKİTLER</p>
+          <p className="text-[9px] font-black uppercase tracking-[0.6em] whitespace-nowrap dark:text-white">HAYIRLI VAKİTLER</p>
           <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rotate-45 border-[0.5px] border-slate-900"></div>
-            <div className="w-16 h-[0.5px] bg-slate-900"></div>
+            <div className="w-2 h-2 rotate-45 border-[0.5px] border-slate-900 dark:border-white"></div>
+            <div className="w-16 h-[0.5px] bg-slate-900 dark:bg-white"></div>
           </div>
         </div>
       </div>

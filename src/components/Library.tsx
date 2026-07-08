@@ -78,11 +78,12 @@ import { User } from '../types';
     return () => window.removeEventListener('resetLibraryView', handleReset);
   }, []);
 
-  // Ana sayfadaki zikir kartından yönlendirme gelip gelmediğini kontrol et
+  // Ana sayfadaki hızlı erişim kartlarından yönlendirme gelip gelmediğini kontrol et
   useEffect(() => {
-    const shouldGoToZikir = localStorage.getItem('goto_zikirmatik');
-    if (shouldGoToZikir === 'true') {
-      setView('zikir');
+    const target = localStorage.getItem('goto_library_view') || (localStorage.getItem('goto_zikirmatik') === 'true' ? 'zikir' : null);
+    if (target) {
+      setView(target as any);
+      localStorage.removeItem('goto_library_view');
       localStorage.removeItem('goto_zikirmatik');
     }
   }, []);
@@ -301,7 +302,7 @@ import { User } from '../types';
     return (
     <div 
       onClick={() => handleToolClick(tool)}
-      className="flex items-center gap-5 p-5 bg-gradient-to-br from-teal-50/60 to-white rounded-[2rem] border border-teal-100/40 hover:from-teal-50 hover:border-teal-200 transition-all duration-300 cursor-pointer group active:scale-[0.98]"
+      className="flex items-center gap-5 p-5 bg-gradient-to-br from-teal-50/60 to-white dark:from-slate-900 dark:to-slate-900 rounded-[2rem] border border-teal-100/40 dark:border-slate-800 hover:from-teal-50 dark:hover:border-teal-800 hover:border-teal-200 transition-all duration-300 cursor-pointer group active:scale-[0.98]"
     >
       <div 
         className={`transition-all duration-500 group-hover:scale-110 flex-shrink-0 flex items-center justify-center w-12 h-12 ${tool.color}`}
@@ -310,7 +311,7 @@ import { User } from '../types';
         {tool.icon}
       </div>
       <div className="flex-1">
-        <h4 className="text-sm font-black text-slate-900 group-hover:text-teal-700 transition-colors flex items-center gap-1.5">{tool.title} {locked && <span className="text-amber-500 text-xs">🔒</span>}</h4>
+        <h4 className="text-sm font-black text-slate-900 dark:text-white group-hover:text-teal-700 transition-colors flex items-center gap-1.5">{tool.title} {locked && <span className="text-amber-500 text-xs">🔒</span>}</h4>
         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider opacity-70 mt-0.5">{tool.desc}</p>
       </div>
       <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 opacity-0 group-hover:opacity-100 transition-all">
@@ -327,7 +328,7 @@ import { User } from '../types';
     return (
     <div 
       onClick={() => handleToolClick(tool)}
-      className="bg-gradient-to-br from-teal-50/60 to-white p-6 rounded-[2.5rem] border border-teal-100/40 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-teal-200 hover:shadow-xl hover:shadow-teal-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center relative"
+      className="bg-gradient-to-br from-teal-50/60 to-white dark:from-slate-900 dark:to-slate-900 p-6 rounded-[2.5rem] border border-teal-100/40 dark:border-slate-800 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-xl hover:shadow-teal-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center relative"
     >
       {locked && <span className="absolute top-4 right-4 text-amber-500 text-xs">🔒</span>}
       <div 
@@ -336,7 +337,7 @@ import { User } from '../types';
       >
         <div className="scale-125">{tool.icon}</div>
       </div>
-      <h4 className="text-sm font-black text-slate-900 mb-1 group-hover:text-teal-700 transition-colors">{tool.title}</h4>
+      <h4 className="text-sm font-black text-slate-900 dark:text-white mb-1 group-hover:text-teal-700 transition-colors">{tool.title}</h4>
       <p className="text-[9px] font-bold text-slate-400 leading-tight uppercase tracking-wider opacity-70 line-clamp-2">{tool.desc}</p>
     </div>
   );
@@ -407,15 +408,15 @@ import { User } from '../types';
   }
 
   return (
-    <div className="flex-1 overflow-y-auto px-6 pb-36 pt-12 space-y-8 bg-white animate-in fade-in duration-500">
+    <div className="flex-1 overflow-y-auto px-6 pb-36 pt-12 space-y-8 bg-white dark:bg-slate-950 animate-in fade-in duration-500">
       <div className="flex justify-between items-end">
         <div className="space-y-2">
-          <h2 className="text-4xl font-black text-slate-900 tracking-tight">Kütüphane</h2>
+          <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">Kütüphane</h2>
           <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">İslami Yaşam Rehberi</p>
         </div>
         <button 
           onClick={() => setLayoutMode(prev => prev === 'list' ? 'grid' : 'list')}
-          className="w-12 h-12 bg-teal-50 rounded-2xl flex items-center justify-center text-teal-600 active:scale-90 transition-transform"
+          className="w-12 h-12 bg-teal-50 dark:bg-teal-950/40 rounded-2xl flex items-center justify-center text-teal-600 dark:text-teal-400 active:scale-90 transition-transform"
         >
           {layoutMode === 'list' ? (
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

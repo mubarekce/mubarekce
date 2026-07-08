@@ -354,6 +354,24 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
          </div>
       </div>
 
+      {/* ROZETLERİM */}
+      <div className="space-y-3 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-125">
+        <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] ml-4">ROZETLERİM</p>
+        <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1 px-0.5">
+          {[
+            { emoji: '📿', label: 'Sadık Zikirci', active: zikirCount >= 33 },
+            { emoji: '🌅', label: 'Erken Kalkan', active: true },
+            { emoji: '📖', label: 'Kuran Dostu', active: false },
+            { emoji: '🕌', label: 'Cemaat Eri', active: false },
+          ].map((badge, i) => (
+            <div key={i} className={`shrink-0 w-[86px] flex flex-col items-center gap-2 p-4 rounded-[1.75rem] border text-center transition-all ${badge.active ? 'bg-gradient-to-br from-amber-50 to-white dark:from-amber-950/30 dark:to-slate-900 border-amber-200 dark:border-amber-900/40' : 'bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-slate-800 grayscale opacity-50'}`}>
+              <span className="text-2xl">{badge.emoji}</span>
+              <span className="text-[8px] font-black text-slate-600 dark:text-slate-300 uppercase tracking-wide leading-tight">{badge.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* AKILLI İBADET MODU SHORTCUT CARD */}
       <div 
         onClick={() => setCurrentView('mosque_detail')}
