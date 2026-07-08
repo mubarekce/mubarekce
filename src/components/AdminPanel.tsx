@@ -2,6 +2,16 @@ import React, { useEffect, useState } from 'react';
 import { AppConfig, DEFAULT_APP_CONFIG, subscribeAppConfig, updateAppConfig } from '../services/appConfig';
 import { LIBRARY_TOOLS, LIBRARY_CATEGORIES } from '../data/libraryTools';
 import { fetchAllUsers, setUserPremium, AdminUserRow } from '../services/adminUsers';
+import {
+  StoriesConfig,
+  DEFAULT_STORIES,
+  STORY_CATEGORIES,
+  CATEGORY_TITLES,
+  StoryCategory,
+  StoryItem,
+  subscribeStories,
+  updateCategoryStories,
+} from '../services/storyConfig';
 
 const Toggle: React.FC<{ checked: boolean; onChange: () => void }> = ({ checked, onChange }) => (
   <button
@@ -12,7 +22,7 @@ const Toggle: React.FC<{ checked: boolean; onChange: () => void }> = ({ checked,
   </button>
 );
 
-type Tab = 'genel' | 'bolumler' | 'kullanicilar';
+type Tab = 'genel' | 'bolumler' | 'hikayeler' | 'kullanicilar';
 
 const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   const [tab, setTab] = useState<Tab>('genel');
@@ -23,6 +33,59 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   const [usersLoading, setUsersLoading] = useState(false);
   const [usersError, setUsersError] = useState<string | null>(null);
   const [userSearch, setUserSearch] = useState('');
+
+  const [stories, setStories] = useState<StoriesConfig>(DEFAULT_STORIES);
+  const [savingStoryCat, setSavingStoryCat] = useState<StoryCategory | null>(null);
+
+  useEffect(() => {
+    const unsub = subscribeStories(setStories);
+    return () => unsub();
+  }, []);
+
+  const persistStoryCategory = async (cat: StoryCategory, next: typeof stories[StoryCategory]) => {
+    setStories(prev => ({ ...prev, [cat]: next }));
+    setSavingStoryCat(cat);
+    try {
+      await updateCategoryStories(cat, next);
+    } catch (err) {
+      console.error('Hikaye kaydedilemedi:', err);
+    } finally {
+      setSavingStoryCat(null);
+    }
+  };
+
+  const toggleAutoRotate = (cat: StoryCategory) => {
+    const current = stories[cat];
+    persistStoryCategory(cat, { ...current, autoRotate: !current.autoRotate });
+  };
+
+  const setPinnedItem = (cat: StoryCategory, itemId: string) => {
+    const current = stories[cat];
+    persistStoryCategory(cat, { ...current, pinnedId: itemId });
+  };
+
+  const updateStoryItem = (cat: StoryCategory, itemId: string, field: keyof StoryItem, value: string) => {
+    const current = stories[cat];
+    const items = current.items.map(it => it.id === itemId ? { ...it, [field]: value } : it);
+    setStories(prev => ({ ...prev, [cat]: { ...current, items } }));
+  };
+
+  const commitStoryItems = (cat: StoryCategory) => {
+    persistStoryCategory(cat, stories[cat]);
+  };
+
+  const addStoryItem = (cat: StoryCategory) => {
+    const current = stories[cat];
+    const newItem: StoryItem = { id: `${cat.toLowerCase()}-${Date.now()}`, content: '', source: '' };
+    persistStoryCategory(cat, { ...current, items: [...current.items, newItem] });
+  };
+
+  const deleteStoryItem = (cat: StoryCategory, itemId: string) => {
+    const current = stories[cat];
+    const items = current.items.filter(it => it.id !== itemId);
+    const pinnedId = current.pinnedId === itemId ? null : current.pinnedId;
+    persistStoryCategory(cat, { ...current, items, pinnedId });
+  };
 
   useEffect(() => {
     const unsub = subscribeAppConfig(setConfig);
@@ -92,23 +155,24 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   );
 
   return (
-    <div className="min-h-screen w-full bg-[#F8FAFC] flex flex-col">
+    <div className="min-h-screen w-full bg-[#F8FAFC] dark:bg-slate-950 flex flex-col">
       <div className="h-[70px] px-5 flex items-center gap-4 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shrink-0">
-        <button onClick={onBack} className="w-9 h-9 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center">←</button>
+        <button onClick={onBack} className="w-9 h-9 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-slate-900 dark:text-white">←</button>
         <h2 className="text-[16px] font-black text-slate-900 dark:text-white uppercase">Yönetim Paneli</h2>
         {saving && <span className="text-[10px] text-teal-600 font-bold ml-auto">Kaydediliyor…</span>}
       </div>
 
-      <div className="flex gap-2 px-5 py-3 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shrink-0">
+      <div className="flex gap-2 px-5 py-3 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shrink-0 overflow-x-auto no-scrollbar">
         {([
           ['genel', 'Genel'],
           ['bolumler', 'Bölümler'],
+          ['hikayeler', 'Hikayeler'],
           ['kullanicilar', 'Kullanıcılar'],
         ] as [Tab, string][]).map(([key, label]) => (
           <button
             key={key}
             onClick={() => setTab(key)}
-            className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wide ${tab === key ? 'bg-teal-600 text-white' : 'bg-slate-50 dark:bg-slate-900 text-slate-500 dark:text-slate-400 dark:text-slate-500'}`}
+            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wide ${tab === key ? 'bg-teal-600 text-white' : 'bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}`}
           >
             {label}
           </button>
@@ -188,6 +252,101 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 </div>
               </div>
             ))}
+          </div>
+        )}
+
+        {tab === 'hikayeler' && (
+          <div className="space-y-8">
+            <p className="text-[10px] text-slate-400 dark:text-slate-500 ml-1 leading-relaxed">
+              Ana sayfadaki hikaye çemberlerinin (AYET / HADİS / DUA / SÜNNET) içeriğini buradan yönetirsin.
+              <span className="font-black text-teal-600"> "Günlük otomatik değişsin"</span> açıksa her gün havuzdaki
+              bir sonraki içerik otomatik gösterilir. Kapatırsan, işaretlediğin TEK içerik o kategori için herkese sabit gösterilir.
+            </p>
+            {STORY_CATEGORIES.map(cat => {
+              const data = stories[cat];
+              return (
+                <div key={cat} className="space-y-3">
+                  <div className="flex items-center justify-between ml-1">
+                    <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em]">{CATEGORY_TITLES[cat]}</p>
+                    {savingStoryCat === cat && <span className="text-[9px] text-teal-600 font-bold">Kaydediliyor…</span>}
+                  </div>
+
+                  <div className="bg-white dark:bg-slate-900 rounded-[1.5rem] border border-slate-100 dark:border-slate-800 p-5 flex items-center justify-between">
+                    <div>
+                      <h4 className="text-sm font-black text-slate-900 dark:text-white">Günlük Otomatik Değişsin</h4>
+                      <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">
+                        {data.autoRotate ? 'Açık: her gün havuzdan sırayla bir içerik gösterilir.' : 'Kapalı: aşağıda işaretlediğin içerik herkese sabit gösterilir.'}
+                      </p>
+                    </div>
+                    <Toggle checked={data.autoRotate} onChange={() => toggleAutoRotate(cat)} />
+                  </div>
+
+                  <div className="bg-white dark:bg-slate-900 rounded-[1.5rem] border border-slate-100 dark:border-slate-800 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden">
+                    {data.items.map(item => (
+                      <div key={item.id} className="p-4 px-5 space-y-2.5">
+                        <div className="flex items-center justify-between gap-3">
+                          <label className="flex items-center gap-2 min-w-0">
+                            {!data.autoRotate && (
+                              <input
+                                type="radio"
+                                name={`pinned-${cat}`}
+                                checked={data.pinnedId === item.id}
+                                onChange={() => setPinnedItem(cat, item.id)}
+                                className="shrink-0 accent-teal-600"
+                              />
+                            )}
+                            <span className="text-[9px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest truncate">
+                              {!data.autoRotate && data.pinnedId === item.id ? '● Şu an gösteriliyor' : 'İçerik'}
+                            </span>
+                          </label>
+                          <button
+                            onClick={() => deleteStoryItem(cat, item.id)}
+                            className="shrink-0 text-[9px] font-black text-rose-500 uppercase tracking-widest"
+                          >
+                            Sil
+                          </button>
+                        </div>
+                        {cat !== 'SÜNNET' && (
+                          <input
+                            value={item.arabic || ''}
+                            onChange={e => updateStoryItem(cat, item.id, 'arabic', e.target.value)}
+                            onBlur={() => commitStoryItems(cat)}
+                            placeholder="Arapça metin (opsiyonel)"
+                            dir="rtl"
+                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm outline-none text-slate-900 dark:text-white"
+                          />
+                        )}
+                        <textarea
+                          value={item.content}
+                          onChange={e => updateStoryItem(cat, item.id, 'content', e.target.value)}
+                          onBlur={() => commitStoryItems(cat)}
+                          placeholder="Türkçe metin / anlamı"
+                          rows={2}
+                          className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm outline-none resize-none text-slate-900 dark:text-white"
+                        />
+                        <input
+                          value={item.source}
+                          onChange={e => updateStoryItem(cat, item.id, 'source', e.target.value)}
+                          onBlur={() => commitStoryItems(cat)}
+                          placeholder="Kaynak (örn. Bakara, 45)"
+                          className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm outline-none text-slate-900 dark:text-white"
+                        />
+                      </div>
+                    ))}
+                    {data.items.length === 0 && (
+                      <p className="text-center text-xs text-slate-300 dark:text-slate-600 py-8">Bu kategoride henüz içerik yok</p>
+                    )}
+                  </div>
+
+                  <button
+                    onClick={() => addStoryItem(cat)}
+                    className="w-full py-3 bg-teal-50 dark:bg-teal-950/20 text-teal-700 dark:text-teal-400 font-black rounded-xl text-[10px] uppercase tracking-widest border border-dashed border-teal-200 dark:border-teal-800"
+                  >
+                    + Yeni İçerik Ekle
+                  </button>
+                </div>
+              );
+            })}
           </div>
         )}
 

@@ -1,34 +1,13 @@
-import React, { useState, useEffect } from 'react';
-
-interface StoryContent {
-  id: string;
-  type: string;
-  title: string;
-  arabic?: string;
-  content: string;
-  source: string;
-  bgGradient: string;
-}
-
-// Günlük içerik havuzu (Her gün tarih bazlı bir tanesi seçilir)
-const STORY_DATA: Record<string, StoryContent[]> = {
-  AYET: [
-    { id: 'a1', type: 'AYET', title: 'GÜNÜN AYETİ', arabic: 'وَاسْتَعِينُوا بِالصَّبْرِ وَالصَّلَاةِ', content: 'Sabır ve namazla Allah’tan yardım isteyin.', source: 'Bakara, 45', bgGradient: 'from-teal-900 via-teal-800 to-teal-900' },
-    { id: 'a2', type: 'AYET', title: 'GÜNÜN AYETİ', arabic: 'إِنَّ مَعَ الْعُسْرِ يُسْرًا', content: 'Şüphesiz güçlükle beraber bir kolaylık vardır.', source: 'İnşirah, 6', bgGradient: 'from-teal-900 via-teal-800 to-teal-950' }
-  ],
-  HADİS: [
-    { id: 'h1', type: 'HADİS', title: 'GÜNÜN HADİSİ', arabic: 'اَلدِّينُ النَّصِيحَةُ', content: 'Din samimiyettir (nasihattir).', source: 'Müslim, Îmân, 95', bgGradient: 'from-amber-800 via-orange-800 to-amber-950' },
-    { id: 'h2', type: 'HADİS', title: 'GÜNÜN HADİSİ', arabic: 'الْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ', content: 'Güzel söz sadakadır.', source: 'Buhârî, Cihâd, 128', bgGradient: 'from-orange-900 via-amber-800 to-orange-950' }
-  ],
-  DUA: [
-    { id: 'd1', type: 'DUA', title: 'GÜNÜN DUASI', arabic: 'رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً', content: 'Rabbimiz! Bize dünyada da iyilik ver, ahirette de iyilik ver.', source: 'Bakara, 201', bgGradient: 'from-indigo-900 via-blue-800 to-indigo-950' },
-    { id: 'd2', type: 'DUA', title: 'GÜNÜN DUASI', arabic: 'يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ', content: 'Ey kalpleri evirip çeviren Allah’ım! Kalbimi dinin üzerinde sabit kıl.', source: 'Tirmizî, Deavât, 74', bgGradient: 'from-blue-900 via-indigo-800 to-blue-950' }
-  ],
-  SÜNNET: [
-    { id: 's1', type: 'SÜNNET', title: 'GÜNÜN SÜNNETİ', content: 'Yemeğe tuzla başlamak ve sağ el ile yemek.', source: 'Sünnet-i Seniyye', bgGradient: 'from-rose-900 via-pink-800 to-rose-950' },
-    { id: 's2', type: 'SÜNNET', title: 'GÜNÜN SÜNNETİ', content: 'Uyumadan önce sağ tarafına yatmak ve dua etmek.', source: 'Sünnet-i Seniyye', bgGradient: 'from-pink-900 via-rose-800 to-pink-950' }
-  ]
-};
+import React, { useState, useEffect, useMemo } from 'react';
+import {
+  StoryCategory,
+  StoriesConfig,
+  DEFAULT_STORIES,
+  CATEGORY_TITLES,
+  CATEGORY_GRADIENTS,
+  subscribeStories,
+  pickDailyStory,
+} from '../services/storyConfig';
 
 interface StoryViewerProps {
   category: string;
@@ -37,13 +16,21 @@ interface StoryViewerProps {
 
 const StoryViewer: React.FC<StoryViewerProps> = ({ category, onClose }) => {
   const [progress, setProgress] = useState(0);
-  
-  // O güne özel hikayeyi seçen mantık (Tarih bazlı)
+  const [storiesConfig, setStoriesConfig] = useState<StoriesConfig>(DEFAULT_STORIES);
+
+  useEffect(() => {
+    const unsub = subscribeStories(setStoriesConfig);
+    return () => unsub();
+  }, []);
+
+  const cat = (category in storiesConfig ? category : 'AYET') as StoryCategory;
+
+  // O güne özel hikayeyi seçen mantık (admin "günlük otomatik değişsin" dediyse
+  // tarihe göre döner, kapattıysa admin'in sabitlediği içerik herkese gösterilir)
   const dailyStory = useMemo(() => {
-    const list = STORY_DATA[category] || STORY_DATA['AYET'];
-    const day = new Date().getDate();
-    return list[day % list.length];
-  }, [category]);
+    const categoryData = storiesConfig[cat] || DEFAULT_STORIES.AYET;
+    return pickDailyStory(categoryData);
+  }, [storiesConfig, cat]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -62,22 +49,32 @@ const StoryViewer: React.FC<StoryViewerProps> = ({ category, onClose }) => {
     const x = 'touches' in e ? e.touches[0].clientX : (e as React.MouseEvent).clientX;
     const width = window.innerWidth;
     if (x < width / 3) {
-      // Geri özelliği gerekirse burada resetlenebilir, şimdilik Instagram mantığı
       setProgress(0);
     } else if (x > (width / 3) * 2) {
       onClose();
     }
   };
 
+  if (!dailyStory) {
+    return (
+      <div className="fixed inset-0 z-[1000] bg-slate-900 flex items-center justify-center" onClick={onClose}>
+        <p className="text-white/60 text-xs font-bold uppercase tracking-widest">İçerik bulunamadı</p>
+      </div>
+    );
+  }
+
+  const title = CATEGORY_TITLES[cat] || 'GÜNÜN İÇERİĞİ';
+  const bgGradient = CATEGORY_GRADIENTS[cat] || CATEGORY_GRADIENTS.AYET;
+
   return (
     <div 
-      className={`fixed inset-0 z-[1000] bg-gradient-to-br ${dailyStory.bgGradient} flex flex-col animate-in fade-in duration-300 select-none`}
+      className={`fixed inset-0 z-[1000] bg-gradient-to-br ${bgGradient} flex flex-col animate-in fade-in duration-300 select-none`}
       onClick={handleTouch}
     >
       {/* Bars */}
       <div className="px-4 pt-12 flex gap-1.5 z-50">
         <div className="h-1 flex-1 bg-white/20 rounded-full overflow-hidden">
-          <div className="h-full bg-white dark:bg-slate-900 transition-all duration-100 ease-linear" style={{ width: `${progress}%` }}></div>
+          <div className="h-full bg-white transition-all duration-100 ease-linear" style={{ width: `${progress}%` }}></div>
         </div>
       </div>
 
@@ -85,10 +82,10 @@ const StoryViewer: React.FC<StoryViewerProps> = ({ category, onClose }) => {
       <div className="px-6 pt-6 flex justify-between items-center z-50">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/20 text-white font-black text-xs">
-            {category[0]}
+            {cat[0]}
           </div>
           <div>
-            <h4 className="text-white font-black text-[11px] tracking-widest uppercase">{dailyStory.title}</h4>
+            <h4 className="text-white font-black text-[11px] tracking-widest uppercase">{title}</h4>
             <p className="text-white/50 text-[8px] font-bold uppercase tracking-widest">MÜBAREKÇE PRO+</p>
           </div>
         </div>
@@ -129,4 +126,3 @@ const StoryViewer: React.FC<StoryViewerProps> = ({ category, onClose }) => {
 };
 
 export default StoryViewer;
-import { useMemo } from 'react';
