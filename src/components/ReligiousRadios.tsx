@@ -81,20 +81,20 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-pink-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Header */}
-      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
+      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={onBack}
-            className="w-10 h-10 bg-white rounded-2xl flex items-center justify-center border border-slate-100 shadow-sm active:scale-90 transition-transform"
+            className="w-10 h-10 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 shadow-sm active:scale-90 transition-transform"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
-            <h2 className="text-[17px] font-black text-slate-900 tracking-tight leading-none uppercase">Dini Radyolar</h2>
+            <h2 className="text-[17px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Dini Radyolar</h2>
             <p className="text-[8px] font-black text-pink-500 uppercase tracking-[0.25em] mt-1">KESİNTİSİZ YAYIN</p>
           </div>
         </div>
-        <div className="w-10 h-10 bg-pink-50 rounded-xl flex items-center justify-center text-lg border border-pink-100 text-pink-500 animate-pulse">📻</div>
+        <div className="w-10 h-10 bg-pink-50 dark:bg-pink-950/20 rounded-xl flex items-center justify-center text-lg border border-pink-100 text-pink-500 animate-pulse">📻</div>
       </div>
 
       <div className="flex-1 overflow-y-auto px-5 pb-40 no-scrollbar pt-6 space-y-6">
@@ -116,15 +116,15 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <div 
               key={station.id}
               onClick={() => togglePlay(station)}
-              className={`p-5 rounded-[2.2rem] border flex items-center justify-between transition-all duration-500 cursor-pointer active:scale-[0.98] group ${playingId === station.id ? 'bg-pink-50/50 border-pink-200 shadow-md ring-2 ring-pink-500/10' : 'bg-white border-slate-50 hover:border-pink-100 hover:bg-slate-50/30'}`}
+              className={`p-5 rounded-[2.2rem] border flex items-center justify-between transition-all duration-500 cursor-pointer active:scale-[0.98] group ${playingId === station.id ? 'bg-pink-50/50 border-pink-200 shadow-md ring-2 ring-pink-500/10' : 'bg-white dark:bg-slate-900 border-slate-50 dark:border-slate-800 hover:border-pink-100 hover:bg-slate-50/30'}`}
             >
               <div className="flex items-center gap-5">
                  <div className={`w-14 h-14 rounded-3xl flex items-center justify-center text-2xl transition-all duration-500 shadow-inner border border-white/50 ${station.color} text-white group-hover:scale-110`}>
                     {station.logo}
                  </div>
                  <div className="space-y-0.5">
-                    <h4 className="text-[15px] font-black text-slate-900 group-hover:text-pink-700 transition-colors">{station.name}</h4>
-                    <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{station.slogan}</p>
+                    <h4 className="text-[15px] font-black text-slate-900 dark:text-white group-hover:text-pink-700 transition-colors">{station.name}</h4>
+                    <p className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">{station.slogan}</p>
                  </div>
               </div>
 
@@ -132,7 +132,7 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                  {playingId === station.id && loading && (
                     <div className="w-5 h-5 border-2 border-pink-200 border-t-pink-600 rounded-full animate-spin"></div>
                  )}
-                 <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${playingId === station.id ? 'bg-pink-600 text-white shadow-lg rotate-[360deg]' : 'bg-slate-50 text-slate-300'}`}>
+                 <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${playingId === station.id ? 'bg-pink-600 text-white shadow-lg rotate-[360deg]' : 'bg-slate-50 dark:bg-slate-900 text-slate-300 dark:text-slate-600'}`}>
                     {playingId === station.id ? (
                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
                     ) : (
@@ -145,11 +145,11 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
 
         {/* Tip Card */}
-        <div className="bg-white border border-dashed border-pink-200 rounded-[2.5rem] p-8 flex items-start gap-5">
-           <div className="w-12 h-12 bg-pink-50 rounded-2xl flex items-center justify-center text-2xl shadow-sm shrink-0 border border-pink-100">💡</div>
+        <div className="bg-white dark:bg-slate-900 border border-dashed border-pink-200 rounded-[2.5rem] p-8 flex items-start gap-5">
+           <div className="w-12 h-12 bg-pink-50 dark:bg-pink-950/20 rounded-2xl flex items-center justify-center text-2xl shadow-sm shrink-0 border border-pink-100">💡</div>
            <div className="space-y-1">
               <h6 className="text-[10px] font-black text-pink-600 uppercase tracking-widest">REHBER NOTU</h6>
-              <p className="text-[12px] font-semibold text-slate-500 leading-relaxed italic">
+              <p className="text-[12px] font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed italic">
                 "Sesin olduğu yerde kalp huzur bulur. Çalışırken veya dinlenirken maneviyat dolu yayınları dinleyebilirsiniz."
               </p>
            </div>
@@ -159,14 +159,14 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Floating Player Bar */}
       {playingId && currentStation && (
-        <div className="fixed bottom-[110px] left-5 right-5 z-[50] bg-white/95 backdrop-blur-xl rounded-[2.8rem] p-4.5 flex items-center justify-between shadow-[0_20px_50px_rgba(236,72,153,0.15)] border border-pink-100 animate-in slide-in-from-bottom-10 duration-500">
+        <div className="fixed bottom-[110px] left-5 right-5 z-[50] bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl rounded-[2.8rem] p-4.5 flex items-center justify-between shadow-[0_20px_50px_rgba(236,72,153,0.15)] border border-pink-100 animate-in slide-in-from-bottom-10 duration-500">
            <div className="flex items-center gap-4 ml-2">
               <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-xl animate-pulse shadow-sm border border-white/50 ${currentStation.color} text-white`}>
                  {currentStation.logo}
               </div>
               <div className="space-y-0.5">
                  <p className="text-[9px] font-black text-pink-600 uppercase tracking-widest leading-none">CANLI YAYIN</p>
-                 <p className="text-[14px] font-bold text-slate-900 tracking-tight">{currentStation.name}</p>
+                 <p className="text-[14px] font-bold text-slate-900 dark:text-white tracking-tight">{currentStation.name}</p>
               </div>
            </div>
            
@@ -192,7 +192,7 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Brand Footer */}
       <div className="fixed bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-white via-white/95 to-transparent pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-center pointer-events-none z-40 opacity-30">
-        <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ RADYO MERKEZİ</p>
+        <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ RADYO MERKEZİ</p>
       </div>
     </div>
   );

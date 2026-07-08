@@ -376,7 +376,7 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
 
   if (loading && view === 'surahList') {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center bg-white p-6 h-full">
+      <div className="flex-1 flex flex-col items-center justify-center bg-white dark:bg-slate-900 p-6 h-full">
         <div className="w-16 h-16 border-4 border-sky-600 border-t-transparent rounded-full animate-spin"></div>
         <p className="mt-4 text-sky-900 font-black uppercase tracking-widest text-xs">Kuran-ı Kerim Hazırlanıyor</p>
       </div>
@@ -384,20 +384,20 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
   }
 
   return (
-    <div className="flex-1 flex flex-col bg-white h-full relative animate-in fade-in duration-500 overflow-hidden">
+    <div className="flex-1 flex flex-col bg-white dark:bg-slate-900 h-full relative animate-in fade-in duration-500 overflow-hidden">
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 border-b border-slate-50 flex items-center justify-between bg-white sticky top-0 z-20">
+      <div className="px-6 pt-12 pb-6 border-b border-slate-50 dark:border-slate-800 flex items-center justify-between bg-white dark:bg-slate-900 sticky top-0 z-20">
         <div className="flex items-center gap-4">
           <button 
             onClick={view === 'ayahList' ? () => { setView('surahList'); setPlayingAyah(null); audioRef.current.pause(); previewAudioRef.current.pause(); } : onBack}
-            className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-lg active:scale-90 transition-transform"
+            className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-lg active:scale-90 transition-transform"
           >
             ←
           </button>
           <div className={view === 'ayahList' ? 'flex flex-col items-center flex-1' : ''}>
             {view === 'ayahList' ? (
               <>
-                <h2 className="arabic-text text-2xl font-bold text-slate-900 leading-none mb-1">
+                <h2 className="arabic-text text-2xl font-bold text-slate-900 dark:text-white leading-none mb-1">
                   {selectedSurah?.name}
                 </h2>
                 <p className="text-[10px] font-bold text-sky-600 uppercase tracking-widest">
@@ -406,7 +406,7 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
               </>
             ) : (
               <>
-                <h2 className="text-xl font-black text-slate-900 tracking-tight">Kuran-ı Kerim</h2>
+                <h2 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Kuran-ı Kerim</h2>
                 <p className="text-[10px] font-bold text-sky-600 uppercase tracking-widest">Hidayet Rehberi</p>
               </>
             )}
@@ -419,7 +419,7 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
             {/* Speaking Person Icon (Reciter Selection) */}
             <button 
               onClick={() => setShowReciterModal(true)}
-              className="w-10 h-10 bg-sky-50 rounded-xl flex items-center justify-center text-sky-600 active:scale-90 transition-transform hover:bg-sky-100"
+              className="w-10 h-10 bg-sky-50 dark:bg-sky-950/20 rounded-xl flex items-center justify-center text-sky-600 active:scale-90 transition-transform hover:bg-sky-100"
               title="Hoca Seçimi"
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -433,7 +433,7 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
             {/* Eye Icon (Toggle Translation) - Göz Simgesi ile Güncellendi */}
             <button 
               onClick={() => setShowTranslation(!showTranslation)}
-              className={`w-10 h-10 rounded-xl flex items-center justify-center active:scale-90 transition-transform ${showTranslation ? 'bg-sky-50 text-sky-600 hover:bg-sky-100' : 'bg-sky-600 text-white shadow-md shadow-sky-200'}`}
+              className={`w-10 h-10 rounded-xl flex items-center justify-center active:scale-90 transition-transform ${showTranslation ? 'bg-sky-50 dark:bg-sky-950/20 text-sky-600 hover:bg-sky-100' : 'bg-sky-600 text-white shadow-md shadow-sky-200'}`}
               title={showTranslation ? "Meali Gizle" : "Meali Göster"}
             >
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -477,7 +477,7 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
         {loading && view === 'ayahList' ? (
           <div className="flex flex-col items-center justify-center py-20">
              <div className="w-12 h-12 border-4 border-sky-100 border-t-sky-600 rounded-full animate-spin"></div>
-             <p className="mt-4 text-slate-400 font-bold text-[10px] uppercase tracking-widest">Ayetler Ve Ses Dosyaları Hazırlanıyor</p>
+             <p className="mt-4 text-slate-400 dark:text-slate-500 font-bold text-[10px] uppercase tracking-widest">Ayetler Ve Ses Dosyaları Hazırlanıyor</p>
           </div>
         ) : view === 'surahList' ? (
           <div className="grid grid-cols-1 gap-3 py-6">
@@ -491,12 +491,12 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
                   className="p-5 rounded-[2.5rem] border border-sky-100 flex items-center justify-between bg-[#f0f9ff] hover:bg-sky-100/50 transition-all cursor-pointer group active:scale-[0.98] shadow-sm shadow-sky-900/5"
                 >
                   <div className="flex items-center gap-4 flex-1">
-                    <div className="w-11 h-11 bg-white text-sky-400 font-black text-xs flex items-center justify-center rounded-2xl group-hover:bg-sky-600 group-hover:text-white transition-all shadow-sm">
+                    <div className="w-11 h-11 bg-white dark:bg-slate-900 text-sky-400 font-black text-xs flex items-center justify-center rounded-2xl group-hover:bg-sky-600 group-hover:text-white transition-all shadow-sm">
                       {surah.number}
                     </div>
                     <div className="flex-1 mr-4">
                       <div className="flex items-center justify-between mb-2">
-                        <h4 className="font-bold text-slate-900 text-sm tracking-tight">{TURKISH_SURAH_DATA[surah.number].name}</h4>
+                        <h4 className="font-bold text-slate-900 dark:text-white text-sm tracking-tight">{TURKISH_SURAH_DATA[surah.number].name}</h4>
                         <span className="text-[9px] font-black text-sky-600 bg-white/50 px-1.5 py-0.5 rounded-md">%{percent}</span>
                       </div>
                       <div className="w-full h-1.5 bg-sky-200/50 rounded-full overflow-hidden border border-white/50">
@@ -509,7 +509,7 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
                   </div>
                   <div className="w-24 text-right flex-shrink-0">
                     <p className="text-lg font-bold text-sky-900 mb-0.5 font-serif truncate">{surah.name}</p>
-                    <p className="text-[8px] font-black text-slate-300 uppercase tracking-widest">{surah.numberOfAyahs} AYET</p>
+                    <p className="text-[8px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest">{surah.numberOfAyahs} AYET</p>
                   </div>
                 </div>
               );
@@ -518,7 +518,7 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
         ) : (
           <div className="py-8 space-y-16">
             {/* Surah Progress Bar */}
-            <div className="fixed top-[108px] left-0 w-full h-1 bg-slate-100 z-30">
+            <div className="fixed top-[108px] left-0 w-full h-1 bg-slate-100 dark:bg-slate-800 z-30">
                <div 
                  className="h-full bg-sky-500 transition-all duration-500"
                  style={{ width: `${Math.round(((progress[selectedSurah!.number] || 0) / selectedSurah!.numberOfAyahs) * 100)}%` }}
@@ -536,7 +536,7 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
                         <div className="w-1 h-1 rotate-45 border border-slate-900"></div>
                         <div className="w-6 h-[1px] bg-slate-900"></div>
                       </div>
-                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] leading-relaxed">
+                      <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em] leading-relaxed">
                         Rahmân ve Rahîm olan Allah'ın ismiyle
                       </p>
                     </>
@@ -566,14 +566,14 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
                     <div className="flex flex-col gap-3 pt-2">
                        <div className={`w-9 h-9 rounded-xl font-black text-[10px] flex items-center justify-center flex-shrink-0 shadow-sm border transition-all ${
                          isPlaying ? 'bg-sky-600 border-sky-500 text-white shadow-sky-200' : 
-                         isRead ? 'bg-sky-100 border-sky-200 text-sky-700' : 'bg-slate-50 border-slate-100 text-slate-400'
+                         isRead ? 'bg-sky-100 border-sky-200 text-sky-700' : 'bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500'
                        }`}>
                           {ayah.numberInSurah}
                        </div>
                        <button 
                          onClick={(e) => { e.stopPropagation(); playAudio(idx); }}
                          className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
-                           isPlaying ? 'bg-sky-600 text-white animate-pulse shadow-lg shadow-sky-200' : 'bg-slate-50 text-slate-400 hover:bg-sky-50 hover:text-sky-600'
+                           isPlaying ? 'bg-sky-600 text-white animate-pulse shadow-lg shadow-sky-200' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 hover:bg-sky-50 dark:bg-sky-950/20 hover:text-sky-600'
                          }`}
                        >
                          {isPlaying ? (
@@ -587,7 +587,7 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
                     {/* Content Section */}
                     <div className="flex-1 flex flex-col items-center gap-8">
                        {/* Arabic Text */}
-                       <p className={`arabic-text text-4xl text-right w-full leading-[2.2] transition-colors ${isPlaying ? 'text-sky-600' : isRead ? 'text-sky-900/60' : 'text-slate-900'}`}>
+                       <p className={`arabic-text text-4xl text-right w-full leading-[2.2] transition-colors ${isPlaying ? 'text-sky-600' : isRead ? 'text-sky-900/60' : 'text-slate-900 dark:text-white'}`}>
                           {cleanArabicText}
                        </p>
 
@@ -620,15 +620,15 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
       {/* Reciter Selection Modal */}
       {showReciterModal && (
         <div className="fixed inset-0 z-[100] bg-slate-900/40 backdrop-blur-sm flex items-end justify-center animate-in fade-in duration-300">
-           <div className="bg-white w-full max-w-md rounded-t-[3rem] p-8 pb-12 animate-in slide-in-from-bottom-20 duration-500 shadow-2xl">
+           <div className="bg-white dark:bg-slate-900 w-full max-w-md rounded-t-[3rem] p-8 pb-12 animate-in slide-in-from-bottom-20 duration-500 shadow-2xl">
               <div className="flex justify-between items-center mb-8">
                  <div>
-                    <h3 className="text-2xl font-black text-slate-900 tracking-tight">Hoca Seçimi</h3>
+                    <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Hoca Seçimi</h3>
                     <p className="text-[10px] font-bold text-sky-600 uppercase tracking-widest mt-1">Tilaveti kimden dinlemek istersiniz?</p>
                  </div>
                  <button 
                    onClick={() => { setShowReciterModal(false); previewAudioRef.current.pause(); setPlayingPreviewId(null); setPreviewLoading(null); }}
-                   className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400"
+                   className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-500"
                  >
                    ✕
                  </button>
@@ -647,12 +647,12 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
                       className={`p-5 rounded-[2.2rem] border flex items-center justify-between transition-all cursor-pointer active:scale-[0.98] ${
                         isCurrent 
                           ? 'bg-sky-600 border-sky-500 text-white shadow-xl shadow-sky-900/10' 
-                          : 'bg-slate-50 border-slate-100 text-slate-900 hover:bg-sky-50'
+                          : 'bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-900 dark:text-white hover:bg-sky-50 dark:bg-sky-950/20'
                       }`}
                     >
                       <div className="flex items-center gap-5 flex-1">
                          <div className="relative group/reciter">
-                            <div className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-sm transition-all duration-500 ${isCurrent ? 'bg-white/20' : 'bg-white'}`}>
+                            <div className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-sm transition-all duration-500 ${isCurrent ? 'bg-white/20' : 'bg-white dark:bg-slate-900'}`}>
                                {isLoadingThis ? (
                                   <div className="w-6 h-6 border-2 border-sky-600 border-t-transparent rounded-full animate-spin"></div>
                                ) : "👤"}
@@ -660,7 +660,7 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
                             <button 
                               onClick={(e) => playReciterPreview(e, reciter.id)}
                               className={`absolute -bottom-1 -right-1 w-7 h-7 rounded-full flex items-center justify-center shadow-lg transition-all ${
-                                isPreviewPlaying ? 'bg-white text-rose-500 animate-pulse' : isCurrent ? 'bg-white text-sky-600' : 'bg-sky-600 text-white hover:scale-110'
+                                isPreviewPlaying ? 'bg-white dark:bg-slate-900 text-rose-500 animate-pulse' : isCurrent ? 'bg-white dark:bg-slate-900 text-sky-600' : 'bg-sky-600 text-white hover:scale-110'
                               }`}
                               disabled={isLoadingThis}
                             >
@@ -673,13 +673,13 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
                          </div>
                          <div className="ml-1">
                             <p className="font-bold text-[15px] tracking-tight leading-tight">{reciter.name}</p>
-                            <p className={`text-[10px] font-bold uppercase tracking-wider mt-0.5 ${isCurrent ? 'text-sky-100/60' : 'text-slate-400'}`}>
+                            <p className={`text-[10px] font-bold uppercase tracking-wider mt-0.5 ${isCurrent ? 'text-sky-100/60' : 'text-slate-400 dark:text-slate-500'}`}>
                                {reciter.sub}
                             </p>
                          </div>
                       </div>
                       {isCurrent && (
-                        <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center text-sky-600 text-[10px] font-black shadow-sm">
+                        <div className="w-6 h-6 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center text-sky-600 text-[10px] font-black shadow-sm">
                            ✓
                         </div>
                       )}
@@ -688,7 +688,7 @@ const QuranReader: React.FC<QuranReaderProps> = ({ onBack }) => {
                 })}
               </div>
               
-              <p className="text-center text-[10px] font-bold text-slate-300 uppercase tracking-widest mt-8">Ses Files Çevrimiçi Oynatılır</p>
+              <p className="text-center text-[10px] font-bold text-slate-300 dark:text-slate-600 uppercase tracking-widest mt-8">Ses Files Çevrimiçi Oynatılır</p>
            </div>
         </div>
       )}

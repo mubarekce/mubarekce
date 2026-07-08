@@ -96,9 +96,9 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
 
   if (activeOverlay === 'ai') {
     return (
-      <div className="flex-1 flex flex-col h-full bg-white relative animate-in fade-in zoom-in duration-300">
+      <div className="flex-1 flex flex-col h-full bg-white dark:bg-slate-950 relative animate-in fade-in zoom-in duration-300">
         <div className="absolute top-12 left-6 z-50">
-          <button onClick={() => setActiveOverlay('none')} className="w-10 h-10 bg-white/80 backdrop-blur rounded-xl flex items-center justify-center shadow-sm border border-slate-100">←</button>
+          <button onClick={() => setActiveOverlay('none')} className="w-10 h-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur rounded-xl flex items-center justify-center shadow-sm border border-slate-100 dark:border-slate-800 text-slate-900 dark:text-white">←</button>
         </div>
         <AISor />
       </div>
@@ -440,22 +440,22 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
 
       {/* FULL IMSAKIYE MODAL */}
       {showImsakiyeModal && (
-        <div className="fixed inset-0 z-[600] bg-white animate-in slide-in-from-bottom duration-500 flex flex-col overflow-hidden">
-           <div className="px-6 pt-12 pb-6 flex items-center justify-between border-b border-slate-100 sticky top-0 bg-white z-10">
+        <div className="fixed inset-0 z-[600] bg-white dark:bg-slate-950 animate-in slide-in-from-bottom duration-500 flex flex-col overflow-hidden">
+           <div className="px-6 pt-12 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 sticky top-0 bg-white dark:bg-slate-950 z-10">
               <div className="flex items-center gap-4">
                  <button 
                    onClick={() => setShowImsakiyeModal(false)}
-                   className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 active:scale-90 transition-transform"
+                   className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
                  >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-slate-900 dark:text-white"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
                  </button>
                  <div>
-                    <h3 className="text-lg font-black text-slate-900 tracking-tight uppercase">İMSAKİYE TAKVİMİ</h3>
-                    <p className="text-[9px] font-black text-sky-500 uppercase tracking-widest">30 GÜNLÜK VAKİT ÇİZELGESİ</p>
+                    <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight uppercase">İMSAKİYE TAKVİMİ</h3>
+                    <p className="text-[9px] font-black text-sky-500 dark:text-sky-400 uppercase tracking-widest">30 GÜNLÜK VAKİT ÇİZELGESİ</p>
                  </div>
               </div>
-              <div className="bg-sky-50 px-3 py-1.5 rounded-full border border-sky-100">
-                 <span className="text-[10px] font-black text-sky-600 uppercase tracking-widest">{prayerData?.city || 'GENEL'}</span>
+              <div className="bg-sky-50 dark:bg-sky-950/20 px-3 py-1.5 rounded-full border border-sky-100 dark:border-sky-900/40">
+                 <span className="text-[10px] font-black text-sky-600 dark:text-sky-400 uppercase tracking-widest">{prayerData?.city || 'GENEL'}</span>
               </div>
            </div>
 
@@ -463,7 +463,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
               <div className="p-4">
                  <table className="w-full text-left border-separate border-spacing-y-2">
                     <thead>
-                       <tr className="text-[8px] font-black text-slate-400 uppercase tracking-[0.2em]">
+                       <tr className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em]">
                           <th className="px-4 py-2">GÜN</th>
                           <th className="px-2 py-2">İMSAK</th>
                           <th className="px-2 py-2">GÜNEŞ</th>
@@ -477,17 +477,17 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
                        {FULL_IMSAKIYE.map((day) => (
                           <tr 
                             key={day.day} 
-                            className="transition-all rounded-2xl bg-slate-50/50 hover:bg-sky-50 group"
+                            className="transition-all rounded-2xl bg-slate-50/50 dark:bg-slate-900/50 hover:bg-sky-50 dark:hover:bg-sky-950/20 group"
                           >
                              <td className="px-4 py-4 rounded-l-2xl">
-                                <p className="text-[10px] font-black text-slate-900">{day.day}. Gün</p>
+                                <p className="text-[10px] font-black text-slate-900 dark:text-white">{day.day}. Gün</p>
                              </td>
-                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-sky-700">{day.imsak}</td>
-                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold opacity-40 group-hover:opacity-100">{day.gunes}</td>
-                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold opacity-40 group-hover:opacity-100">{day.ogle}</td>
-                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold opacity-40 group-hover:opacity-100">{day.ikindi}</td>
-                             <td className="px-2 py-4 tabular-nums text-xs font-black text-sky-600">{day.aksam}</td>
-                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-right pr-4 rounded-r-2xl opacity-40 group-hover:opacity-100">{day.yatsi}</td>
+                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-sky-700 dark:text-sky-400">{day.imsak}</td>
+                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-slate-700 dark:text-slate-300 opacity-40 group-hover:opacity-100">{day.gunes}</td>
+                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-slate-700 dark:text-slate-300 opacity-40 group-hover:opacity-100">{day.ogle}</td>
+                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-slate-700 dark:text-slate-300 opacity-40 group-hover:opacity-100">{day.ikindi}</td>
+                             <td className="px-2 py-4 tabular-nums text-xs font-black text-sky-600 dark:text-sky-400">{day.aksam}</td>
+                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-slate-700 dark:text-slate-300 text-right pr-4 rounded-r-2xl opacity-40 group-hover:opacity-100">{day.yatsi}</td>
                           </tr>
                        ))}
                     </tbody>
@@ -495,8 +495,8 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
               </div>
            </div>
            
-           <div className="p-8 bg-slate-50 border-t border-slate-100 text-center">
-              <p className="text-[10px] font-bold text-slate-400 leading-relaxed italic">
+           <div className="p-8 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 text-center">
+              <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 leading-relaxed italic">
                  "Vakitler Diyanet İşleri Başkanlığı verileriyle uyumludur."
               </p>
            </div>

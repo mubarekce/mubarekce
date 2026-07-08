@@ -314,7 +314,7 @@ import { User } from '../types';
         <h4 className="text-sm font-black text-slate-900 dark:text-white group-hover:text-teal-700 transition-colors flex items-center gap-1.5">{tool.title} {locked && <span className="text-amber-500 text-xs">🔒</span>}</h4>
         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider opacity-70 mt-0.5">{tool.desc}</p>
       </div>
-      <div className="w-8 h-8 rounded-full bg-slate-50 flex items-center justify-center text-slate-300 opacity-0 group-hover:opacity-100 transition-all">
+      <div className="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-300 dark:text-slate-600 opacity-0 group-hover:opacity-100 transition-all">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
@@ -345,14 +345,14 @@ import { User } from '../types';
 
   if (view === 'quran') return <QuranReader onBack={() => setView('grid')} />;
   if (view === 'zikir') return (
-    <div className="flex-1 flex flex-col h-full bg-white relative">
-      <button onClick={() => setView('grid')} className="absolute top-12 left-6 z-50 w-10 h-10 bg-white/80 backdrop-blur shadow-sm rounded-xl flex items-center justify-center border border-slate-100">←</button>
+    <div className="flex-1 flex flex-col h-full bg-white dark:bg-slate-950 relative">
+      <button onClick={() => setView('grid')} className="absolute top-12 left-6 z-50 w-10 h-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur shadow-sm rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 text-slate-900 dark:text-white">←</button>
       <Zikirmatik />
     </div>
   );
   if (view === 'kible') return (
-    <div className="flex-1 flex flex-col h-full bg-white relative">
-      <button onClick={() => setView('grid')} className="absolute top-12 left-6 z-50 w-10 h-10 bg-white/80 backdrop-blur shadow-sm rounded-xl flex items-center justify-center border border-slate-100">←</button>
+    <div className="flex-1 flex flex-col h-full bg-white dark:bg-slate-950 relative">
+      <button onClick={() => setView('grid')} className="absolute top-12 left-6 z-50 w-10 h-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur shadow-sm rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 text-slate-900 dark:text-white">←</button>
       <KibleCompass lat={location?.latitude ?? 41.0082} lng={location?.longitude ?? 28.9784} />
     </div>
   );
@@ -382,19 +382,19 @@ import { User } from '../types';
 
   if (view === 'detail' && selectedTool) {
     return (
-      <div className="flex-1 flex flex-col h-full bg-white p-8 animate-in slide-in-from-right duration-300 overflow-y-auto">
-        <button onClick={() => setView('grid')} className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center mb-8">←</button>
+      <div className="flex-1 flex flex-col h-full bg-white dark:bg-slate-950 p-8 animate-in slide-in-from-right duration-300 overflow-y-auto">
+        <button onClick={() => setView('grid')} className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center mb-8 text-slate-900 dark:text-white">←</button>
         <div className="text-center space-y-4">
           <div className={`w-24 h-24 mx-auto flex items-center justify-center ${selectedTool.color}`} style={{ filter: `drop-shadow(0 0 15px ${selectedTool.glowColor})` }}>
             <div className="scale-[2.5]">{selectedTool.icon}</div>
           </div>
-          <h2 className="text-3xl font-black text-slate-900 tracking-tighter">{selectedTool.title}</h2>
-          <p className="text-slate-500 font-medium px-4">{selectedTool.desc}</p>
+          <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter">{selectedTool.title}</h2>
+          <p className="text-slate-500 dark:text-slate-400 font-medium px-4">{selectedTool.desc}</p>
         </div>
-        <div className="mt-12 bg-slate-50 rounded-[3rem] p-10 flex flex-col items-center justify-center text-center border border-dashed border-slate-200">
-           <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center text-2xl mb-6 shadow-sm">🚀</div>
-           <p className="text-slate-600 text-sm font-black uppercase tracking-widest mb-2">Geliştiriliyor</p>
-           <p className="text-slate-400 text-xs font-bold leading-relaxed px-2">
+        <div className="mt-12 bg-slate-50 dark:bg-slate-900 rounded-[3rem] p-10 flex flex-col items-center justify-center text-center border border-dashed border-slate-200 dark:border-slate-800">
+           <div className="w-16 h-16 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center text-2xl mb-6 shadow-sm">🚀</div>
+           <p className="text-slate-600 dark:text-slate-300 text-sm font-black uppercase tracking-widest mb-2">Geliştiriliyor</p>
+           <p className="text-slate-400 dark:text-slate-500 text-xs font-bold leading-relaxed px-2">
              "{selectedTool.title}" özelliği çok yakında Pro+ üyeleri için aktif edilecektir.
            </p>
            <div className="mt-8 flex gap-2.5">
@@ -441,7 +441,7 @@ import { User } from '../types';
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="İçerik, dua veya araç ara..."
-          className="w-full bg-slate-50 border-2 border-transparent focus:border-teal-100 focus:bg-white rounded-[1.8rem] pl-14 pr-6 py-4.5 outline-none font-bold text-sm text-slate-900 transition-all placeholder:text-slate-300 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]"
+          className="w-full bg-slate-50 dark:bg-slate-900 border-2 border-transparent focus:border-teal-100 dark:focus:border-teal-800 focus:bg-white dark:focus:bg-slate-900 rounded-[1.8rem] pl-14 pr-6 py-4.5 outline-none font-bold text-sm text-slate-900 dark:text-white text-slate-900 transition-all placeholder:text-slate-300 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]"
         />
       </div>
 
@@ -471,7 +471,7 @@ import { User } from '../types';
             ))}
           </div>
         ) : (
-          <div className="text-center py-20 bg-slate-50/50 rounded-[3rem] border border-dashed border-slate-200">
+          <div className="text-center py-20 bg-slate-50/50 dark:bg-slate-900/50 rounded-[3rem] border border-dashed border-slate-200 dark:border-slate-800">
              <div className="text-4xl mb-4 opacity-20">🔎</div>
              <p className="text-sm font-black text-slate-400 uppercase tracking-widest">Sonuç Bulunamadı</p>
           </div>
@@ -484,9 +484,9 @@ import { User } from '../types';
 
       {(lockedAttempt || showRamadanLocked) && (
         <div className="fixed inset-0 z-[1000] bg-black/50 flex items-end justify-center" onClick={() => { setLockedAttempt(null); setShowRamadanLocked(false); }}>
-          <div className="bg-white w-full max-w-lg rounded-t-[2.5rem] p-8 text-center space-y-3" onClick={e => e.stopPropagation()}>
+          <div className="bg-white dark:bg-slate-900 w-full max-w-lg rounded-t-[2.5rem] p-8 text-center space-y-3" onClick={e => e.stopPropagation()}>
             <div className="text-4xl">{lockedAttempt ? '🔒' : '🌙'}</div>
-            <h3 className="text-lg font-black text-slate-900">
+            <h3 className="text-lg font-black text-slate-900 dark:text-white">
               {lockedAttempt ? `${lockedAttempt.title} Premium'a Özel` : 'Ramazan Özel Henüz Açılmadı'}
             </h3>
             <p className="text-sm text-slate-400">

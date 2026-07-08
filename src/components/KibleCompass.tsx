@@ -29,8 +29,8 @@ const KibleCompass: React.FC<KibleCompassProps> = ({ lat, lng }) => {
   return (
     <div className="flex-1 flex flex-col items-center justify-between py-12 px-8 h-full bg-[#F8FAFC]">
       <div className="text-center space-y-1">
-        <h2 className="text-3xl font-black text-slate-900 tracking-tight">Kıble</h2>
-        <p className="text-slate-400 text-xs font-bold uppercase tracking-[0.2em]">Tam Yönünüzü Belirleyin</p>
+        <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight">Kıble</h2>
+        <p className="text-slate-400 dark:text-slate-500 text-xs font-bold uppercase tracking-[0.2em]">Tam Yönünüzü Belirleyin</p>
       </div>
 
       <div className="relative w-80 h-80 flex items-center justify-center">
@@ -39,14 +39,14 @@ const KibleCompass: React.FC<KibleCompassProps> = ({ lat, lng }) => {
         
         {/* Compass Dial */}
         <div 
-          className="relative w-72 h-72 bg-white rounded-full shadow-2xl border-[12px] border-slate-100 flex items-center justify-center transition-transform duration-100 ease-out"
+          className="relative w-72 h-72 bg-white dark:bg-slate-900 rounded-full shadow-2xl border-[12px] border-slate-100 dark:border-slate-800 flex items-center justify-center transition-transform duration-100 ease-out"
           style={{ transform: `rotate(${-heading}deg)` }}
         >
           {/* Degree Ticks */}
           {[0, 45, 90, 135, 180, 225, 270, 315].map(deg => (
             <div key={deg} className="absolute inset-0 flex items-center justify-center" style={{ transform: `rotate(${deg}deg)` }}>
               <div className={`h-full flex flex-col justify-between py-4 ${deg % 90 === 0 ? 'opacity-100' : 'opacity-20'}`}>
-                <span className={`text-[10px] font-black ${deg === 0 ? 'text-rose-500' : 'text-slate-400'}`}>
+                <span className={`text-[10px] font-black ${deg === 0 ? 'text-rose-500' : 'text-slate-400 dark:text-slate-500'}`}>
                    {deg === 0 ? 'N' : deg === 90 ? 'E' : deg === 180 ? 'S' : deg === 270 ? 'W' : '|'}
                 </span>
                 <span className="w-px h-2 bg-slate-200"></span>
@@ -63,9 +63,9 @@ const KibleCompass: React.FC<KibleCompassProps> = ({ lat, lng }) => {
           </div>
 
           {/* Center Indicator */}
-          <div className="w-1.5 h-40 bg-slate-100 rounded-full relative">
+          <div className="w-1.5 h-40 bg-slate-100 dark:bg-slate-800 rounded-full relative">
             <div className="absolute top-0 w-3 h-20 bg-rose-500 rounded-t-full -left-0.5 shadow-[0_0_15px_rgba(244,63,94,0.3)]"></div>
-            <div className="absolute bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 w-6 h-6 bg-white rounded-full border-4 border-slate-900 shadow-xl z-10"></div>
+            <div className="absolute bottom-1/2 left-1/2 -translate-x-1/2 translate-y-1/2 w-6 h-6 bg-white dark:bg-slate-900 rounded-full border-4 border-slate-900 shadow-xl z-10"></div>
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@ const KibleCompass: React.FC<KibleCompassProps> = ({ lat, lng }) => {
         <div className={`p-6 rounded-[2rem] border transition-all duration-700 text-center ${
           isTargeted 
             ? 'bg-teal-600 border-teal-500 text-white shadow-xl shadow-teal-200' 
-            : 'bg-white border-slate-100 text-slate-400'
+            : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500'
         }`}>
           <p className="text-[10px] font-black uppercase tracking-[0.4em] mb-1">Durum</p>
           <p className="text-xl font-black">{isTargeted ? 'DOĞRU YÖNDESİNİZ' : 'YÖN ARANIYOR'}</p>
@@ -82,13 +82,13 @@ const KibleCompass: React.FC<KibleCompassProps> = ({ lat, lng }) => {
         
         <div className="flex justify-between items-center px-4">
            <div className="text-center">
-              <p className="text-[8px] font-black text-slate-300 uppercase tracking-widest mb-1">Açı</p>
-              <p className="text-sm font-bold text-slate-900">{qiblaAngle.toFixed(1)}°</p>
+              <p className="text-[8px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest mb-1">Açı</p>
+              <p className="text-sm font-bold text-slate-900 dark:text-white">{qiblaAngle.toFixed(1)}°</p>
            </div>
-           <div className="h-6 w-px bg-slate-100"></div>
+           <div className="h-6 w-px bg-slate-100 dark:bg-slate-800"></div>
            <div className="text-center">
-              <p className="text-[8px] font-black text-slate-300 uppercase tracking-widest mb-1">Sapma</p>
-              <p className="text-sm font-bold text-slate-900">{diff.toFixed(1)}°</p>
+              <p className="text-[8px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest mb-1">Sapma</p>
+              <p className="text-sm font-bold text-slate-900 dark:text-white">{diff.toFixed(1)}°</p>
            </div>
         </div>
       </div>

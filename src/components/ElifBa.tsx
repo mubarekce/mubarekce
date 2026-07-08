@@ -80,17 +80,17 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col bg-white h-full relative animate-in fade-in duration-500 overflow-hidden">
+    <div className="flex-1 flex flex-col bg-white dark:bg-slate-900 h-full relative animate-in fade-in duration-500 overflow-hidden">
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-white/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50">
+      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50 dark:border-slate-800">
         <button 
           onClick={selectedLesson ? () => setSelectedLesson(null) : onBack} 
-          className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 active:scale-90 transition-transform"
+          className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform"
         >
           ←
         </button>
         <div>
-          <h2 className="text-xl font-black text-slate-900 tracking-tight">
+          <h2 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">
             {selectedLesson ? selectedLesson.title : "Elif Ba"}
           </h2>
           <p className="text-[10px] font-bold text-green-600 uppercase tracking-widest">
@@ -103,7 +103,7 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {!selectedLesson ? (
           <div className="py-6 space-y-4">
             {/* Progress Card */}
-            <div className="bg-green-50 rounded-[2.5rem] p-8 border border-green-100 mb-8 relative overflow-hidden group">
+            <div className="bg-green-50 dark:bg-green-950/20 rounded-[2.5rem] p-8 border border-green-100 mb-8 relative overflow-hidden group">
                <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform text-6xl">📖</div>
                <h3 className="text-lg font-black text-green-900 mb-1">Öğrenme Yolculuğun</h3>
                <p className="text-xs text-green-700/60 font-medium mb-6">Toplam {LESSONS.length} dersten {completedLessons.length} tanesini tamamladın.</p>
@@ -116,19 +116,19 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             </div>
 
             <div className="space-y-3">
-              <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] ml-2 mb-4">DERS MÜFREDATI</p>
+              <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em] ml-2 mb-4">DERS MÜFREDATI</p>
               {LESSONS.map((lesson) => (
                 <div 
                   key={lesson.id}
                   onClick={() => setSelectedLesson(lesson)}
-                  className="p-5 bg-white rounded-[2.2rem] border border-slate-100 flex items-center gap-5 hover:bg-green-50 hover:border-green-100 transition-all cursor-pointer group active:scale-[0.98]"
+                  className="p-5 bg-white dark:bg-slate-900 rounded-[2.2rem] border border-slate-100 dark:border-slate-800 flex items-center gap-5 hover:bg-green-50 dark:bg-green-950/20 hover:border-green-100 transition-all cursor-pointer group active:scale-[0.98]"
                 >
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-black text-sm transition-all ${completedLessons.includes(lesson.id) ? 'bg-green-500 text-white' : 'bg-slate-50 text-slate-400 group-hover:bg-green-100'}`}>
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-black text-sm transition-all ${completedLessons.includes(lesson.id) ? 'bg-green-500 text-white' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 group-hover:bg-green-100'}`}>
                     {completedLessons.includes(lesson.id) ? "✓" : lesson.id}
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-black text-slate-900">{lesson.title}</h4>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mt-0.5">{lesson.desc}</p>
+                    <h4 className="text-sm font-black text-slate-900 dark:text-white">{lesson.title}</h4>
+                    <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mt-0.5">{lesson.desc}</p>
                   </div>
                   <div className="text-slate-200 group-hover:text-green-500 transition-colors">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
@@ -138,8 +138,8 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 </div>
               ))}
               
-              <div className="p-8 bg-slate-50 border border-dashed border-slate-200 rounded-[2.5rem] text-center opacity-60">
-                 <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.3em]">Diğer dersler yakında eklenecek</p>
+              <div className="p-8 bg-slate-50 dark:bg-slate-900 border border-dashed border-slate-200 dark:border-slate-700 rounded-[2.5rem] text-center opacity-60">
+                 <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em]">Diğer dersler yakında eklenecek</p>
               </div>
             </div>
           </div>
@@ -150,10 +150,10 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <div 
                   key={idx}
                   onClick={() => playSound(item.ar)}
-                  className="aspect-square bg-[#fcfdfd] rounded-[2rem] border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-2 hover:border-green-200 hover:bg-green-50 transition-all cursor-pointer active:scale-90 group"
+                  className="aspect-square bg-[#fcfdfd] rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col items-center justify-center gap-2 hover:border-green-200 hover:bg-green-50 dark:bg-green-950/20 transition-all cursor-pointer active:scale-90 group"
                 >
-                  <span className="arabic-text text-3xl font-bold text-slate-800 group-hover:text-green-700 transition-colors">{item.ar}</span>
-                  <span className="text-[9px] font-black text-slate-300 uppercase tracking-widest group-hover:text-green-600 transition-colors">{item.tr}</span>
+                  <span className="arabic-text text-3xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-green-700 transition-colors">{item.ar}</span>
+                  <span className="text-[9px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest group-hover:text-green-600 transition-colors">{item.tr}</span>
                 </div>
               ))}
             </div>
@@ -161,15 +161,15 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <div className="pt-10">
                <button 
                  onClick={() => { toggleComplete(selectedLesson.id); setSelectedLesson(null); }}
-                 className={`w-full py-5 rounded-[2rem] font-black text-xs uppercase tracking-[0.2em] transition-all shadow-xl active:scale-[0.98] ${completedLessons.includes(selectedLesson.id) ? 'bg-slate-100 text-slate-400' : 'bg-green-600 text-white shadow-green-200'}`}
+                 className={`w-full py-5 rounded-[2rem] font-black text-xs uppercase tracking-[0.2em] transition-all shadow-xl active:scale-[0.98] ${completedLessons.includes(selectedLesson.id) ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500' : 'bg-green-600 text-white shadow-green-200'}`}
                >
                  {completedLessons.includes(selectedLesson.id) ? "Ders Tamamlandı Olarak İşaretlendi" : "Dersi Bitirdim"}
                </button>
             </div>
 
             <div className="p-6 bg-green-50/50 rounded-[2.2rem] border border-dashed border-green-200 flex items-center gap-4">
-               <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm text-green-500">💡</div>
-               <p className="text-[10px] font-bold text-slate-500 leading-relaxed">
+               <div className="w-10 h-10 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center shadow-sm text-green-500">💡</div>
+               <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed">
                  <span className="text-green-600">Öneri:</span> Harflerin çıkış yerlerine (mahreç) dikkat ederek tekrar etmen, Kuran tilavetini daha güzel kılacaktır.
                </p>
             </div>

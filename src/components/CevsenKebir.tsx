@@ -166,35 +166,35 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div id="scroll-target" className="absolute top-0 h-0 w-0"></div>
       
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-white/80 backdrop-blur-md sticky top-0 z-30 border-b border-indigo-50/50">
+      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-30 border-b border-indigo-50/50">
         <div className="flex items-center gap-5">
-          <button onClick={onBack} className="w-11 h-11 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 active:scale-90 transition-transform">
+          <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
-            <h2 className="text-[19px] font-black text-slate-900 tracking-tight leading-none uppercase">Cevşen-ül Kebir</h2>
+            <h2 className="text-[19px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Cevşen-ül Kebir</h2>
             <p className="text-[9px] font-black text-indigo-500 uppercase tracking-[0.2em] mt-1">PRO+ ÖZEL İÇERİK</p>
           </div>
         </div>
         <button 
           onClick={() => setShowBabList(true)}
-          className="w-11 h-11 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600 border border-indigo-100 shadow-sm active:scale-90 transition-transform"
+          className="w-11 h-11 bg-indigo-50 dark:bg-indigo-950/20 rounded-2xl flex items-center justify-center text-indigo-600 border border-indigo-100 shadow-sm active:scale-90 transition-transform"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
       </div>
 
       {/* Control Bar */}
-      <div className="px-6 py-4 flex gap-2 overflow-x-auto no-scrollbar bg-white/50 border-b border-slate-50">
+      <div className="px-6 py-4 flex gap-2 overflow-x-auto no-scrollbar bg-white/50 border-b border-slate-50 dark:border-slate-800">
         <button 
           onClick={() => setShowPronunciation(!showPronunciation)}
-          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showPronunciation ? 'bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-100' : 'bg-white text-slate-400 border-slate-100'}`}
+          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showPronunciation ? 'bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-100' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}
         >
           Okunuş {showPronunciation ? 'Açık' : 'Kapalı'}
         </button>
         <button 
           onClick={() => setShowTranslation(!showTranslation)}
-          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showTranslation ? 'bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-100' : 'bg-white text-slate-400 border-slate-100'}`}
+          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showTranslation ? 'bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-100' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}
         >
           Meal {showTranslation ? 'Açık' : 'Kapalı'}
         </button>
@@ -205,7 +205,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {/* Dynamic Bab Title */}
         <div className="text-center space-y-3 animate-in fade-in slide-in-from-bottom-4 duration-700">
            <div className="inline-flex flex-col items-center">
-              <div className="w-20 h-20 bg-indigo-50 text-indigo-600 rounded-full flex items-center justify-center text-3xl font-black shadow-inner border border-indigo-100/50 mb-4 ring-8 ring-white">
+              <div className="w-20 h-20 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-600 rounded-full flex items-center justify-center text-3xl font-black shadow-inner border border-indigo-100/50 mb-4 ring-8 ring-white">
                  {currentBab.id}
               </div>
               <p className="text-[12px] font-black text-indigo-300 uppercase tracking-[0.5em] mb-4">B A B {currentBab.id}</p>
@@ -215,9 +215,9 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {/* Content Displays - Visual fixes (bg-transparent added to p tags) */}
         <div className="space-y-12 pb-20">
           {/* Arabic Display */}
-          <div className="bg-white p-10 rounded-[3.5rem] border border-slate-50 shadow-2xl shadow-indigo-900/5 relative overflow-hidden group">
+          <div className="bg-white dark:bg-slate-900 p-10 rounded-[3.5rem] border border-slate-50 dark:border-slate-800 shadow-2xl shadow-indigo-900/5 relative overflow-hidden group">
              <div className="absolute right-[-15%] top-[-10%] p-8 opacity-[0.03] group-hover:scale-110 transition-transform text-[12rem] pointer-events-none rotate-6 text-indigo-900">🛡️</div>
-             <p className="arabic-text text-4xl text-slate-900 text-center leading-[2.5] drop-shadow-sm font-semibold bg-transparent" dir="rtl">
+             <p className="arabic-text text-4xl text-slate-900 dark:text-white text-center leading-[2.5] drop-shadow-sm font-semibold bg-transparent" dir="rtl">
                {currentBab.arabic}
              </p>
           </div>
@@ -237,12 +237,12 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
           {/* Translation Card */}
           {showTranslation && (
-            <div className="bg-white p-8 rounded-[3rem] border border-slate-100 shadow-sm animate-in fade-in slide-in-from-bottom-2 duration-500 delay-100">
+            <div className="bg-white dark:bg-slate-900 p-8 rounded-[3rem] border border-slate-100 dark:border-slate-800 shadow-sm animate-in fade-in slide-in-from-bottom-2 duration-500 delay-100">
                <div className="flex items-center gap-3 mb-5 ml-1">
                   <div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div>
-                  <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">ANLAMI VE MEALİ</p>
+                  <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em]">ANLAMI VE MEALİ</p>
                </div>
-               <p className="text-[18px] font-medium text-slate-700 leading-relaxed px-2 bg-transparent">
+               <p className="text-[18px] font-medium text-slate-700 dark:text-slate-300 dark:text-slate-600 leading-relaxed px-2 bg-transparent">
                  {currentBab.translation}
                </p>
             </div>
@@ -269,7 +269,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
 
         <div className="text-center py-20 opacity-30">
-          <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.6em]">TOPLAM 100 BABDAN OLUŞMAKTADIR</p>
+          <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.6em]">TOPLAM 100 BABDAN OLUŞMAKTADIR</p>
         </div>
       </div>
 
@@ -278,7 +278,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         <button 
           onClick={handlePrev}
           disabled={currentBabIndex === 0}
-          className="w-18 h-18 bg-white border border-slate-100 text-slate-400 rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/5 active:scale-90 transition-all disabled:opacity-30 disabled:scale-95 flex-shrink-0"
+          className="w-18 h-18 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500 rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/5 active:scale-90 transition-all disabled:opacity-30 disabled:scale-95 flex-shrink-0"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
@@ -292,7 +292,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         <button 
           onClick={handleNext}
           disabled={currentBabIndex >= 99}
-          className="w-18 h-18 bg-white border border-slate-100 text-indigo-600 rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/5 active:scale-90 transition-all disabled:opacity-30 disabled:scale-95 flex-shrink-0"
+          className="w-18 h-18 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-indigo-600 rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/5 active:scale-90 transition-all disabled:opacity-30 disabled:scale-95 flex-shrink-0"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
@@ -301,9 +301,9 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       {/* Bab Selection Modal */}
       {showBabList && (
         <div className="fixed inset-0 z-[500] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-6 animate-in fade-in duration-300">
-           <div className="bg-white w-full max-w-[440px] rounded-[3.5rem] p-10 space-y-10 animate-in zoom-in duration-300 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+           <div className="bg-white dark:bg-slate-900 w-full max-w-[440px] rounded-[3.5rem] p-10 space-y-10 animate-in zoom-in duration-300 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
               <div className="text-center space-y-2 flex-shrink-0">
-                 <h3 className="text-2xl font-black text-slate-900 tracking-tight">Cevşen Fihristi</h3>
+                 <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Cevşen Fihristi</h3>
                  <p className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.4em]">100 BÖLÜM LİSTESİ</p>
               </div>
 
@@ -313,7 +313,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                       <button 
                         key={i}
                         onClick={() => { setCurrentBabIndex(i); setShowBabList(false); if (window.navigator.vibrate) window.navigator.vibrate(20); }}
-                        className={`aspect-square rounded-[1.4rem] flex items-center justify-center text-sm font-black transition-all active:scale-90 border-2 ${i === currentBabIndex ? 'bg-indigo-600 text-white border-indigo-500 shadow-xl scale-105' : 'bg-slate-50 text-slate-400 border-slate-100 hover:bg-indigo-50 hover:text-indigo-600'}`}
+                        className={`aspect-square rounded-[1.4rem] flex items-center justify-center text-sm font-black transition-all active:scale-90 border-2 ${i === currentBabIndex ? 'bg-indigo-600 text-white border-indigo-500 shadow-xl scale-105' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800 hover:bg-indigo-50 dark:bg-indigo-950/20 hover:text-indigo-600'}`}
                       >
                         {i + 1}
                       </button>
@@ -333,7 +333,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Global Brand Decoration */}
       <div className="fixed bottom-0 left-0 right-0 p-8 text-center pointer-events-none z-10 opacity-30">
-        <p className="text-[8px] font-black text-slate-300 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ PLATFORM</p>
+        <p className="text-[8px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ PLATFORM</p>
       </div>
     </div>
   );

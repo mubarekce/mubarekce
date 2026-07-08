@@ -1,0 +1,9 @@
+zip -r proje.zip . \
+  -x "node_modules/*" \
+  -x ".git/*" \
+  -x "dist/*" \
+  -x "build/*" \
+  -x ".next/*" \
+  -x "coverage/*" \
+  -x "*.log" \
+  -x ".env"

@@ -77,7 +77,7 @@ const StoryViewer: React.FC<StoryViewerProps> = ({ category, onClose }) => {
       {/* Bars */}
       <div className="px-4 pt-12 flex gap-1.5 z-50">
         <div className="h-1 flex-1 bg-white/20 rounded-full overflow-hidden">
-          <div className="h-full bg-white transition-all duration-100 ease-linear" style={{ width: `${progress}%` }}></div>
+          <div className="h-full bg-white dark:bg-slate-900 transition-all duration-100 ease-linear" style={{ width: `${progress}%` }}></div>
         </div>
       </div>
 

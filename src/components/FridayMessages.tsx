@@ -94,34 +94,34 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-cyan-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Compact Header */}
-      <div className="px-5 pt-8 pb-3 flex items-center justify-between bg-white/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50 shadow-sm">
+      <div className="px-5 pt-8 pb-3 flex items-center justify-between bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50 shadow-sm">
         <div className="flex items-center gap-4">
           <button 
             onClick={onBack}
-            className="w-9 h-9 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 active:scale-90 transition-transform"
+            className="w-9 h-9 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
-            <h2 className="text-[15px] font-black text-slate-900 tracking-tight leading-none uppercase">Hayırlı Cumalar</h2>
+            <h2 className="text-[15px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Hayırlı Cumalar</h2>
             <p className="text-[7px] font-black text-cyan-600 uppercase tracking-[0.2em] mt-0.5">PAYLAŞILABİLİR KARTLAR</p>
           </div>
         </div>
         <button 
           onClick={() => setShowAiModal(true)}
-          className="w-9 h-9 bg-cyan-50 rounded-xl flex items-center justify-center text-base border border-cyan-100 text-cyan-600 animate-pulse"
+          className="w-9 h-9 bg-cyan-50 dark:bg-cyan-950/20 rounded-xl flex items-center justify-center text-base border border-cyan-100 text-cyan-600 animate-pulse"
         >
           ✨
         </button>
       </div>
 
       {/* Tighter Category Tabs */}
-      <div className="px-5 py-2 bg-white/80 sticky top-[66px] z-30 overflow-x-auto no-scrollbar flex gap-1.5 border-b border-slate-50">
+      <div className="px-5 py-2 bg-white/80 dark:bg-slate-950/80 sticky top-[66px] z-30 overflow-x-auto no-scrollbar flex gap-1.5 border-b border-slate-50 dark:border-slate-800">
         {CATEGORIES.map(cat => (
           <button 
             key={cat.id}
             onClick={() => setActiveCat(cat.id)}
-            className={`px-4 py-1.5 rounded-full text-[8.5px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${activeCat === cat.id ? 'bg-cyan-600 text-white border-cyan-500 shadow-md' : 'bg-white text-slate-400 border-slate-100'}`}
+            className={`px-4 py-1.5 rounded-full text-[8.5px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${activeCat === cat.id ? 'bg-cyan-600 text-white border-cyan-500 shadow-md' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}
           >
             {cat.label}
           </button>
@@ -145,7 +145,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           {filteredMessages.map((msg) => (
             <div 
               key={msg.id}
-              className="bg-white rounded-[2.2rem] overflow-hidden border border-slate-100 shadow-xl shadow-slate-900/5 group relative"
+              className="bg-white dark:bg-slate-900 rounded-[2.2rem] overflow-hidden border border-slate-100 dark:border-slate-800 shadow-xl shadow-slate-900/5 group relative"
             >
               <div className="aspect-[16/11] w-full relative overflow-hidden">
                 <img src={msg.imageUrl} alt="Cuma Mesajı" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
@@ -162,15 +162,15 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 )}
               </div>
               
-              <div className="px-4 py-3 flex items-center justify-between bg-white">
+              <div className="px-4 py-3 flex items-center justify-between bg-white dark:bg-slate-900">
                 <div className="flex items-center gap-2">
-                   <div className="w-7 h-7 rounded-full bg-slate-50 flex items-center justify-center text-[10px] text-slate-300">🖼️</div>
-                   <p className="text-[7px] font-black text-slate-300 uppercase tracking-widest">{msg.category}</p>
+                   <div className="w-7 h-7 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-[10px] text-slate-300 dark:text-slate-600">🖼️</div>
+                   <p className="text-[7px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest">{msg.category}</p>
                 </div>
                 <div className="flex gap-1.5">
                   <button 
                     onClick={() => { navigator.clipboard.writeText(msg.content); alert("Kopyalandı!"); }}
-                    className="w-8 h-8 bg-slate-50 text-slate-400 rounded-lg flex items-center justify-center active:scale-90 transition-all hover:bg-cyan-50 hover:text-cyan-600"
+                    className="w-8 h-8 bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 rounded-lg flex items-center justify-center active:scale-90 transition-all hover:bg-cyan-50 dark:bg-cyan-950/20 hover:text-cyan-600"
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
                   </button>
@@ -190,7 +190,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {filteredMessages.length === 0 && (
            <div className="py-12 text-center space-y-3 opacity-30">
               <div className="text-4xl">🕊️</div>
-              <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Bu kategoride mesaj bulunamadı</p>
+              <p className="text-[10px] font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Bu kategoride mesaj bulunamadı</p>
            </div>
         )}
       </div>
@@ -198,23 +198,23 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       {/* AI Generate Modal */}
       {showAiModal && (
         <div className="fixed inset-0 z-[500] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-6 animate-in fade-in duration-300">
-           <div className="bg-white w-full max-w-sm rounded-[2.5rem] p-8 space-y-6 animate-in zoom-in duration-300 shadow-2xl relative overflow-hidden">
+           <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[2.5rem] p-8 space-y-6 animate-in zoom-in duration-300 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1.5 bg-cyan-600"></div>
               <div className="text-center space-y-1">
-                 <div className="w-12 h-12 bg-cyan-50 rounded-xl flex items-center justify-center mx-auto text-2xl shadow-inner border border-cyan-100">✨</div>
-                 <h3 className="text-lg font-black text-slate-900 tracking-tight uppercase">AI Mesaj Üreticisi</h3>
+                 <div className="w-12 h-12 bg-cyan-50 dark:bg-cyan-950/20 rounded-xl flex items-center justify-center mx-auto text-2xl shadow-inner border border-cyan-100">✨</div>
+                 <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight uppercase">AI Mesaj Üreticisi</h3>
                  <p className="text-[8px] font-black text-cyan-600 uppercase tracking-widest">KİŞİYE ÖZEL CUMA MESAJI</p>
               </div>
 
               <div className="space-y-4">
                  <div className="space-y-1.5">
-                    <label className="text-[8px] font-black text-slate-400 uppercase tracking-widest ml-3">TEMA SEÇİN</label>
+                    <label className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest ml-3">TEMA SEÇİN</label>
                     <div className="grid grid-cols-2 gap-2">
                        {['bereket', 'şükür', 'sabır', 'kardeşlik'].map(t => (
                          <button 
                            key={t}
                            onClick={() => setAiTheme(t)}
-                           className={`py-2.5 rounded-xl text-[8px] font-black border transition-all ${aiTheme === t ? 'bg-cyan-600 border-cyan-500 text-white shadow-md' : 'bg-slate-50 border-slate-100 text-slate-400'}`}
+                           className={`py-2.5 rounded-xl text-[8px] font-black border transition-all ${aiTheme === t ? 'bg-cyan-600 border-cyan-500 text-white shadow-md' : 'bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500'}`}
                          >
                            {t.toUpperCase()}
                          </button>
@@ -224,7 +224,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
                  {aiLoading ? (
                     <div className="py-6 flex flex-col items-center gap-3">
-                       <div className="w-6 h-6 border-2 border-slate-100 border-t-cyan-600 rounded-full animate-spin"></div>
+                       <div className="w-6 h-6 border-2 border-slate-100 dark:border-slate-800 border-t-cyan-600 rounded-full animate-spin"></div>
                        <p className="text-[8px] font-black text-cyan-400 uppercase tracking-widest animate-pulse">MESAJ YAZILIYOR...</p>
                     </div>
                  ) : aiResult ? (
@@ -244,7 +244,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               <div className="flex gap-2">
                  <button 
                    onClick={() => { setShowAiModal(false); setAiResult(null); }}
-                   className="flex-1 py-3.5 bg-slate-100 text-slate-400 font-black rounded-xl text-[8px] uppercase active:scale-95"
+                   className="flex-1 py-3.5 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black rounded-xl text-[8px] uppercase active:scale-95"
                  >
                    {aiResult ? 'VAZGEÇ' : 'KAPAT'}
                  </button>
@@ -263,7 +263,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Brand Footer */}
       <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white/95 to-transparent pb-[calc(1.2rem+env(safe-area-inset-bottom))] text-center pointer-events-none z-40 opacity-30">
-        <p className="text-[7px] font-black text-slate-400 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ MESAJ MERKEZİ</p>
+        <p className="text-[7px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ MESAJ MERKEZİ</p>
       </div>
     </div>
   );

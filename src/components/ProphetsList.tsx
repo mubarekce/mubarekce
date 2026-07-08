@@ -82,16 +82,16 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-sky-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Header */}
-      <div className="px-6 pt-12 pb-4 flex items-center justify-between bg-white/70 backdrop-blur-xl sticky top-0 z-40 border-b border-sky-100/50">
+      <div className="px-6 pt-12 pb-4 flex items-center justify-between bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl sticky top-0 z-40 border-b border-sky-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={selectedProphet ? () => { setSelectedProphet(null); setAiResponse(''); setAiQuestion(''); } : onBack} 
-            className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shadow-sm border border-slate-100 active:scale-90 transition-transform text-sky-700"
+            className="w-10 h-10 bg-white dark:bg-slate-900 rounded-xl flex items-center justify-center shadow-sm border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform text-sky-700"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div className="space-y-0.5">
-            <h2 className="text-[17px] font-black text-slate-800 tracking-tight leading-none uppercase">
+            <h2 className="text-[17px] font-black text-slate-800 dark:text-slate-100 tracking-tight leading-none uppercase">
               {selectedProphet ? selectedProphet.name : "PEYGAMBERLER"}
             </h2>
             <p className="text-[8px] font-black text-sky-600 uppercase tracking-[0.25em] mt-1">
@@ -99,7 +99,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             </p>
           </div>
         </div>
-        <div className="w-10 h-10 bg-sky-50 rounded-xl flex items-center justify-center text-lg border border-sky-100">📖</div>
+        <div className="w-10 h-10 bg-sky-50 dark:bg-sky-950/20 rounded-xl flex items-center justify-center text-lg border border-sky-100">📖</div>
       </div>
 
       <div className="flex-1 overflow-y-auto px-5 pb-32 no-scrollbar pt-4">
@@ -131,7 +131,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Peygamber ara..."
-                className="w-full bg-white border border-slate-100 focus:bg-white focus:border-sky-200 rounded-[1.4rem] pl-12 pr-4 py-3.5 outline-none font-bold text-sm text-slate-700 shadow-sm transition-all"
+                className="w-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 focus:bg-white dark:bg-slate-900 focus:border-sky-200 rounded-[1.4rem] pl-12 pr-4 py-3.5 outline-none font-bold text-sm text-slate-700 dark:text-slate-300 dark:text-slate-600 shadow-sm transition-all"
               />
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-sky-400">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -142,7 +142,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <div className="space-y-4">
               <div className="flex items-center gap-3 ml-1">
                  <div className="w-1.5 h-1.5 bg-sky-400 rounded-full shadow-[0_0_8px_rgba(14,165,233,0.5)]"></div>
-                 <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">SİLSİLE-İ ENBİYA</h4>
+                 <h4 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">SİLSİLE-İ ENBİYA</h4>
               </div>
               
               <div className="grid grid-cols-1 gap-2.5">
@@ -150,16 +150,16 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   <div 
                     key={p.id}
                     onClick={() => setSelectedProphet(p)}
-                    className="p-4 bg-white rounded-3xl border border-slate-100 flex items-center justify-between hover:bg-sky-50/50 hover:border-sky-100 transition-all cursor-pointer group active:scale-[0.98] shadow-sm"
+                    className="p-4 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 flex items-center justify-between hover:bg-sky-50/50 hover:border-sky-100 transition-all cursor-pointer group active:scale-[0.98] shadow-sm"
                   >
                     <div className="flex items-center gap-4">
-                       <div className="w-11 h-11 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center text-lg font-serif font-black shadow-inner border border-sky-100/50 group-hover:scale-110 transition-transform">
+                       <div className="w-11 h-11 rounded-2xl bg-sky-50 dark:bg-sky-950/20 text-sky-600 flex items-center justify-center text-lg font-serif font-black shadow-inner border border-sky-100/50 group-hover:scale-110 transition-transform">
                           {p.name.replace("Hz. ", "")[0]}
                        </div>
                        <div>
-                          <h4 className="text-[15px] font-black text-slate-900 group-hover:text-sky-800 transition-colors tracking-tight leading-none mb-1">{p.name}</h4>
+                          <h4 className="text-[15px] font-black text-slate-900 dark:text-white group-hover:text-sky-800 transition-colors tracking-tight leading-none mb-1">{p.name}</h4>
                           <div className="flex items-center gap-1.5 opacity-60">
-                             <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">{p.title}</p>
+                             <p className="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">{p.title}</p>
                              <span className="w-0.5 h-0.5 bg-slate-300 rounded-full"></span>
                              <p className="text-[8px] font-black text-sky-500 uppercase tracking-widest">{p.era}</p>
                           </div>
@@ -184,10 +184,10 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                    <div className="absolute inset-0 bg-sky-400/20 rounded-[1.8rem] blur-2xl -z-10 animate-pulse"></div>
                 </div>
                 <div className="space-y-0.5">
-                   <h3 className="text-2xl font-black text-slate-900 tracking-tighter uppercase serif-text italic">{selectedProphet.name}</h3>
+                   <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tighter uppercase serif-text italic">{selectedProphet.name}</h3>
                    <p className="text-[10px] font-black text-sky-500 uppercase tracking-[0.4em]">{selectedProphet.title}</p>
                 </div>
-                <p className="arabic-text text-2xl text-slate-400 opacity-60">عليه السلام</p>
+                <p className="arabic-text text-2xl text-slate-400 dark:text-slate-500 opacity-60">عليه السلام</p>
              </div>
 
              {/* Tab Menu - Portable */}
@@ -196,7 +196,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   <button 
                     key={tab}
                     onClick={() => setActiveTab(tab as any)}
-                    className={`flex-1 py-2.5 text-[8px] font-black uppercase tracking-widest rounded-xl transition-all duration-300 ${activeTab === tab ? 'bg-sky-600 text-white shadow-md' : 'text-slate-400 hover:text-slate-600'}`}
+                    className={`flex-1 py-2.5 text-[8px] font-black uppercase tracking-widest rounded-xl transition-all duration-300 ${activeTab === tab ? 'bg-sky-600 text-white shadow-md' : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500'}`}
                   >
                     {tab === 'info' ? 'ÖZET' : tab === 'miracles' ? 'MUCİZE' : tab === 'lessons' ? 'HİKMET' : 'ASK AI'}
                   </button>
@@ -207,21 +207,21 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
              <div className="min-h-[300px]">
                 {activeTab === 'info' && (
                   <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2">
-                     <div className="bg-white p-7 rounded-[2.2rem] border border-slate-100 shadow-sm leading-relaxed">
+                     <div className="bg-white dark:bg-slate-900 p-7 rounded-[2.2rem] border border-slate-100 dark:border-slate-800 shadow-sm leading-relaxed">
                         <div className="flex items-center gap-2 mb-4">
                            <div className="w-1 h-1 bg-sky-400 rounded-full"></div>
-                           <h5 className="text-[9px] font-black text-slate-400 uppercase tracking-widest">KISSASI</h5>
+                           <h5 className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">KISSASI</h5>
                         </div>
-                        <p className="text-[14px] font-medium text-slate-700 leading-[1.8] italic">"{selectedProphet.summary}"</p>
+                        <p className="text-[14px] font-medium text-slate-700 dark:text-slate-300 dark:text-slate-600 leading-[1.8] italic">"{selectedProphet.summary}"</p>
                      </div>
                      <div className="grid grid-cols-2 gap-3">
                         <div className="bg-sky-50/50 p-5 rounded-3xl border border-sky-100 text-center">
                            <p className="text-[8px] font-black text-sky-500 uppercase tracking-widest mb-1">DÖNEMİ</p>
-                           <p className="text-xs font-black text-slate-800">{selectedProphet.era}</p>
+                           <p className="text-xs font-black text-slate-800 dark:text-slate-100">{selectedProphet.era}</p>
                         </div>
                         <div className="bg-sky-50/50 p-5 rounded-3xl border border-sky-100 text-center">
                            <p className="text-[8px] font-black text-sky-500 uppercase tracking-widest mb-1">VASFI</p>
-                           <p className="text-xs font-black text-slate-800">{selectedProphet.category}</p>
+                           <p className="text-xs font-black text-slate-800 dark:text-slate-100">{selectedProphet.category}</p>
                         </div>
                      </div>
                   </div>
@@ -230,9 +230,9 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 {activeTab === 'miracles' && (
                   <div className="space-y-3 animate-in fade-in slide-in-from-bottom-2">
                      {selectedProphet.miracles.map((m, i) => (
-                       <div key={i} className="bg-white p-5 rounded-3xl border border-slate-100 flex items-center gap-4 transition-all shadow-sm">
-                          <div className="w-10 h-10 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center text-lg shadow-inner">✨</div>
-                          <p className="text-[14px] font-black text-slate-700 tracking-tight">{m}</p>
+                       <div key={i} className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-100 dark:border-slate-800 flex items-center gap-4 transition-all shadow-sm">
+                          <div className="w-10 h-10 bg-sky-50 dark:bg-sky-950/20 text-sky-500 rounded-2xl flex items-center justify-center text-lg shadow-inner">✨</div>
+                          <p className="text-[14px] font-black text-slate-700 dark:text-slate-300 dark:text-slate-600 tracking-tight">{m}</p>
                        </div>
                      ))}
                   </div>
@@ -242,7 +242,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   <div className="space-y-3 animate-in fade-in slide-in-from-bottom-2">
                      {selectedProphet.lessons.map((l, i) => (
                        <div key={i} className="bg-teal-50/30 p-5 rounded-3xl border border-teal-100 flex items-start gap-4">
-                          <div className="w-7 h-7 rounded-lg bg-white flex items-center justify-center text-[10px] font-black text-teal-600 shadow-sm shrink-0 border border-teal-100">{i+1}</div>
+                          <div className="w-7 h-7 rounded-lg bg-white dark:bg-slate-900 flex items-center justify-center text-[10px] font-black text-teal-600 shadow-sm shrink-0 border border-teal-100">{i+1}</div>
                           <p className="text-[13.5px] font-bold text-teal-950 leading-relaxed">{l}</p>
                        </div>
                      ))}
@@ -256,7 +256,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                           value={aiQuestion}
                           onChange={(e) => setAiQuestion(e.target.value)}
                           placeholder="Merak ettiğiniz bir detayı sorun..."
-                          className="w-full min-h-[120px] bg-slate-50 border border-slate-100 focus:bg-white focus:border-sky-200 rounded-[1.8rem] p-6 outline-none font-bold text-sm text-slate-800 shadow-inner resize-none"
+                          className="w-full min-h-[120px] bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 focus:bg-white dark:bg-slate-900 focus:border-sky-200 rounded-[1.8rem] p-6 outline-none font-bold text-sm text-slate-800 dark:text-slate-100 shadow-inner resize-none"
                         />
                         <button 
                           onClick={askAi}
@@ -268,12 +268,12 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                      </div>
 
                      {aiResponse && (
-                       <div className="bg-white p-7 rounded-[2.2rem] border border-slate-100 shadow-xl animate-in slide-in-from-top-2">
+                       <div className="bg-white dark:bg-slate-900 p-7 rounded-[2.2rem] border border-slate-100 dark:border-slate-800 shadow-xl animate-in slide-in-from-top-2">
                           <div className="flex items-center gap-2 mb-4">
                              <div className="w-1 h-1 bg-sky-400 rounded-full animate-pulse"></div>
-                             <h4 className="text-[9px] font-black text-slate-400 uppercase tracking-widest">REHBER YORUMU</h4>
+                             <h4 className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">REHBER YORUMU</h4>
                           </div>
-                          <p className="text-[14px] font-medium text-slate-700 leading-[1.8] whitespace-pre-wrap">{aiResponse}</p>
+                          <p className="text-[14px] font-medium text-slate-700 dark:text-slate-300 dark:text-slate-600 leading-[1.8] whitespace-pre-wrap">{aiResponse}</p>
                        </div>
                      )}
                   </div>
@@ -285,7 +285,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Brand Decor */}
       <div className="fixed bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-white via-white/90 to-transparent pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-center pointer-events-none z-10 opacity-30">
-        <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ ENBİYA REHBERİ</p>
+        <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ ENBİYA REHBERİ</p>
       </div>
     </div>
   );

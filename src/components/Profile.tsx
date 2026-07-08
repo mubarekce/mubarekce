@@ -283,12 +283,12 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
         className={`aspect-[1.58/1] w-full rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl transition-all duration-300 border group cursor-pointer active:scale-[0.98] ${
           isPremium 
             ? 'bg-gradient-to-br from-teal-500 via-teal-600 to-cyan-700 text-white border-white/10 shadow-teal-900/30' 
-            : 'bg-gradient-to-br from-teal-50 via-cyan-50 to-white text-teal-950 border-teal-100 shadow-teal-900/5'
+            : 'bg-gradient-to-br from-teal-50 via-cyan-50 to-white dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 text-teal-950 dark:text-white border-teal-100 dark:border-slate-700 shadow-teal-900/5'
         }`}
       >
         {/* Cami Silüeti */}
-        <div className={`absolute right-[-10px] bottom-0 pointer-events-none transition-transform duration-700 group-active:scale-105 group-active:translate-y-[-2px] ${isPremium ? 'opacity-[0.12]' : 'opacity-[0.06]'}`}>
-          <svg width="220" height="140" viewBox="0 0 100 100" fill={isPremium ? 'white' : '#0d9488'}>
+        <div className={`absolute right-[-10px] bottom-0 pointer-events-none transition-transform duration-700 group-active:scale-105 group-active:translate-y-[-2px] ${isPremium ? 'opacity-[0.12] text-white' : 'opacity-[0.06] text-teal-600 dark:text-teal-400'}`}>
+          <svg width="220" height="140" viewBox="0 0 100 100" fill="currentColor">
             <path d="M30 65 Q50 35 70 65 L70 95 L30 95 Z" />
             <path d="M48 35 L52 35 L50 30 Z" />
             <rect x="22" y="45" width="4" height="50" rx="1" />
@@ -299,28 +299,28 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
           </svg>
         </div>
         <div className="absolute inset-0 opacity-[0.07] pointer-events-none mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L35 25L60 30L35 35L30 60L25 35L0 30L25 25Z' fill='%23${isPremium ? 'ffffff' : '0d9488'}'/%3E%3C/svg%3E")`, backgroundSize: '40px 40px' }} />
-        <div className={`absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-tr from-transparent to-transparent rotate-45 pointer-events-none transition-transform duration-1000 group-hover:translate-x-20 ${isPremium ? 'via-white/10' : 'via-teal-200/30'}`}></div>
+        <div className={`absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-tr from-transparent to-transparent rotate-45 pointer-events-none transition-transform duration-1000 group-hover:translate-x-20 ${isPremium ? 'via-white/10' : 'via-teal-200/30 dark:via-teal-400/10'}`}></div>
         <div className={`absolute left-0 top-0 bottom-0 w-1.5 transition-colors duration-700 ${isPremium ? 'bg-amber-400 opacity-30' : 'bg-teal-400 opacity-40'}`}></div>
         
         <div className="relative z-10 h-full flex flex-col justify-between">
           <div className="flex justify-between items-start">
-            <div className={`w-14 h-14 backdrop-blur-md rounded-2xl flex items-center justify-center border shadow-xl transition-all duration-700 ${isPremium ? 'bg-white/10 border-white/20 ring-2 ring-amber-400/40' : 'bg-white border-teal-100 ring-2 ring-teal-100'}`}>
-               <span className={`text-2xl font-black ${isPremium ? 'text-amber-400' : 'text-teal-600'}`}>{user.avatar || user.name[0]?.toUpperCase()}</span>
+            <div className={`w-14 h-14 backdrop-blur-md rounded-2xl flex items-center justify-center border shadow-xl transition-all duration-700 ${isPremium ? 'bg-white/10 border-white/20 ring-2 ring-amber-400/40' : 'bg-white dark:bg-slate-900 border-teal-100 dark:border-slate-700 ring-2 ring-teal-100 dark:ring-slate-700'}`}>
+               <span className={`text-2xl font-black ${isPremium ? 'text-amber-400' : 'text-teal-600 dark:text-teal-400'}`}>{user.avatar || user.name[0]?.toUpperCase()}</span>
             </div>
             {isPremium ? (
               <div className="bg-amber-400 text-teal-950 text-[9px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-widest shadow-lg shadow-black/20 flex items-center gap-1.5 border border-white/20">
                 <span className="w-1.5 h-1.5 bg-teal-900 rounded-full animate-pulse"></span>PREMİUM ÜYE
               </div>
             ) : (
-              <div className="bg-teal-600/10 backdrop-blur-md text-teal-700 text-[9px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-1.5 border border-teal-200">STANDART</div>
+              <div className="bg-teal-600/10 dark:bg-teal-400/10 backdrop-blur-md text-teal-700 dark:text-teal-300 text-[9px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-widest flex items-center gap-1.5 border border-teal-200 dark:border-teal-800">STANDART</div>
             )}
           </div>
           
           <div className="space-y-0.5">
             <h3 className="text-xl font-black tracking-tight uppercase leading-none truncate">{user.name}</h3>
-            <p className={`text-[10px] font-medium tracking-widest truncate ${isPremium ? 'text-teal-100/80' : 'text-teal-700/60'}`}>{user.email}</p>
+            <p className={`text-[10px] font-medium tracking-widest truncate ${isPremium ? 'text-teal-100/80' : 'text-teal-700/60 dark:text-teal-300/60'}`}>{user.email}</p>
             {user.bio && (
-              <p className={`text-[11px] font-medium italic truncate pt-0.5 ${isPremium ? 'text-white/70' : 'text-teal-900/50'}`}>{user.bio}</p>
+              <p className={`text-[11px] font-medium italic truncate pt-0.5 ${isPremium ? 'text-white/70' : 'text-teal-900/50 dark:text-teal-200/50'}`}>{user.bio}</p>
             )}
             {isPremium && (
               <div className="pt-2 flex items-center gap-2 animate-in fade-in slide-in-from-left duration-700">
@@ -330,7 +330,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
             )}
           </div>
 
-          <button onClick={() => setIsEditModalOpen(true)} className={`absolute bottom-0 right-0 w-11 h-11 backdrop-blur-lg border rounded-2xl flex items-center justify-center transition-all active:scale-90 group/edit shadow-lg ${isPremium ? 'bg-white/10 border-white/20 text-white/80 hover:text-white hover:bg-white/20' : 'bg-white border-teal-100 text-teal-600 hover:bg-teal-50'}`}>
+          <button onClick={() => setIsEditModalOpen(true)} className={`absolute bottom-0 right-0 w-11 h-11 backdrop-blur-lg border rounded-2xl flex items-center justify-center transition-all active:scale-90 group/edit shadow-lg ${isPremium ? 'bg-white/10 border-white/20 text-white/80 hover:text-white hover:bg-white/20' : 'bg-white dark:bg-slate-900 border-teal-100 dark:border-slate-700 text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-slate-800'}`}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/edit:rotate-12 transition-transform"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
           </button>
           

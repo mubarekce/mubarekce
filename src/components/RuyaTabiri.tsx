@@ -42,12 +42,12 @@ const RuyaTabiri: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in slide-in-from-right duration-300 overflow-hidden relative">
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center gap-5 bg-white/80 backdrop-blur-md sticky top-0 z-30 border-b border-fuchsia-50/50">
-        <button onClick={onBack} className="w-11 h-11 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 active:scale-90 transition-transform">
+      <div className="px-6 pt-12 pb-6 flex items-center gap-5 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-30 border-b border-fuchsia-50/50">
+        <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
         </button>
         <div>
-          <h2 className="text-[20px] font-black text-slate-900 tracking-tight leading-none uppercase">Rüya Tabiri</h2>
+          <h2 className="text-[20px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Rüya Tabiri</h2>
           <p className="text-[10px] font-black text-fuchsia-500 uppercase tracking-[0.2em] mt-1">Sahih Kaynaklı AI Yorumu</p>
         </div>
       </div>
@@ -56,15 +56,15 @@ const RuyaTabiri: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {/* Intro Illustration */}
         {!interpretation && !loading && (
           <div className="text-center space-y-6 animate-in fade-in zoom-in duration-700">
-             <div className="w-24 h-24 bg-fuchsia-50 rounded-[2.5rem] flex items-center justify-center mx-auto shadow-inner border border-fuchsia-100 group">
+             <div className="w-24 h-24 bg-fuchsia-50 dark:bg-fuchsia-950/20 rounded-[2.5rem] flex items-center justify-center mx-auto shadow-inner border border-fuchsia-100 group">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#d946ef" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:rotate-12 transition-transform">
                   <path d="M12 2l.642 2.006 2.108.022-1.693 1.25.66 2.097-1.717-1.218-1.717 1.218.66-2.097-1.693-1.25 2.108-.022L12 2z"/>
                   <path d="M21 15a3 3 0 0 0-3-3h-1v-2a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8.5z"/>
                 </svg>
              </div>
              <div className="space-y-2">
-                <h3 className="text-lg font-black text-slate-900">Rüyanızın Sırrını Çözün</h3>
-                <p className="text-xs text-slate-400 font-medium leading-relaxed px-10">
+                <h3 className="text-lg font-black text-slate-900 dark:text-white">Rüyanızın Sırrını Çözün</h3>
+                <p className="text-xs text-slate-400 dark:text-slate-500 font-medium leading-relaxed px-10">
                   Gördüğünüz rüyayı detaylarıyla anlatın, yapay zekamız İslami literatüre uygun şekilde yorumlasın.
                 </p>
              </div>
@@ -78,7 +78,7 @@ const RuyaTabiri: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 value={dreamText}
                 onChange={(e) => setDreamText(e.target.value)}
                 placeholder="Rüyanızı buraya yazın..."
-                className="w-full min-h-[200px] bg-slate-50 border-2 border-transparent focus:border-fuchsia-100 focus:bg-white rounded-[2.5rem] p-8 outline-none font-bold text-sm text-slate-700 transition-all placeholder:text-slate-300 shadow-inner resize-none"
+                className="w-full min-h-[200px] bg-slate-50 dark:bg-slate-900 border-2 border-transparent focus:border-fuchsia-100 focus:bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 outline-none font-bold text-sm text-slate-700 dark:text-slate-300 dark:text-slate-600 transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600 shadow-inner resize-none"
                 disabled={loading}
               ></textarea>
               <div className="absolute bottom-6 right-8 flex items-center gap-2">
@@ -126,22 +126,22 @@ const RuyaTabiri: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="animate-in slide-in-from-bottom-8 duration-700 space-y-8 pb-10">
              <div className="flex items-center gap-3 ml-2">
                 <div className="w-2 h-2 bg-fuchsia-500 rounded-full shadow-[0_0_12px_rgba(217,70,239,0.7)] animate-pulse"></div>
-                <h5 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.45em]">RÜYA TABİRİ</h5>
+                <h5 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.45em]">RÜYA TABİRİ</h5>
              </div>
 
-             <div className="bg-white rounded-[3rem] p-10 border border-slate-50 shadow-xl shadow-fuchsia-900/5 relative overflow-hidden group">
+             <div className="bg-white dark:bg-slate-900 rounded-[3rem] p-10 border border-slate-50 dark:border-slate-800 shadow-xl shadow-fuchsia-900/5 relative overflow-hidden group">
                 <div className="absolute right-[-5%] top-[-5%] p-8 opacity-[0.03] group-hover:scale-110 transition-transform text-[10rem] pointer-events-none rotate-6 text-fuchsia-900">✨</div>
                 
                 <div className="relative z-10 space-y-6">
-                   <p className="text-[16px] font-medium text-slate-700 leading-relaxed whitespace-pre-wrap">
+                   <p className="text-[16px] font-medium text-slate-700 dark:text-slate-300 dark:text-slate-600 leading-relaxed whitespace-pre-wrap">
                       {interpretation}
                    </p>
                 </div>
              </div>
 
              <div className="bg-teal-50/50 p-8 rounded-[2.5rem] border border-dashed border-teal-200 flex items-start gap-5">
-                <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-xl shadow-sm shrink-0">🛡️</div>
-                <p className="text-[11px] font-bold text-slate-500 leading-relaxed italic">
+                <div className="w-12 h-12 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center text-xl shadow-sm shrink-0">🛡️</div>
+                <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed italic">
                   "Rüya anlatırken yalan söylemekten sakınınız. Görülen rüyalar müjdecidir veya birer uyarıdır. Hayra yormak esastır."
                 </p>
              </div>
@@ -158,7 +158,7 @@ const RuyaTabiri: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Brand Footer */}
       <div className="fixed bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-white via-white/80 to-transparent pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-center pointer-events-none z-10 opacity-20">
-        <p className="text-[8px] font-black text-slate-300 uppercase tracking-[0.65em]">RÜYA-YI SADIKA V3.2</p>
+        <p className="text-[8px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-[0.65em]">RÜYA-YI SADIKA V3.2</p>
       </div>
     </div>
   );

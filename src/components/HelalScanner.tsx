@@ -115,22 +115,22 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-white animate-in fade-in duration-500 overflow-hidden relative">
+    <div className="flex-1 flex flex-col h-full bg-white dark:bg-slate-900 animate-in fade-in duration-500 overflow-hidden relative">
       {/* Premium Header */}
-      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
+      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={result ? () => setResult(null) : onBack}
-            className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 active:scale-90 transition-transform"
+            className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
-            <h2 className="text-[17px] font-black text-slate-900 tracking-tight leading-none uppercase">Helal Tarayıcı</h2>
+            <h2 className="text-[17px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Helal Tarayıcı</h2>
             <p className="text-[8px] font-black text-sky-500 uppercase tracking-[0.25em] mt-1">BARKOD & İÇERİK ANALİZİ</p>
           </div>
         </div>
-        <div className="w-10 h-10 bg-sky-50 rounded-xl flex items-center justify-center text-lg border border-sky-100 text-sky-500">🔍</div>
+        <div className="w-10 h-10 bg-sky-50 dark:bg-sky-950/20 rounded-xl flex items-center justify-center text-lg border border-sky-100 text-sky-500">🔍</div>
       </div>
 
       <div className="flex-1 overflow-y-auto px-5 pb-32 no-scrollbar pt-6">
@@ -148,8 +148,8 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             </div>
 
             <div className="text-center space-y-3">
-               <h3 className="text-2xl font-black text-slate-900 tracking-tight">Güvenle Tüketin</h3>
-               <p className="text-[13px] font-medium text-slate-400 leading-relaxed px-10">
+               <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Güvenle Tüketin</h3>
+               <p className="text-[13px] font-medium text-slate-400 dark:text-slate-500 leading-relaxed px-10">
                  Gıdaların içerik listesini fotoğraflayın, yapay zeka saniyeler içinde helallik durumunu analiz etsin.
                </p>
             </div>
@@ -161,9 +161,9 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               TARAMAYI BAŞLAT
             </button>
             
-            <div className="bg-slate-50 border border-slate-100 rounded-3xl p-6 flex items-center gap-4 max-w-[320px]">
-               <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-xl shadow-sm">💎</div>
-               <p className="text-[10px] font-bold text-slate-500 leading-tight uppercase tracking-wider">
+            <div className="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 flex items-center gap-4 max-w-[320px]">
+               <div className="w-10 h-10 bg-white dark:bg-slate-900 rounded-xl flex items-center justify-center text-xl shadow-sm">💎</div>
+               <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-tight uppercase tracking-wider">
                  Bu özellik Pro+ üyeleri için sınırsızdır.
                </p>
             </div>
@@ -187,7 +187,7 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   <button onClick={stopCamera} className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white text-sm">✕</button>
                   <button 
                     onClick={captureImage}
-                    className="w-20 h-20 bg-white rounded-full flex items-center justify-center p-1"
+                    className="w-20 h-20 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center p-1"
                   >
                     <div className="w-full h-full border-4 border-black rounded-full bg-sky-500"></div>
                   </button>
@@ -205,7 +205,7 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <div className="absolute inset-0 flex items-center justify-center text-2xl animate-pulse">🧪</div>
              </div>
              <div className="text-center">
-                <p className="text-lg font-black text-slate-900 tracking-tight">İçerik Analiz Ediliyor</p>
+                <p className="text-lg font-black text-slate-900 dark:text-white tracking-tight">İçerik Analiz Ediliyor</p>
                 <p className="text-[10px] font-black text-sky-500 uppercase tracking-widest mt-1">FIKHİ KAYNAKLAR TARANIYOR</p>
              </div>
           </div>
@@ -215,9 +215,9 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="animate-in slide-in-from-bottom-8 duration-700 space-y-6 pb-20">
              {/* Result Card */}
              <div className={`p-8 rounded-[2.8rem] text-center relative overflow-hidden border shadow-xl ${
-               result.status === 'HELAL' ? 'bg-teal-50 border-teal-100 text-teal-950 shadow-teal-900/5' :
-               result.status === 'HARAM' ? 'bg-rose-50 border-rose-100 text-rose-950 shadow-rose-900/5' :
-               'bg-amber-50 border-amber-100 text-amber-950 shadow-amber-900/5'
+               result.status === 'HELAL' ? 'bg-teal-50 dark:bg-teal-950/20 border-teal-100 text-teal-950 shadow-teal-900/5' :
+               result.status === 'HARAM' ? 'bg-rose-50 dark:bg-rose-950/20 border-rose-100 text-rose-950 shadow-rose-900/5' :
+               'bg-amber-50 dark:bg-amber-950/20 border-amber-100 text-amber-950 shadow-amber-900/5'
              }`}>
                 <div className="relative z-10 space-y-6">
                    <div className={`inline-block px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.3em] shadow-sm ${
@@ -282,7 +282,7 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Brand Footer */}
       <div className="fixed bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-white via-white/90 to-transparent pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-center pointer-events-none z-10 opacity-30">
-        <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ HELAL REHBERİ</p>
+        <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ HELAL REHBERİ</p>
       </div>
 
       <style dangerouslySetInnerHTML={{ __html: `

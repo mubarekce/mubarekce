@@ -118,7 +118,7 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-white flex flex-col justify-center items-center p-8 relative overflow-hidden">
+    <div className="min-h-screen w-full bg-white dark:bg-slate-900 flex flex-col justify-center items-center p-8 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
         <div className="absolute top-[-20%] right-[-20%] w-[80%] aspect-square bg-sky-200 rounded-full blur-[150px]"></div>
@@ -127,8 +127,8 @@ const Auth: React.FC = () => {
 
       <div className="w-full max-w-[420px] z-10">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-black text-slate-900 tracking-tighter mb-1 uppercase">Mübarekçe</h1>
-          <p className="text-slate-400 text-[10px] font-bold uppercase tracking-[0.3em]">PRO+ İSLAMİ YAŞAM REHBERİ</p>
+          <h1 className="text-3xl font-black text-slate-900 dark:text-white tracking-tighter mb-1 uppercase">Mübarekçe</h1>
+          <p className="text-slate-400 dark:text-slate-500 text-[10px] font-bold uppercase tracking-[0.3em]">PRO+ İSLAMİ YAŞAM REHBERİ</p>
         </div>
 
         {/* Form Card */}
@@ -152,26 +152,26 @@ const Auth: React.FC = () => {
               <button
                 type="button"
                 onClick={() => { setIsLogin(true); setError(null); setInfoMsg(null); }}
-                className={`flex-1 py-2.5 text-[10px] font-black rounded-xl transition-all uppercase tracking-widest ${isLogin ? 'bg-white text-sky-900 shadow-sm scale-100' : 'text-sky-400 scale-95'}`}
+                className={`flex-1 py-2.5 text-[10px] font-black rounded-xl transition-all uppercase tracking-widest ${isLogin ? 'bg-white dark:bg-slate-900 text-sky-900 shadow-sm scale-100' : 'text-sky-400 scale-95'}`}
               >
                 Giriş
               </button>
               <button
                 type="button"
                 onClick={() => { setIsLogin(false); setError(null); setInfoMsg(null); }}
-                className={`flex-1 py-2.5 text-[10px] font-black rounded-xl transition-all uppercase tracking-widest ${!isLogin ? 'bg-white text-sky-900 shadow-sm scale-100' : 'text-sky-400 scale-95'}`}
+                className={`flex-1 py-2.5 text-[10px] font-black rounded-xl transition-all uppercase tracking-widest ${!isLogin ? 'bg-white dark:bg-slate-900 text-sky-900 shadow-sm scale-100' : 'text-sky-400 scale-95'}`}
               >
                 Kayıt
               </button>
             </div>
 
             {error && (
-              <div className="mb-4 px-4 py-2.5 rounded-xl bg-red-50 border border-red-100 text-red-600 text-[11px] font-bold text-center">
+              <div className="mb-4 px-4 py-2.5 rounded-xl bg-red-50 dark:bg-red-950/20 border border-red-100 text-red-600 text-[11px] font-bold text-center">
                 {error}
               </div>
             )}
             {infoMsg && (
-              <div className="mb-4 px-4 py-2.5 rounded-xl bg-teal-50 border border-teal-100 text-teal-700 text-[11px] font-bold text-center">
+              <div className="mb-4 px-4 py-2.5 rounded-xl bg-teal-50 dark:bg-teal-950/20 border border-teal-100 text-teal-700 text-[11px] font-bold text-center">
                 {infoMsg}
               </div>
             )}
@@ -186,7 +186,7 @@ const Auth: React.FC = () => {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Muhammed Ali"
-                    className="w-full bg-white border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-sky-500 transition-all outline-none font-bold text-slate-900 shadow-sm"
+                    className="w-full bg-white dark:bg-slate-900 border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-sky-500 transition-all outline-none font-bold text-slate-900 dark:text-white shadow-sm"
                   />
                 </div>
               )}
@@ -198,7 +198,7 @@ const Auth: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="ali@vakitler.com"
-                  className="w-full bg-white border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-sky-500 transition-all outline-none font-bold text-slate-900 shadow-sm"
+                  className="w-full bg-white dark:bg-slate-900 border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-sky-500 transition-all outline-none font-bold text-slate-900 dark:text-white shadow-sm"
                 />
               </div>
               <div className="space-y-1.5">
@@ -217,7 +217,7 @@ const Auth: React.FC = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full bg-white border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-sky-500 transition-all outline-none font-bold text-slate-900 shadow-sm"
+                  className="w-full bg-white dark:bg-slate-900 border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-sky-500 transition-all outline-none font-bold text-slate-900 dark:text-white shadow-sm"
                 />
               </div>
 
@@ -237,17 +237,17 @@ const Auth: React.FC = () => {
                   type="button"
                   onClick={handleGoogleLogin}
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-3 py-2.5 px-5 rounded-xl bg-white border border-sky-100 hover:bg-sky-50 hover:shadow-sm transition-all group disabled:opacity-60"
+                  className="w-full flex items-center justify-center gap-3 py-2.5 px-5 rounded-xl bg-white dark:bg-slate-900 border border-sky-100 hover:bg-sky-50 dark:bg-sky-950/20 hover:shadow-sm transition-all group disabled:opacity-60"
                 >
                   <img src="https://www.svgrepo.com/show/355037/google.svg" className="w-4 h-4" alt="Google" />
-                  <span className="text-[10px] font-black text-slate-600 group-hover:text-teal-900 uppercase tracking-widest">Google ile devam et</span>
+                  <span className="text-[10px] font-black text-slate-600 dark:text-slate-400 dark:text-slate-500 group-hover:text-teal-900 uppercase tracking-widest">Google ile devam et</span>
                 </button>
               </div>
             </div>
           </div>
         </div>
 
-        <p className="text-center text-slate-300 text-[8px] mt-8 uppercase tracking-[0.3em] font-black">
+        <p className="text-center text-slate-300 dark:text-slate-600 text-[8px] mt-8 uppercase tracking-[0.3em] font-black">
           © 2025 Mübarekçe Pro+
         </p>
       </div>

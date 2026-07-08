@@ -141,12 +141,12 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in slide-in-from-right duration-300 overflow-hidden relative">
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center gap-5 bg-white/80 backdrop-blur-md sticky top-0 z-30 border-b border-slate-50/50">
-        <button onClick={onBack} className="w-11 h-11 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 active:scale-90 transition-transform">
+      <div className="px-6 pt-12 pb-6 flex items-center gap-5 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-30 border-b border-slate-50/50">
+        <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
         </button>
         <div>
-          <h2 className="text-[20px] font-black text-slate-900 tracking-tight leading-none">Esmaül Hüsna</h2>
+          <h2 className="text-[20px] font-black text-slate-900 dark:text-white tracking-tight leading-none">Esmaül Hüsna</h2>
           <p className="text-[10px] font-black text-purple-500 uppercase tracking-[0.2em] mt-1">ALLAH'IN 99 İSMİ</p>
         </div>
       </div>
@@ -158,7 +158,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <input 
             type="text" 
             placeholder="İsim veya anlam ara..."
-            className="w-full bg-[#f1f5f9] border-none rounded-[1.6rem] pl-14 pr-6 py-5 outline-none font-bold text-[14px] text-slate-700 placeholder:text-slate-300 transition-all focus:bg-white focus:ring-4 focus:ring-purple-50 shadow-inner"
+            className="w-full bg-[#f1f5f9] border-none rounded-[1.6rem] pl-14 pr-6 py-5 outline-none font-bold text-[14px] text-slate-700 dark:text-slate-300 dark:text-slate-600 placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600 transition-all focus:bg-white dark:bg-slate-900 focus:ring-4 focus:ring-purple-50 shadow-inner"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -170,30 +170,30 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {filtered.map((esma) => (
           <div 
             key={esma.id} 
-            className="bg-[#f1f5f9]/50 rounded-[2.8rem] p-8 border border-slate-50 shadow-sm hover:border-purple-100 hover:bg-white transition-all group relative overflow-hidden active:scale-[0.99]"
+            className="bg-[#f1f5f9]/50 rounded-[2.8rem] p-8 border border-slate-50 dark:border-slate-800 shadow-sm hover:border-purple-100 hover:bg-white dark:bg-slate-900 transition-all group relative overflow-hidden active:scale-[0.99]"
             onClick={() => startDhikr(esma.id)}
           >
             {/* Pill Number - Top Left as in screenshot */}
             <div className="absolute top-7 left-7">
-               <div className="px-4 py-1.5 bg-purple-50 text-purple-500 rounded-full font-black text-[11px] shadow-sm border border-purple-100/50">
+               <div className="px-4 py-1.5 bg-purple-50 dark:bg-purple-950/20 text-purple-500 rounded-full font-black text-[11px] shadow-sm border border-purple-100/50">
                  {esma.id}
                </div>
             </div>
 
             {/* Arabic - Top Right as in screenshot - Slightly smaller to avoid overlap */}
             <div className="absolute top-6 right-8 opacity-90 group-hover:scale-110 transition-transform duration-700">
-               <p className="arabic-text text-[2.2rem] text-slate-800 drop-shadow-sm">{esma.arabic}</p>
+               <p className="arabic-text text-[2.2rem] text-slate-800 dark:text-slate-100 drop-shadow-sm">{esma.arabic}</p>
             </div>
 
             {/* Content - Middle */}
             <div className="mt-12 space-y-2">
-              <h4 className="text-[22px] font-black text-slate-900 tracking-tight">{esma.name}</h4>
-              <p className="text-[14px] text-slate-500 font-medium leading-relaxed max-w-[85%]">{esma.meaning}</p>
+              <h4 className="text-[22px] font-black text-slate-900 dark:text-white tracking-tight">{esma.name}</h4>
+              <p className="text-[14px] text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium leading-relaxed max-w-[85%]">{esma.meaning}</p>
             </div>
 
             {/* Merit Badge - Bottom as in screenshot */}
             <div className="mt-8">
-               <div className="inline-flex items-center gap-3 bg-white/80 border border-purple-50 px-6 py-3 rounded-[1.4rem] shadow-sm group-hover:bg-purple-50/50 group-hover:border-purple-200 transition-colors">
+               <div className="inline-flex items-center gap-3 bg-white/80 dark:bg-slate-950/80 border border-purple-50 px-6 py-3 rounded-[1.4rem] shadow-sm group-hover:bg-purple-50/50 group-hover:border-purple-200 transition-colors">
                   <span className="text-sm">✨</span>
                   <p className="text-[10px] font-black text-purple-700 uppercase tracking-[0.15em]">{esma.merit}</p>
                </div>
@@ -211,7 +211,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {filtered.length === 0 && (
            <div className="py-20 text-center space-y-4 opacity-30">
               <div className="text-6xl">🔎</div>
-              <p className="text-sm font-black uppercase tracking-widest text-slate-400">Sonuç Bulunamadı</p>
+              <p className="text-sm font-black uppercase tracking-widest text-slate-400 dark:text-slate-500">Sonuç Bulunamadı</p>
            </div>
         )}
         
@@ -224,17 +224,17 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
            <div className="w-full px-6 pt-12 pb-6 flex items-center justify-between">
               <button 
                 onClick={() => setActiveDhikrId(null)}
-                className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 active:scale-90 transition-transform"
+                className="w-12 h-12 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
               >
                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="15 18 9 12 15 6"/></svg>
               </button>
               <div className="text-center">
                  <p className="text-[9px] font-black text-purple-500 uppercase tracking-[0.4em] mb-1">ESMA ZİKRİ</p>
-                 <h3 className="text-lg font-black text-slate-900 tracking-tight">{activeEsma.name}</h3>
+                 <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight">{activeEsma.name}</h3>
               </div>
               <button 
                 onClick={() => setCounter(0)}
-                className="w-12 h-12 bg-slate-50 rounded-2xl flex items-center justify-center border border-slate-100 active:scale-90 transition-transform"
+                className="w-12 h-12 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
               >
                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="rotate-45"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
               </button>
@@ -243,15 +243,15 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
            <div className="flex-1 w-full flex flex-col items-center justify-center px-10 space-y-12">
               <div className="text-center space-y-6">
                  {/* Arabic Text in Dhikr Mode - Reduced size to prevent merging with title */}
-                 <p className="arabic-text text-[4.5rem] text-slate-900 leading-none drop-shadow-xl animate-pulse">{activeEsma.arabic}</p>
-                 <p className="text-sm font-bold text-slate-400 max-w-[280px] mx-auto italic leading-relaxed">
+                 <p className="arabic-text text-[4.5rem] text-slate-900 dark:text-white leading-none drop-shadow-xl animate-pulse">{activeEsma.arabic}</p>
+                 <p className="text-sm font-bold text-slate-400 dark:text-slate-500 max-w-[280px] mx-auto italic leading-relaxed">
                    "{activeEsma.meaning}"
                  </p>
               </div>
 
               <div 
                 onClick={handleIncrement}
-                className="relative w-72 h-72 rounded-full bg-slate-50 border-[12px] border-white shadow-2xl flex flex-col items-center justify-center cursor-pointer active:scale-95 transition-all group overflow-hidden"
+                className="relative w-72 h-72 rounded-full bg-slate-50 dark:bg-slate-900 border-[12px] border-white shadow-2xl flex flex-col items-center justify-center cursor-pointer active:scale-95 transition-all group overflow-hidden"
               >
                  {/* Wave effect background */}
                  <div 
@@ -260,12 +260,12 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                  ></div>
 
                  <div className="relative z-10 text-center">
-                    <span className="text-[7.5rem] font-black text-slate-900 leading-none tracking-tighter tabular-nums drop-shadow-sm">
+                    <span className="text-[7.5rem] font-black text-slate-900 dark:text-white leading-none tracking-tighter tabular-nums drop-shadow-sm">
                        {counter}
                     </span>
                     <div className="mt-2 flex flex-col items-center gap-1">
                        <p className="text-[10px] font-black text-purple-600 uppercase tracking-[0.3em]">TEKRAR</p>
-                       <div className="px-3 py-1 bg-purple-50 rounded-full border border-purple-100">
+                       <div className="px-3 py-1 bg-purple-50 dark:bg-purple-950/20 rounded-full border border-purple-100">
                           <span className="text-[9px] font-bold text-purple-400">HEDEF: {activeEsma.target}</span>
                        </div>
                     </div>
@@ -276,16 +276,16 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               </div>
 
               <div className="text-center pb-12">
-                 <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.5em] animate-bounce">EKRANA DOKUNUN</p>
+                 <p className="text-[10px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-[0.5em] animate-bounce">EKRANA DOKUNUN</p>
                  <div className="mt-8 flex gap-2 justify-center">
                     {[...Array(5)].map((_, i) => (
-                      <div key={i} className={`w-1.5 h-1.5 rounded-full ${i < (counter % 5) + 1 ? 'bg-purple-500' : 'bg-slate-100'}`}></div>
+                      <div key={i} className={`w-1.5 h-1.5 rounded-full ${i < (counter % 5) + 1 ? 'bg-purple-500' : 'bg-slate-100 dark:bg-slate-800'}`}></div>
                     ))}
                  </div>
               </div>
            </div>
 
-           <div className="w-full p-8 bg-purple-50 border-t border-purple-100/50 text-center rounded-t-[3rem] shadow-[0_-10px_30px_rgba(168,85,247,0.05)]">
+           <div className="w-full p-8 bg-purple-50 dark:bg-purple-950/20 border-t border-purple-100/50 text-center rounded-t-[3rem] shadow-[0_-10px_30px_rgba(168,85,247,0.05)]">
               <p className="text-[11px] font-black text-purple-800 uppercase tracking-widest mb-1">FAZİLETİ</p>
               <p className="text-[13px] font-bold text-purple-900 leading-relaxed italic">{activeEsma.merit}</p>
            </div>
@@ -294,7 +294,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Brand Footer */}
       <div className="fixed bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-white via-white/80 to-transparent pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-center pointer-events-none z-10">
-        <p className="text-[8px] font-black text-slate-300 uppercase tracking-[0.65em]">99 BEREKET KAPISI V2.5</p>
+        <p className="text-[8px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-[0.65em]">99 BEREKET KAPISI V2.5</p>
       </div>
     </div>
   );

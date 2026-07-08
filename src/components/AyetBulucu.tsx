@@ -145,7 +145,7 @@ const AyetBulucu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             
             <div className="space-y-3">
               <h3 className="text-2xl font-black tracking-tight">{isRecording ? 'Dinleniyor...' : 'Dinlemeye Başla'}</h3>
-              <p className="text-slate-400 text-[13px] font-medium max-w-[280px] mx-auto leading-relaxed">
+              <p className="text-slate-400 dark:text-slate-500 text-[13px] font-medium max-w-[280px] mx-auto leading-relaxed">
                 Ortamda okunan Kuran-ı Kerim ayetini yakalayıp hangi sure olduğunu bulur.
               </p>
             </div>
@@ -189,7 +189,7 @@ const AyetBulucu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   </div>
                   <div className="h-px flex-1 bg-white/10"></div>
                 </div>
-                <p className="text-slate-300 text-sm italic text-center font-medium leading-relaxed px-2">
+                <p className="text-slate-300 dark:text-slate-600 text-sm italic text-center font-medium leading-relaxed px-2">
                   "{result.translation}"
                 </p>
              </div>

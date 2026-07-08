@@ -114,14 +114,14 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col bg-white h-full relative animate-in fade-in duration-500 overflow-hidden">
+    <div className="flex-1 flex flex-col bg-white dark:bg-slate-900 h-full relative animate-in fade-in duration-500 overflow-hidden">
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-white/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50">
-        <button onClick={onBack} className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center text-slate-400 active:scale-90 transition-transform">
+      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50 dark:border-slate-800">
+        <button onClick={onBack} className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
         </button>
         <div>
-          <h2 className="text-xl font-black text-slate-900 tracking-tight">Tecvid Hocası</h2>
+          <h2 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Tecvid Hocası</h2>
           <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest text-blue-500">AI İLE SES ANALİZİ</p>
         </div>
       </div>
@@ -130,13 +130,13 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="px-6 py-4 flex gap-2">
         <button 
           onClick={() => setActiveTab('practice')}
-          className={`flex-1 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'practice' ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'bg-slate-50 text-slate-400'}`}
+          className={`flex-1 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'practice' ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500'}`}
         >
           Tilavet Analizi
         </button>
         <button 
           onClick={() => setActiveTab('rules')}
-          className={`flex-1 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'rules' ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'bg-slate-50 text-slate-400'}`}
+          className={`flex-1 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'rules' ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500'}`}
         >
           Tecvid Kuralları
         </button>
@@ -148,7 +148,7 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             {!result && !loading && (
               <div className="text-center space-y-8">
                 <div className="bg-blue-50/50 rounded-[3rem] p-10 border border-blue-100 shadow-inner">
-                  <div className="w-20 h-20 bg-white rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-sm">
+                  <div className="w-20 h-20 bg-white dark:bg-slate-900 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-sm">
                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
                       <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
                       <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
@@ -180,7 +180,7 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                      )}
                    </button>
                 </div>
-                <p className={`text-[10px] font-black uppercase tracking-[0.3em] ${isRecording ? 'text-rose-500 animate-pulse' : 'text-slate-300'}`}>
+                <p className={`text-[10px] font-black uppercase tracking-[0.3em] ${isRecording ? 'text-rose-500 animate-pulse' : 'text-slate-300 dark:text-slate-600'}`}>
                   {isRecording ? 'Dinleniyor...' : 'Kayıt İçin Dokun'}
                 </p>
               </div>
@@ -193,16 +193,16 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                    <div className="absolute inset-0 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
                  </div>
                  <div className="text-center">
-                    <p className="text-sm font-black text-slate-900">Ses Analiz Ediliyor</p>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">AI Müfredat Kontrolü</p>
+                    <p className="text-sm font-black text-slate-900 dark:text-white">Ses Analiz Ediliyor</p>
+                    <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-1">AI Müfredat Kontrolü</p>
                  </div>
               </div>
             )}
 
             {result && (
               <div className="space-y-6 animate-in slide-in-from-bottom-8 duration-500">
-                <div className="bg-white rounded-[3rem] p-8 border border-slate-100 shadow-xl shadow-blue-900/5 relative overflow-hidden">
-                   <div className="absolute top-[-20%] right-[-10%] w-[60%] aspect-square bg-blue-50 rounded-full blur-[60px] opacity-50"></div>
+                <div className="bg-white dark:bg-slate-900 rounded-[3rem] p-8 border border-slate-100 dark:border-slate-800 shadow-xl shadow-blue-900/5 relative overflow-hidden">
+                   <div className="absolute top-[-20%] right-[-10%] w-[60%] aspect-square bg-blue-50 dark:bg-blue-950/20 rounded-full blur-[60px] opacity-50"></div>
                    
                    <div className="relative z-10 text-center space-y-6">
                       <div className="inline-flex flex-col items-center">
@@ -212,18 +212,18 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                          <div className="text-[9px] font-black text-blue-300 uppercase tracking-[0.4em] mt-1">SKOR</div>
                       </div>
 
-                      <div className="h-px w-12 bg-slate-100 mx-auto"></div>
+                      <div className="h-px w-12 bg-slate-100 dark:bg-slate-800 mx-auto"></div>
 
-                      <p className="text-sm font-bold text-slate-800 leading-relaxed px-4 italic">
+                      <p className="text-sm font-bold text-slate-800 dark:text-slate-100 leading-relaxed px-4 italic">
                         "{result.feedback}"
                       </p>
 
                       <div className="space-y-3 text-left">
-                         <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest ml-1">AI NOTLARI</p>
+                         <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest ml-1">AI NOTLARI</p>
                          {result.notes.map((note, i) => (
-                           <div key={i} className="flex gap-3 bg-slate-50/50 p-4 rounded-2xl border border-slate-50">
+                           <div key={i} className="flex gap-3 bg-slate-50/50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-50 dark:border-slate-800">
                               <span className="text-blue-500 mt-0.5">•</span>
-                              <p className="text-xs font-semibold text-slate-600 leading-normal">{note}</p>
+                              <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-normal">{note}</p>
                            </div>
                          ))}
                       </div>
@@ -241,21 +241,21 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           </div>
         ) : (
           <div className="py-6 space-y-4 animate-in fade-in duration-500">
-            <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] ml-2 mb-2">TEMEL KAİDELER</p>
+            <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em] ml-2 mb-2">TEMEL KAİDELER</p>
             {TAJWID_RULES.map((rule) => (
-              <div key={rule.id} className="bg-white p-6 rounded-[2.5rem] border border-slate-100 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-900/5 transition-all group">
+              <div key={rule.id} className="bg-white dark:bg-slate-900 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-900/5 transition-all group">
                 <div className="flex justify-between items-start mb-4">
                   <div>
-                    <h4 className="font-black text-slate-900">{rule.title}</h4>
-                    <p className="text-xs text-slate-500 font-medium leading-relaxed mt-1">{rule.desc}</p>
+                    <h4 className="font-black text-slate-900 dark:text-white">{rule.title}</h4>
+                    <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium leading-relaxed mt-1">{rule.desc}</p>
                   </div>
-                  <div className="w-10 h-10 bg-blue-50 text-blue-500 rounded-xl flex items-center justify-center shadow-sm">
+                  <div className="w-10 h-10 bg-blue-50 dark:bg-blue-950/20 text-blue-500 rounded-xl flex items-center justify-center shadow-sm">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/></svg>
                   </div>
                 </div>
-                <div className="bg-slate-50 rounded-2xl p-4 flex items-center justify-between border border-slate-50 group-hover:bg-blue-50 group-hover:border-blue-100 transition-colors">
-                   <span className="arabic-text text-xl font-bold text-slate-900">{rule.example}</span>
-                   <button className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-xs text-blue-600 shadow-sm active:scale-90">
+                <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-4 flex items-center justify-between border border-slate-50 dark:border-slate-800 group-hover:bg-blue-50 dark:bg-blue-950/20 group-hover:border-blue-100 transition-colors">
+                   <span className="arabic-text text-xl font-bold text-slate-900 dark:text-white">{rule.example}</span>
+                   <button className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 flex items-center justify-center text-xs text-blue-600 shadow-sm active:scale-90">
                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                    </button>
                 </div>

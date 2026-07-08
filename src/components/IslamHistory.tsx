@@ -103,17 +103,17 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in slide-in-from-right duration-500 overflow-hidden relative">
       {/* Premium Header - Compact */}
-      <div className="px-5 pt-10 pb-4 flex items-center justify-between bg-white/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
+      <div className="px-5 pt-10 pb-4 flex items-center justify-between bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={selectedEvent ? () => setSelectedEvent(null) : selectedCategory ? () => setSelectedCategory(null) : onBack}
-            className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 active:scale-90 transition-transform"
+            className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
-            <h2 className="text-[16px] font-black text-slate-900 tracking-tight leading-none uppercase">İslam Tarihi</h2>
-            <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.25em] mt-1">ÖNEMLİ OLAYLAR</p>
+            <h2 className="text-[16px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">İslam Tarihi</h2>
+            <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.25em] mt-1">ÖNEMLİ OLAYLAR</p>
           </div>
         </div>
         <div className="text-xl opacity-30">📜</div>
@@ -124,7 +124,7 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="space-y-6 animate-in fade-in duration-500">
             {/* Search Bar - Compact */}
             <div className="relative group">
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300">
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 dark:text-slate-600">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </div>
               <input 
@@ -132,7 +132,7 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Olay veya tarih ara..."
-                className="w-full bg-slate-50 border-2 border-transparent focus:border-slate-100 focus:bg-white rounded-[1.2rem] pl-11 pr-4 py-3 outline-none font-bold text-sm text-slate-800 shadow-sm transition-all"
+                className="w-full bg-slate-50 dark:bg-slate-900 border-2 border-transparent focus:border-slate-100 dark:border-slate-800 focus:bg-white dark:bg-slate-900 rounded-[1.2rem] pl-11 pr-4 py-3 outline-none font-bold text-sm text-slate-800 dark:text-slate-100 shadow-sm transition-all"
               />
             </div>
 
@@ -158,7 +158,7 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <div className="space-y-4">
               <div className="flex items-center gap-3 ml-1">
                  <div className="w-1.5 h-1.5 bg-slate-900 rounded-full"></div>
-                 <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">TARİHİ DÖNEMLER</h4>
+                 <h4 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">TARİHİ DÖNEMLER</h4>
               </div>
               
               <div className="grid grid-cols-1 gap-3">
@@ -166,18 +166,18 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   <div 
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat)}
-                    className="p-5 bg-white rounded-[1.8rem] border border-slate-100 flex items-center justify-between hover:bg-slate-50 transition-all cursor-pointer group active:scale-[0.98] shadow-sm"
+                    className="p-5 bg-white dark:bg-slate-900 rounded-[1.8rem] border border-slate-100 dark:border-slate-800 flex items-center justify-between hover:bg-slate-50 dark:bg-slate-900 transition-all cursor-pointer group active:scale-[0.98] shadow-sm"
                   >
                     <div className="flex items-center gap-4">
-                      <div className={`w-12 h-12 rounded-2xl bg-slate-50 ${cat.color} flex items-center justify-center transition-all group-hover:scale-110`}>
+                      <div className={`w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-900 ${cat.color} flex items-center justify-center transition-all group-hover:scale-110`}>
                          <div className="scale-90">{cat.icon}</div>
                       </div>
                       <div>
-                         <h4 className="text-[14px] font-black text-slate-900">{cat.name}</h4>
-                         <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">{cat.era}</p>
+                         <h4 className="text-[14px] font-black text-slate-900 dark:text-white">{cat.name}</h4>
+                         <p className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest mt-0.5">{cat.era}</p>
                       </div>
                     </div>
-                    <div className="w-9 h-9 rounded-xl bg-slate-50 flex items-center justify-center text-slate-200 group-hover:text-slate-400 transition-all">
+                    <div className="w-9 h-9 rounded-xl bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-slate-200 group-hover:text-slate-400 dark:text-slate-500 transition-all">
                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><polyline points="9 18 15 12 9 6"/></svg>
                     </div>
                   </div>
@@ -189,39 +189,39 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-700">
              {/* Category Info Header - Compact */}
              <div className="text-center space-y-3">
-                <div className={`w-16 h-16 mx-auto rounded-2xl bg-slate-50 ${selectedCategory.color} flex items-center justify-center shadow-md border border-white`}>
+                <div className={`w-16 h-16 mx-auto rounded-2xl bg-slate-50 dark:bg-slate-900 ${selectedCategory.color} flex items-center justify-center shadow-md border border-white`}>
                    <div className="scale-125">{selectedCategory.icon}</div>
                 </div>
                 <div>
-                   <h3 className="text-xl font-black text-slate-900 tracking-tighter uppercase">{selectedCategory.name}</h3>
-                   <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.4em] mt-1">{selectedCategory.era}</p>
+                   <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tighter uppercase">{selectedCategory.name}</h3>
+                   <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em] mt-1">{selectedCategory.era}</p>
                 </div>
              </div>
 
              {/* Event List (Timeline Style) - Compact */}
              <div className="relative pl-5 space-y-6">
-                <div className="absolute left-[6px] top-4 bottom-4 w-0.5 bg-slate-100 rounded-full"></div>
+                <div className="absolute left-[6px] top-4 bottom-4 w-0.5 bg-slate-100 dark:bg-slate-800 rounded-full"></div>
                 
                 {selectedCategory.events.map((ev) => (
                   <div 
                     key={ev.id}
                     onClick={() => setSelectedEvent(ev)}
-                    className="relative bg-white p-5 rounded-[1.8rem] border border-slate-100 shadow-sm hover:border-slate-200 transition-all cursor-pointer group active:scale-[0.98]"
+                    className="relative bg-white dark:bg-slate-900 p-5 rounded-[1.8rem] border border-slate-100 dark:border-slate-800 shadow-sm hover:border-slate-200 dark:border-slate-700 transition-all cursor-pointer group active:scale-[0.98]"
                   >
-                     <div className="absolute left-[-23px] top-1/2 -translate-y-1/2 w-3 h-3 bg-white border-[3px] border-slate-900 rounded-full z-10 shadow-sm group-hover:scale-125 transition-transform"></div>
+                     <div className="absolute left-[-23px] top-1/2 -translate-y-1/2 w-3 h-3 bg-white dark:bg-slate-900 border-[3px] border-slate-900 rounded-full z-10 shadow-sm group-hover:scale-125 transition-transform"></div>
                      
                      <div className="flex justify-between items-start mb-2">
-                        <span className="text-[9px] font-black text-slate-400 uppercase tracking-widest">{ev.year}</span>
+                        <span className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">{ev.year}</span>
                         <span className={`text-[7px] font-black px-2 py-0.5 rounded-full uppercase ${
-                          ev.type === 'dönüm noktası' ? 'bg-teal-50 text-teal-600' :
-                          ev.type === 'savaş' ? 'bg-rose-50 text-rose-600' :
-                          ev.type === 'bilim' ? 'bg-blue-50 text-blue-600' : 'bg-amber-50 text-amber-600'
+                          ev.type === 'dönüm noktası' ? 'bg-teal-50 dark:bg-teal-950/20 text-teal-600' :
+                          ev.type === 'savaş' ? 'bg-rose-50 dark:bg-rose-950/20 text-rose-600' :
+                          ev.type === 'bilim' ? 'bg-blue-50 dark:bg-blue-950/20 text-blue-600' : 'bg-amber-50 dark:bg-amber-950/20 text-amber-600'
                         }`}>
                           {ev.type}
                         </span>
                      </div>
-                     <h4 className="text-[15px] font-black text-slate-900 mb-1">{ev.title}</h4>
-                     <p className="text-[11px] font-medium text-slate-500 leading-relaxed line-clamp-2">{ev.desc}</p>
+                     <h4 className="text-[15px] font-black text-slate-900 dark:text-white mb-1">{ev.title}</h4>
+                     <p className="text-[11px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed line-clamp-2">{ev.desc}</p>
                   </div>
                 ))}
              </div>
@@ -229,25 +229,25 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         ) : selectedEvent ? (
           <div className="space-y-8 animate-in slide-in-from-bottom-4 duration-700">
              {/* Event Detail Header - Compact */}
-             <div className="bg-white p-8 rounded-[2.2rem] border border-slate-100 shadow-lg shadow-slate-900/5 text-center relative overflow-hidden">
+             <div className="bg-white dark:bg-slate-900 p-8 rounded-[2.2rem] border border-slate-100 dark:border-slate-800 shadow-lg shadow-slate-900/5 text-center relative overflow-hidden">
                 <div className="absolute top-0 right-0 p-4 opacity-5 rotate-12 text-[7rem] pointer-events-none">📜</div>
                 <div className="relative z-10 space-y-3">
                    <div className="inline-block px-3 py-1 bg-slate-900 text-white rounded-full text-[8px] font-black uppercase tracking-[0.3em] mb-2">{selectedEvent.year}</div>
-                   <h3 className="text-2xl font-black text-slate-900 tracking-tighter">{selectedEvent.title}</h3>
-                   <div className="h-px w-10 bg-slate-100 mx-auto"></div>
-                   <p className="text-[14px] font-medium text-slate-600 leading-relaxed italic px-2">
+                   <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tighter">{selectedEvent.title}</h3>
+                   <div className="h-px w-10 bg-slate-100 dark:bg-slate-800 mx-auto"></div>
+                   <p className="text-[14px] font-medium text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-relaxed italic px-2">
                      "{selectedEvent.detailedDesc}"
                    </p>
                 </div>
              </div>
 
              {/* AI Insight Box - Compact */}
-             <div className="bg-slate-50 rounded-[2rem] p-6 space-y-4 border border-slate-100">
+             <div className="bg-slate-50 dark:bg-slate-900 rounded-[2rem] p-6 space-y-4 border border-slate-100 dark:border-slate-800">
                 <div className="flex items-center gap-3">
-                   <div className="w-9 h-9 bg-white rounded-xl flex items-center justify-center text-lg shadow-sm border border-slate-200/50">🤖</div>
+                   <div className="w-9 h-9 bg-white dark:bg-slate-900 rounded-xl flex items-center justify-center text-lg shadow-sm border border-slate-200/50">🤖</div>
                    <div>
-                      <h4 className="text-xs font-black text-slate-900 leading-tight">Yapay Zeka Analizi</h4>
-                      <p className="text-[8px] font-bold text-slate-400 uppercase tracking-widest">DERİNLEMESİNE BİLGİ ALIN</p>
+                      <h4 className="text-xs font-black text-slate-900 dark:text-white leading-tight">Yapay Zeka Analizi</h4>
+                      <p className="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">DERİNLEMESİNE BİLGİ ALIN</p>
                    </div>
                 </div>
 
@@ -260,19 +260,19 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   </button>
                 ) : loadingAi ? (
                   <div className="py-8 flex flex-col items-center gap-4">
-                    <div className="w-8 h-8 border-[3px] border-slate-200 border-t-slate-900 rounded-full animate-spin"></div>
-                    <p className="text-[8px] font-black text-slate-400 uppercase tracking-widest animate-pulse">Kaynaklar Taranıyor...</p>
+                    <div className="w-8 h-8 border-[3px] border-slate-200 dark:border-slate-700 border-t-slate-900 rounded-full animate-spin"></div>
+                    <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest animate-pulse">Kaynaklar Taranıyor...</p>
                   </div>
                 ) : (
                   <div className="animate-in fade-in duration-1000 space-y-3">
-                     <div className="p-5 bg-white rounded-2xl border border-slate-200/50 shadow-inner">
-                        <p className="text-[13px] font-medium text-slate-700 leading-[1.7] whitespace-pre-wrap">
+                     <div className="p-5 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/50 shadow-inner">
+                        <p className="text-[13px] font-medium text-slate-700 dark:text-slate-300 dark:text-slate-600 leading-[1.7] whitespace-pre-wrap">
                            {aiAnswer}
                         </p>
                      </div>
                      <button 
                        onClick={() => setAiAnswer('')}
-                       className="text-[8px] font-black text-slate-400 uppercase tracking-widest px-2 hover:text-slate-900 transition-colors"
+                       className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest px-2 hover:text-slate-900 dark:text-white transition-colors"
                      >
                        TEMİZLE
                      </button>
@@ -280,8 +280,8 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 )}
              </div>
 
-             <div className="p-6 bg-white border border-dashed border-slate-200 rounded-[2rem] text-center opacity-40">
-                <p className="text-[9px] font-bold text-slate-400 italic">"Tarih, geleceğe tutulan bir aynadır."</p>
+             <div className="p-6 bg-white dark:bg-slate-900 border border-dashed border-slate-200 dark:border-slate-700 rounded-[2rem] text-center opacity-40">
+                <p className="text-[9px] font-bold text-slate-400 dark:text-slate-500 italic">"Tarih, geleceğe tutulan bir aynadır."</p>
              </div>
           </div>
         ) : null}
@@ -289,7 +289,7 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Brand Footer - Compact */}
       <div className="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-white via-white/90 to-transparent pb-[calc(1.2rem+env(safe-area-inset-bottom))] text-center pointer-events-none z-10 opacity-30">
-        <p className="text-[7px] font-black text-slate-400 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ TARİH REHBERİ</p>
+        <p className="text-[7px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ TARİH REHBERİ</p>
       </div>
     </div>
   );

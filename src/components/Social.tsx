@@ -324,7 +324,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
              </div>
 
              <div className="flex gap-4">
-               <button onClick={() => setShowModal(false)} className="flex-1 bg-slate-100 text-slate-400 font-black py-4 rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">VAZGEÇ</button>
+               <button onClick={() => setShowModal(false)} className="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black py-4 rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">VAZGEÇ</button>
                <button onClick={handlePost} disabled={posting} className="flex-1 bg-teal-600 disabled:opacity-60 text-white font-black py-4 rounded-2xl text-[10px] uppercase tracking-widest shadow-xl shadow-teal-900/10 active:scale-95 transition-all">{posting ? 'PAYLAŞILIYOR...' : 'PAYLAŞ'}</button>
              </div>
           </div>

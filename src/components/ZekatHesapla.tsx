@@ -67,20 +67,20 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-sky-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Premium Header */}
-      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
+      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={onBack}
-            className="w-10 h-10 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 active:scale-90 transition-transform"
+            className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
-            <h2 className="text-[17px] font-black text-slate-900 tracking-tight leading-none uppercase">Zekat Hesapla</h2>
+            <h2 className="text-[17px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Zekat Hesapla</h2>
             <p className="text-[8px] font-black text-sky-600 uppercase tracking-[0.25em] mt-1">VARLIK HESAP MODÜLÜ</p>
           </div>
         </div>
-        <div className="w-10 h-10 bg-sky-50 rounded-xl flex items-center justify-center text-lg border border-sky-100 text-sky-500 font-black">$</div>
+        <div className="w-10 h-10 bg-sky-50 dark:bg-sky-950/20 rounded-xl flex items-center justify-center text-lg border border-sky-100 text-sky-500 font-black">$</div>
       </div>
 
       <div className="flex-1 overflow-y-auto px-6 pb-32 no-scrollbar pt-6 space-y-8">
@@ -115,26 +115,26 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         <div className="space-y-4">
            <div className="flex items-center gap-3 ml-2 mb-2">
               <div className="w-1.5 h-1.5 bg-sky-500 rounded-full shadow-[0_0_8px_rgba(14,165,233,0.5)]"></div>
-              <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">VARLIK LİSTESİ</h4>
+              <h4 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">VARLIK LİSTESİ</h4>
            </div>
            
            <div className="grid grid-cols-1 gap-3">
               {assets.map(asset => (
-                <div key={asset.id} className="bg-white p-5 rounded-[2rem] border border-slate-100 shadow-sm flex items-center justify-between group focus-within:border-sky-200 transition-all">
+                <div key={asset.id} className="bg-white dark:bg-slate-900 p-5 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm flex items-center justify-between group focus-within:border-sky-200 transition-all">
                    <div className="space-y-1">
-                      <p className="text-[10px] font-black text-slate-300 uppercase tracking-widest">{asset.name}</p>
+                      <p className="text-[10px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest">{asset.name}</p>
                       <div className="flex items-center gap-2">
                          <input 
                            type="number" 
                            onChange={(e) => updateAsset(asset.id, e.target.value)}
                            placeholder="0.00"
-                           className="text-xl font-black text-slate-900 bg-transparent outline-none w-24 border-b border-transparent focus:border-sky-100"
+                           className="text-xl font-black text-slate-900 dark:text-white bg-transparent outline-none w-24 border-b border-transparent focus:border-sky-100"
                          />
-                         <span className="text-xs font-bold text-slate-400">{asset.unit}</span>
+                         <span className="text-xs font-bold text-slate-400 dark:text-slate-500">{asset.unit}</span>
                       </div>
                    </div>
                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg ${
-                     asset.category === 'borc' ? 'bg-rose-50 text-rose-400' : 'bg-sky-50 text-sky-500'
+                     asset.category === 'borc' ? 'bg-rose-50 dark:bg-rose-950/20 text-rose-400' : 'bg-sky-50 dark:bg-sky-950/20 text-sky-500'
                    }`}>
                       {asset.category === 'nakit' ? '💵' : asset.category === 'altin' ? '💍' : asset.category === 'ticaret' ? '📦' : '📉'}
                    </div>
@@ -163,12 +163,12 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
            </button>
 
            {aiResponse && (
-             <div className="bg-white p-7 rounded-[2.5rem] border border-sky-100 shadow-lg animate-in slide-in-from-top-4 duration-500">
+             <div className="bg-white dark:bg-slate-900 p-7 rounded-[2.5rem] border border-sky-100 shadow-lg animate-in slide-in-from-top-4 duration-500">
                 <div className="flex items-center gap-2 mb-4">
                    <div className="w-1.5 h-1.5 bg-sky-500 rounded-full animate-pulse"></div>
                    <p className="text-[9px] font-black text-sky-600 uppercase tracking-widest">AI REHBER NOTU</p>
                 </div>
-                <p className="text-[14px] font-medium text-slate-700 leading-[1.8] whitespace-pre-wrap italic">
+                <p className="text-[14px] font-medium text-slate-700 dark:text-slate-300 dark:text-slate-600 leading-[1.8] whitespace-pre-wrap italic">
                    "{aiResponse}"
                 </p>
              </div>
@@ -176,15 +176,15 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
 
         {/* Information Table */}
-        <div className="bg-slate-50 p-6 rounded-[2rem] border border-dashed border-slate-200 space-y-4">
-           <p className="text-[9px] font-black text-slate-400 uppercase tracking-widest text-center">GÜNCEL REFERANS VERİLERİ</p>
+        <div className="bg-slate-50 dark:bg-slate-900 p-6 rounded-[2rem] border border-dashed border-slate-200 dark:border-slate-700 space-y-4">
+           <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest text-center">GÜNCEL REFERANS VERİLERİ</p>
            <div className="grid grid-cols-2 gap-4">
               <div className="text-center">
-                 <p className="text-[8px] font-bold text-slate-400 uppercase">GR Altın (Ref)</p>
+                 <p className="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase">GR Altın (Ref)</p>
                  <p className="text-xs font-black text-sky-700">₺{GOLD_PRICE_GRAM.toLocaleString()}</p>
               </div>
               <div className="text-center">
-                 <p className="text-[8px] font-bold text-slate-400 uppercase">Nisab (80.18gr)</p>
+                 <p className="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase">Nisab (80.18gr)</p>
                  <p className="text-xs font-black text-sky-700">₺{NISAB_VALUE.toLocaleString()}</p>
               </div>
            </div>
@@ -194,7 +194,7 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Brand Footer */}
       <div className="fixed bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-white via-white/90 to-transparent pb-[calc(1.5rem+env(safe-area-inset-bottom))] text-center pointer-events-none z-10 opacity-30">
-        <p className="text-[8px] font-black text-slate-400 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ MÜLK REHBERİ</p>
+        <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.8em]">MÜBAREKÇE PRO+ MÜLK REHBERİ</p>
       </div>
     </div>
   );
