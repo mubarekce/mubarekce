@@ -110,8 +110,8 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
     if (window.navigator.vibrate) window.navigator.vibrate(40);
   };
 
-  // Sıradaki vakti hesaplayan logic
-  const nextPrayer = useMemo(() => {
+  // Sıradaki vakti ve geri sayımı hesaplayan logic
+  const prayerInfo = useMemo(() => {
     if (!prayerData) return null;
     const times = prayerData.times;
     const order = [
@@ -123,11 +123,46 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
       { name: 'Yatsı', time: times.Isha },
     ];
 
-    const currentStr = currentTime.toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit', hour12: false });
-    
-    const next = order.find(p => p.time > currentStr) || order[0];
-    return next;
+    const toMinutes = (t: string) => {
+      const [h, m] = t.split(':').map(Number);
+      return h * 60 + m;
+    };
+
+    const nowMinutes = currentTime.getHours() * 60 + currentTime.getMinutes();
+    const nowSeconds = currentTime.getSeconds();
+
+    let nextIndex = order.findIndex(p => toMinutes(p.time) > nowMinutes);
+    if (nextIndex === -1) nextIndex = 0; // gece yarısından sonra -> yarının İmsak'ı
+    const prevIndex = (nextIndex - 1 + order.length) % order.length;
+
+    const next = order[nextIndex];
+    const prev = order[prevIndex];
+
+    let diffSeconds = toMinutes(next.time) * 60 - (nowMinutes * 60 + nowSeconds);
+    if (diffSeconds < 0) diffSeconds += 24 * 60 * 60;
+
+    const hours = Math.floor(diffSeconds / 3600);
+    const minutes = Math.floor((diffSeconds % 3600) / 60);
+
+    // İki vakit arasında geçen sürenin yüzdesi (ilerleme çubuğu için)
+    let intervalMinutes = toMinutes(next.time) - toMinutes(prev.time);
+    if (intervalMinutes <= 0) intervalMinutes += 24 * 60;
+    let elapsedMinutes = nowMinutes - toMinutes(prev.time);
+    if (elapsedMinutes < 0) elapsedMinutes += 24 * 60;
+    const progress = Math.min(100, Math.max(0, (elapsedMinutes / intervalMinutes) * 100));
+
+    return { next, prev, hours, minutes, progress };
   }, [prayerData, currentTime]);
+
+  const nextPrayer = prayerInfo?.next || null;
+
+  const countdownText = useMemo(() => {
+    if (!prayerInfo) return '';
+    const { hours, minutes } = prayerInfo;
+    if (hours > 0) return `${hours} sa ${minutes} dk kaldı`;
+    if (minutes > 0) return `${minutes} dk kaldı`;
+    return 'Vakit giriyor';
+  }, [prayerInfo]);
 
   if (activeOverlay === 'ai') {
     return (
@@ -157,9 +192,9 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
           <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
         </svg>
       ), 
-      color: 'border-teal-400',
-      glow: 'shadow-[0_0_15px_rgba(52,211,153,0.4)]',
-      iconColor: 'text-teal-500'
+      color: 'border-[#c9a668]/70',
+      glow: 'shadow-[0_0_15px_rgba(201,166,104,0.35)]',
+      iconColor: 'text-[#a8895a] dark:text-[#c9a668]'
     },
     { 
       label: 'HADİS', 
@@ -172,9 +207,9 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
           <line x1="10" y1="9" x2="8" y2="9"></line>
         </svg>
       ), 
-      color: 'border-amber-400',
-      glow: 'shadow-[0_0_15px_rgba(251,191,36,0.4)]',
-      iconColor: 'text-amber-500'
+      color: 'border-[#1c2541]/40 dark:border-[#c9a668]/40',
+      glow: 'shadow-[0_0_15px_rgba(28,37,65,0.25)]',
+      iconColor: 'text-[#1c2541] dark:text-[#c9a668]'
     },
     { 
       label: 'DUA', 
@@ -186,9 +221,9 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
           <path d="M4 12c0 5 3.5 9 8 9s8-4 8-9"></path>
         </svg>
       ), 
-      color: 'border-indigo-400',
-      glow: 'shadow-[0_0_15px_rgba(129,140,248,0.4)]',
-      iconColor: 'text-indigo-500'
+      color: 'border-[#c9a668]/50',
+      glow: 'shadow-[0_0_15px_rgba(201,166,104,0.3)]',
+      iconColor: 'text-[#a8895a] dark:text-[#c9a668]'
     },
     { 
       label: 'SÜNNET', 
@@ -197,9 +232,9 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
         </svg>
       ), 
-      color: 'border-rose-300',
-      glow: 'shadow-[0_0_15px_rgba(253,164,175,0.4)]',
-      iconColor: 'text-rose-400'
+      color: 'border-[#1c2541]/30 dark:border-[#c9a668]/30',
+      glow: 'shadow-[0_0_15px_rgba(28,37,65,0.2)]',
+      iconColor: 'text-[#1c2541]/80 dark:text-[#c9a668]/90'
     },
     { 
       label: 'AI HOCAM', 
@@ -209,9 +244,9 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
           <path d="M12 7v5l3 3"></path>
         </svg>
       ), 
-      color: 'border-sky-400', 
-      glow: 'shadow-[0_0_15px_rgba(56,189,248,0.4)]',
-      iconColor: 'text-sky-500',
+      color: 'border-[#c9a668]',
+      glow: 'shadow-[0_0_18px_rgba(201,166,104,0.5)]',
+      iconColor: 'text-[#a8895a] dark:text-[#c9a668]',
       special: true 
     }
   ];
@@ -221,20 +256,27 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
       
       {/* BACKGROUND DECORATIVE LAYERS */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
-        {/* 1. Subtle Dot Pattern */}
-        <div 
-          className="absolute inset-0 opacity-[0.025] transition-opacity duration-1000" 
-          style={{ 
-            backgroundImage: `radial-gradient(#c9a668 1px, transparent 1px)`,
-            backgroundSize: '20px 20px'
-          }} 
+        {/* 1. İslami Geometrik Yıldız Deseni (sekiz kollu yıldız motifi) */}
+        <div
+          className="absolute inset-0 opacity-[0.04] dark:opacity-[0.06] transition-opacity duration-1000"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cg fill='none' stroke='%23c9a668' stroke-width='1'%3E%3Cpath d='M28 4 L34 16 L46 10 L40 22 L52 28 L40 34 L46 46 L34 40 L28 52 L22 40 L10 46 L16 34 L4 28 L16 22 L10 10 L22 16 Z'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: '56px 56px',
+          }}
         />
-        
+
         {/* 2. Top Ambient Glow - sıcak altın tonu */}
         <div className="fixed top-[-150px] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-[#c9a668]/15 blur-[110px] rounded-full pointer-events-none z-0" />
-        
+
         {/* 3. Bottom Ambient Glow - derin lacivert huzur tonu */}
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[500px] h-[400px] bg-[#1c2541]/10 dark:bg-[#c9a668]/5 blur-[110px] rounded-full transition-all duration-1000" />
+      </div>
+
+      {/* Ay-yıldız süslemesi - üstte ince bir manevi ayraç */}
+      <div className="flex items-center justify-center gap-3 relative z-10 -mt-1 mb-1">
+        <div className="w-10 h-[1px] bg-gradient-to-r from-transparent to-[#c9a668]/50" />
+        <span className="text-[#c9a668] text-sm">☾</span>
+        <div className="w-10 h-[1px] bg-gradient-to-l from-transparent to-[#c9a668]/50" />
       </div>
 
       {/* MAIN CARD - Artık uygulamanın genel fildişi/lacivert huzur temasıyla aynı, ayrı bir renk bloğu değil */}
@@ -265,15 +307,9 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
               </p>
             </div>
             
-            {/* HICRI BOX */}
-            <div className="bg-[#c9a668]/10 dark:bg-[#c9a668]/10 rounded-2xl px-3 py-2 border border-[#c9a668]/20 text-right flex items-center gap-2 shadow-sm">
-              <div className="w-7 h-7 rounded-xl bg-[#c9a668]/15 flex items-center justify-center text-[9px]">🌙</div>
-              <div>
-                <p className="text-[7px] font-black text-[#a8895a] dark:text-[#c9a668] uppercase tracking-[0.2em] mb-0.5">HİCRİ</p>
-                <p className="text-[9px] font-bold text-slate-800 dark:text-white leading-none">
-                  {prayerData?.hijri.day} {prayerData?.hijri.month.tr} {prayerData?.hijri.year}
-                </p>
-              </div>
+            {/* Sade ay rozeti - Hicri tarihin tam hali aşağıdaki kutuda */}
+            <div className="w-11 h-11 rounded-2xl bg-[#c9a668]/10 border border-[#c9a668]/20 flex items-center justify-center text-lg shadow-sm shrink-0">
+              🌙
             </div>
           </div>
 
@@ -281,17 +317,33 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
             <h2 className="text-base font-bold tracking-tight text-slate-500 dark:text-slate-400 italic">Selam, <span className="text-slate-900 dark:text-white font-black not-italic">{user.name.split(' ')[0]}</span></h2>
           </div>
           
-          <div className="grid grid-cols-2 gap-2.5 mb-1">
-             {/* NEXT PRAYER BOX */}
-             <div className="bg-slate-50/80 dark:bg-white/5 rounded-2xl p-3.5 border border-slate-100 dark:border-white/5">
-                <div className="flex items-center gap-1.5 mb-1.5">
-                  <span className="text-[#a8895a] dark:text-[#c9a668] text-[11px]">🕐</span>
-                  <p className="text-[7px] font-black uppercase text-slate-400 dark:text-slate-500 tracking-widest">SIRADAKİ</p>
-                </div>
-                <p className="text-[13px] font-black text-slate-900 dark:text-white mb-0.5">{nextPrayer?.name || 'Vakit'}</p>
-                <p className="text-[10px] font-bold text-[#a8895a] dark:text-[#c9a668] tabular-nums">{nextPrayer?.time || '--:--'}</p>
-             </div>
+          {/* SIRADAKİ VAKİT - Geri Sayımlı Ana Panel */}
+          <div className="relative overflow-hidden rounded-[1.6rem] bg-gradient-to-br from-[#1c2541] to-[#0d1220] p-4 mb-2.5 shadow-lg shadow-black/10">
+            <div className="absolute right-[-10px] top-[-14px] text-6xl opacity-[0.08] pointer-events-none select-none">🕌</div>
+            <div className="flex items-center justify-between relative z-10">
+              <div>
+                <p className="text-[8px] font-black uppercase text-[#c9a668]/80 tracking-[0.25em] mb-1">SIRADAKİ VAKİT</p>
+                <p className="text-xl font-black text-white leading-none">{nextPrayer?.name || 'Vakit'}</p>
+              </div>
+              <div className="text-right">
+                <p className="text-[8px] font-black uppercase text-white/40 tracking-[0.2em] mb-1">EZAN SAATİ</p>
+                <p className="text-lg font-black text-[#c9a668] tabular-nums leading-none">{nextPrayer?.time || '--:--'}</p>
+              </div>
+            </div>
+            <div className="mt-3 relative z-10">
+              <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-[#c9a668] to-[#e4cd94] transition-all duration-1000"
+                  style={{ width: `${prayerInfo?.progress ?? 0}%` }}
+                />
+              </div>
+              <p className="text-[11px] font-black text-white mt-2 text-center tracking-wide">
+                {nextPrayer?.name || 'Vakte'} vaktine <span className="text-[#c9a668]">{countdownText}</span>
+              </p>
+            </div>
+          </div>
 
+          <div className="grid grid-cols-2 gap-2.5 mb-1">
              {/* ZIKIR BOX */}
              <div className="bg-slate-50/80 dark:bg-white/5 rounded-2xl p-3.5 border border-slate-100 dark:border-white/5 cursor-pointer active:scale-95 transition-transform" onClick={handleZikirClick}>
                 <div className="flex items-center gap-1.5 mb-1.5">
@@ -308,6 +360,18 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
                     style={{ width: `${Math.min(100, (currentDhikrCount / 99) * 100)}%` }}
                    ></div>
                 </div>
+             </div>
+
+             {/* HICRI TARIH BOX (üstten taşındı, ana kart artık tek satır başlık) */}
+             <div className="bg-slate-50/80 dark:bg-white/5 rounded-2xl p-3.5 border border-slate-100 dark:border-white/5 flex flex-col justify-center">
+                <div className="flex items-center gap-1.5 mb-1.5">
+                  <span className="text-[#a8895a] dark:text-[#c9a668] text-[11px]">🌙</span>
+                  <p className="text-[7px] font-black uppercase text-slate-400 dark:text-slate-500 tracking-widest">HİCRİ TARİH</p>
+                </div>
+                <p className="text-[11px] font-black text-slate-900 dark:text-white leading-tight">
+                  {prayerData?.hijri.day} {prayerData?.hijri.month.tr}
+                </p>
+                <p className="text-[9px] font-bold text-slate-400 dark:text-slate-500">{prayerData?.hijri.year}</p>
              </div>
           </div>
         </div>
@@ -547,11 +611,11 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
                  </button>
                  <div>
                     <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight uppercase">İMSAKİYE TAKVİMİ</h3>
-                    <p className="text-[9px] font-black text-sky-500 dark:text-sky-400 uppercase tracking-widest">30 GÜNLÜK VAKİT ÇİZELGESİ</p>
+                    <p className="text-[9px] font-black text-[#a8895a] dark:text-[#c9a668] uppercase tracking-widest">30 GÜNLÜK VAKİT ÇİZELGESİ</p>
                  </div>
               </div>
-              <div className="bg-sky-50 dark:bg-sky-950/20 px-3 py-1.5 rounded-full border border-sky-100 dark:border-sky-900/40">
-                 <span className="text-[10px] font-black text-sky-600 dark:text-sky-400 uppercase tracking-widest">{prayerData?.city || 'GENEL'}</span>
+              <div className="bg-[#c9a668]/10 dark:bg-[#c9a668]/10 px-3 py-1.5 rounded-full border border-[#c9a668]/20">
+                 <span className="text-[10px] font-black text-[#a8895a] dark:text-[#c9a668] uppercase tracking-widest">{prayerData?.city || 'GENEL'}</span>
               </div>
            </div>
 
@@ -573,16 +637,16 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
                        {FULL_IMSAKIYE.map((day) => (
                           <tr 
                             key={day.day} 
-                            className="transition-all rounded-2xl bg-slate-50/50 dark:bg-slate-900/50 hover:bg-sky-50 dark:hover:bg-sky-950/20 group"
+                            className="transition-all rounded-2xl bg-slate-50/50 dark:bg-slate-900/50 hover:bg-[#c9a668]/5 dark:hover:bg-[#c9a668]/5 group"
                           >
                              <td className="px-4 py-4 rounded-l-2xl">
                                 <p className="text-[10px] font-black text-slate-900 dark:text-white">{day.day}. Gün</p>
                              </td>
-                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-sky-700 dark:text-sky-400">{day.imsak}</td>
+                             <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-[#a8895a] dark:text-[#c9a668]">{day.imsak}</td>
                              <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-slate-700 dark:text-slate-300 opacity-40 group-hover:opacity-100">{day.gunes}</td>
                              <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-slate-700 dark:text-slate-300 opacity-40 group-hover:opacity-100">{day.ogle}</td>
                              <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-slate-700 dark:text-slate-300 opacity-40 group-hover:opacity-100">{day.ikindi}</td>
-                             <td className="px-2 py-4 tabular-nums text-xs font-black text-sky-600 dark:text-sky-400">{day.aksam}</td>
+                             <td className="px-2 py-4 tabular-nums text-xs font-black text-[#a8895a] dark:text-[#c9a668]">{day.aksam}</td>
                              <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-slate-700 dark:text-slate-300 text-right pr-4 rounded-r-2xl opacity-40 group-hover:opacity-100">{day.yatsi}</td>
                           </tr>
                        ))}
