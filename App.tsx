@@ -161,8 +161,42 @@ const App: React.FC = () => {
 
   return (
     <UserDataProvider uid={firebaseUser.uid}>
-      <div className="min-h-screen w-full flex flex-col bg-[#faf6f0] dark:bg-[#0d1220]">
-        <main id="app-main-scroll" ref={mainScrollRef} className="flex-1 overflow-y-auto no-scrollbar pb-24">
+      <div className="min-h-screen w-full flex flex-col bg-[#faf6f0] dark:bg-[#0d1220] relative">
+        {/* Tüm uygulamanın arkaplanında sabit, gölge gibi ve hafif hareketli cami silüeti */}
+        <div className="fixed inset-x-0 bottom-0 h-[42vh] pointer-events-none overflow-hidden z-0 opacity-[0.05] dark:opacity-[0.09]">
+          <svg
+            className="mosque-silhouette absolute bottom-0 left-1/2 -translate-x-1/2 w-[140%] max-w-none text-[#c9a668]"
+            viewBox="0 0 800 260"
+            fill="currentColor"
+            preserveAspectRatio="xMidYMax slice"
+          >
+            {/* Ana kubbe ve gövde */}
+            <path d="M330 130 Q400 40 470 130 L470 260 L330 260 Z" />
+            <path d="M392 40 L408 40 L400 20 Z" />
+            <circle cx="400" cy="16" r="4" />
+            {/* Sol minare */}
+            <rect x="255" y="70" width="12" height="190" rx="2" />
+            <path d="M251 70 L271 70 L261 40 Z" />
+            <circle cx="261" cy="34" r="3" />
+            {/* Sağ minare */}
+            <rect x="533" y="70" width="12" height="190" rx="2" />
+            <path d="M529 70 L549 70 L539 40 Z" />
+            <circle cx="539" cy="34" r="3" />
+            {/* Uzak sol minare (derinlik) */}
+            <rect x="150" y="120" width="9" height="140" rx="2" />
+            <path d="M147 120 L162 120 L154.5 98 Z" />
+            {/* Uzak sağ minare (derinlik) */}
+            <rect x="641" y="120" width="9" height="140" rx="2" />
+            <path d="M638 120 L653 120 L645.5 98 Z" />
+            {/* Yan küçük kubbeler */}
+            <path d="M175 190 Q205 155 235 190 L235 260 L175 260 Z" />
+            <path d="M565 190 Q595 155 625 190 L625 260 L565 260 Z" />
+            {/* Zemin gölgesi */}
+            <rect x="60" y="256" width="680" height="4" rx="2" opacity="0.5" />
+          </svg>
+        </div>
+
+        <main id="app-main-scroll" ref={mainScrollRef} className="relative z-10 flex-1 overflow-y-auto no-scrollbar pb-24">
           {activeTab === AppTab.Home && (
             <Home user={user} prayerData={prayerData} currentTime={currentTime} onAction={handleTabAction} />
           )}

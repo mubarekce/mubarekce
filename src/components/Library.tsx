@@ -93,17 +93,17 @@ import { User } from '../types';
     { 
       id: 'quran', 
       icon: <IconWrapper><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></IconWrapper>, 
-      title: 'Kuran-ı Kerim', desc: 'Sesli, Meal & Arapça', cat: 'Kuran Akademisi', color: 'text-gold-500', glowColor: 'rgba(20,184,166,0.5)' 
+      title: 'Kuran-ı Kerim', desc: 'Sesli, Meal & Arapça', cat: 'Kuran Akademisi', color: 'text-gold-500', glowColor: 'rgba(201,166,104,0.5)' 
     },
     { 
       id: 'tecvid-hoca', 
       icon: <IconWrapper><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></IconWrapper>, 
-      title: 'Tecvid Hocası', desc: 'AI ile Ses Analizi', cat: 'Kuran Akademisi', color: 'text-blue-500', glowColor: 'rgba(59,130,246,0.5)' 
+      title: 'Tecvid Hocası', desc: 'AI ile Ses Analizi', cat: 'Kuran Akademisi', color: 'text-gold-500', glowColor: 'rgba(201,166,104,0.5)' 
     },
     { 
       id: 'hafizlik-modu', 
       icon: <IconWrapper><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></IconWrapper>, 
-      title: 'Hafızlık Modu', desc: 'Akıllı Ezber Algoritması', cat: 'Kuran Akademisi', color: 'text-sky-500', glowColor: 'rgba(14,165,233,0.5)' 
+      title: 'Hafızlık Modu', desc: 'Akıllı Ezber Algoritması', cat: 'Kuran Akademisi', color: 'text-gold-500', glowColor: 'rgba(201,166,104,0.5)' 
     },
     { 
       id: 'elifba', 
@@ -113,19 +113,19 @@ import { User } from '../types';
     { 
       id: 'ayet-bul', 
       icon: <IconWrapper><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></IconWrapper>, 
-      title: 'Ayet Bulucu', desc: 'Sesli Ayet Tanıma', cat: 'Kuran Akademisi', color: 'text-indigo-500', glowColor: 'rgba(99,102,241,0.5)' 
+      title: 'Ayet Bulucu', desc: 'Sesli Ayet Tanıma', cat: 'Kuran Akademisi', color: 'text-gold-500', glowColor: 'rgba(201,166,104,0.5)' 
     },
 
     // --- İBADET MERKEZİ ---
     { 
       id: 'zikir', 
       icon: <IconWrapper><circle cx="12" cy="12" r="3"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></IconWrapper>, 
-      title: 'Zikirmatik', desc: 'Akıllı Tesbihat', cat: 'İbadet Merkezi', color: 'text-gold-500', glowColor: 'rgba(20,184,166,0.5)' 
+      title: 'Zikirmatik', desc: 'Akıllı Tesbihat', cat: 'İbadet Merkezi', color: 'text-gold-500', glowColor: 'rgba(201,166,104,0.5)' 
     },
     { 
       id: 'hatim-org', 
       icon: <IconWrapper><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></IconWrapper>, 
-      title: 'Hatim Organizatörü', desc: 'Grup Hatim Yönetimi', cat: 'İbadet Merkezi', color: 'text-gold-500', glowColor: 'rgba(20,184,166,0.5)' 
+      title: 'Hatim Organizatörü', desc: 'Grup Hatim Yönetimi', cat: 'İbadet Merkezi', color: 'text-gold-500', glowColor: 'rgba(201,166,104,0.5)' 
     },
     { 
       id: 'kaza', 
@@ -140,7 +140,7 @@ import { User } from '../types';
     { 
       id: 'cevsen', 
       icon: <IconWrapper><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></IconWrapper>, 
-      title: 'Cevşen-ül Kebir', desc: 'Koruyucu Dualar', cat: 'İbadet Merkezi', color: 'text-indigo-500', glowColor: 'rgba(99,102,241,0.5)' 
+      title: 'Cevşen-ül Kebir', desc: 'Koruyucu Dualar', cat: 'İbadet Merkezi', color: 'text-gold-500', glowColor: 'rgba(201,166,104,0.5)' 
     },
 
     // --- MANEVİ GELİŞİM & AI ---
@@ -157,7 +157,7 @@ import { User } from '../types';
     { 
       id: 'uyku-modu', 
       icon: <IconWrapper><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></IconWrapper>, 
-      title: 'Uyku & Tefekkür', desc: 'Gece Zikirleri ve Sesler', cat: 'Manevi Gelişim', color: 'text-indigo-600', glowColor: 'rgba(79,70,229,0.5)' 
+      title: 'Uyku & Tefekkür', desc: 'Gece Zikirleri ve Sesler', cat: 'Manevi Gelişim', color: 'text-gold-600', glowColor: 'rgba(201,166,104,0.5)' 
     },
     { 
       id: 'aile-modu', 
@@ -206,7 +206,7 @@ import { User } from '../types';
     { 
       id: 'abdest', 
       icon: <IconWrapper><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-5c-.5 1-2 3.4-4 5s-3 3.5-3 5.5a7 7 0 0 0 7 7z"/></IconWrapper>, 
-      title: 'Namaz Rehberi', desc: 'Sesli Anlatımlar', cat: 'Günlük Yaşam', color: 'text-sky-500', glowColor: 'rgba(14,165,233,0.5)' 
+      title: 'Namaz Rehberi', desc: 'Sesli Anlatımlar', cat: 'Günlük Yaşam', color: 'text-gold-500', glowColor: 'rgba(201,166,104,0.5)' 
     },
 
     // --- LOKASYON & MEDYA ---
@@ -218,7 +218,7 @@ import { User } from '../types';
     { 
       id: 'camiler', 
       icon: <IconWrapper><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></IconWrapper>, 
-      title: 'Yakın Camiler', desc: 'En Yakın Mescitleri Bul', cat: 'Lokasyon & Media', color: 'text-gold-500', glowColor: 'rgba(20,184,166,0.5)' 
+      title: 'Yakın Camiler', desc: 'En Yakın Mescitleri Bul', cat: 'Lokasyon & Media', color: 'text-gold-500', glowColor: 'rgba(201,166,104,0.5)' 
     },
     { 
       id: 'kabe-canli', 
@@ -233,7 +233,7 @@ import { User } from '../types';
     { 
       id: 'mesajlar', 
       icon: <IconWrapper><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></IconWrapper>, 
-      title: 'Hayırlı Cumalar', desc: 'Paylaşılabilir Kartlar', cat: 'Lokasyon & Media', color: 'text-cyan-500', glowColor: 'rgba(6,182,212,0.5)' 
+      title: 'Hayırlı Cumalar', desc: 'Paylaşılabilir Kartlar', cat: 'Lokasyon & Media', color: 'text-gold-500', glowColor: 'rgba(201,166,104,0.5)' 
     },
   ];
 
@@ -450,7 +450,7 @@ import { User } from '../types';
           categories.map(cat => (
             <div key={cat} className="space-y-4">
               <div className="flex items-center gap-3 ml-2 mb-4">
-                <div className="w-2 h-2 bg-gold-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(20,184,166,0.5)]"></div>
+                <div className="w-2 h-2 bg-gold-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(201,166,104,0.5)]"></div>
                 <h3 className="text-[10px] font-black text-slate-900/40 uppercase tracking-[0.4em]">{cat}</h3>
               </div>
               <div className={layoutMode === 'list' ? "flex flex-col gap-3" : "grid grid-cols-2 gap-4"}>

@@ -252,7 +252,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
   ];
 
   return (
-    <div className="flex-1 overflow-y-auto px-5 pb-36 pt-2 space-y-6 animate-in fade-in duration-700 no-scrollbar relative">
+    <div className="flex-1 overflow-y-auto px-5 pb-36 pt-1 space-y-5 animate-in fade-in duration-700 no-scrollbar relative">
       
       {/* BACKGROUND DECORATIVE LAYERS */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
@@ -270,13 +270,6 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
 
         {/* 3. Bottom Ambient Glow - derin lacivert huzur tonu */}
         <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[500px] h-[400px] bg-[#1c2541]/10 dark:bg-[#c9a668]/5 blur-[110px] rounded-full transition-all duration-1000" />
-      </div>
-
-      {/* Ay-yıldız süslemesi - üstte ince bir manevi ayraç */}
-      <div className="flex items-center justify-center gap-3 relative z-10 mb-0">
-        <div className="w-10 h-[1px] bg-gradient-to-r from-transparent to-[#c9a668]/50" />
-        <span className="text-[#c9a668] text-sm">☾</span>
-        <div className="w-10 h-[1px] bg-gradient-to-l from-transparent to-[#c9a668]/50" />
       </div>
 
       {/* MAIN CARD - Artık uygulamanın genel fildişi/lacivert huzur temasıyla aynı, ayrı bir renk bloğu değil */}

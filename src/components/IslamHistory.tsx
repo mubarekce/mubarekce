@@ -39,7 +39,7 @@ const CATEGORIES: HistoryCategory[] = [
     id: 'rashidun',
     name: 'Dört Halife Devri',
     era: '632 - 661',
-    color: 'text-sky-600',
+    color: 'text-gold-600',
     icon: <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
     events: [
       { id: 'abu_bakr', year: '632', title: 'Hz. Ebubekir Dönemi', type: 'dönüm noktası', desc: 'İlk halife seçildi, Kuran toplandı.', detailedDesc: 'Riddet savaşlarıyla devlet birliği korunmuş ve Kuran-ı Kerim ilk kez kitap haline getirilmiştir.' },
@@ -137,17 +137,17 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             </div>
 
             {/* Featured Era Card - Updated to Pastel Blue as requested */}
-            <div className="bg-[#f0f9ff] rounded-[2.2rem] p-8 text-sky-950 relative overflow-hidden group shadow-lg shadow-sky-900/5 border border-sky-100">
-               <div className="absolute right-[-5%] top-[-10%] opacity-[0.05] group-hover:scale-110 transition-transform duration-1000 text-[10rem] pointer-events-none rotate-12 text-sky-900">🕌</div>
+            <div className="bg-[#fbf6ea] rounded-[2.2rem] p-8 text-navy-950 relative overflow-hidden group shadow-lg shadow-navy-900/5 border border-gold-100">
+               <div className="absolute right-[-5%] top-[-10%] opacity-[0.05] group-hover:scale-110 transition-transform duration-1000 text-[10rem] pointer-events-none rotate-12 text-navy-900">🕌</div>
                <div className="relative z-10 space-y-4 text-center">
-                  <p className="text-sky-600 text-[9px] font-black uppercase tracking-[0.4em]">HAFTANIN DÖNEMİ</p>
+                  <p className="text-gold-600 text-[9px] font-black uppercase tracking-[0.4em]">HAFTANIN DÖNEMİ</p>
                   <h3 className="text-2xl font-black tracking-tighter serif-text italic">Asr-ı Saadet</h3>
-                  <p className="text-[13px] font-medium leading-relaxed text-sky-800/70">
+                  <p className="text-[13px] font-medium leading-relaxed text-navy-800/70">
                     Peygamber Efendimiz (sav) dönemini, İslam'ın doğuşunu ve sahabe hayatlarını keşfedin.
                   </p>
                   <button 
                     onClick={() => setSelectedCategory(CATEGORIES[0])}
-                    className="bg-sky-600 text-white px-6 py-2.5 rounded-full font-black text-[9px] uppercase tracking-widest active:scale-95 shadow-md shadow-sky-200 transition-all border border-sky-500"
+                    className="bg-gold-600 text-white px-6 py-2.5 rounded-full font-black text-[9px] uppercase tracking-widest active:scale-95 shadow-md shadow-gold-200 transition-all border border-gold-500"
                   >
                     DÖNEMİ KEŞFET →
                   </button>
@@ -215,7 +215,7 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                         <span className={`text-[7px] font-black px-2 py-0.5 rounded-full uppercase ${
                           ev.type === 'dönüm noktası' ? 'bg-gold-50 dark:bg-navy-950/20 text-gold-600' :
                           ev.type === 'savaş' ? 'bg-rose-50 dark:bg-rose-950/20 text-rose-600' :
-                          ev.type === 'bilim' ? 'bg-blue-50 dark:bg-blue-950/20 text-blue-600' : 'bg-amber-50 dark:bg-amber-950/20 text-amber-600'
+                          ev.type === 'bilim' ? 'bg-gold-50 dark:bg-navy-950/20 text-gold-600' : 'bg-amber-50 dark:bg-amber-950/20 text-amber-600'
                         }`}>
                           {ev.type}
                         </span>

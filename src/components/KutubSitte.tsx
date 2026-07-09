@@ -44,12 +44,12 @@ const BookIcons = {
 };
 
 const BOOKS: HadithBook[] = [
-  { id: 'bukhari', name: 'SAHİH-İ BUHÂRÎ', author: 'İmam Buhâri', icon: <BookIcons.Scroll />, color: 'text-sky-600', gradient: 'from-sky-50 to-blue-50', description: 'İslam dünyasındaki en sahih hadis kaynağı kabul edilir.' },
-  { id: 'muslim', name: 'SAHİH-İ MÜSLİM', author: 'İmam Müslim', icon: <BookIcons.Mosque />, color: 'text-sky-600', gradient: 'from-sky-50 to-blue-50', description: 'Kur\'an\'dan sonraki en sağlam ikinci kaynak sayılır.' },
-  { id: 'dawood', name: 'SÜNEN-İ EBU DÂVUD', author: 'Ebu Dâvud', icon: <BookIcons.Scales />, color: 'text-sky-600', gradient: 'from-sky-50 to-blue-50', description: 'Fıkhi hükümler içeren hadislerin en geniş koleksiyonudur.' },
-  { id: 'tirmidhi', name: 'SÜNEN-İ TİRMİZÎ', author: 'İmam Tirmizî', icon: <BookIcons.Gem />, color: 'text-sky-600', gradient: 'from-sky-50 to-blue-50', description: 'Hadislerin derecelerini bildirmesiyle ünlüdür.' },
-  { id: 'nasai', name: 'SÜNEN-İ NESÂÎ', author: 'İmam Nesâî', icon: <BookIcons.Shield />, color: 'text-sky-600', gradient: 'from-sky-50 to-blue-50', description: 'Hadis tenkidi ve titizliği ile öne çıkar.' },
-  { id: 'majiah', name: 'SÜNEN-İ İBN MÂCE', author: 'İbn Mâce', icon: <BookIcons.Key />, color: 'text-sky-600', gradient: 'from-sky-50 to-blue-50', description: 'Kütüb-i Sitte\'nin altıncı kitabı olarak kabul edilir.' },
+  { id: 'bukhari', name: 'SAHİH-İ BUHÂRÎ', author: 'İmam Buhâri', icon: <BookIcons.Scroll />, color: 'text-gold-600', gradient: 'from-gold-50 to-gold-50', description: 'İslam dünyasındaki en sahih hadis kaynağı kabul edilir.' },
+  { id: 'muslim', name: 'SAHİH-İ MÜSLİM', author: 'İmam Müslim', icon: <BookIcons.Mosque />, color: 'text-gold-600', gradient: 'from-gold-50 to-gold-50', description: 'Kur\'an\'dan sonraki en sağlam ikinci kaynak sayılır.' },
+  { id: 'dawood', name: 'SÜNEN-İ EBU DÂVUD', author: 'Ebu Dâvud', icon: <BookIcons.Scales />, color: 'text-gold-600', gradient: 'from-gold-50 to-gold-50', description: 'Fıkhi hükümler içeren hadislerin en geniş koleksiyonudur.' },
+  { id: 'tirmidhi', name: 'SÜNEN-İ TİRMİZÎ', author: 'İmam Tirmizî', icon: <BookIcons.Gem />, color: 'text-gold-600', gradient: 'from-gold-50 to-gold-50', description: 'Hadislerin derecelerini bildirmesiyle ünlüdür.' },
+  { id: 'nasai', name: 'SÜNEN-İ NESÂÎ', author: 'İmam Nesâî', icon: <BookIcons.Shield />, color: 'text-gold-600', gradient: 'from-gold-50 to-gold-50', description: 'Hadis tenkidi ve titizliği ile öne çıkar.' },
+  { id: 'majiah', name: 'SÜNEN-İ İBN MÂCE', author: 'İbn Mâce', icon: <BookIcons.Key />, color: 'text-gold-600', gradient: 'from-gold-50 to-gold-50', description: 'Kütüb-i Sitte\'nin altıncı kitabı olarak kabul edilir.' },
 ];
 
 const HADITH_DATA: Record<string, Hadith[]> = {
@@ -110,11 +110,11 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in slide-in-from-right duration-500 overflow-hidden relative">
       {/* Premium Header */}
-      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl sticky top-0 z-40 border-b border-sky-100/50">
+      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl sticky top-0 z-40 border-b border-gold-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={selectedBook ? () => setSelectedBook(null) : onBack} 
-            className="w-10 h-10 bg-sky-50 dark:bg-sky-950/20 rounded-xl flex items-center justify-center border border-sky-100 active:scale-90 transition-transform text-sky-600"
+            className="w-10 h-10 bg-gold-50 dark:bg-navy-950/20 rounded-xl flex items-center justify-center border border-gold-100 active:scale-90 transition-transform text-gold-600"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
@@ -122,12 +122,12 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <h2 className="text-[16px] font-black text-slate-800 dark:text-slate-100 tracking-tight leading-none uppercase">
               {selectedBook ? selectedBook.name : "KÜTÜB-İ SİTTE"}
             </h2>
-            <p className="text-[8px] font-black text-sky-500 uppercase tracking-[0.2em]">
+            <p className="text-[8px] font-black text-gold-500 uppercase tracking-[0.2em]">
               {selectedBook ? "KAYNAK KİTAP" : "HADİS KÜLLİYATI"}
             </p>
           </div>
         </div>
-        <div className="text-sky-400 opacity-40">
+        <div className="text-gold-400 opacity-40">
            {selectedBook ? <BookIcons.Scroll /> : <BookIcons.Key />}
         </div>
       </div>
@@ -142,24 +142,24 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Hadis kaynağı ara..."
-                className="w-full bg-sky-50/50 border border-sky-100 focus:bg-white dark:bg-slate-900 rounded-2xl pl-12 pr-4 py-3.5 outline-none font-bold text-sm text-slate-700 dark:text-slate-300 dark:text-slate-600 placeholder:text-sky-300 shadow-sm transition-all"
+                className="w-full bg-gold-50/50 border border-gold-100 focus:bg-white dark:bg-slate-900 rounded-2xl pl-12 pr-4 py-3.5 outline-none font-bold text-sm text-slate-700 dark:text-slate-300 dark:text-slate-600 placeholder:text-gold-300 shadow-sm transition-all"
               />
-              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-sky-400">
+              <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gold-400">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
               </div>
             </div>
 
             {/* Daily Feature Card - Pastel Blue */}
-            <div className="bg-[#f0f9ff] rounded-[2.2rem] p-8 text-sky-900 border border-sky-100 relative overflow-hidden group shadow-sm">
+            <div className="bg-[#fbf6ea] rounded-[2.2rem] p-8 text-navy-900 border border-gold-100 relative overflow-hidden group shadow-sm">
                <div className="relative z-10 space-y-4">
                   <div className="flex items-center gap-2">
-                     <span className="w-1.5 h-1.5 bg-sky-400 rounded-full"></span>
-                     <p className="text-[8px] font-black text-sky-500 uppercase tracking-[0.3em]">GÜNÜN HADİS-İ ŞERİFİ</p>
+                     <span className="w-1.5 h-1.5 bg-gold-400 rounded-full"></span>
+                     <p className="text-[8px] font-black text-gold-500 uppercase tracking-[0.3em]">GÜNÜN HADİS-İ ŞERİFİ</p>
                   </div>
-                  <p className="arabic-text text-2xl leading-[1.8] text-center text-sky-950" dir="rtl">إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ</p>
-                  <p className="text-[15px] font-bold leading-relaxed text-center italic text-sky-800/80">"Ameller ancak niyetlere göredir."</p>
+                  <p className="arabic-text text-2xl leading-[1.8] text-center text-navy-950" dir="rtl">إِنَّمَا الأَعْمَالُ بِالنِّيَّاتِ</p>
+                  <p className="text-[15px] font-bold leading-relaxed text-center italic text-navy-800/80">"Ameller ancak niyetlere göredir."</p>
                   <div className="pt-2 flex justify-center">
-                     <p className="text-[8px] font-black text-sky-400 uppercase tracking-widest border-t border-sky-200/50 pt-2 px-4">BUHÂRÎ, 1</p>
+                     <p className="text-[8px] font-black text-gold-400 uppercase tracking-widest border-t border-gold-200/50 pt-2 px-4">BUHÂRÎ, 1</p>
                   </div>
                </div>
             </div>
@@ -167,7 +167,7 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             {/* Compact Book List */}
             <div className="space-y-3">
               <div className="flex items-center gap-2 ml-1">
-                 <div className="w-1 h-1 bg-sky-400 rounded-full"></div>
+                 <div className="w-1 h-1 bg-gold-400 rounded-full"></div>
                  <h4 className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em]">KİTAP LİSTESİ</h4>
               </div>
               
@@ -176,10 +176,10 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   <div 
                     key={book.id}
                     onClick={() => setSelectedBook(book)}
-                    className="p-5 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 flex items-center justify-between hover:bg-sky-50/50 hover:border-sky-100 transition-all cursor-pointer group active:scale-[0.98]"
+                    className="p-5 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 flex items-center justify-between hover:bg-gold-50/50 hover:border-gold-100 transition-all cursor-pointer group active:scale-[0.98]"
                   >
                     <div className="flex items-center gap-4">
-                       <div className="w-11 h-11 rounded-2xl bg-sky-50 dark:bg-sky-950/20 text-sky-500 flex items-center justify-center transition-transform group-hover:scale-110">
+                       <div className="w-11 h-11 rounded-2xl bg-gold-50 dark:bg-navy-950/20 text-gold-500 flex items-center justify-center transition-transform group-hover:scale-110">
                           {book.icon}
                        </div>
                        <div>
@@ -187,7 +187,7 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                           <p className="text-[9px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">{book.author}</p>
                        </div>
                     </div>
-                    <div className="text-sky-200 group-hover:text-sky-500 transition-colors">
+                    <div className="text-gold-200 group-hover:text-gold-500 transition-colors">
                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><polyline points="9 18 15 12 9 6"/></svg>
                     </div>
                   </div>
@@ -198,12 +198,12 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         ) : (
           <div className="animate-in slide-in-from-bottom-4 duration-500 space-y-6">
             {/* Compact Intro */}
-            <div className="bg-sky-50/30 rounded-[2.2rem] p-8 border border-sky-100 text-center relative overflow-hidden">
-               <div className="w-16 h-16 mx-auto rounded-2xl bg-white dark:bg-slate-900 text-sky-500 flex items-center justify-center mb-4 shadow-sm border border-sky-50">
+            <div className="bg-gold-50/30 rounded-[2.2rem] p-8 border border-gold-100 text-center relative overflow-hidden">
+               <div className="w-16 h-16 mx-auto rounded-2xl bg-white dark:bg-slate-900 text-gold-500 flex items-center justify-center mb-4 shadow-sm border border-gold-50">
                  {selectedBook.icon}
                </div>
                <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tighter mb-1">{selectedBook.name}</h3>
-               <p className="text-[10px] font-black text-sky-500 uppercase tracking-[0.2em] mb-4">{selectedBook.author}</p>
+               <p className="text-[10px] font-black text-gold-500 uppercase tracking-[0.2em] mb-4">{selectedBook.author}</p>
                <p className="text-[12px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed italic px-4">
                  "{selectedBook.description}"
                </p>
@@ -213,7 +213,7 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <div className="space-y-4">
                <div className="flex items-center justify-between px-1">
                  <div className="flex items-center gap-2">
-                   <div className="w-1.5 h-1.5 bg-sky-400 rounded-full"></div>
+                   <div className="w-1.5 h-1.5 bg-gold-400 rounded-full"></div>
                    <h5 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em]">HADİSLER</h5>
                  </div>
                </div>
@@ -223,10 +223,10 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                    {HADITH_DATA[selectedBook.id].map((hadith) => (
                      <div 
                       key={hadith.id}
-                      className="bg-white dark:bg-slate-900 p-7 rounded-[2rem] border border-slate-100 dark:border-slate-800 hover:border-sky-100 transition-all relative"
+                      className="bg-white dark:bg-slate-900 p-7 rounded-[2rem] border border-slate-100 dark:border-slate-800 hover:border-gold-100 transition-all relative"
                      >
                         <div className="flex justify-between items-center mb-6">
-                           <span className="text-[8px] font-black text-sky-600 bg-sky-50 dark:bg-sky-950/20 px-3 py-1 rounded-full border border-sky-100 uppercase tracking-widest">
+                           <span className="text-[8px] font-black text-gold-600 bg-gold-50 dark:bg-navy-950/20 px-3 py-1 rounded-full border border-gold-100 uppercase tracking-widest">
                              {hadith.chapter}
                            </span>
                            <button 
@@ -252,13 +252,13 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                         <div className="mt-8 flex gap-2">
                            <button 
                              onClick={() => setActiveHadith(hadith)}
-                             className="flex-1 py-3.5 bg-sky-600 text-white rounded-xl font-black text-[9px] uppercase tracking-widest active:scale-95 shadow-md shadow-sky-100 flex items-center justify-center gap-2"
+                             className="flex-1 py-3.5 bg-gold-600 text-white rounded-xl font-black text-[9px] uppercase tracking-widest active:scale-95 shadow-md shadow-gold-100 flex items-center justify-center gap-2"
                            >
                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><path d="M12 7v5l3 3"/></svg>
                              AI ANALİZİ
                            </button>
                            <button 
-                             className="w-11 h-11 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-all hover:bg-sky-50 dark:bg-sky-950/20 hover:text-sky-600"
+                             className="w-11 h-11 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-all hover:bg-gold-50 dark:bg-navy-950/20 hover:text-gold-600"
                              onClick={() => alert("Kopyalandı")}
                            >
                              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
@@ -281,22 +281,22 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       {activeHadith && (
         <div className="fixed inset-0 z-[500] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
            <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[2.5rem] p-8 space-y-8 animate-in zoom-in duration-300 shadow-2xl relative overflow-hidden flex flex-col max-h-[80vh]">
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-sky-500"></div>
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-gold-500"></div>
               
               <div className="text-center">
                  <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Hadis Şerhi</h3>
-                 <p className="text-[8px] font-black text-sky-500 uppercase tracking-[0.4em] mt-1">MÜBAREKÇE AI ANALİZ</p>
+                 <p className="text-[8px] font-black text-gold-500 uppercase tracking-[0.4em] mt-1">MÜBAREKÇE AI ANALİZ</p>
               </div>
 
               <div className="flex-1 overflow-y-auto no-scrollbar space-y-8">
-                 <div className="bg-sky-50/50 p-6 rounded-2xl border border-sky-100/50 text-center italic">
-                    <p className="text-[13px] font-bold text-sky-900">"{activeHadith.translation}"</p>
+                 <div className="bg-gold-50/50 p-6 rounded-2xl border border-gold-100/50 text-center italic">
+                    <p className="text-[13px] font-bold text-navy-900">"{activeHadith.translation}"</p>
                  </div>
 
                  {loadingAi ? (
                     <div className="py-8 flex flex-col items-center gap-6">
-                       <div className="w-10 h-10 border-4 border-sky-100 border-t-sky-500 rounded-full animate-spin"></div>
-                       <p className="text-[9px] font-black text-sky-400 uppercase tracking-widest animate-pulse">ANALİZ EDİLİYOR</p>
+                       <div className="w-10 h-10 border-4 border-gold-100 border-t-gold-500 rounded-full animate-spin"></div>
+                       <p className="text-[9px] font-black text-gold-400 uppercase tracking-widest animate-pulse">ANALİZ EDİLİYOR</p>
                     </div>
                  ) : aiExplanation ? (
                     <div className="space-y-4 animate-in fade-in duration-700">
@@ -307,7 +307,7 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                  ) : (
                     <button 
                       onClick={() => getAiExplanation(activeHadith)}
-                      className="w-full py-5 bg-sky-50 dark:bg-sky-950/20 text-sky-700 border border-sky-200/50 rounded-2xl font-black text-[10px] uppercase tracking-widest active:scale-95"
+                      className="w-full py-5 bg-gold-50 dark:bg-navy-950/20 text-gold-700 border border-gold-200/50 rounded-2xl font-black text-[10px] uppercase tracking-widest active:scale-95"
                     >
                       BİLGELİK ANALİZİ BAŞLAT
                     </button>

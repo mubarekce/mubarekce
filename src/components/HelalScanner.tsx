@@ -127,10 +127,10 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           </button>
           <div>
             <h2 className="text-[17px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Helal Tarayıcı</h2>
-            <p className="text-[8px] font-black text-sky-500 uppercase tracking-[0.25em] mt-1">BARKOD & İÇERİK ANALİZİ</p>
+            <p className="text-[8px] font-black text-gold-500 uppercase tracking-[0.25em] mt-1">BARKOD & İÇERİK ANALİZİ</p>
           </div>
         </div>
-        <div className="w-10 h-10 bg-sky-50 dark:bg-sky-950/20 rounded-xl flex items-center justify-center text-lg border border-sky-100 text-sky-500">🔍</div>
+        <div className="w-10 h-10 bg-gold-50 dark:bg-navy-950/20 rounded-xl flex items-center justify-center text-lg border border-gold-100 text-gold-500">🔍</div>
       </div>
 
       <div className="flex-1 overflow-y-auto px-5 pb-32 no-scrollbar pt-6">
@@ -138,12 +138,12 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="space-y-10 animate-in fade-in duration-500 flex flex-col items-center justify-center py-12">
             <div className="relative">
                {/* Frame Corners - Now Pastel Sky Blue */}
-               <div className="w-48 h-48 border-[6px] border-sky-500/10 rounded-[2.5rem] flex items-center justify-center relative">
-                  <div className="absolute top-[-3px] left-[-3px] w-12 h-12 border-t-[6px] border-l-[6px] border-sky-400 rounded-tl-[2rem]"></div>
-                  <div className="absolute top-[-3px] right-[-3px] w-12 h-12 border-t-[6px] border-r-[6px] border-sky-400 rounded-tr-[2rem]"></div>
-                  <div className="absolute bottom-[-3px] left-[-3px] w-12 h-12 border-b-[6px] border-l-[6px] border-sky-400 rounded-bl-[2rem]"></div>
-                  <div className="absolute bottom-[-3px] right-[-3px] w-12 h-12 border-b-[6px] border-r-[6px] border-sky-400 rounded-br-[2rem]"></div>
-                  <div className="text-6xl text-sky-500/20">📷</div>
+               <div className="w-48 h-48 border-[6px] border-gold-500/10 rounded-[2.5rem] flex items-center justify-center relative">
+                  <div className="absolute top-[-3px] left-[-3px] w-12 h-12 border-t-[6px] border-l-[6px] border-gold-400 rounded-tl-[2rem]"></div>
+                  <div className="absolute top-[-3px] right-[-3px] w-12 h-12 border-t-[6px] border-r-[6px] border-gold-400 rounded-tr-[2rem]"></div>
+                  <div className="absolute bottom-[-3px] left-[-3px] w-12 h-12 border-b-[6px] border-l-[6px] border-gold-400 rounded-bl-[2rem]"></div>
+                  <div className="absolute bottom-[-3px] right-[-3px] w-12 h-12 border-b-[6px] border-r-[6px] border-gold-400 rounded-br-[2rem]"></div>
+                  <div className="text-6xl text-gold-500/20">📷</div>
                </div>
             </div>
 
@@ -156,7 +156,7 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
             <button 
               onClick={startCamera}
-              className="w-full max-w-[280px] py-5 bg-sky-500 text-white rounded-[2rem] font-black text-[11px] uppercase tracking-[0.2em] shadow-xl shadow-sky-900/10 active:scale-95 transition-all"
+              className="w-full max-w-[280px] py-5 bg-gold-500 text-white rounded-[2rem] font-black text-[11px] uppercase tracking-[0.2em] shadow-xl shadow-navy-900/10 active:scale-95 transition-all"
             >
               TARAMAYI BAŞLAT
             </button>
@@ -177,7 +177,7 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             {/* Scanning Overlay */}
             <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
               <div className="w-72 h-48 border-2 border-white/30 rounded-3xl relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-1 bg-sky-400/50 animate-scanner-bar"></div>
+                <div className="absolute top-0 left-0 w-full h-1 bg-gold-400/50 animate-scanner-bar"></div>
               </div>
             </div>
 
@@ -189,7 +189,7 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                     onClick={captureImage}
                     className="w-20 h-20 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center p-1"
                   >
-                    <div className="w-full h-full border-4 border-black rounded-full bg-sky-500"></div>
+                    <div className="w-full h-full border-4 border-black rounded-full bg-gold-500"></div>
                   </button>
                   <div className="w-12 h-12 opacity-0"></div>
                </div>
@@ -200,13 +200,13 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {loading && (
           <div className="flex flex-col items-center justify-center py-24 space-y-8 animate-in fade-in">
              <div className="relative w-24 h-24">
-                <div className="absolute inset-0 border-4 border-sky-100 rounded-full"></div>
-                <div className="absolute inset-0 border-4 border-sky-400 border-t-transparent rounded-full animate-spin"></div>
+                <div className="absolute inset-0 border-4 border-gold-100 rounded-full"></div>
+                <div className="absolute inset-0 border-4 border-gold-400 border-t-transparent rounded-full animate-spin"></div>
                 <div className="absolute inset-0 flex items-center justify-center text-2xl animate-pulse">🧪</div>
              </div>
              <div className="text-center">
                 <p className="text-lg font-black text-slate-900 dark:text-white tracking-tight">İçerik Analiz Ediliyor</p>
-                <p className="text-[10px] font-black text-sky-500 uppercase tracking-widest mt-1">FIKHİ KAYNAKLAR TARANIYOR</p>
+                <p className="text-[10px] font-black text-gold-500 uppercase tracking-widest mt-1">FIKHİ KAYNAKLAR TARANIYOR</p>
              </div>
           </div>
         )}

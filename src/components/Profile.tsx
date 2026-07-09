@@ -95,8 +95,8 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
   // Removed 'location' from settingItems as requested
   const settingItems = useMemo(() => [
     ...(isAdminEmail(user.email) ? [{ id: 'admin' as SettingType, label: 'Yönetim Paneli', icon: '🛠️', color: 'bg-gold-700', val: '', options: [] }] : []),
-    { id: 'notifications' as SettingType, label: 'Ses & Bildirim', icon: '🔔', color: 'bg-indigo-500', val: selectedSoundId, options: [] },
-    { id: 'language' as SettingType, label: 'Dil Seçimi', icon: '🌍', color: 'bg-blue-500', val: languagePref, options: ['Türkçe', 'English', 'Arabic', 'Urdu'] },
+    { id: 'notifications' as SettingType, label: 'Ses & Bildirim', icon: '🔔', color: 'bg-gold-500', val: selectedSoundId, options: [] },
+    { id: 'language' as SettingType, label: 'Dil Seçimi', icon: '🌍', color: 'bg-gold-500', val: languagePref, options: ['Türkçe', 'English', 'Arabic', 'Urdu'] },
     { id: 'theme' as SettingType, label: 'Gece Modu', icon: '🌙', color: 'bg-slate-800', val: isDark ? 'Açık' : 'Kapalı', options: [] },
     { id: 'rate' as SettingType, label: 'Bizi Puanlayın', icon: '⭐', color: 'bg-amber-500', val: 'V5.0', isLink: true, options: [] },
   ], [selectedSoundId, languagePref, isDark, user.email]);
@@ -254,7 +254,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
                 <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em] ml-2">GERİ BİLDİRİM</p>
                 <div className="bg-white dark:bg-slate-900 rounded-[2.2rem] border border-slate-50 dark:border-slate-800 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden shadow-sm">
                    <div className="flex items-center justify-between p-5 px-6">
-                      <div className="flex items-center gap-4"><div className="w-9 h-9 bg-indigo-50 dark:bg-indigo-900/10 text-indigo-500 rounded-xl flex items-center justify-center text-lg">📳</div><span className="text-[13px] font-bold text-slate-700 dark:text-slate-200">Titreşimle Uyarma</span></div>
+                      <div className="flex items-center gap-4"><div className="w-9 h-9 bg-gold-50 dark:bg-navy-900/10 text-gold-500 rounded-xl flex items-center justify-center text-lg">📳</div><span className="text-[13px] font-bold text-slate-700 dark:text-slate-200">Titreşimle Uyarma</span></div>
                       <input type="checkbox" checked={notifVibrate} onChange={() => setNotifVibrate(!notifVibrate)} className="w-5 h-5 rounded-lg border-slate-300 dark:border-slate-700 text-gold-600 focus:ring-gold-500 dark:bg-slate-800" />
                    </div>
                 </div>
@@ -282,8 +282,8 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
       <div 
         className={`aspect-[1.58/1] w-full rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl transition-all duration-300 border group cursor-pointer active:scale-[0.98] ${
           isPremium 
-            ? 'bg-gradient-to-br from-gold-500 via-gold-600 to-cyan-700 text-white border-white/10 shadow-navy-900/30' 
-            : 'bg-gradient-to-br from-gold-50 via-cyan-50 to-white dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 text-navy-950 dark:text-white border-gold-100 dark:border-slate-700 shadow-navy-900/5'
+            ? 'bg-gradient-to-br from-gold-500 via-gold-600 to-gold-700 text-white border-white/10 shadow-navy-900/30' 
+            : 'bg-gradient-to-br from-gold-50 via-gold-50 to-white dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 text-navy-950 dark:text-white border-gold-100 dark:border-slate-700 shadow-navy-900/5'
         }`}
       >
         {/* Cami Silüeti */}
@@ -344,8 +344,8 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
             <p className="text-[18px] font-black text-gold-600 tracking-tighter tabular-nums">7</p>
             <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">İSTİKRAR</p>
          </div>
-         <div className="bg-gradient-to-br from-cyan-50 to-white dark:from-slate-900 dark:to-slate-900 p-5 rounded-[2rem] shadow-sm border border-cyan-100/70 dark:border-slate-800 text-center space-y-1">
-            <p className="text-[18px] font-black text-sky-600 tracking-tighter tabular-nums">%12</p>
+         <div className="bg-gradient-to-br from-gold-50 to-white dark:from-slate-900 dark:to-slate-900 p-5 rounded-[2rem] shadow-sm border border-gold-100/70 dark:border-slate-800 text-center space-y-1">
+            <p className="text-[18px] font-black text-gold-600 tracking-tighter tabular-nums">%12</p>
             <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">HATİM</p>
          </div>
          <div className="bg-gradient-to-br from-amber-50 to-white dark:from-slate-900 dark:to-slate-900 p-5 rounded-[2rem] shadow-sm border border-amber-100/70 dark:border-slate-800 text-center space-y-1">
@@ -471,15 +471,15 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
            {/* 2. COMPACT ELITE PRICING CARDS */}
            <div className="px-6 flex-1 flex flex-col justify-center gap-2 py-4">
               <p className="text-[9px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-[0.4em] ml-1 mb-1">PAKETİNİZİ BELİRLEYİN</p>
-              <div onClick={() => setSelectedPlan('6m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer relative overflow-hidden flex items-center justify-between px-5 ${selectedPlan === '6m' ? 'bg-[#134e4a] border-[#134e4a] shadow-xl shadow-navy-900/20 ring-4 ring-gold-500/5' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}`}>
-                <div className="absolute top-0 right-6 bg-[#fbbf24] text-[#134e4a] text-[6.5px] font-black px-3 py-0.5 rounded-b-lg uppercase tracking-widest z-10 shadow-md">EN ÇOK TERCİH EDİLEN</div>
+              <div onClick={() => setSelectedPlan('6m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer relative overflow-hidden flex items-center justify-between px-5 ${selectedPlan === '6m' ? 'bg-[#1c2541] border-[#1c2541] shadow-xl shadow-navy-900/20 ring-4 ring-gold-500/5' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}`}>
+                <div className="absolute top-0 right-6 bg-[#fbbf24] text-[#1c2541] text-[6.5px] font-black px-3 py-0.5 rounded-b-lg uppercase tracking-widest z-10 shadow-md">EN ÇOK TERCİH EDİLEN</div>
                 <div className="space-y-0.5">
                   <p className={`text-[9px] font-black uppercase tracking-widest ${selectedPlan === '6m' ? 'text-gold-300' : 'text-gold-600'}`}>6 AYLIK PLAN</p>
                   <h4 className={`text-2xl font-black tracking-tighter ${selectedPlan === '6m' ? 'text-white' : 'text-slate-900 dark:text-white'}`}>₺149</h4>
                 </div>
                 <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${selectedPlan === '6m' ? 'border-white bg-white text-gold-700' : 'border-slate-100 dark:border-slate-700'}`}>{selectedPlan === '6m' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="5"><polyline points="20 6 9 17 4 12"/></svg>}</div>
               </div>
-              <div onClick={() => setSelectedPlan('3m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer flex items-center justify-between px-5 ${selectedPlan === '3m' ? 'bg-[#134e4a] border-[#134e4a] shadow-xl' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}`}>
+              <div onClick={() => setSelectedPlan('3m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer flex items-center justify-between px-5 ${selectedPlan === '3m' ? 'bg-[#1c2541] border-[#1c2541] shadow-xl' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}`}>
                 <div className="space-y-0.5">
                   <p className={`text-[9px] font-black uppercase tracking-widest ${selectedPlan === '3m' ? 'text-gold-300' : 'text-gold-600'}`}>3 AYLIK PLAN</p>
                   <h4 className={`text-2xl font-black tracking-tighter ${selectedPlan === '3m' ? 'text-white' : 'text-slate-900 dark:text-white'}`}>₺99</h4>
@@ -490,7 +490,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
            {/* 4. MAIN CTA BUTTON */}
            <div className="px-6 space-y-3 pt-4 shrink-0">
-              <button onClick={handleStartPurchase} disabled={isPurchasing} className="w-full h-16 bg-[#134e4a] hover:bg-[#0a3d38] text-white font-black text-[14px] uppercase tracking-[0.25em] rounded-[2rem] shadow-2xl shadow-navy-900/30 active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50">
+              <button onClick={handleStartPurchase} disabled={isPurchasing} className="w-full h-16 bg-[#1c2541] hover:bg-[#141a2c] text-white font-black text-[14px] uppercase tracking-[0.25em] rounded-[2rem] shadow-2xl shadow-navy-900/30 active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50">
                 {isPurchasing ? <div className="w-6 h-6 border-2 border-white/20 border-t-white rounded-full animate-spin"></div> : 'PREMİUM\'A GEÇ VE BAŞLA'}
               </button>
               <div className="flex items-center justify-center gap-2 text-slate-300 dark:text-slate-700"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span className="text-[7.5px] font-black uppercase tracking-[0.2em]">Güvenli Ödeme • App Store & Play Store</span></div>
@@ -594,7 +594,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
        <div className="flex-1 overflow-y-auto px-6 pt-8 pb-32 space-y-10 no-scrollbar">
           {/* Main Visual Header */}
-          <div className="bg-[#134e4a] rounded-[3rem] p-10 text-white relative overflow-hidden shadow-2xl shadow-navy-900/20">
+          <div className="bg-[#1c2541] rounded-[3rem] p-10 text-white relative overflow-hidden shadow-2xl shadow-navy-900/20">
              <div className="absolute right-[-10%] top-[-10%] text-[12rem] opacity-[0.04] pointer-events-none rotate-12">🕌</div>
              <div className="relative z-10 space-y-8">
                 <div className="space-y-2">
@@ -645,10 +645,10 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
              </div>
 
              {/* Friday Silence Feature */}
-             <div className={`p-8 rounded-[2.8rem] border-2 transition-all group ${fridaySilence ? 'bg-white dark:bg-slate-900 border-sky-500 shadow-xl shadow-sky-900/5' : 'bg-slate-50/50 dark:bg-slate-900/50 border-slate-100 dark:border-slate-800 grayscale opacity-60'}`}>
+             <div className={`p-8 rounded-[2.8rem] border-2 transition-all group ${fridaySilence ? 'bg-white dark:bg-slate-900 border-gold-500 shadow-xl shadow-navy-900/5' : 'bg-slate-50/50 dark:bg-slate-900/50 border-slate-100 dark:border-slate-800 grayscale opacity-60'}`}>
                 <div className="flex justify-between items-start mb-6">
                    <div className="flex items-center gap-4">
-                      <div className="w-14 h-14 bg-sky-50 dark:bg-sky-950/30 text-sky-600 rounded-3xl flex items-center justify-center text-3xl shadow-inner border border-sky-100/50">🕊️</div>
+                      <div className="w-14 h-14 bg-gold-50 dark:bg-navy-950/30 text-gold-600 rounded-3xl flex items-center justify-center text-3xl shadow-inner border border-gold-100/50">🕊️</div>
                       <div>
                          <h5 className="text-[16px] font-black text-slate-900 dark:text-white tracking-tight">Cuma Günü Modu</h5>
                          <p className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">HAFTALIK OTOMATİK SESSİZ</p>
@@ -656,7 +656,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
                    </div>
                    <button 
                      onClick={() => setFridaySilence(!fridaySilence)}
-                     className={`w-14 h-8 rounded-full transition-all relative ${fridaySilence ? 'bg-sky-600' : 'bg-slate-200 dark:bg-slate-800'}`}
+                     className={`w-14 h-8 rounded-full transition-all relative ${fridaySilence ? 'bg-gold-600' : 'bg-slate-200 dark:bg-slate-800'}`}
                    >
                       <div className={`absolute top-1 w-6 h-6 rounded-full transition-all ${fridaySilence ? 'right-1 bg-white shadow-md' : 'left-1 bg-white opacity-40'}`}></div>
                    </button>

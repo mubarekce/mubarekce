@@ -119,8 +119,8 @@ const LiveStreams: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                    <p className="text-[9px] font-black text-gold-600 uppercase tracking-widest mb-1.5">MANEVİ NOT</p>
                    <p className="text-[11px] font-bold text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-tight">İbadetlerin en hayırlısı huzurla yapılandır.</p>
                 </div>
-                <div className="bg-sky-50/50 p-5 rounded-3xl border border-sky-100/50 text-center hover:bg-sky-50 dark:bg-sky-950/20 transition-colors">
-                   <p className="text-[9px] font-black text-sky-600 uppercase tracking-widest mb-1.5">PRO+ AYRICALIĞI</p>
+                <div className="bg-gold-50/50 p-5 rounded-3xl border border-gold-100/50 text-center hover:bg-gold-50 dark:bg-navy-950/20 transition-colors">
+                   <p className="text-[9px] font-black text-gold-600 uppercase tracking-widest mb-1.5">PRO+ AYRICALIĞI</p>
                    <p className="text-[11px] font-bold text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-tight">Kesintisiz 4K kalitesinde izleme modu.</p>
                 </div>
              </div>

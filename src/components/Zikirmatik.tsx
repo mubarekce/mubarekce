@@ -51,7 +51,7 @@ const SKINS: SkinConfig[] = [
   { 
     id: 'yesim', 
     name: 'YEŞİM TAŞI', 
-    bg: 'bg-[#134e4a]', 
+    bg: 'bg-[#1c2541]', 
     beadGradient: 'from-gold-300 via-gold-600 to-navy-900', 
     accent: 'text-gold-500', 
     text: 'text-white'
@@ -60,7 +60,7 @@ const SKINS: SkinConfig[] = [
     id: 'aytasi', 
     name: 'AY TAŞI', 
     bg: 'bg-[#e2e8f0]', 
-    beadGradient: 'from-white via-blue-100 to-blue-200', 
+    beadGradient: 'from-white via-gold-100 to-gold-200', 
     accent: 'text-gold-600', 
     text: 'text-slate-900 dark:text-white'
   },
@@ -218,7 +218,7 @@ const Zikirmatik: React.FC = () => {
         </div>
         <div className="flex items-center gap-5">
           <div className="flex-1 h-2 bg-slate-50 dark:bg-slate-900 rounded-full overflow-hidden border border-slate-100 dark:border-slate-800">
-            <div className="h-full bg-gold-500 transition-all duration-700 shadow-[0_0_10px_rgba(20,184,166,0.3)]" style={{ width: `${percent}%` }}></div>
+            <div className="h-full bg-gold-500 transition-all duration-700 shadow-[0_0_10px_rgba(201,166,104,0.3)]" style={{ width: `${percent}%` }}></div>
           </div>
           <span className="text-[11px] font-black text-slate-400 dark:text-slate-500 tabular-nums min-w-[50px] text-right">{zikir.count}/{zikir.target}</span>
         </div>
@@ -258,7 +258,7 @@ const Zikirmatik: React.FC = () => {
                 {activeZikir?.count}
               </h1>
               {activeZikirId !== 'serbest' && (
-                <div className={`mt-4 px-5 py-1.5 rounded-full border transition-all duration-500 ${isCompleted ? 'bg-gold-500/20 border-gold-500 shadow-[0_0_15px_rgba(20,184,166,0.4)]' : 'bg-gold-500/10 border-gold-500/20'}`}>
+                <div className={`mt-4 px-5 py-1.5 rounded-full border transition-all duration-500 ${isCompleted ? 'bg-gold-500/20 border-gold-500 shadow-[0_0_15px_rgba(201,166,104,0.4)]' : 'bg-gold-500/10 border-gold-500/20'}`}>
                   <span className={`text-[9px] font-black uppercase tracking-[0.3em] ${isCompleted ? 'text-gold-400 animate-pulse' : 'text-gold-400'}`}>
                     {isCompleted ? 'TAMAMLANDI' : `HEDEF: ${activeZikir?.target}`}
                   </span>
@@ -278,7 +278,7 @@ const Zikirmatik: React.FC = () => {
               <div className={`text-center transition-all duration-150 relative z-10 ${isAnimate && !isCompleted ? 'scale-110' : 'scale-100'}`}>
                 <h1 className={`text-[6.5rem] font-black ${currentSkin.text} leading-none tracking-tighter drop-shadow-2xl`}>{activeZikir?.count}</h1>
                 {activeZikirId !== 'serbest' && (
-                  <div className={`mt-3 border px-5 py-1.5 rounded-full inline-block backdrop-blur-xl transition-all duration-500 ${isCompleted ? 'bg-gold-500/20 border-gold-500 shadow-[0_0_15px_rgba(20,184,166,0.4)]' : 'bg-black/30 border-white/10'}`}>
+                  <div className={`mt-3 border px-5 py-1.5 rounded-full inline-block backdrop-blur-xl transition-all duration-500 ${isCompleted ? 'bg-gold-500/20 border-gold-500 shadow-[0_0_15px_rgba(201,166,104,0.4)]' : 'bg-black/30 border-white/10'}`}>
                     <span className={`text-[9px] font-black tracking-[0.3em] uppercase transition-all ${isCompleted ? 'text-gold-400 animate-pulse' : currentSkin.accent}`}>
                       {isCompleted ? 'TAMAMLANDI' : `HEDEF: ${activeZikir?.target}`}
                     </span>
@@ -306,7 +306,7 @@ const Zikirmatik: React.FC = () => {
               onClick={handleIncrement} 
               className="w-24 h-24 rounded-full border-[8px] border-white/5 flex items-center justify-center bg-white/5 backdrop-blur-xl active:scale-90 transition-all pointer-events-auto shadow-2xl group"
             >
-              <div className="w-8 h-8 bg-gold-50 dark:bg-navy-950/20 rounded-full border-2 border-white/20 shadow-[0_0_20px_rgba(20,184,166,0.6)] group-hover:scale-110 transition-transform flex items-center justify-center">
+              <div className="w-8 h-8 bg-gold-50 dark:bg-navy-950/20 rounded-full border-2 border-white/20 shadow-[0_0_20px_rgba(201,166,104,0.6)] group-hover:scale-110 transition-transform flex items-center justify-center">
                  <div className={`w-3 h-3 rounded-full ${isCompleted ? 'bg-white dark:bg-slate-900' : 'bg-gold-500'} transition-colors`}></div>
               </div>
             </button>
@@ -364,13 +364,13 @@ const Zikirmatik: React.FC = () => {
       <div className="flex-1 overflow-y-auto px-6 pt-6 pb-32 no-scrollbar">
         {activeTab === 'zikirlerim' && (
           <div className="space-y-6 animate-in slide-in-from-bottom-4 duration-500">
-            <div onClick={() => setActiveZikirId('serbest')} className="bg-[#e0f2fe] rounded-[2.5rem] p-7 flex items-center justify-between border border-sky-100 shadow-[0_10px_30px_-10px_rgba(186,230,253,0.05)] cursor-pointer active:scale-[0.98] transition-all group">
+            <div onClick={() => setActiveZikirId('serbest')} className="bg-[#f5ead0] rounded-[2.5rem] p-7 flex items-center justify-between border border-gold-100 shadow-[0_10px_30px_-10px_rgba(186,230,253,0.05)] cursor-pointer active:scale-[0.98] transition-all group">
               <div className="space-y-1">
-                <p className="text-[9px] font-black text-sky-400 uppercase tracking-[0.4em]">HIZLI SAYAÇ</p>
-                <h3 className="text-xl font-black text-sky-950">Serbest Zikir</h3>
+                <p className="text-[9px] font-black text-gold-400 uppercase tracking-[0.4em]">HIZLI SAYAÇ</p>
+                <h3 className="text-xl font-black text-navy-950">Serbest Zikir</h3>
               </div>
               <div className="w-16 h-16 bg-white dark:bg-slate-900 rounded-3xl flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform">
-                <span className="text-3xl font-black text-sky-950 tabular-nums">{serbestZikir}</span>
+                <span className="text-3xl font-black text-navy-950 tabular-nums">{serbestZikir}</span>
               </div>
             </div>
 
@@ -393,7 +393,7 @@ const Zikirmatik: React.FC = () => {
             {userAddedZikirler.length > 0 && (
               <div className="space-y-4">
                 <div className="flex items-center gap-3 ml-2">
-                   <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_8px_rgba(20,184,166,0.5)]"></div>
+                   <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_8px_rgba(201,166,104,0.5)]"></div>
                    <h3 className="text-[11px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">ZİKİRLERİM</h3>
                 </div>
                 <div className="space-y-3.5">
@@ -405,7 +405,7 @@ const Zikirmatik: React.FC = () => {
 
             <div className="space-y-4">
               <div className="flex items-center gap-3 ml-2">
-                 <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_8px_rgba(20,184,166,0.5)]"></div>
+                 <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_8px_rgba(201,166,104,0.5)]"></div>
                  <h3 className="text-[11px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">VAKİT ZİKİRLERİ</h3>
               </div>
               <div className="space-y-3.5">

@@ -162,27 +162,27 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   const renderSayac = () => (
     <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Dynamic Hero Countdown */}
-      <div className="bg-[#f0f9ff] rounded-[3rem] p-10 text-sky-950 border border-sky-100 relative overflow-hidden shadow-2xl shadow-sky-900/5 text-center">
+      <div className="bg-[#fbf6ea] rounded-[3rem] p-10 text-navy-950 border border-gold-100 relative overflow-hidden shadow-2xl shadow-navy-900/5 text-center">
         <div className="absolute inset-0 opacity-[0.04] pointer-events-none flex items-center justify-center scale-150">
           <svg width="240" height="240" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" /></svg>
         </div>
         <div className="relative z-10 space-y-7">
           <div className="flex flex-col items-center gap-3">
             <div className="w-14 h-14 bg-white dark:bg-slate-900 rounded-3xl flex items-center justify-center text-3xl shadow-md mb-1 border border-white">{status.icon}</div>
-            <p className="text-sky-600 text-[10px] font-black uppercase tracking-[0.5em] leading-none">{status.label}</p>
+            <p className="text-gold-600 text-[10px] font-black uppercase tracking-[0.5em] leading-none">{status.label}</p>
           </div>
           <div className="flex justify-center items-center gap-5">
-            <div className="flex flex-col"><span className="text-[4.2rem] font-black tracking-tighter leading-none">{timeLeft.h.toString().padStart(2, '0')}</span><span className="text-[9px] font-black text-sky-400 mt-2">SAAT</span></div>
-            <span className="text-3xl font-black text-sky-200/50 mb-4 animate-pulse">:</span>
-            <div className="flex flex-col"><span className="text-[4.2rem] font-black tracking-tighter leading-none">{timeLeft.m.toString().padStart(2, '0')}</span><span className="text-[9px] font-black text-sky-400 mt-2">DAKİKA</span></div>
-            <span className="text-3xl font-black text-sky-200/50 mb-4 animate-pulse">:</span>
-            <div className="flex flex-col"><span className="text-[4.2rem] font-black tracking-tighter leading-none">{timeLeft.s.toString().padStart(2, '0')}</span><span className="text-[9px] font-black text-sky-400 mt-2">SANİYE</span></div>
+            <div className="flex flex-col"><span className="text-[4.2rem] font-black tracking-tighter leading-none">{timeLeft.h.toString().padStart(2, '0')}</span><span className="text-[9px] font-black text-gold-400 mt-2">SAAT</span></div>
+            <span className="text-3xl font-black text-gold-200/50 mb-4 animate-pulse">:</span>
+            <div className="flex flex-col"><span className="text-[4.2rem] font-black tracking-tighter leading-none">{timeLeft.m.toString().padStart(2, '0')}</span><span className="text-[9px] font-black text-gold-400 mt-2">DAKİKA</span></div>
+            <span className="text-3xl font-black text-gold-200/50 mb-4 animate-pulse">:</span>
+            <div className="flex flex-col"><span className="text-[4.2rem] font-black tracking-tighter leading-none">{timeLeft.s.toString().padStart(2, '0')}</span><span className="text-[9px] font-black text-gold-400 mt-2">SANİYE</span></div>
           </div>
           <div className="flex flex-col items-center gap-4">
-            <p className="text-[11px] font-black text-sky-800 uppercase tracking-widest">HEDEF VAKİT: {status.target}</p>
+            <p className="text-[11px] font-black text-navy-800 uppercase tracking-widest">HEDEF VAKİT: {status.target}</p>
             <button 
               onClick={() => setShowFullImsakiye(true)}
-              className="bg-white/60 hover:bg-white dark:bg-slate-900 text-sky-600 px-6 py-2.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em] shadow-sm border border-sky-100 transition-all active:scale-95 flex items-center gap-2"
+              className="bg-white/60 hover:bg-white dark:bg-slate-900 text-gold-600 px-6 py-2.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em] shadow-sm border border-gold-100 transition-all active:scale-95 flex items-center gap-2"
             >
               TAM İMSAKİYE LİSTESİ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </button>
@@ -195,14 +195,14 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {[
           { label: 'İMSAK', time: imsakiye.imsak, icon: '🌅', color: 'bg-orange-50 dark:bg-orange-950/20 text-orange-500' },
           { label: 'GÜNEŞ', time: imsakiye.gunes, icon: '☀️', color: 'bg-yellow-50 dark:bg-yellow-950/20 text-yellow-500' },
-          { label: 'ÖĞLE', time: imsakiye.ogle, icon: '🌤️', color: 'bg-sky-50 dark:bg-sky-950/20 text-sky-500' },
+          { label: 'ÖĞLE', time: imsakiye.ogle, icon: '🌤️', color: 'bg-gold-50 dark:bg-navy-950/20 text-gold-500' },
           { label: 'İKİNDİ', time: imsakiye.ikindi, icon: '🌥️', color: 'bg-amber-50 dark:bg-amber-950/20 text-amber-500' },
-          { label: 'AKŞAM', time: imsakiye.aksam, icon: '🌙', color: 'bg-indigo-50 dark:bg-indigo-950/20 text-indigo-500' },
+          { label: 'AKŞAM', time: imsakiye.aksam, icon: '🌙', color: 'bg-gold-50 dark:bg-navy-950/20 text-gold-500' },
           { label: 'YATSI', time: imsakiye.yatsi, icon: '✨', color: 'bg-slate-50 dark:bg-slate-900 text-slate-500 dark:text-slate-400 dark:text-slate-500' },
         ].map((item, idx) => (
           <div key={idx} className="bg-white dark:bg-slate-900 p-5 rounded-[2.2rem] border border-slate-50 dark:border-slate-800 shadow-sm flex items-center justify-between group active:scale-95 cursor-pointer">
             <div className="space-y-1">
-              <p className="text-[8px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest group-hover:text-sky-400">{item.label}</p>
+              <p className="text-[8px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest group-hover:text-gold-400">{item.label}</p>
               <p className="text-xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">{item.time}</p>
             </div>
             <div className={`w-10 h-10 rounded-2xl flex items-center justify-center text-lg shadow-inner ${item.color}`}>{item.icon}</div>
@@ -216,10 +216,10 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           {aiLoading ? <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></div> : <><span>✨</span> AI REHBERE SOR</>}
         </button>
         {aiResponse && (
-          <div className="bg-white dark:bg-slate-900 p-8 rounded-[3rem] border border-sky-100 shadow-2xl shadow-sky-900/10 animate-in slide-in-from-top-4 duration-700">
+          <div className="bg-white dark:bg-slate-900 p-8 rounded-[3rem] border border-gold-100 shadow-2xl shadow-navy-900/10 animate-in slide-in-from-top-4 duration-700">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-1.5 h-1.5 bg-sky-500 rounded-full animate-pulse"></div>
-              <p className="text-[10px] font-black text-sky-600 uppercase tracking-widest">GÜNÜN MANEVİ NOTU</p>
+              <div className="w-1.5 h-1.5 bg-gold-500 rounded-full animate-pulse"></div>
+              <p className="text-[10px] font-black text-gold-600 uppercase tracking-widest">GÜNÜN MANEVİ NOTU</p>
             </div>
             <p className="text-[16px] font-medium text-slate-800 dark:text-slate-100 leading-[1.9] italic whitespace-pre-wrap">"{aiResponse}"</p>
           </div>
@@ -230,19 +230,19 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
   const renderDualar = () => (
     <div className="space-y-6 animate-in fade-in slide-in-from-bottom-4 duration-500">
-      <div className="bg-[#f0f9ff] rounded-[2.5rem] p-8 border border-sky-100 mb-2">
-        <h3 className="text-lg font-black text-sky-900 mb-1">Ramazan Duaları</h3>
-        <p className="text-[10px] font-bold text-sky-500 uppercase tracking-widest">MANEVİ ZIRHLAR VE ZİKİRLER</p>
+      <div className="bg-[#fbf6ea] rounded-[2.5rem] p-8 border border-gold-100 mb-2">
+        <h3 className="text-lg font-black text-navy-900 mb-1">Ramazan Duaları</h3>
+        <p className="text-[10px] font-bold text-gold-500 uppercase tracking-widest">MANEVİ ZIRHLAR VE ZİKİRLER</p>
       </div>
       
       {RAMADAN_PRAYERS.map((prayer) => (
         <div key={prayer.id} className="bg-white dark:bg-slate-900 p-8 rounded-[3rem] border border-slate-50 dark:border-slate-800 shadow-xl shadow-slate-900/5 space-y-6 relative overflow-hidden group">
           <div className="absolute right-[-5%] top-[-5%] opacity-[0.03] text-[8rem] group-hover:scale-110 transition-transform pointer-events-none">🤲</div>
           <div className="relative z-10 space-y-5">
-            <div className="inline-block px-4 py-1.5 bg-sky-50 dark:bg-sky-950/20 text-sky-600 rounded-full text-[9px] font-black uppercase tracking-widest border border-sky-100">{prayer.title}</div>
+            <div className="inline-block px-4 py-1.5 bg-gold-50 dark:bg-navy-950/20 text-gold-600 rounded-full text-[9px] font-black uppercase tracking-widest border border-gold-100">{prayer.title}</div>
             <p className="arabic-text text-3xl text-right leading-[2.2] text-slate-900 dark:text-white" dir="rtl">{prayer.arabic}</p>
             <div className="h-px w-full bg-slate-50 dark:bg-slate-900"></div>
-            <p className="text-[13px] font-black text-sky-700 tracking-tight leading-relaxed italic">"{prayer.translation}"</p>
+            <p className="text-[13px] font-black text-gold-700 tracking-tight leading-relaxed italic">"{prayer.translation}"</p>
             <p className="text-[14px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed">{prayer.meaning}</p>
           </div>
         </div>
@@ -263,7 +263,7 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
         <div className="space-y-3">
           {dailyTasks.map((task) => (
-            <div key={task.id} onClick={() => toggleTask(task.id)} className={`flex items-center justify-between p-5 rounded-[1.8rem] transition-all duration-500 cursor-pointer border ${task.completed ? 'bg-gold-50/50 border-gold-100' : 'bg-slate-50/30 border-slate-100 dark:border-slate-800 hover:border-sky-100'}`}>
+            <div key={task.id} onClick={() => toggleTask(task.id)} className={`flex items-center justify-between p-5 rounded-[1.8rem] transition-all duration-500 cursor-pointer border ${task.completed ? 'bg-gold-50/50 border-gold-100' : 'bg-slate-50/30 border-slate-100 dark:border-slate-800 hover:border-gold-100'}`}>
               <div className="flex items-center gap-4">
                 <span className={`text-xl transition-transform ${task.completed ? 'scale-110' : 'grayscale opacity-40'}`}>{task.icon}</span>
                 <span className={`text-[13px] font-black uppercase tracking-tight ${task.completed ? 'text-navy-900' : 'text-slate-400 dark:text-slate-500'}`}>{task.label}</span>
@@ -281,13 +281,13 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {RAMADAN_ACTIONS.map((group, idx) => (
           <div key={idx} className="space-y-4">
             <div className="flex items-center gap-3 ml-2">
-              <div className="w-1.5 h-1.5 bg-sky-500 rounded-full"></div>
+              <div className="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>
               <h4 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">{group.cat}</h4>
             </div>
             <div className="grid grid-cols-1 gap-4">
               {group.items.map((item, i) => (
-                <div key={i} className="bg-white dark:bg-slate-900 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 flex items-start gap-5 shadow-sm group hover:border-sky-100 transition-all">
-                  <div className="w-14 h-14 bg-sky-50 dark:bg-sky-950/20 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-inner border border-sky-100/50">{item.icon}</div>
+                <div key={i} className="bg-white dark:bg-slate-900 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 flex items-start gap-5 shadow-sm group hover:border-gold-100 transition-all">
+                  <div className="w-14 h-14 bg-gold-50 dark:bg-navy-950/20 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-inner border border-gold-100/50">{item.icon}</div>
                   <div className="space-y-1 pt-1">
                     <h5 className="text-[15px] font-black text-slate-900 dark:text-white tracking-tight leading-none">{item.title}</h5>
                     <p className="text-[12px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed italic">{item.desc}</p>
@@ -303,20 +303,20 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in duration-500 overflow-hidden relative">
-      <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-sky-100/30 via-sky-50/10 to-transparent pointer-events-none -z-10"></div>
+      <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-gold-100/30 via-gold-50/10 to-transparent pointer-events-none -z-10"></div>
       
       {/* Header */}
       <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl sticky top-0 z-50 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
-          <button onClick={onBack} className="w-10 h-10 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 shadow-sm active:scale-90 transition-transform text-sky-600">
+          <button onClick={onBack} className="w-10 h-10 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 shadow-sm active:scale-90 transition-transform text-gold-600">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div className="space-y-0.5">
             <h2 className="text-[17px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Ramazan Özel</h2>
-            <p className="text-[8px] font-black text-sky-500 uppercase tracking-[0.25em]">PRO+ PREMİUM REHBER</p>
+            <p className="text-[8px] font-black text-gold-500 uppercase tracking-[0.25em]">PRO+ PREMİUM REHBER</p>
           </div>
         </div>
-        <div className="w-10 h-10 bg-sky-50 dark:bg-sky-950/20 rounded-2xl flex items-center justify-center text-lg border border-sky-100 text-sky-500 shadow-sm transition-transform hover:rotate-12 cursor-pointer">🌙</div>
+        <div className="w-10 h-10 bg-gold-50 dark:bg-navy-950/20 rounded-2xl flex items-center justify-center text-lg border border-gold-100 text-gold-500 shadow-sm transition-transform hover:rotate-12 cursor-pointer">🌙</div>
       </div>
 
       {/* Internal Tabs */}
@@ -326,7 +326,7 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <button 
               key={tab} 
               onClick={() => setActivePageTab(tab)}
-              className={`flex-1 py-3 text-[9px] font-black uppercase tracking-widest rounded-[1.6rem] transition-all duration-300 ${activePageTab === tab ? 'bg-sky-600 text-white shadow-lg' : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500'}`}
+              className={`flex-1 py-3 text-[9px] font-black uppercase tracking-widest rounded-[1.6rem] transition-all duration-300 ${activePageTab === tab ? 'bg-gold-600 text-white shadow-lg' : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500'}`}
             >
               {tab === 'sayac' ? 'SAYAC' : tab === 'dualar' ? 'DUALAR' : 'AMEL'}
             </button>
@@ -353,11 +353,11 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                  </button>
                  <div>
                     <h3 className="text-lg font-black text-slate-900 dark:text-white tracking-tight uppercase">30 GÜNLÜK İMSAKİYE</h3>
-                    <p className="text-[9px] font-black text-sky-500 uppercase tracking-widest">RAMAZAN-I ŞERİF 2025</p>
+                    <p className="text-[9px] font-black text-gold-500 uppercase tracking-widest">RAMAZAN-I ŞERİF 2025</p>
                  </div>
               </div>
-              <div className="bg-sky-50 dark:bg-sky-950/20 px-3 py-1.5 rounded-full border border-sky-100">
-                 <span className="text-[10px] font-black text-sky-600 uppercase tracking-widest">TÜRKİYE / GENEL</span>
+              <div className="bg-gold-50 dark:bg-navy-950/20 px-3 py-1.5 rounded-full border border-gold-100">
+                 <span className="text-[10px] font-black text-gold-600 uppercase tracking-widest">TÜRKİYE / GENEL</span>
               </div>
            </div>
 
@@ -379,7 +379,7 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                        {FULL_IMSAKIYE.map((day) => (
                           <tr 
                             key={day.day} 
-                            className={`transition-all rounded-2xl ${day.day === fastingDays + 1 ? 'bg-sky-600 text-white shadow-xl scale-[1.02] relative z-20' : 'bg-slate-50/50 dark:bg-slate-900/50 hover:bg-sky-50 dark:bg-sky-950/20'}`}
+                            className={`transition-all rounded-2xl ${day.day === fastingDays + 1 ? 'bg-gold-600 text-white shadow-xl scale-[1.02] relative z-20' : 'bg-slate-50/50 dark:bg-slate-900/50 hover:bg-gold-50 dark:bg-navy-950/20'}`}
                           >
                              <td className="px-4 py-4 rounded-l-2xl">
                                 <p className={`text-[10px] font-black ${day.day === fastingDays + 1 ? 'text-white' : 'text-slate-900 dark:text-white'}`}>{day.day}. Gün</p>
@@ -388,7 +388,7 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                              <td className="px-2 py-4 tabular-nums text-[11px] font-bold opacity-40">{day.gunes}</td>
                              <td className="px-2 py-4 tabular-nums text-[11px] font-bold opacity-40">{day.ogle}</td>
                              <td className="px-2 py-4 tabular-nums text-[11px] font-bold opacity-40">{day.ikindi}</td>
-                             <td className={`px-2 py-4 tabular-nums text-xs font-black ${day.day === fastingDays + 1 ? 'text-white' : 'text-sky-600'}`}>{day.aksam}</td>
+                             <td className={`px-2 py-4 tabular-nums text-xs font-black ${day.day === fastingDays + 1 ? 'text-white' : 'text-gold-600'}`}>{day.aksam}</td>
                              <td className="px-2 py-4 tabular-nums text-[11px] font-bold text-right pr-4 rounded-r-2xl opacity-40">{day.yatsi}</td>
                           </tr>
                        ))}

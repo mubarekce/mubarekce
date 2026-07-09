@@ -182,7 +182,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
             <div className="flex justify-between items-start">
               <div className="flex items-center gap-3.5">
                 <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-xl font-black border-2 ${
-                  req.userName === user.name ? 'bg-indigo-50 text-indigo-600 border-indigo-100' : 'bg-gold-50 text-gold-600 border-gold-100'
+                  req.userName === user.name ? 'bg-gold-50 text-gold-600 border-gold-100' : 'bg-gold-50 text-gold-600 border-gold-100'
                 }`}>
                   {req.userName[0]}
                 </div>
@@ -212,19 +212,19 @@ const Social: React.FC<SocialProps> = ({ user }) => {
 
             {/* AI Response Area */}
             {(aiLoadingId === req.id || (aiResponse && aiResponse.id === req.id)) && (
-              <div className="bg-sky-50/50 p-5 rounded-[1.8rem] border border-sky-100 animate-in fade-in zoom-in duration-300">
+              <div className="bg-gold-50/50 p-5 rounded-[1.8rem] border border-gold-100 animate-in fade-in zoom-in duration-300">
                 {aiLoadingId === req.id ? (
                   <div className="flex items-center gap-3">
-                    <div className="w-6 h-6 border-2 border-sky-300 border-t-sky-600 rounded-full animate-spin"></div>
-                    <p className="text-[10px] font-black text-sky-500 uppercase tracking-widest animate-pulse">Manevi destek hazırlanıyor...</p>
+                    <div className="w-6 h-6 border-2 border-gold-300 border-t-gold-600 rounded-full animate-spin"></div>
+                    <p className="text-[10px] font-black text-gold-500 uppercase tracking-widest animate-pulse">Manevi destek hazırlanıyor...</p>
                   </div>
                 ) : (
                   <div className="space-y-2">
                     <div className="flex items-center gap-2">
                       <span className="text-sm">✨</span>
-                      <p className="text-[10px] font-black text-sky-600 uppercase tracking-widest">AI KARDEŞLİK DESTEĞİ</p>
+                      <p className="text-[10px] font-black text-gold-600 uppercase tracking-widest">AI KARDEŞLİK DESTEĞİ</p>
                     </div>
-                    <p className="text-[12px] font-bold text-sky-900 leading-relaxed italic">{aiResponse?.text}</p>
+                    <p className="text-[12px] font-bold text-navy-900 leading-relaxed italic">{aiResponse?.text}</p>
                   </div>
                 )}
               </div>
@@ -245,7 +245,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
                 </button>
                 <button 
                   onClick={() => getAiComfort(req)}
-                  className="w-11 h-11 bg-sky-50 text-sky-500 rounded-2xl flex items-center justify-center border border-sky-100/50 active:scale-90 transition-all"
+                  className="w-11 h-11 bg-gold-50 text-gold-500 rounded-2xl flex items-center justify-center border border-gold-100/50 active:scale-90 transition-all"
                   title="Manevi Destek Al"
                 >
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><path d="M12 7v5l3 3"/></svg>

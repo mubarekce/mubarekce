@@ -166,19 +166,19 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div id="scroll-target" className="absolute top-0 h-0 w-0"></div>
       
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-md sticky top-0 z-30 border-b border-indigo-50/50">
+      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-md sticky top-0 z-30 border-b border-gold-50/50">
         <div className="flex items-center gap-5">
           <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
             <h2 className="text-[19px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Cevşen-ül Kebir</h2>
-            <p className="text-[9px] font-black text-indigo-500 uppercase tracking-[0.2em] mt-1">PRO+ ÖZEL İÇERİK</p>
+            <p className="text-[9px] font-black text-gold-500 uppercase tracking-[0.2em] mt-1">PRO+ ÖZEL İÇERİK</p>
           </div>
         </div>
         <button 
           onClick={() => setShowBabList(true)}
-          className="w-11 h-11 bg-indigo-50 dark:bg-indigo-950/20 rounded-2xl flex items-center justify-center text-indigo-600 border border-indigo-100 shadow-sm active:scale-90 transition-transform"
+          className="w-11 h-11 bg-gold-50 dark:bg-navy-950/20 rounded-2xl flex items-center justify-center text-gold-600 border border-gold-100 shadow-sm active:scale-90 transition-transform"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
@@ -188,13 +188,13 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="px-6 py-4 flex gap-2 overflow-x-auto no-scrollbar bg-white/50 border-b border-slate-50 dark:border-slate-800">
         <button 
           onClick={() => setShowPronunciation(!showPronunciation)}
-          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showPronunciation ? 'bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-100' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}
+          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showPronunciation ? 'bg-gold-600 text-white border-gold-500 shadow-lg shadow-gold-100' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}
         >
           Okunuş {showPronunciation ? 'Açık' : 'Kapalı'}
         </button>
         <button 
           onClick={() => setShowTranslation(!showTranslation)}
-          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showTranslation ? 'bg-indigo-600 text-white border-indigo-500 shadow-lg shadow-indigo-100' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}
+          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showTranslation ? 'bg-gold-600 text-white border-gold-500 shadow-lg shadow-gold-100' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}
         >
           Meal {showTranslation ? 'Açık' : 'Kapalı'}
         </button>
@@ -205,18 +205,18 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {/* Dynamic Bab Title */}
         <div className="text-center space-y-3 animate-in fade-in slide-in-from-bottom-4 duration-700">
            <div className="inline-flex flex-col items-center">
-              <div className="w-20 h-20 bg-indigo-50 dark:bg-indigo-950/20 text-indigo-600 rounded-full flex items-center justify-center text-3xl font-black shadow-inner border border-indigo-100/50 mb-4 ring-8 ring-white">
+              <div className="w-20 h-20 bg-gold-50 dark:bg-navy-950/20 text-gold-600 rounded-full flex items-center justify-center text-3xl font-black shadow-inner border border-gold-100/50 mb-4 ring-8 ring-white">
                  {currentBab.id}
               </div>
-              <p className="text-[12px] font-black text-indigo-300 uppercase tracking-[0.5em] mb-4">B A B {currentBab.id}</p>
+              <p className="text-[12px] font-black text-gold-300 uppercase tracking-[0.5em] mb-4">B A B {currentBab.id}</p>
            </div>
         </div>
 
         {/* Content Displays - Visual fixes (bg-transparent added to p tags) */}
         <div className="space-y-12 pb-20">
           {/* Arabic Display */}
-          <div className="bg-white dark:bg-slate-900 p-10 rounded-[3.5rem] border border-slate-50 dark:border-slate-800 shadow-2xl shadow-indigo-900/5 relative overflow-hidden group">
-             <div className="absolute right-[-15%] top-[-10%] p-8 opacity-[0.03] group-hover:scale-110 transition-transform text-[12rem] pointer-events-none rotate-6 text-indigo-900">🛡️</div>
+          <div className="bg-white dark:bg-slate-900 p-10 rounded-[3.5rem] border border-slate-50 dark:border-slate-800 shadow-2xl shadow-navy-900/5 relative overflow-hidden group">
+             <div className="absolute right-[-15%] top-[-10%] p-8 opacity-[0.03] group-hover:scale-110 transition-transform text-[12rem] pointer-events-none rotate-6 text-navy-900">🛡️</div>
              <p className="arabic-text text-4xl text-slate-900 dark:text-white text-center leading-[2.5] drop-shadow-sm font-semibold bg-transparent" dir="rtl">
                {currentBab.arabic}
              </p>
@@ -224,12 +224,12 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
           {/* Pronunciation Card */}
           {showPronunciation && (
-            <div className="bg-[#f5f3ff] p-8 rounded-[3rem] border border-indigo-100 animate-in fade-in slide-in-from-bottom-2 duration-500 shadow-sm">
+            <div className="bg-[#f5f3ff] p-8 rounded-[3rem] border border-gold-100 animate-in fade-in slide-in-from-bottom-2 duration-500 shadow-sm">
                <div className="flex items-center gap-3 mb-5 ml-1">
-                  <div className="w-1.5 h-1.5 bg-indigo-500 rounded-full animate-pulse"></div>
-                  <p className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.2em]">TÜRKÇE OKUNUŞ</p>
+                  <div className="w-1.5 h-1.5 bg-gold-500 rounded-full animate-pulse"></div>
+                  <p className="text-[10px] font-black text-gold-500 uppercase tracking-[0.2em]">TÜRKÇE OKUNUŞ</p>
                </div>
-               <p className="text-[17px] font-semibold text-indigo-900 leading-relaxed italic px-2 bg-transparent">
+               <p className="text-[17px] font-semibold text-navy-900 leading-relaxed italic px-2 bg-transparent">
                  "{currentBab.pronunciation}"
                </p>
             </div>
@@ -251,9 +251,9 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           {/* Refrain (Nakarat) */}
           <div className="py-12 space-y-8">
              <div className="flex items-center justify-center gap-6 py-2 opacity-20">
-                <div className="w-16 h-[0.5px] bg-indigo-900"></div>
-                <div className="w-2.5 h-2.5 rotate-45 border border-indigo-900"></div>
-                <div className="w-16 h-[0.5px] bg-indigo-900"></div>
+                <div className="w-16 h-[0.5px] bg-navy-900"></div>
+                <div className="w-2.5 h-2.5 rotate-45 border border-navy-900"></div>
+                <div className="w-16 h-[0.5px] bg-navy-900"></div>
              </div>
              
              <div className="bg-gold-50/40 p-10 rounded-[3.5rem] border border-gold-100 text-center space-y-8 relative overflow-hidden group">
@@ -283,7 +283,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
 
-        <div className="flex-1 h-18 bg-indigo-600 rounded-[2rem] shadow-2xl shadow-indigo-900/20 flex items-center justify-between px-10 text-white group overflow-hidden relative border-b-4 border-indigo-800">
+        <div className="flex-1 h-18 bg-gold-600 rounded-[2rem] shadow-2xl shadow-navy-900/20 flex items-center justify-between px-10 text-white group overflow-hidden relative border-b-4 border-navy-800">
            <div className="absolute top-0 left-0 h-full bg-white/5 transition-all duration-1000" style={{ width: `${currentBabIndex + 1}%` }}></div>
            <span className="text-[11px] font-black uppercase tracking-[0.3em] opacity-60 relative z-10">BÖLÜM</span>
            <span className="text-2xl font-black tracking-tighter relative z-10">{currentBabIndex + 1} <span className="text-[11px] font-bold opacity-30 ml-1">/ 100</span></span>
@@ -292,7 +292,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         <button 
           onClick={handleNext}
           disabled={currentBabIndex >= 99}
-          className="w-18 h-18 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-indigo-600 rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/5 active:scale-90 transition-all disabled:opacity-30 disabled:scale-95 flex-shrink-0"
+          className="w-18 h-18 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-gold-600 rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/5 active:scale-90 transition-all disabled:opacity-30 disabled:scale-95 flex-shrink-0"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
@@ -304,7 +304,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
            <div className="bg-white dark:bg-slate-900 w-full max-w-[440px] rounded-[3.5rem] p-10 space-y-10 animate-in zoom-in duration-300 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
               <div className="text-center space-y-2 flex-shrink-0">
                  <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Cevşen Fihristi</h3>
-                 <p className="text-[10px] font-black text-indigo-500 uppercase tracking-[0.4em]">100 BÖLÜM LİSTESİ</p>
+                 <p className="text-[10px] font-black text-gold-500 uppercase tracking-[0.4em]">100 BÖLÜM LİSTESİ</p>
               </div>
 
               <div className="flex-1 overflow-y-auto pr-3 no-scrollbar">
@@ -313,7 +313,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                       <button 
                         key={i}
                         onClick={() => { setCurrentBabIndex(i); setShowBabList(false); if (window.navigator.vibrate) window.navigator.vibrate(20); }}
-                        className={`aspect-square rounded-[1.4rem] flex items-center justify-center text-sm font-black transition-all active:scale-90 border-2 ${i === currentBabIndex ? 'bg-indigo-600 text-white border-indigo-500 shadow-xl scale-105' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800 hover:bg-indigo-50 dark:bg-indigo-950/20 hover:text-indigo-600'}`}
+                        className={`aspect-square rounded-[1.4rem] flex items-center justify-center text-sm font-black transition-all active:scale-90 border-2 ${i === currentBabIndex ? 'bg-gold-600 text-white border-gold-500 shadow-xl scale-105' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800 hover:bg-gold-50 dark:bg-navy-950/20 hover:text-gold-600'}`}
                       >
                         {i + 1}
                       </button>

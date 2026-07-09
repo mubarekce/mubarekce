@@ -122,7 +122,7 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </button>
         <div>
           <h2 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Tecvid Hocası</h2>
-          <p className="text-[10px] font-bold text-blue-600 uppercase tracking-widest text-blue-500">AI İLE SES ANALİZİ</p>
+          <p className="text-[10px] font-bold text-gold-600 uppercase tracking-widest text-gold-500">AI İLE SES ANALİZİ</p>
         </div>
       </div>
 
@@ -130,13 +130,13 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="px-6 py-4 flex gap-2">
         <button 
           onClick={() => setActiveTab('practice')}
-          className={`flex-1 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'practice' ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500'}`}
+          className={`flex-1 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'practice' ? 'bg-gold-600 text-white shadow-lg shadow-gold-100' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500'}`}
         >
           Tilavet Analizi
         </button>
         <button 
           onClick={() => setActiveTab('rules')}
-          className={`flex-1 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'rules' ? 'bg-blue-600 text-white shadow-lg shadow-blue-100' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500'}`}
+          className={`flex-1 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'rules' ? 'bg-gold-600 text-white shadow-lg shadow-gold-100' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500'}`}
         >
           Tecvid Kuralları
         </button>
@@ -147,25 +147,25 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="py-6 space-y-10 animate-in fade-in duration-500">
             {!result && !loading && (
               <div className="text-center space-y-8">
-                <div className="bg-blue-50/50 rounded-[3rem] p-10 border border-blue-100 shadow-inner">
+                <div className="bg-gold-50/50 rounded-[3rem] p-10 border border-gold-100 shadow-inner">
                   <div className="w-20 h-20 bg-white dark:bg-slate-900 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-sm">
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-gold-500">
                       <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
                       <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
                       <line x1="12" y1="19" x2="12" y2="23"/>
                     </svg>
                   </div>
-                  <h3 className="text-lg font-black text-blue-900 mb-2">Okuyuşunu Analiz Et</h3>
-                  <p className="text-xs text-blue-700/60 font-medium leading-relaxed">
+                  <h3 className="text-lg font-black text-navy-900 mb-2">Okuyuşunu Analiz Et</h3>
+                  <p className="text-xs text-gold-700/60 font-medium leading-relaxed">
                     Mikrofon düğmesine bas ve bir ayet oku. Yapay zeka tecvid kurallarını ve mahreçlerini analiz edip puanlasın.
                   </p>
                 </div>
 
                 <div className="relative flex items-center justify-center">
-                   <div className={`absolute w-32 h-32 rounded-full blur-2xl opacity-20 transition-all duration-1000 ${isRecording ? 'bg-rose-500 animate-pulse scale-150' : 'bg-blue-400 scale-100'}`}></div>
+                   <div className={`absolute w-32 h-32 rounded-full blur-2xl opacity-20 transition-all duration-1000 ${isRecording ? 'bg-rose-500 animate-pulse scale-150' : 'bg-gold-400 scale-100'}`}></div>
                    <button 
                      onClick={isRecording ? stopRecording : startRecording}
-                     className={`w-24 h-24 rounded-full flex items-center justify-center transition-all active:scale-90 z-10 ${isRecording ? 'bg-rose-500 text-white animate-subtle' : 'bg-blue-600 text-white shadow-2xl shadow-blue-900/40'}`}
+                     className={`w-24 h-24 rounded-full flex items-center justify-center transition-all active:scale-90 z-10 ${isRecording ? 'bg-rose-500 text-white animate-subtle' : 'bg-gold-600 text-white shadow-2xl shadow-navy-900/40'}`}
                    >
                      {isRecording ? (
                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
@@ -189,8 +189,8 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             {loading && (
               <div className="flex flex-col items-center justify-center py-20 space-y-6 animate-in fade-in">
                  <div className="relative w-20 h-20">
-                   <div className="absolute inset-0 border-4 border-blue-100 rounded-full"></div>
-                   <div className="absolute inset-0 border-4 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
+                   <div className="absolute inset-0 border-4 border-gold-100 rounded-full"></div>
+                   <div className="absolute inset-0 border-4 border-gold-600 border-t-transparent rounded-full animate-spin"></div>
                  </div>
                  <div className="text-center">
                     <p className="text-sm font-black text-slate-900 dark:text-white">Ses Analiz Ediliyor</p>
@@ -201,15 +201,15 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
             {result && (
               <div className="space-y-6 animate-in slide-in-from-bottom-8 duration-500">
-                <div className="bg-white dark:bg-slate-900 rounded-[3rem] p-8 border border-slate-100 dark:border-slate-800 shadow-xl shadow-blue-900/5 relative overflow-hidden">
-                   <div className="absolute top-[-20%] right-[-10%] w-[60%] aspect-square bg-blue-50 dark:bg-blue-950/20 rounded-full blur-[60px] opacity-50"></div>
+                <div className="bg-white dark:bg-slate-900 rounded-[3rem] p-8 border border-slate-100 dark:border-slate-800 shadow-xl shadow-navy-900/5 relative overflow-hidden">
+                   <div className="absolute top-[-20%] right-[-10%] w-[60%] aspect-square bg-gold-50 dark:bg-navy-950/20 rounded-full blur-[60px] opacity-50"></div>
                    
                    <div className="relative z-10 text-center space-y-6">
                       <div className="inline-flex flex-col items-center">
-                         <div className="text-[3.5rem] font-black text-blue-600 leading-none tracking-tighter tabular-nums drop-shadow-sm">
+                         <div className="text-[3.5rem] font-black text-gold-600 leading-none tracking-tighter tabular-nums drop-shadow-sm">
                            {result.score}
                          </div>
-                         <div className="text-[9px] font-black text-blue-300 uppercase tracking-[0.4em] mt-1">SKOR</div>
+                         <div className="text-[9px] font-black text-gold-300 uppercase tracking-[0.4em] mt-1">SKOR</div>
                       </div>
 
                       <div className="h-px w-12 bg-slate-100 dark:bg-slate-800 mx-auto"></div>
@@ -222,7 +222,7 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                          <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest ml-1">AI NOTLARI</p>
                          {result.notes.map((note, i) => (
                            <div key={i} className="flex gap-3 bg-slate-50/50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-50 dark:border-slate-800">
-                              <span className="text-blue-500 mt-0.5">•</span>
+                              <span className="text-gold-500 mt-0.5">•</span>
                               <p className="text-xs font-semibold text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-normal">{note}</p>
                            </div>
                          ))}
@@ -243,19 +243,19 @@ const TecvidHocasi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="py-6 space-y-4 animate-in fade-in duration-500">
             <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em] ml-2 mb-2">TEMEL KAİDELER</p>
             {TAJWID_RULES.map((rule) => (
-              <div key={rule.id} className="bg-white dark:bg-slate-900 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 hover:border-blue-100 hover:shadow-lg hover:shadow-blue-900/5 transition-all group">
+              <div key={rule.id} className="bg-white dark:bg-slate-900 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 hover:border-gold-100 hover:shadow-lg hover:shadow-navy-900/5 transition-all group">
                 <div className="flex justify-between items-start mb-4">
                   <div>
                     <h4 className="font-black text-slate-900 dark:text-white">{rule.title}</h4>
                     <p className="text-xs text-slate-500 dark:text-slate-400 dark:text-slate-500 font-medium leading-relaxed mt-1">{rule.desc}</p>
                   </div>
-                  <div className="w-10 h-10 bg-blue-50 dark:bg-blue-950/20 text-blue-500 rounded-xl flex items-center justify-center shadow-sm">
+                  <div className="w-10 h-10 bg-gold-50 dark:bg-navy-950/20 text-gold-500 rounded-xl flex items-center justify-center shadow-sm">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A5 5 0 0 0 8 8c0 1.3.5 2.6 1.5 3.5.8.8 1.3 1.5 1.5 2.5"/><line x1="9" y1="18" x2="15" y2="18"/><line x1="10" y1="22" x2="14" y2="22"/></svg>
                   </div>
                 </div>
-                <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-4 flex items-center justify-between border border-slate-50 dark:border-slate-800 group-hover:bg-blue-50 dark:bg-blue-950/20 group-hover:border-blue-100 transition-colors">
+                <div className="bg-slate-50 dark:bg-slate-900 rounded-2xl p-4 flex items-center justify-between border border-slate-50 dark:border-slate-800 group-hover:bg-gold-50 dark:bg-navy-950/20 group-hover:border-gold-100 transition-colors">
                    <span className="arabic-text text-xl font-bold text-slate-900 dark:text-white">{rule.example}</span>
-                   <button className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 flex items-center justify-center text-xs text-blue-600 shadow-sm active:scale-90">
+                   <button className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 flex items-center justify-center text-xs text-gold-600 shadow-sm active:scale-90">
                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
                    </button>
                 </div>

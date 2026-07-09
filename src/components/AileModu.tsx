@@ -301,7 +301,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
       <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-white/60 backdrop-blur-xl sticky top-0 z-30 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button onClick={onBack} className="w-11 h-11 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#115e59" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#243a58" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
             <h2 className="text-[19px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Aile Modu</h2>
@@ -366,22 +366,22 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
       <div className="flex-1 overflow-y-auto px-6 pb-40 no-scrollbar space-y-8 pt-4">
         
         {/* Statistics Board */}
-        <div className="bg-[#e0f2fe] rounded-[2.8rem] p-5 text-sky-950 relative overflow-hidden shadow-2xl shadow-sky-200/30 border border-white/80">
+        <div className="bg-[#f5ead0] rounded-[2.8rem] p-5 text-navy-950 relative overflow-hidden shadow-2xl shadow-gold-200/30 border border-white/80">
           <div className="relative z-10">
             <div className="flex justify-between items-center mb-4 px-1">
-               <p className="text-sky-500 text-[8px] font-black uppercase tracking-[0.35em]">AİLE İLERLEME MERKEZİ</p>
+               <p className="text-gold-500 text-[8px] font-black uppercase tracking-[0.35em]">AİLE İLERLEME MERKEZİ</p>
                <div className="flex items-center gap-1.5 opacity-60">
                    <span className="w-1 h-1 bg-gold-400 rounded-full animate-pulse"></span>
-                   <p className="text-[9px] font-bold text-sky-900 leading-none">{familyMembers.length} Üye</p>
+                   <p className="text-[9px] font-bold text-navy-900 leading-none">{familyMembers.length} Üye</p>
                 </div>
             </div>
             
-            <div className="bg-sky-900/5 backdrop-blur-sm p-1 rounded-2xl flex border border-white/20 shadow-inner w-full mb-5">
+            <div className="bg-navy-900/5 backdrop-blur-sm p-1 rounded-2xl flex border border-white/20 shadow-inner w-full mb-5">
               {(['GÜNLÜK', 'HAFTALIK', 'AYLIK', 'YILLIK'] as Timeframe[]).map(t => (
                 <button 
                   key={t}
                   onClick={() => setTimeframe(t)}
-                  className={`flex-1 py-1.5 text-[7.5px] font-black rounded-xl transition-all duration-300 ${timeframe === t ? 'bg-[#0070b1] text-white shadow-md' : 'text-sky-500/60 hover:text-sky-700'}`}
+                  className={`flex-1 py-1.5 text-[7.5px] font-black rounded-xl transition-all duration-300 ${timeframe === t ? 'bg-[#a8895a] text-white shadow-md' : 'text-gold-500/60 hover:text-gold-700'}`}
                 >
                   {t}
                 </button>
@@ -401,19 +401,19 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
                           <GoalIcon id={goal.id} className="text-white" />
                         </div>
                         <div className="space-y-0">
-                          <h4 className="text-[11px] font-black text-sky-900 uppercase tracking-tight leading-none">
+                          <h4 className="text-[11px] font-black text-navy-900 uppercase tracking-tight leading-none">
                             {timeframe} {goal.title}
                           </h4>
-                          <p className="text-[7.5px] font-bold text-sky-400 uppercase tracking-widest mt-0.5">
+                          <p className="text-[7.5px] font-bold text-gold-400 uppercase tracking-widest mt-0.5">
                             {formatProgressLabel(goal, currentProgress)}
                           </p>
                         </div>
                       </div>
-                      <span className="text-[16px] font-black text-sky-950 tabular-nums leading-none">%{percent}</span>
+                      <span className="text-[16px] font-black text-navy-950 tabular-nums leading-none">%{percent}</span>
                     </div>
 
                     <div className="flex items-center gap-3">
-                      <div className="flex-1 h-1.5 bg-sky-200/40 rounded-full overflow-hidden border border-white/40 shadow-inner">
+                      <div className="flex-1 h-1.5 bg-gold-200/40 rounded-full overflow-hidden border border-white/40 shadow-inner">
                         <div 
                           className={`h-full ${goal.color} transition-all duration-[1200ms] rounded-full`}
                           style={{ width: `${percent}%` }}
@@ -421,7 +421,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
                       </div>
                       <button 
                         onClick={() => setShowEditGoal(goal.id)}
-                        className="bg-white/60 hover:bg-white dark:bg-slate-900 text-sky-600 px-3 py-1.5 rounded-xl text-[7.5px] font-black uppercase tracking-widest shadow-sm border border-white active:scale-95 transition-all"
+                        className="bg-white/60 hover:bg-white dark:bg-slate-900 text-gold-600 px-3 py-1.5 rounded-xl text-[7.5px] font-black uppercase tracking-widest shadow-sm border border-white active:scale-95 transition-all"
                       >
                         HEDEF
                       </button>
@@ -477,7 +477,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
                       
                       <div className="w-full h-1 bg-slate-50 dark:bg-slate-900 rounded-full overflow-hidden border border-white/50 shadow-inner">
                          <div 
-                           className="h-full bg-gold-500 rounded-full transition-all duration-1000 shadow-[0_0_6px_rgba(20,184,166,0.2)]"
+                           className="h-full bg-gold-500 rounded-full transition-all duration-1000 shadow-[0_0_6px_rgba(201,166,104,0.2)]"
                            style={{ width: `${overallProgress}%` }}
                          ></div>
                       </div>
@@ -498,7 +498,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
         {/* Shared Goals Section */}
         <div className="space-y-4">
           <div className="flex items-center gap-3 ml-2">
-            <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_8px_rgba(20,184,166,0.3)]"></div>
+            <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_8px_rgba(201,166,104,0.3)]"></div>
             <h4 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">ORTAK AİLE HEDEFLERİ</h4>
           </div>
 
@@ -628,7 +628,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
         </div>
 
         {/* Daily Family Suggestion Card */}
-        <div className="bg-[#ecfdf5] p-7 rounded-[2.5rem] border border-gold-100 flex items-start gap-5 group hover:bg-[#dcfce7] transition-colors relative overflow-hidden shadow-sm">
+        <div className="bg-[#ecfdf5] p-7 rounded-[2.5rem] border border-gold-100 flex items-start gap-5 group hover:bg-[#fbf6ea] transition-colors relative overflow-hidden shadow-sm">
           <div className="absolute bottom-[-10px] right-[-10px] opacity-[0.03] rotate-12">
             <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           </div>
@@ -677,10 +677,10 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
       {showEditGoal && (
         <div className="fixed inset-0 z-[500] bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-6 animate-in fade-in duration-300">
            <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl relative overflow-hidden">
-              <div className={`absolute top-0 left-0 w-full h-2 ${showEditGoal === 'hatim' ? 'bg-gold-600' : showEditGoal === 'esma' ? 'bg-purple-600' : 'bg-sky-600'}`}></div>
+              <div className={`absolute top-0 left-0 w-full h-2 ${showEditGoal === 'hatim' ? 'bg-gold-600' : showEditGoal === 'esma' ? 'bg-purple-600' : 'bg-gold-600'}`}></div>
               <div className="text-center">
                  <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Hedefi Belirle</h3>
-                 <p className="text-[10px] font-black text-sky-600 uppercase tracking-[0.25em] mt-1.5">{goals.find(g => g.id === showEditGoal)?.title}</p>
+                 <p className="text-[10px] font-black text-gold-600 uppercase tracking-[0.25em] mt-1.5">{goals.find(g => g.id === showEditGoal)?.title}</p>
               </div>
               
               <div className="space-y-6">

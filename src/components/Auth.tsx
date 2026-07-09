@@ -121,7 +121,7 @@ const Auth: React.FC = () => {
     <div className="min-h-screen w-full bg-white dark:bg-slate-900 flex flex-col justify-center items-center p-8 relative overflow-hidden">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
-        <div className="absolute top-[-20%] right-[-20%] w-[80%] aspect-square bg-sky-200 rounded-full blur-[150px]"></div>
+        <div className="absolute top-[-20%] right-[-20%] w-[80%] aspect-square bg-gold-200 rounded-full blur-[150px]"></div>
         <div className="absolute bottom-[-20%] left-[-20%] w-[80%] aspect-square bg-gold-200 rounded-full blur-[150px]"></div>
       </div>
 
@@ -132,9 +132,9 @@ const Auth: React.FC = () => {
         </div>
 
         {/* Form Card */}
-        <div className="bg-[#f0f9ff] rounded-[2.5rem] p-8 md:p-10 shadow-[0_30px_60px_-12px_rgba(0,163,255,0.1)] border border-sky-100/50 relative overflow-hidden">
+        <div className="bg-[#fbf6ea] rounded-[2.5rem] p-8 md:p-10 shadow-[0_30px_60px_-12px_rgba(0,163,255,0.1)] border border-gold-100/50 relative overflow-hidden">
           <div className="absolute left-0 bottom-0 w-full h-full pointer-events-none opacity-[0.03] flex items-end justify-center">
-            <svg width="100%" height="55%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet" fill="currentColor" className="text-sky-900">
+            <svg width="100%" height="55%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet" fill="currentColor" className="text-navy-900">
               <path d="M0,100 L100,100 L100,85 Q80,75 70,85 L70,100 Z" />
               <path d="M30,85 Q50,45 70,85 L70,100 L30,100 Z" />
               <path d="M48,45 L52,45 L50,40 Z" />
@@ -148,18 +148,18 @@ const Auth: React.FC = () => {
           </div>
 
           <div className="relative z-10">
-            <div className="flex bg-sky-100/50 p-1.5 rounded-[1.2rem] mb-6">
+            <div className="flex bg-gold-100/50 p-1.5 rounded-[1.2rem] mb-6">
               <button
                 type="button"
                 onClick={() => { setIsLogin(true); setError(null); setInfoMsg(null); }}
-                className={`flex-1 py-2.5 text-[10px] font-black rounded-xl transition-all uppercase tracking-widest ${isLogin ? 'bg-white dark:bg-slate-900 text-sky-900 shadow-sm scale-100' : 'text-sky-400 scale-95'}`}
+                className={`flex-1 py-2.5 text-[10px] font-black rounded-xl transition-all uppercase tracking-widest ${isLogin ? 'bg-white dark:bg-slate-900 text-navy-900 shadow-sm scale-100' : 'text-gold-400 scale-95'}`}
               >
                 Giriş
               </button>
               <button
                 type="button"
                 onClick={() => { setIsLogin(false); setError(null); setInfoMsg(null); }}
-                className={`flex-1 py-2.5 text-[10px] font-black rounded-xl transition-all uppercase tracking-widest ${!isLogin ? 'bg-white dark:bg-slate-900 text-sky-900 shadow-sm scale-100' : 'text-sky-400 scale-95'}`}
+                className={`flex-1 py-2.5 text-[10px] font-black rounded-xl transition-all uppercase tracking-widest ${!isLogin ? 'bg-white dark:bg-slate-900 text-navy-900 shadow-sm scale-100' : 'text-gold-400 scale-95'}`}
               >
                 Kayıt
               </button>
@@ -179,31 +179,31 @@ const Auth: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               {!isLogin && (
                 <div className="space-y-1.5">
-                  <label className="text-[9px] font-black text-sky-400 ml-4 uppercase tracking-widest">Ad Soyad</label>
+                  <label className="text-[9px] font-black text-gold-400 ml-4 uppercase tracking-widest">Ad Soyad</label>
                   <input
                     type="text"
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Muhammed Ali"
-                    className="w-full bg-white dark:bg-slate-900 border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-sky-500 transition-all outline-none font-bold text-slate-900 dark:text-white shadow-sm"
+                    className="w-full bg-white dark:bg-slate-900 border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-gold-500 transition-all outline-none font-bold text-slate-900 dark:text-white shadow-sm"
                   />
                 </div>
               )}
               <div className="space-y-1.5">
-                <label className="text-[9px] font-black text-sky-400 ml-4 uppercase tracking-widest">E-posta</label>
+                <label className="text-[9px] font-black text-gold-400 ml-4 uppercase tracking-widest">E-posta</label>
                 <input
                   type="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="ali@vakitler.com"
-                  className="w-full bg-white dark:bg-slate-900 border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-sky-500 transition-all outline-none font-bold text-slate-900 dark:text-white shadow-sm"
+                  className="w-full bg-white dark:bg-slate-900 border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-gold-500 transition-all outline-none font-bold text-slate-900 dark:text-white shadow-sm"
                 />
               </div>
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between ml-4 mr-1">
-                  <label className="text-[9px] font-black text-sky-400 uppercase tracking-widest">Şifre</label>
+                  <label className="text-[9px] font-black text-gold-400 uppercase tracking-widest">Şifre</label>
                   {isLogin && (
                     <button type="button" onClick={handleForgotPassword} className="text-[9px] font-black text-gold-600 uppercase tracking-widest">
                       Unuttum
@@ -217,7 +217,7 @@ const Auth: React.FC = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
-                  className="w-full bg-white dark:bg-slate-900 border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-sky-500 transition-all outline-none font-bold text-slate-900 dark:text-white shadow-sm"
+                  className="w-full bg-white dark:bg-slate-900 border-none rounded-xl px-5 py-2.5 text-xs focus:ring-2 focus:ring-gold-500 transition-all outline-none font-bold text-slate-900 dark:text-white shadow-sm"
                 />
               </div>
 
@@ -230,14 +230,14 @@ const Auth: React.FC = () => {
               </button>
             </form>
 
-            <div className="mt-8 pt-6 border-t border-sky-100 text-center">
-              <p className="text-[8px] text-sky-300 font-black mb-4 uppercase tracking-[0.3em]">Hızlı Bağlan</p>
+            <div className="mt-8 pt-6 border-t border-gold-100 text-center">
+              <p className="text-[8px] text-gold-300 font-black mb-4 uppercase tracking-[0.3em]">Hızlı Bağlan</p>
               <div className="flex flex-col gap-2.5">
                 <button
                   type="button"
                   onClick={handleGoogleLogin}
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-3 py-2.5 px-5 rounded-xl bg-white dark:bg-slate-900 border border-sky-100 hover:bg-sky-50 dark:bg-sky-950/20 hover:shadow-sm transition-all group disabled:opacity-60"
+                  className="w-full flex items-center justify-center gap-3 py-2.5 px-5 rounded-xl bg-white dark:bg-slate-900 border border-gold-100 hover:bg-gold-50 dark:bg-navy-950/20 hover:shadow-sm transition-all group disabled:opacity-60"
                 >
                   <img src="https://www.svgrepo.com/show/355037/google.svg" className="w-4 h-4" alt="Google" />
                   <span className="text-[10px] font-black text-slate-600 dark:text-slate-400 dark:text-slate-500 group-hover:text-navy-900 uppercase tracking-widest">Google ile devam et</span>

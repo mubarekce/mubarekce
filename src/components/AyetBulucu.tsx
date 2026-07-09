@@ -98,7 +98,7 @@ const AyetBulucu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full bg-[#0f172a] text-white animate-in fade-in duration-500 overflow-hidden relative">
       {/* Decorative background elements */}
-      <div className="absolute top-0 right-0 w-[80%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[80%] h-[40%] bg-gold-600/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/4 pointer-events-none"></div>
       
       {/* Header */}
       <div className="px-6 pt-12 pb-6 flex items-center gap-5 relative z-20">
@@ -112,7 +112,7 @@ const AyetBulucu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </button>
         <div>
           <h2 className="text-xl font-black tracking-tight">Akıllı Ayet Bulucu</h2>
-          <p className="text-[10px] font-black text-blue-500 uppercase tracking-[0.3em]">YAPAY ZEKA DESTEKLİ</p>
+          <p className="text-[10px] font-black text-gold-500 uppercase tracking-[0.3em]">YAPAY ZEKA DESTEKLİ</p>
         </div>
       </div>
 
@@ -121,13 +121,13 @@ const AyetBulucu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="text-center space-y-12 animate-in fade-in zoom-in duration-700">
             <div className="relative w-64 h-64 mx-auto flex items-center justify-center">
               {/* Outer Pulse Rings */}
-              <div className={`absolute inset-0 rounded-full border border-blue-500/10 transition-all duration-1000 ${isRecording ? 'animate-ping opacity-100' : 'opacity-0'}`}></div>
-              <div className={`absolute inset-4 rounded-full border border-blue-400/20 transition-all duration-1000 delay-150 ${isRecording ? 'animate-ping opacity-100' : 'opacity-0'}`}></div>
-              <div className={`absolute inset-0 rounded-full bg-blue-500/5 blur-3xl transition-transform duration-1000 ${isRecording ? 'scale-150 opacity-100' : 'scale-100 opacity-20'}`}></div>
+              <div className={`absolute inset-0 rounded-full border border-gold-500/10 transition-all duration-1000 ${isRecording ? 'animate-ping opacity-100' : 'opacity-0'}`}></div>
+              <div className={`absolute inset-4 rounded-full border border-gold-400/20 transition-all duration-1000 delay-150 ${isRecording ? 'animate-ping opacity-100' : 'opacity-0'}`}></div>
+              <div className={`absolute inset-0 rounded-full bg-gold-500/5 blur-3xl transition-transform duration-1000 ${isRecording ? 'scale-150 opacity-100' : 'scale-100 opacity-20'}`}></div>
               
               <button 
                 onClick={isRecording ? stopRecording : startRecording}
-                className={`w-36 h-36 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 active:scale-90 relative z-10 group ${isRecording ? 'bg-rose-500 shadow-rose-900/40' : 'bg-blue-600 shadow-blue-900/40 hover:bg-blue-500'}`}
+                className={`w-36 h-36 rounded-full flex items-center justify-center shadow-2xl transition-all duration-500 active:scale-90 relative z-10 group ${isRecording ? 'bg-rose-500 shadow-rose-900/40' : 'bg-gold-600 shadow-navy-900/40 hover:bg-gold-500'}`}
               >
                 {isRecording ? (
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" className="text-white">
@@ -155,13 +155,13 @@ const AyetBulucu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {loading && (
           <div className="text-center space-y-8 animate-in fade-in duration-500">
              <div className="relative w-28 h-28 mx-auto flex items-center justify-center">
-               <div className="absolute inset-0 border-[3px] border-blue-500/10 rounded-full"></div>
-               <div className="absolute inset-0 border-[3px] border-blue-500 border-t-transparent rounded-full animate-spin shadow-[0_0_15px_rgba(59,130,246,0.5)]"></div>
+               <div className="absolute inset-0 border-[3px] border-gold-500/10 rounded-full"></div>
+               <div className="absolute inset-0 border-[3px] border-gold-500 border-t-transparent rounded-full animate-spin shadow-[0_0_15px_rgba(201,166,104,0.5)]"></div>
                <div className="text-3xl animate-pulse">🔎</div>
              </div>
              <div>
                <p className="text-xl font-black tracking-tight">Analiz Ediliyor</p>
-               <p className="text-blue-400/60 text-[10px] font-black uppercase tracking-[0.3em] mt-2">Mübarekçe AI Bulut Sunucuları</p>
+               <p className="text-gold-400/60 text-[10px] font-black uppercase tracking-[0.3em] mt-2">Mübarekçe AI Bulut Sunucuları</p>
              </div>
           </div>
         )}
@@ -169,15 +169,15 @@ const AyetBulucu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {result && (
           <div className="w-full bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-[3rem] p-10 space-y-10 animate-in slide-in-from-bottom-12 duration-700 shadow-2xl relative overflow-hidden">
              {/* Gradient glow behind result */}
-             <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
+             <div className="absolute top-0 right-0 w-32 h-32 bg-gold-600/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"></div>
              
              <div className="text-center relative z-10">
-                <div className="inline-flex items-center gap-2 bg-blue-600/20 text-blue-400 text-[9px] font-black px-5 py-2 rounded-full uppercase tracking-[0.2em] mb-6 border border-blue-500/20 shadow-sm">
-                  <span className="w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse"></span>
+                <div className="inline-flex items-center gap-2 bg-gold-600/20 text-gold-400 text-[9px] font-black px-5 py-2 rounded-full uppercase tracking-[0.2em] mb-6 border border-gold-500/20 shadow-sm">
+                  <span className="w-1.5 h-1.5 bg-gold-400 rounded-full animate-pulse"></span>
                   AYET BULUNDU
                 </div>
                 <h3 className="text-4xl font-black tracking-tighter mb-1">{result.surah}</h3>
-                <p className="text-blue-500 font-bold uppercase tracking-widest text-[11px]">{result.ayah}. Ayet</p>
+                <p className="text-gold-500 font-bold uppercase tracking-widest text-[11px]">{result.ayah}. Ayet</p>
              </div>
 
              <div className="space-y-8 relative z-10">

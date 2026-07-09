@@ -193,12 +193,12 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in duration-500 overflow-hidden relative">
       <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl sticky top-0 z-50 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
-          <button onClick={selectedPrayer ? () => setSelectedPrayer(null) : onBack} className="w-10 h-10 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 shadow-sm active:scale-90 transition-transform text-sky-600">
+          <button onClick={selectedPrayer ? () => setSelectedPrayer(null) : onBack} className="w-10 h-10 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 shadow-sm active:scale-90 transition-transform text-gold-600">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div className="space-y-0.5">
             <h2 className="text-[17px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Namaz Rehberi</h2>
-            <p className="text-[8px] font-black text-sky-500 uppercase tracking-[0.25em]">İBADET REHBERİ PRO+</p>
+            <p className="text-[8px] font-black text-gold-500 uppercase tracking-[0.25em]">İBADET REHBERİ PRO+</p>
           </div>
         </div>
       </div>
@@ -214,7 +214,7 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <button 
               key={tab.id} 
               onClick={() => setActiveTab(tab.id as RehberTab)}
-              className={`px-4 py-2.5 rounded-full text-[9px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${activeTab === tab.id ? 'bg-sky-600 border-sky-500 text-white shadow-lg shadow-sky-200' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500'}`}
+              className={`px-4 py-2.5 rounded-full text-[9px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${activeTab === tab.id ? 'bg-gold-600 border-gold-500 text-white shadow-lg shadow-gold-200' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500'}`}
             >
               {tab.label}
             </button>
@@ -234,7 +234,7 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                     className="bg-white dark:bg-slate-900 p-3 rounded-[1.4rem] border border-slate-50 dark:border-slate-800 shadow-sm flex items-center justify-between hover:bg-slate-50 dark:bg-slate-900 transition-all cursor-pointer group active:scale-[0.98]"
                   >
                     <div className="flex items-center gap-3.5 flex-1 min-w-0">
-                      <div className="w-8 h-8 bg-sky-50 dark:bg-sky-950/20 text-sky-600 rounded-[1rem] flex items-center justify-center shadow-inner border border-sky-100/50 group-hover:scale-105 transition-transform shrink-0">
+                      <div className="w-8 h-8 bg-gold-50 dark:bg-navy-950/20 text-gold-600 rounded-[1rem] flex items-center justify-center shadow-inner border border-gold-100/50 group-hover:scale-105 transition-transform shrink-0">
                         {p.icon}
                       </div>
                       <div className="min-w-0 flex-1">
@@ -242,8 +242,8 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                         <p className="text-[8px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest truncate">{p.rakats}</p>
                       </div>
                     </div>
-                    <div className="bg-sky-50/70 px-2.5 py-1 rounded-xl border border-sky-100/50 shrink-0">
-                      <p className="text-sky-600 text-[8px] font-black uppercase tracking-widest whitespace-nowrap">{p.total} REKAT</p>
+                    <div className="bg-gold-50/70 px-2.5 py-1 rounded-xl border border-gold-100/50 shrink-0">
+                      <p className="text-gold-600 text-[8px] font-black uppercase tracking-widest whitespace-nowrap">{p.total} REKAT</p>
                     </div>
                   </div>
                 ))}
@@ -255,17 +255,17 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 {NAMAZ_FAYDALARI.map((f, i) => {
                   const isOpen = expandedBenefit === i;
                   return (
-                    <div key={i} onClick={() => setExpandedBenefit(isOpen ? null : i)} className={`bg-white dark:bg-slate-900 rounded-[1.4rem] border transition-all duration-300 overflow-hidden cursor-pointer ${isOpen ? 'border-sky-200 shadow-md' : 'border-slate-50 dark:border-slate-800 shadow-sm'}`}>
+                    <div key={i} onClick={() => setExpandedBenefit(isOpen ? null : i)} className={`bg-white dark:bg-slate-900 rounded-[1.4rem] border transition-all duration-300 overflow-hidden cursor-pointer ${isOpen ? 'border-gold-200 shadow-md' : 'border-slate-50 dark:border-slate-800 shadow-sm'}`}>
                       <div className="p-3 flex items-center justify-between">
                         <div className="flex items-center gap-3.5">
-                          <div className="w-8 h-8 bg-sky-50 dark:bg-sky-950/20 text-sky-600 rounded-[1rem] flex items-center justify-center shadow-inner border border-sky-100/50 shrink-0">{f.icon}</div>
+                          <div className="w-8 h-8 bg-gold-50 dark:bg-navy-950/20 text-gold-600 rounded-[1rem] flex items-center justify-center shadow-inner border border-gold-100/50 shrink-0">{f.icon}</div>
                           <h5 className="font-bold text-slate-800 dark:text-slate-100 text-[11.5px] uppercase tracking-wide">{f.t}</h5>
                         </div>
-                        <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-transform ${isOpen ? 'rotate-180 bg-sky-50 dark:bg-sky-950/20 text-sky-600' : 'bg-slate-50 dark:bg-slate-900 text-slate-300 dark:text-slate-600'}`}>
+                        <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-transform ${isOpen ? 'rotate-180 bg-gold-50 dark:bg-navy-950/20 text-gold-600' : 'bg-slate-50 dark:bg-slate-900 text-slate-300 dark:text-slate-600'}`}>
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                         </div>
                       </div>
-                      {isOpen && <div className="px-4 pb-4 animate-in fade-in"><p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 text-[11px] font-medium leading-relaxed italic border-l-2 border-sky-100 pl-3">{f.d}</p></div>}
+                      {isOpen && <div className="px-4 pb-4 animate-in fade-in"><p className="text-slate-500 dark:text-slate-400 dark:text-slate-500 text-[11px] font-medium leading-relaxed italic border-l-2 border-gold-100 pl-3">{f.d}</p></div>}
                     </div>
                   );
                 })}
@@ -276,22 +276,22 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         ) : (
           <div className="animate-in slide-in-from-right duration-500 space-y-8">
             {selectedPrayer.steps && selectedPrayer.steps.length > 0 ? (
-              <div className="rounded-[3.5rem] p-10 text-center border transition-all duration-700 relative overflow-hidden group shadow-2xl bg-white dark:bg-slate-900 border-sky-50 text-slate-900 dark:text-white">
+              <div className="rounded-[3.5rem] p-10 text-center border transition-all duration-700 relative overflow-hidden group shadow-2xl bg-white dark:bg-slate-900 border-gold-50 text-slate-900 dark:text-white">
                 <div className="absolute top-6 left-10 opacity-10 font-black text-6xl pointer-events-none">{selectedPrayer.steps[currentStep].icon}</div>
                 <div className="relative z-10 space-y-10">
                   <div className="space-y-2">
-                    <h4 className="text-[10px] font-black uppercase tracking-[0.5em] leading-none text-sky-500">ADIM {currentStep + 1} / {selectedPrayer.steps.length}</h4>
+                    <h4 className="text-[10px] font-black uppercase tracking-[0.5em] leading-none text-gold-500">ADIM {currentStep + 1} / {selectedPrayer.steps.length}</h4>
                     <h3 className="text-2xl font-black tracking-tighter uppercase leading-none">{selectedPrayer.steps[currentStep].title}</h3>
                   </div>
                   <div className="space-y-6">
                     <p className="arabic-text text-[3.2rem] leading-[1.4] transition-all duration-500 text-slate-800 dark:text-slate-100" dir="rtl">{selectedPrayer.steps[currentStep].arabic}</p>
-                    <div className="h-px w-10 mx-auto bg-sky-100"></div>
-                    <p className="text-[15px] font-bold leading-relaxed italic px-4 text-sky-800">"{selectedPrayer.steps[currentStep].meaning}"</p>
+                    <div className="h-px w-10 mx-auto bg-gold-100"></div>
+                    <p className="text-[15px] font-bold leading-relaxed italic px-4 text-navy-800">"{selectedPrayer.steps[currentStep].meaning}"</p>
                   </div>
-                  <div className="p-6 rounded-[2.5rem] bg-sky-50 dark:bg-sky-950/20 border border-sky-100">
+                  <div className="p-6 rounded-[2.5rem] bg-gold-50 dark:bg-navy-950/20 border border-gold-100">
                     <p className="text-[12px] font-medium leading-relaxed text-slate-500 dark:text-slate-400 dark:text-slate-500">{selectedPrayer.steps[currentStep].description}</p>
                   </div>
-                  <button onClick={() => playStepAudio(selectedPrayer.steps[currentStep].title + ". " + selectedPrayer.steps[currentStep].description)} disabled={audioLoading} className="w-14 h-14 rounded-full mx-auto flex items-center justify-center transition-all active:scale-90 bg-sky-50 dark:bg-sky-950/20 text-sky-600 border border-sky-100 shadow-sm">
+                  <button onClick={() => playStepAudio(selectedPrayer.steps[currentStep].title + ". " + selectedPrayer.steps[currentStep].description)} disabled={audioLoading} className="w-14 h-14 rounded-full mx-auto flex items-center justify-center transition-all active:scale-90 bg-gold-50 dark:bg-navy-950/20 text-gold-600 border border-gold-100 shadow-sm">
                     {audioLoading ? <div className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin"></div> : <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>}
                   </button>
                 </div>
@@ -299,14 +299,14 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             ) : (
               <div className="p-12 text-center bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm">
                 <p className="text-slate-400 dark:text-slate-500 text-sm font-bold uppercase tracking-widest">Bu vakit için rehber henüz hazır değil.</p>
-                <button onClick={() => setSelectedPrayer(null)} className="mt-4 text-sky-600 font-black text-xs uppercase underline">GERİ DÖN</button>
+                <button onClick={() => setSelectedPrayer(null)} className="mt-4 text-gold-600 font-black text-xs uppercase underline">GERİ DÖN</button>
               </div>
             )}
             
             {selectedPrayer.steps && selectedPrayer.steps.length > 0 && (
               <div className="grid grid-cols-2 gap-4">
                 <button disabled={currentStep === 0} onClick={prevStep} className="py-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2.2rem] font-black text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest active:scale-95 disabled:opacity-30 transition-all shadow-sm">ÖNCEKİ ADIM</button>
-                <button disabled={currentStep === selectedPrayer.steps.length - 1} onClick={nextStep} className="py-5 bg-sky-600 text-white rounded-[2.2rem] font-black text-[10px] uppercase tracking-widest active:scale-95 disabled:opacity-30 transition-all shadow-xl shadow-sky-900/10">SONRAKİ ADIM</button>
+                <button disabled={currentStep === selectedPrayer.steps.length - 1} onClick={nextStep} className="py-5 bg-gold-600 text-white rounded-[2.2rem] font-black text-[10px] uppercase tracking-widest active:scale-95 disabled:opacity-30 transition-all shadow-xl shadow-navy-900/10">SONRAKİ ADIM</button>
               </div>
             )}
           </div>

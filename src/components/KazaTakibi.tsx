@@ -27,10 +27,10 @@ interface OrucState {
 
 const PRAYERS: PrayerDebt[] = [
   { id: '1', label: 'SABAH', key: 'fajr', color: 'text-orange-500 bg-orange-50 dark:bg-orange-950/20' },
-  { id: '2', label: 'ÖĞLE', key: 'dhuhr', color: 'text-sky-500 bg-sky-50 dark:bg-sky-950/20' },
+  { id: '2', label: 'ÖĞLE', key: 'dhuhr', color: 'text-gold-500 bg-gold-50 dark:bg-navy-950/20' },
   { id: '3', label: 'İKİNDİ', key: 'asr', color: 'text-amber-500 bg-amber-50 dark:bg-amber-950/20' },
   { id: '4', label: 'AKŞAM', key: 'maghrib', color: 'text-rose-500 bg-rose-50 dark:bg-rose-950/20' },
-  { id: '5', label: 'YATSI', key: 'isha', color: 'text-indigo-500 bg-indigo-50 dark:bg-indigo-950/20' },
+  { id: '5', label: 'YATSI', key: 'isha', color: 'text-gold-500 bg-gold-50 dark:bg-navy-950/20' },
   { id: '6', label: 'VİTİR', key: 'witr', color: 'text-purple-500 bg-purple-50 dark:bg-purple-950/20' },
 ];
 
@@ -266,19 +266,19 @@ const KazaTakibi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         ) : (
           <div className="py-6 space-y-8 animate-in fade-in duration-500">
              {/* Total Oruç Stats Card */}
-             <div className="bg-sky-950 rounded-[2.8rem] p-10 text-white relative overflow-hidden group shadow-[0_25px_60px_-15px_rgba(8,47,73,0.3)]">
+             <div className="bg-navy-950 rounded-[2.8rem] p-10 text-white relative overflow-hidden group shadow-[0_25px_60px_-15px_rgba(13,18,32,0.3)]">
                 <div className="absolute right-[-10%] top-[-10%] p-8 opacity-[0.05] group-hover:scale-110 transition-transform text-[10rem] pointer-events-none rotate-6">🌙</div>
                 <div className="relative z-10">
-                   <p className="text-sky-300 text-[10px] font-black uppercase tracking-[0.25em] mb-2 leading-relaxed">TOPLAM ORUÇ BORCU</p>
-                   <h3 className="text-6xl font-black tracking-tighter mb-4">{totalOruc} <span className="text-xl font-bold text-sky-400/60 uppercase tracking-normal">GÜN</span></h3>
+                   <p className="text-gold-300 text-[10px] font-black uppercase tracking-[0.25em] mb-2 leading-relaxed">TOPLAM ORUÇ BORCU</p>
+                   <h3 className="text-6xl font-black tracking-tighter mb-4">{totalOruc} <span className="text-xl font-bold text-gold-400/60 uppercase tracking-normal">GÜN</span></h3>
                    <div className="flex gap-4 pt-4 border-t border-white/10">
                       <div>
-                         <p className="text-[8px] font-black text-sky-500 uppercase tracking-widest mb-0.5">RAMAZAN</p>
+                         <p className="text-[8px] font-black text-gold-500 uppercase tracking-widest mb-0.5">RAMAZAN</p>
                          <p className="text-lg font-black">{orucDebts.ramadan} G</p>
                       </div>
                       <div className="w-px h-8 bg-white/10"></div>
                       <div>
-                         <p className="text-[8px] font-black text-sky-500 uppercase tracking-widest mb-0.5">KEFARET</p>
+                         <p className="text-[8px] font-black text-gold-500 uppercase tracking-widest mb-0.5">KEFARET</p>
                          <p className="text-lg font-black">{orucDebts.kaffarah} G</p>
                       </div>
                    </div>
@@ -288,17 +288,17 @@ const KazaTakibi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
              {/* Detailed Fasting Cards */}
              <div className="space-y-4">
                 <div className="flex items-center gap-3 ml-2 mb-2">
-                   <div className="w-2 h-2 bg-sky-500 rounded-full shadow-[0_0_12px_rgba(14,165,233,0.7)] animate-pulse"></div>
+                   <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_12px_rgba(201,166,104,0.7)] animate-pulse"></div>
                    <h5 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.45em]">BORÇ DETAYLARIM</h5>
                 </div>
 
                 {/* Ramadan Card */}
-                <div className="bg-white dark:bg-slate-900 p-8 rounded-[2.8rem] border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group hover:border-sky-100 transition-all">
-                   <div className="absolute right-6 top-6 w-12 h-12 bg-sky-50 dark:bg-sky-950/20 rounded-2xl flex items-center justify-center text-xl shadow-inner border border-sky-100 group-hover:scale-110 transition-transform">🌙</div>
+                <div className="bg-white dark:bg-slate-900 p-8 rounded-[2.8rem] border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group hover:border-gold-100 transition-all">
+                   <div className="absolute right-6 top-6 w-12 h-12 bg-gold-50 dark:bg-navy-950/20 rounded-2xl flex items-center justify-center text-xl shadow-inner border border-gold-100 group-hover:scale-110 transition-transform">🌙</div>
                    <div className="space-y-6">
                       <div className="space-y-1">
-                         <p className="text-[10px] font-black text-sky-400 uppercase tracking-[0.25em]">RAMAZAN ORUCU</p>
-                         <h3 className="text-4xl font-black text-sky-950 tracking-tighter">Borç: {orucDebts.ramadan} Gün</h3>
+                         <p className="text-[10px] font-black text-gold-400 uppercase tracking-[0.25em]">RAMAZAN ORUCU</p>
+                         <h3 className="text-4xl font-black text-navy-950 tracking-tighter">Borç: {orucDebts.ramadan} Gün</h3>
                       </div>
                       <div className="flex gap-3">
                          <button 
@@ -309,7 +309,7 @@ const KazaTakibi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                          </button>
                          <button 
                            onClick={() => updateOruc('ramadan', 1)}
-                           className="flex-[1] py-4.5 bg-sky-600 rounded-2xl font-black text-white text-[10px] uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-sky-200"
+                           className="flex-[1] py-4.5 bg-gold-600 rounded-2xl font-black text-white text-[10px] uppercase tracking-widest active:scale-95 transition-all shadow-lg shadow-gold-200"
                          >
                            BORÇ EKLE (+1)
                          </button>
@@ -408,7 +408,7 @@ const KazaTakibi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                     <div className="grid grid-cols-2 gap-3">
                        <button 
                          onClick={() => setGender('male')}
-                         className={`py-3 rounded-xl text-[9px] font-black border transition-all ${gender === 'male' ? 'bg-blue-50 dark:bg-blue-950/20 border-blue-200 text-blue-700' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500'}`}
+                         className={`py-3 rounded-xl text-[9px] font-black border transition-all ${gender === 'male' ? 'bg-gold-50 dark:bg-navy-950/20 border-gold-200 text-gold-700' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500'}`}
                        >ERKEK</button>
                        <button 
                          onClick={() => setGender('female')}

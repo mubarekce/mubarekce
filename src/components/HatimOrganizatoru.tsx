@@ -221,7 +221,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
                 </div>
                 <div className="w-full h-3 bg-white/60 rounded-full overflow-hidden border border-gold-100/50 shadow-inner">
                    <div 
-                     className="h-full bg-gold-500 shadow-[0_0_15px_rgba(20,184,166,0.4)] transition-all duration-1000 ease-out"
+                     className="h-full bg-gold-500 shadow-[0_0_15px_rgba(201,166,104,0.4)] transition-all duration-1000 ease-out"
                      style={{ width: `${percent}%` }}
                    ></div>
                 </div>
@@ -306,13 +306,13 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
       <div className="flex-1 overflow-y-auto px-6 pb-32 no-scrollbar">
         {activeTab === 'halkalar' ? (
           <div className="py-6 space-y-8 animate-in fade-in duration-500">
-            <div className="bg-[#022e2c] rounded-[2.8rem] p-10 text-white relative overflow-hidden group shadow-[0_25px_60px_-15px_rgba(4,47,46,0.3)]">
+            <div className="bg-[#0d1220] rounded-[2.8rem] p-10 text-white relative overflow-hidden group shadow-[0_25px_60px_-15px_rgba(13,18,32,0.3)]">
                <div className="absolute right-[-10%] top-[-10%] p-8 opacity-[0.08] group-hover:scale-110 transition-transform text-[12rem] pointer-events-none rotate-6">🕌</div>
                <div className="relative z-10">
                   <h3 className="text-2xl font-black tracking-tighter mb-2">Yeni Hatim Başlat</h3>
                   <p className="text-gold-400/80 text-[10px] font-black uppercase tracking-[0.25em] mb-10 leading-relaxed">Sevdiklerinle beraber<br/>tilavetin bereketini paylaş</p>
                   <div className="flex gap-3">
-                    <button onClick={() => setShowCreateModal(true)} className="bg-gold-500 hover:bg-gold-400 text-white font-black text-[10px] px-8 py-4.5 rounded-[1.5rem] uppercase tracking-widest shadow-[0_15px_30px_rgba(20,184,166,0.3)] transition-all active:scale-95 border border-gold-400/20">
+                    <button onClick={() => setShowCreateModal(true)} className="bg-gold-500 hover:bg-gold-400 text-white font-black text-[10px] px-8 py-4.5 rounded-[1.5rem] uppercase tracking-widest shadow-[0_15px_30px_rgba(201,166,104,0.3)] transition-all active:scale-95 border border-gold-400/20">
                       Halka Oluştur
                     </button>
                     <button onClick={() => setShowJoinModal(true)} className="bg-white/10 hover:bg-white/20 text-white font-black text-[10px] px-8 py-4.5 rounded-[1.5rem] uppercase tracking-widest transition-all active:scale-95 border border-white/20">
@@ -324,7 +324,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
 
             <div className="space-y-5">
               <div className="flex items-center gap-3 ml-2 mb-3">
-                 <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_12px_rgba(20,184,166,0.7)] animate-pulse"></div>
+                 <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_12px_rgba(201,166,104,0.7)] animate-pulse"></div>
                  <h5 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.45em]">AKTİF HALKALARIM</h5>
               </div>
 
@@ -357,7 +357,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
                     <div className="flex items-center gap-5">
                        <div className="flex-1 h-2 bg-slate-50 dark:bg-slate-900 rounded-full overflow-hidden border border-slate-100 dark:border-slate-800 shadow-inner">
                           <div 
-                            className="h-full bg-gold-500 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(20,184,166,0.3)]"
+                            className="h-full bg-gold-500 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(201,166,104,0.3)]"
                             style={{ width: `${(halkala.completedParts / halkala.totalParts) * 100}%` }}
                           ></div>
                        </div>

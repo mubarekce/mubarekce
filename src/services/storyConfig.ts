@@ -37,7 +37,7 @@ export const CATEGORY_TITLES: Record<StoryCategory, string> = {
 export const CATEGORY_GRADIENTS: Record<StoryCategory, string> = {
   AYET: 'from-navy-900 via-navy-800 to-navy-950',
   HADİS: 'from-amber-800 via-orange-800 to-amber-950',
-  DUA: 'from-indigo-900 via-blue-800 to-indigo-950',
+  DUA: 'from-navy-900 via-navy-800 to-navy-950',
   SÜNNET: 'from-rose-900 via-pink-800 to-rose-950',
 };
 

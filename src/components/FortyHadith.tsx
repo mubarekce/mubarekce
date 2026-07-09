@@ -70,7 +70,7 @@ const FortyHadith: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fcfcfd] animate-in fade-in slide-in-from-right duration-500 overflow-hidden relative">
       {/* Background Decor - Pastel Light Blue */}
-      <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-sky-50/50 to-transparent pointer-events-none -z-10"></div>
+      <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-gold-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Premium Compact Header */}
       <div className="px-5 pt-10 pb-4 flex items-center justify-between bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
@@ -85,7 +85,7 @@ const FortyHadith: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <h2 className="text-[16px] font-black text-slate-800 dark:text-slate-100 tracking-tight leading-none uppercase">
               {selectedHadith ? `HADİS #${selectedHadith.id}` : "40 HADİS"}
             </h2>
-            <p className="text-[8px] font-black text-sky-500 uppercase tracking-[0.25em] mt-1">ÖZEL SEÇKİ KOLEKSİYON</p>
+            <p className="text-[8px] font-black text-gold-500 uppercase tracking-[0.25em] mt-1">ÖZEL SEÇKİ KOLEKSİYON</p>
           </div>
         </div>
         <div className="text-xl opacity-30">💎</div>
@@ -95,17 +95,17 @@ const FortyHadith: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {!selectedHadith ? (
           <div className="space-y-5 animate-in fade-in duration-500">
             {/* Daily Card - Compact & Light Blue */}
-            <div className="bg-[#f0f9ff] rounded-[2.2rem] p-6 text-sky-950 border border-sky-100 relative overflow-hidden group shadow-lg shadow-sky-900/5">
-               <div className="absolute right-[-5%] top-[-10%] opacity-[0.05] group-hover:scale-110 transition-transform duration-1000 text-[8rem] pointer-events-none rotate-12 text-sky-900">📖</div>
+            <div className="bg-[#fbf6ea] rounded-[2.2rem] p-6 text-navy-950 border border-gold-100 relative overflow-hidden group shadow-lg shadow-navy-900/5">
+               <div className="absolute right-[-5%] top-[-10%] opacity-[0.05] group-hover:scale-110 transition-transform duration-1000 text-[8rem] pointer-events-none rotate-12 text-navy-900">📖</div>
                <div className="relative z-10 space-y-3 text-center">
-                  <p className="text-sky-600 text-[8px] font-black uppercase tracking-[0.4em]">HAFTANIN HADİSİ</p>
-                  <p className="arabic-text text-xl leading-relaxed text-sky-900" dir="rtl">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</p>
-                  <p className="text-[13px] font-bold leading-relaxed text-sky-800/80 italic px-2">
+                  <p className="text-gold-600 text-[8px] font-black uppercase tracking-[0.4em]">HAFTANIN HADİSİ</p>
+                  <p className="arabic-text text-xl leading-relaxed text-navy-900" dir="rtl">خَيْرُكُمْ مَنْ تَعَلَّمَ الْقُرْآنَ وَعَلَّمَهُ</p>
+                  <p className="text-[13px] font-bold leading-relaxed text-navy-800/80 italic px-2">
                     "Sizin en hayırlınız Kur'an'ı öğrenen ve öğretendir."
                   </p>
                   <button 
                     onClick={() => setSelectedHadith(HADITH_LIST[3])}
-                    className="bg-sky-600 text-white px-5 py-2 rounded-full font-black text-[8px] uppercase tracking-widest active:scale-95 shadow-md shadow-sky-100 transition-all border border-sky-500"
+                    className="bg-gold-600 text-white px-5 py-2 rounded-full font-black text-[8px] uppercase tracking-widest active:scale-95 shadow-md shadow-gold-100 transition-all border border-gold-500"
                   >
                     OKU →
                   </button>
@@ -119,7 +119,7 @@ const FortyHadith: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Ara (niyet, selam)..."
-                className="w-full bg-slate-50 dark:bg-slate-900 border-2 border-transparent focus:border-sky-100 focus:bg-white dark:bg-slate-900 rounded-2xl pl-11 pr-4 py-3 outline-none font-bold text-sm text-slate-800 dark:text-slate-100 shadow-sm transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600"
+                className="w-full bg-slate-50 dark:bg-slate-900 border-2 border-transparent focus:border-gold-100 focus:bg-white dark:bg-slate-900 rounded-2xl pl-11 pr-4 py-3 outline-none font-bold text-sm text-slate-800 dark:text-slate-100 shadow-sm transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600"
               />
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300 dark:text-slate-600">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -129,7 +129,7 @@ const FortyHadith: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             {/* List - Compacted as per screenshot */}
             <div className="space-y-3">
               <div className="flex items-center gap-3 ml-1 mb-2">
-                 <div className="w-1.5 h-1.5 bg-sky-500 rounded-full"></div>
+                 <div className="w-1.5 h-1.5 bg-gold-500 rounded-full"></div>
                  <h4 className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">HADİS-İ ŞERİFLER</h4>
               </div>
               
@@ -142,7 +142,7 @@ const FortyHadith: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   >
                     <div className="flex items-center gap-3.5 flex-1 min-w-0">
                        {/* Fixed Size Consistent Number Circle */}
-                       <div className="w-9 h-9 rounded-full bg-[#f1f5f9] text-sky-600 flex-shrink-0 flex items-center justify-center text-[13px] font-black shadow-inner border border-slate-100 dark:border-slate-800 group-hover:bg-sky-50 dark:bg-sky-950/20">
+                       <div className="w-9 h-9 rounded-full bg-[#f1f5f9] text-gold-600 flex-shrink-0 flex items-center justify-center text-[13px] font-black shadow-inner border border-slate-100 dark:border-slate-800 group-hover:bg-gold-50 dark:bg-navy-950/20">
                           {hadith.id}
                        </div>
                        <div className="flex-1 min-w-0 pr-2">

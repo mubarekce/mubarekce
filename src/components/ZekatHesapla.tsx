@@ -64,7 +64,7 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in duration-500 overflow-hidden relative">
       {/* Background Decor - Changed to Sky Blue */}
-      <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-sky-50/50 to-transparent pointer-events-none -z-10"></div>
+      <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-gold-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Premium Header */}
       <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
@@ -77,20 +77,20 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           </button>
           <div>
             <h2 className="text-[17px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Zekat Hesapla</h2>
-            <p className="text-[8px] font-black text-sky-600 uppercase tracking-[0.25em] mt-1">VARLIK HESAP MODÜLÜ</p>
+            <p className="text-[8px] font-black text-gold-600 uppercase tracking-[0.25em] mt-1">VARLIK HESAP MODÜLÜ</p>
           </div>
         </div>
-        <div className="w-10 h-10 bg-sky-50 dark:bg-sky-950/20 rounded-xl flex items-center justify-center text-lg border border-sky-100 text-sky-500 font-black">$</div>
+        <div className="w-10 h-10 bg-gold-50 dark:bg-navy-950/20 rounded-xl flex items-center justify-center text-lg border border-gold-100 text-gold-500 font-black">$</div>
       </div>
 
       <div className="flex-1 overflow-y-auto px-6 pb-32 no-scrollbar pt-6 space-y-8">
         
         {/* Result Card - Now Pastel Sky Blue */}
-        <div className="bg-[#f0f9ff] rounded-[2.5rem] p-8 text-sky-950 border border-sky-100 relative overflow-hidden shadow-2xl shadow-sky-900/5">
+        <div className="bg-[#fbf6ea] rounded-[2.5rem] p-8 text-navy-950 border border-gold-100 relative overflow-hidden shadow-2xl shadow-navy-900/5">
            <div className="absolute right-[-5%] top-[-5%] opacity-[0.05] text-[10rem] pointer-events-none rotate-12">💰</div>
            <div className="relative z-10 space-y-6">
               <div className="flex justify-between items-center">
-                 <p className="text-sky-600 text-[9px] font-black uppercase tracking-[0.4em]">ÖDENMESİ GEREKEN ZEKAT</p>
+                 <p className="text-gold-600 text-[9px] font-black uppercase tracking-[0.4em]">ÖDENMESİ GEREKEN ZEKAT</p>
                  {totalValue >= NISAB_VALUE && (
                     <span className="bg-gold-500 text-white text-[7px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest">NİSAB ÜSTÜ</span>
                  )}
@@ -98,13 +98,13 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               <h3 className="text-5xl font-black tracking-tighter leading-none">₺{zekatAmount.toLocaleString('tr-TR', { minimumFractionDigits: 2 })}</h3>
               
               <div className="flex items-center gap-3 pt-2">
-                 <div className="flex-1 h-1.5 bg-sky-200/50 rounded-full overflow-hidden">
+                 <div className="flex-1 h-1.5 bg-gold-200/50 rounded-full overflow-hidden">
                     <div 
-                      className="h-full bg-sky-600 rounded-full transition-all duration-1000"
+                      className="h-full bg-gold-600 rounded-full transition-all duration-1000"
                       style={{ width: `${Math.min(100, (totalValue / NISAB_VALUE) * 100)}%` }}
                     ></div>
                  </div>
-                 <span className="text-[10px] font-bold text-sky-800 uppercase tracking-widest">
+                 <span className="text-[10px] font-bold text-navy-800 uppercase tracking-widest">
                     {totalValue < NISAB_VALUE ? 'NİSABA KALAN: ' + (NISAB_VALUE - totalValue).toLocaleString() + ' TL' : 'MÜKELLEFSİNİZ'}
                  </span>
               </div>
@@ -114,13 +114,13 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {/* Assets Form */}
         <div className="space-y-4">
            <div className="flex items-center gap-3 ml-2 mb-2">
-              <div className="w-1.5 h-1.5 bg-sky-500 rounded-full shadow-[0_0_8px_rgba(14,165,233,0.5)]"></div>
+              <div className="w-1.5 h-1.5 bg-gold-500 rounded-full shadow-[0_0_8px_rgba(201,166,104,0.5)]"></div>
               <h4 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">VARLIK LİSTESİ</h4>
            </div>
            
            <div className="grid grid-cols-1 gap-3">
               {assets.map(asset => (
-                <div key={asset.id} className="bg-white dark:bg-slate-900 p-5 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm flex items-center justify-between group focus-within:border-sky-200 transition-all">
+                <div key={asset.id} className="bg-white dark:bg-slate-900 p-5 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm flex items-center justify-between group focus-within:border-gold-200 transition-all">
                    <div className="space-y-1">
                       <p className="text-[10px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest">{asset.name}</p>
                       <div className="flex items-center gap-2">
@@ -128,13 +128,13 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                            type="number" 
                            onChange={(e) => updateAsset(asset.id, e.target.value)}
                            placeholder="0.00"
-                           className="text-xl font-black text-slate-900 dark:text-white bg-transparent outline-none w-24 border-b border-transparent focus:border-sky-100"
+                           className="text-xl font-black text-slate-900 dark:text-white bg-transparent outline-none w-24 border-b border-transparent focus:border-gold-100"
                          />
                          <span className="text-xs font-bold text-slate-400 dark:text-slate-500">{asset.unit}</span>
                       </div>
                    </div>
                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg ${
-                     asset.category === 'borc' ? 'bg-rose-50 dark:bg-rose-950/20 text-rose-400' : 'bg-sky-50 dark:bg-sky-950/20 text-sky-500'
+                     asset.category === 'borc' ? 'bg-rose-50 dark:bg-rose-950/20 text-rose-400' : 'bg-gold-50 dark:bg-navy-950/20 text-gold-500'
                    }`}>
                       {asset.category === 'nakit' ? '💵' : asset.category === 'altin' ? '💍' : asset.category === 'ticaret' ? '📦' : '📉'}
                    </div>
@@ -163,10 +163,10 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
            </button>
 
            {aiResponse && (
-             <div className="bg-white dark:bg-slate-900 p-7 rounded-[2.5rem] border border-sky-100 shadow-lg animate-in slide-in-from-top-4 duration-500">
+             <div className="bg-white dark:bg-slate-900 p-7 rounded-[2.5rem] border border-gold-100 shadow-lg animate-in slide-in-from-top-4 duration-500">
                 <div className="flex items-center gap-2 mb-4">
-                   <div className="w-1.5 h-1.5 bg-sky-500 rounded-full animate-pulse"></div>
-                   <p className="text-[9px] font-black text-sky-600 uppercase tracking-widest">AI REHBER NOTU</p>
+                   <div className="w-1.5 h-1.5 bg-gold-500 rounded-full animate-pulse"></div>
+                   <p className="text-[9px] font-black text-gold-600 uppercase tracking-widest">AI REHBER NOTU</p>
                 </div>
                 <p className="text-[14px] font-medium text-slate-700 dark:text-slate-300 dark:text-slate-600 leading-[1.8] whitespace-pre-wrap italic">
                    "{aiResponse}"
@@ -181,11 +181,11 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
            <div className="grid grid-cols-2 gap-4">
               <div className="text-center">
                  <p className="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase">GR Altın (Ref)</p>
-                 <p className="text-xs font-black text-sky-700">₺{GOLD_PRICE_GRAM.toLocaleString()}</p>
+                 <p className="text-xs font-black text-gold-700">₺{GOLD_PRICE_GRAM.toLocaleString()}</p>
               </div>
               <div className="text-center">
                  <p className="text-[8px] font-bold text-slate-400 dark:text-slate-500 uppercase">Nisab (80.18gr)</p>
-                 <p className="text-xs font-black text-sky-700">₺{NISAB_VALUE.toLocaleString()}</p>
+                 <p className="text-xs font-black text-gold-700">₺{NISAB_VALUE.toLocaleString()}</p>
               </div>
            </div>
         </div>

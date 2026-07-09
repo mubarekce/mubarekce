@@ -113,10 +113,31 @@
         .animate-subtle {
           animation: subtle-pulse 4s infinite ease-in-out;
         }
+        /* Arkaplandaki hafif hareketli cami silüeti - manevi, huzurlu bir derinlik hissi için */
+        @keyframes mosque-drift {
+          0%   { transform: translateX(0px) scale(1);       opacity: 0.5; }
+          50%  { transform: translateX(10px) scale(1.015);   opacity: 0.75; }
+          100% { transform: translateX(0px) scale(1);        opacity: 0.5; }
+        }
+        .mosque-silhouette {
+          animation: mosque-drift 18s infinite ease-in-out;
+          will-change: transform, opacity;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .mosque-silhouette { animation: none; }
+        }
         /* Custom transitions for dark mode */
         * {
           transition-property: background-color, border-color, color, fill, stroke;
           transition-duration: 200ms;
+        }
+        /* Tema ile uyumlu varsayılan buton görünümü (özel Tailwind sınıfı olmayan butonlar için) */
+        button {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        button:focus-visible {
+          outline: 2px solid #c9a668;
+          outline-offset: 2px;
         }
         /* Leaflet popup customization */
         .leaflet-popup-content-wrapper {

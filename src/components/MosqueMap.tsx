@@ -119,7 +119,7 @@ const MosqueMap: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     // Kullanıcı Marker (Blue Pulse)
     const userIcon = L.divIcon({
       className: 'u-marker',
-      html: `<div style="width:20px;height:20px;background:#3b82f6;border:4px solid white;border-radius:50%;box-shadow:0 0 15px rgba(59,130,246,0.6);animation:pulse 2s infinite"></div>`,
+      html: `<div style="width:20px;height:20px;background:#c9a668;border:4px solid white;border-radius:50%;box-shadow:0 0 15px rgba(201,166,104,0.6);animation:pulse 2s infinite"></div>`,
       iconSize: [20, 20], iconAnchor: [10, 10]
     });
     markersRef.current.push(L.marker(userPos, { icon: userIcon }).addTo(map));
@@ -177,7 +177,7 @@ const MosqueMap: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="flex-1 overflow-y-auto bg-[#F8FAFC] z-10 pb-32 no-scrollbar shadow-[0_-20px_40px_rgba(0,0,0,0.05)] rounded-t-[3rem]">
         <div className="p-6 space-y-6">
           <div className="flex items-center gap-3 px-2">
-            <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_10px_rgba(20,184,166,0.5)] animate-pulse"></div>
+            <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_10px_rgba(201,166,104,0.5)] animate-pulse"></div>
             <h4 className="text-[11px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">Yakındaki {mosques.length} Mekan</h4>
           </div>
 
