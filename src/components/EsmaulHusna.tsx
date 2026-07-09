@@ -141,7 +141,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in slide-in-from-right duration-300 overflow-hidden relative">
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center gap-5 bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-md sticky top-0 z-30 border-b border-slate-50/50">
+      <div className="px-6 pt-12 pb-6 flex items-center gap-5 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-30 border-b border-slate-50/50">
         <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
         </button>
@@ -193,7 +193,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
             {/* Merit Badge - Bottom as in screenshot */}
             <div className="mt-8">
-               <div className="inline-flex items-center gap-3 bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 border border-purple-50 px-6 py-3 rounded-[1.4rem] shadow-sm group-hover:bg-purple-50/50 group-hover:border-purple-200 transition-colors">
+               <div className="inline-flex items-center gap-3 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 border border-purple-50 px-6 py-3 rounded-[1.4rem] shadow-sm group-hover:bg-purple-50/50 group-hover:border-purple-200 transition-colors">
                   <span className="text-sm">✨</span>
                   <p className="text-[10px] font-black text-purple-700 uppercase tracking-[0.15em]">{esma.merit}</p>
                </div>

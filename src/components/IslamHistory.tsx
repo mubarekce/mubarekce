@@ -103,7 +103,7 @@ const IslamHistory: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in slide-in-from-right duration-500 overflow-hidden relative">
       {/* Premium Header - Compact */}
-      <div className="px-5 pt-10 pb-4 flex items-center justify-between bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
+      <div className="px-5 pt-10 pb-4 flex items-center justify-between bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={selectedEvent ? () => setSelectedEvent(null) : selectedCategory ? () => setSelectedCategory(null) : onBack}

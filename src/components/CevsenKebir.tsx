@@ -166,7 +166,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div id="scroll-target" className="absolute top-0 h-0 w-0"></div>
       
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-md sticky top-0 z-30 border-b border-gold-50/50">
+      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-30 border-b border-gold-50/50">
         <div className="flex items-center gap-5">
           <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>

@@ -345,13 +345,13 @@ import { User } from '../types';
 
   if (view === 'quran') return <QuranReader onBack={() => setView('grid')} />;
   if (view === 'zikir') return (
-    <div className="flex-1 flex flex-col h-full bg-[#faf6f0] dark:bg-[#0d1220] relative">
+    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] relative">
       <button onClick={() => setView('grid')} className="absolute top-12 left-6 z-50 w-10 h-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur shadow-sm rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 text-slate-900 dark:text-white">←</button>
       <Zikirmatik />
     </div>
   );
   if (view === 'kible') return (
-    <div className="flex-1 flex flex-col h-full bg-[#faf6f0] dark:bg-[#0d1220] relative">
+    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] relative">
       <button onClick={() => setView('grid')} className="absolute top-12 left-6 z-50 w-10 h-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur shadow-sm rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 text-slate-900 dark:text-white">←</button>
       <KibleCompass lat={location?.latitude ?? 41.0082} lng={location?.longitude ?? 28.9784} />
     </div>
@@ -382,7 +382,7 @@ import { User } from '../types';
 
   if (view === 'detail' && selectedTool) {
     return (
-      <div className="flex-1 flex flex-col h-full bg-[#faf6f0] dark:bg-[#0d1220] p-8 animate-in slide-in-from-right duration-300 overflow-y-auto">
+      <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] p-8 animate-in slide-in-from-right duration-300 overflow-y-auto">
         <button onClick={() => setView('grid')} className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center mb-8 text-slate-900 dark:text-white">←</button>
         <div className="text-center space-y-4">
           <div className={`w-24 h-24 mx-auto flex items-center justify-center ${selectedTool.color}`} style={{ filter: `drop-shadow(0 0 15px ${selectedTool.glowColor})` }}>
@@ -408,7 +408,7 @@ import { User } from '../types';
   }
 
   return (
-    <div className="flex-1 overflow-y-auto px-6 pb-36 pt-12 space-y-8 bg-[#faf6f0] dark:bg-[#0d1220] animate-in fade-in duration-500">
+    <div className="flex-1 overflow-y-auto px-6 pb-36 pt-12 space-y-8 bg-[#f3f7e9] dark:bg-[#0a1f1a] animate-in fade-in duration-500">
       <div className="flex justify-between items-end">
         <div className="space-y-2">
           <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">Kütüphane</h2>

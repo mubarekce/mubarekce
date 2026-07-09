@@ -301,7 +301,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
       <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-white/60 backdrop-blur-xl sticky top-0 z-30 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button onClick={onBack} className="w-11 h-11 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#243a58" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c4b42" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
             <h2 className="text-[19px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Aile Modu</h2>

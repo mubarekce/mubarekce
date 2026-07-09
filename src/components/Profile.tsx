@@ -165,9 +165,9 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
   };
 
   const renderNotifDetail = () => (
-    <div className="flex-1 flex flex-col h-full bg-[#faf6f0] dark:bg-[#0d1220] animate-in slide-in-from-right duration-500 overflow-hidden">
+    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] animate-in slide-in-from-right duration-500 overflow-hidden">
        {/* Compact Header */}
-       <div className="px-6 pt-12 pb-4 flex items-center gap-5 border-b border-slate-50 dark:border-slate-900 bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-md sticky top-0 z-30">
+       <div className="px-6 pt-12 pb-4 flex items-center gap-5 border-b border-slate-50 dark:border-slate-900 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-30">
           <button onClick={() => { setCurrentView('main'); audioRef.current.pause(); setPreviewingId(null); }} className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
@@ -270,7 +270,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
   );
 
   const renderMainView = () => (
-    <div className="flex-1 overflow-y-auto px-6 pt-12 pb-40 space-y-8 bg-[#faf6f0] dark:bg-[#0d1220] transition-colors duration-300 no-scrollbar relative animate-in fade-in duration-500">
+    <div className="flex-1 overflow-y-auto px-6 pt-12 pb-40 space-y-8 bg-[#f3f7e9] dark:bg-[#0a1f1a] transition-colors duration-300 no-scrollbar relative animate-in fade-in duration-500">
       <div className="flex justify-between items-center">
         <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Hesabım</h2>
         <div className="w-10 h-10 bg-gold-50 dark:bg-navy-950/30 rounded-xl flex items-center justify-center border border-gold-100 dark:border-navy-800">
@@ -437,7 +437,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
       {/* PREMIUM PURCHASE PAGE */}
       {showPremiumPage && (
-        <div className="fixed inset-0 z-[1000] bg-[#faf6f0] dark:bg-[#0d1220] flex flex-col h-full overflow-hidden pb-[max(1.5rem,env(safe-area-inset-bottom))] animate-in slide-in-from-bottom duration-500">
+        <div className="fixed inset-0 z-[1000] bg-[#f3f7e9] dark:bg-[#0a1f1a] flex flex-col h-full overflow-hidden pb-[max(1.5rem,env(safe-area-inset-bottom))] animate-in slide-in-from-bottom duration-500">
            {/* Success Overlay */}
            {purchaseSuccess && (
              <div className="absolute inset-0 bg-gold-700 z-[1100] flex flex-col items-center justify-center text-white p-10 animate-in fade-in zoom-in duration-500 text-center">
@@ -471,15 +471,15 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
            {/* 2. COMPACT ELITE PRICING CARDS */}
            <div className="px-6 flex-1 flex flex-col justify-center gap-2 py-4">
               <p className="text-[9px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-[0.4em] ml-1 mb-1">PAKETİNİZİ BELİRLEYİN</p>
-              <div onClick={() => setSelectedPlan('6m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer relative overflow-hidden flex items-center justify-between px-5 ${selectedPlan === '6m' ? 'bg-[#1c2541] border-[#1c2541] shadow-xl shadow-navy-900/20 ring-4 ring-gold-500/5' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}`}>
-                <div className="absolute top-0 right-6 bg-[#fbbf24] text-[#1c2541] text-[6.5px] font-black px-3 py-0.5 rounded-b-lg uppercase tracking-widest z-10 shadow-md">EN ÇOK TERCİH EDİLEN</div>
+              <div onClick={() => setSelectedPlan('6m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer relative overflow-hidden flex items-center justify-between px-5 ${selectedPlan === '6m' ? 'bg-[#153a33] border-[#153a33] shadow-xl shadow-navy-900/20 ring-4 ring-gold-500/5' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}`}>
+                <div className="absolute top-0 right-6 bg-[#fbbf24] text-[#153a33] text-[6.5px] font-black px-3 py-0.5 rounded-b-lg uppercase tracking-widest z-10 shadow-md">EN ÇOK TERCİH EDİLEN</div>
                 <div className="space-y-0.5">
                   <p className={`text-[9px] font-black uppercase tracking-widest ${selectedPlan === '6m' ? 'text-gold-300' : 'text-gold-600'}`}>6 AYLIK PLAN</p>
                   <h4 className={`text-2xl font-black tracking-tighter ${selectedPlan === '6m' ? 'text-white' : 'text-slate-900 dark:text-white'}`}>₺149</h4>
                 </div>
                 <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${selectedPlan === '6m' ? 'border-white bg-white text-gold-700' : 'border-slate-100 dark:border-slate-700'}`}>{selectedPlan === '6m' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="5"><polyline points="20 6 9 17 4 12"/></svg>}</div>
               </div>
-              <div onClick={() => setSelectedPlan('3m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer flex items-center justify-between px-5 ${selectedPlan === '3m' ? 'bg-[#1c2541] border-[#1c2541] shadow-xl' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}`}>
+              <div onClick={() => setSelectedPlan('3m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer flex items-center justify-between px-5 ${selectedPlan === '3m' ? 'bg-[#153a33] border-[#153a33] shadow-xl' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}`}>
                 <div className="space-y-0.5">
                   <p className={`text-[9px] font-black uppercase tracking-widest ${selectedPlan === '3m' ? 'text-gold-300' : 'text-gold-600'}`}>3 AYLIK PLAN</p>
                   <h4 className={`text-2xl font-black tracking-tighter ${selectedPlan === '3m' ? 'text-white' : 'text-slate-900 dark:text-white'}`}>₺99</h4>
@@ -490,7 +490,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
            {/* 4. MAIN CTA BUTTON */}
            <div className="px-6 space-y-3 pt-4 shrink-0">
-              <button onClick={handleStartPurchase} disabled={isPurchasing} className="w-full h-16 bg-[#1c2541] hover:bg-[#141a2c] text-white font-black text-[14px] uppercase tracking-[0.25em] rounded-[2rem] shadow-2xl shadow-navy-900/30 active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50">
+              <button onClick={handleStartPurchase} disabled={isPurchasing} className="w-full h-16 bg-[#153a33] hover:bg-[#0f2b26] text-white font-black text-[14px] uppercase tracking-[0.25em] rounded-[2rem] shadow-2xl shadow-navy-900/30 active:scale-95 transition-all flex items-center justify-center gap-3 disabled:opacity-50">
                 {isPurchasing ? <div className="w-6 h-6 border-2 border-white/20 border-t-white rounded-full animate-spin"></div> : 'PREMİUM\'A GEÇ VE BAŞLA'}
               </button>
               <div className="flex items-center justify-center gap-2 text-slate-300 dark:text-slate-700"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><span className="text-[7.5px] font-black uppercase tracking-[0.2em]">Güvenli Ödeme • App Store & Play Store</span></div>
@@ -581,7 +581,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
   );
 
   const renderMosqueDetail = () => (
-    <div className="flex-1 flex flex-col h-full bg-[#faf6f0] dark:bg-[#0d1220] animate-in slide-in-from-right duration-500">
+    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] animate-in slide-in-from-right duration-500">
        <div className="px-6 pt-12 pb-6 flex items-center gap-5 border-b border-slate-100 dark:border-slate-800">
           <button onClick={() => setCurrentView('main')} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
@@ -594,7 +594,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
        <div className="flex-1 overflow-y-auto px-6 pt-8 pb-32 space-y-10 no-scrollbar">
           {/* Main Visual Header */}
-          <div className="bg-[#1c2541] rounded-[3rem] p-10 text-white relative overflow-hidden shadow-2xl shadow-navy-900/20">
+          <div className="bg-[#153a33] rounded-[3rem] p-10 text-white relative overflow-hidden shadow-2xl shadow-navy-900/20">
              <div className="absolute right-[-10%] top-[-10%] text-[12rem] opacity-[0.04] pointer-events-none rotate-12">🕌</div>
              <div className="relative z-10 space-y-8">
                 <div className="space-y-2">

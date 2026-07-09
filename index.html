@@ -12,8 +12,8 @@
           extend: {
             colors: {
               emerald: {
-                premium: '#0d1220',
-                light: '#faf6f0',
+                premium: '#0a1f1a',
+                light: '#f3f7e9',
               },
               gold: {
                 accent: '#c9a668',
@@ -29,25 +29,37 @@
                 900: '#4a3b26',
               },
               navy: {
-                50: '#eef1f6',
-                100: '#d7deea',
-                200: '#aebdd2',
-                300: '#7e93b3',
-                400: '#516d92',
-                500: '#324e70',
-                600: '#243a58',
-                700: '#1c2541',
-                800: '#141a2c',
-                900: '#0d1220',
-                950: '#080b14',
+                50: '#eef3f0',
+                100: '#cfe0d8',
+                200: '#a3c7ba',
+                300: '#74ab99',
+                400: '#3d8071',
+                500: '#256054',
+                600: '#1c4b42',
+                700: '#153a33',
+                800: '#0f2b26',
+                900: '#0a1f1a',
+                950: '#04120d',
+              },
+              sage: {
+                50: '#f3f7e9',
+                100: '#e6f0d3',
+                200: '#d2e2ac',
+                300: '#b9d17e',
+                400: '#9dbb63',
+                500: '#84a34c',
+                600: '#6b8a3c',
+                700: '#54702e',
+                800: '#405422',
+                900: '#2e3d18',
               },
               sanctuary: {
-                50: '#faf6f0',
-                100: '#f2ead9',
-                200: '#e5d6b8',
-                800: '#141a2c',
-                900: '#0d1220',
-                950: '#080b14',
+                50: '#f3f7e9',
+                100: '#e6f0d3',
+                200: '#d2e2ac',
+                800: '#0f2b26',
+                900: '#0a1f1a',
+                950: '#04120d',
               }
             }
           }
@@ -58,20 +70,20 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <style>
         :root {
-          --emerald-premium: #0d1220;
-          --emerald-light: #faf6f0;
+          --emerald-premium: #0a1f1a;
+          --emerald-light: #f3f7e9;
           --gold-accent: #c9a668;
         }
         body { 
           font-family: 'Plus Jakarta Sans', sans-serif; 
-          background: #faf6f0;
+          background: #f3f7e9;
           color: #1c1a14;
           -webkit-tap-highlight-color: transparent;
           transition: background-color 0.3s ease, color 0.3s ease;
         }
         .dark body {
-          background: #0d1220;
-          color: #f3ede0;
+          background: #0a1f1a;
+          color: #eef6ee;
         }
         .serif-text {
           font-family: 'Playfair Display', serif;
@@ -164,7 +176,7 @@
 }
 </script>
 </head>
-<body class="bg-[#faf6f0] dark:bg-[#0d1220]">
+<body class="bg-[#f3f7e9] dark:bg-[#0a1f1a]">
     <div id="root"></div>
 <script type="module" src="/index.tsx"></script>
 </body>

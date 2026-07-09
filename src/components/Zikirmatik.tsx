@@ -51,7 +51,7 @@ const SKINS: SkinConfig[] = [
   { 
     id: 'yesim', 
     name: 'YEŞİM TAŞI', 
-    bg: 'bg-[#1c2541]', 
+    bg: 'bg-[#153a33]', 
     beadGradient: 'from-gold-300 via-gold-600 to-navy-900', 
     accent: 'text-gold-500', 
     text: 'text-white'

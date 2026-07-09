@@ -143,7 +143,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
   };
 
   return (
-    <div className="flex-1 overflow-y-auto px-6 pb-40 pt-12 space-y-8 bg-[#faf6f0] dark:bg-[#0d1220] relative no-scrollbar">
+    <div className="flex-1 overflow-y-auto px-6 pb-40 pt-12 space-y-8 bg-[#f3f7e9] dark:bg-[#0a1f1a] relative no-scrollbar">
       <div className="flex justify-between items-end">
         <div className="space-y-1">
           <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Kardeşlik</h2>
