@@ -73,7 +73,7 @@ const FortyHadith: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-sky-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Premium Compact Header */}
-      <div className="px-5 pt-10 pb-4 flex items-center justify-between bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
+      <div className="px-5 pt-10 pb-4 flex items-center justify-between bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={selectedHadith ? () => setSelectedHadith(null) : onBack} 

@@ -165,9 +165,9 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
   };
 
   const renderNotifDetail = () => (
-    <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] dark:bg-slate-950 animate-in slide-in-from-right duration-500 overflow-hidden">
+    <div className="flex-1 flex flex-col h-full bg-[#faf6f0] dark:bg-[#0d1220] animate-in slide-in-from-right duration-500 overflow-hidden">
        {/* Compact Header */}
-       <div className="px-6 pt-12 pb-4 flex items-center gap-5 border-b border-slate-50 dark:border-slate-900 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md sticky top-0 z-30">
+       <div className="px-6 pt-12 pb-4 flex items-center gap-5 border-b border-slate-50 dark:border-slate-900 bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-md sticky top-0 z-30">
           <button onClick={() => { setCurrentView('main'); audioRef.current.pause(); setPreviewingId(null); }} className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
@@ -270,7 +270,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
   );
 
   const renderMainView = () => (
-    <div className="flex-1 overflow-y-auto px-6 pt-12 pb-40 space-y-8 bg-[#fdfdfd] dark:bg-slate-950 transition-colors duration-300 no-scrollbar relative animate-in fade-in duration-500">
+    <div className="flex-1 overflow-y-auto px-6 pt-12 pb-40 space-y-8 bg-[#faf6f0] dark:bg-[#0d1220] transition-colors duration-300 no-scrollbar relative animate-in fade-in duration-500">
       <div className="flex justify-between items-center">
         <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Hesabım</h2>
         <div className="w-10 h-10 bg-teal-50 dark:bg-teal-950/30 rounded-xl flex items-center justify-center border border-teal-100 dark:border-teal-800">
@@ -437,7 +437,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
 
       {/* PREMIUM PURCHASE PAGE */}
       {showPremiumPage && (
-        <div className="fixed inset-0 z-[1000] bg-[#fdfdfd] dark:bg-slate-950 flex flex-col h-full overflow-hidden pb-[max(1.5rem,env(safe-area-inset-bottom))] animate-in slide-in-from-bottom duration-500">
+        <div className="fixed inset-0 z-[1000] bg-[#faf6f0] dark:bg-[#0d1220] flex flex-col h-full overflow-hidden pb-[max(1.5rem,env(safe-area-inset-bottom))] animate-in slide-in-from-bottom duration-500">
            {/* Success Overlay */}
            {purchaseSuccess && (
              <div className="absolute inset-0 bg-teal-700 z-[1100] flex flex-col items-center justify-center text-white p-10 animate-in fade-in zoom-in duration-500 text-center">
@@ -581,7 +581,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
   );
 
   const renderMosqueDetail = () => (
-    <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] dark:bg-slate-950 animate-in slide-in-from-right duration-500">
+    <div className="flex-1 flex flex-col h-full bg-[#faf6f0] dark:bg-[#0d1220] animate-in slide-in-from-right duration-500">
        <div className="px-6 pt-12 pb-6 flex items-center gap-5 border-b border-slate-100 dark:border-slate-800">
           <button onClick={() => setCurrentView('main')} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>

@@ -174,7 +174,7 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       </div>
 
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 relative z-20">
+      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 relative z-20">
         <div className="flex items-center gap-4">
           <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-all">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>

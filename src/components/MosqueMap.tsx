@@ -168,7 +168,7 @@ const MosqueMap: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="h-[40vh] w-full relative z-0 border-b border-slate-200 dark:border-slate-700">
         <div ref={containerRef} className="h-full w-full bg-slate-200"></div>
         {/* Floating Tooltip */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 dark:bg-slate-950/90 backdrop-blur px-4 py-2 rounded-full shadow-lg border border-white/20 z-10">
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[#faf6f0]/90 dark:bg-[#0d1220]/90 backdrop-blur px-4 py-2 rounded-full shadow-lg border border-white/20 z-10">
            <p className="text-[10px] font-black text-slate-500 dark:text-slate-400 dark:text-slate-500 uppercase tracking-widest">Haritayı Kaydırarak Keşfet</p>
         </div>
       </div>

@@ -149,7 +149,7 @@ const App: React.FC = () => {
 
   if (!authChecked) {
     return (
-      <div className="min-h-screen w-full flex items-center justify-center bg-white dark:bg-slate-950">
+      <div className="min-h-screen w-full flex items-center justify-center bg-[#faf6f0] dark:bg-[#0d1220]">
         <div className="w-10 h-10 border-4 border-teal-600 border-t-transparent rounded-full animate-spin" />
       </div>
     );
@@ -161,7 +161,7 @@ const App: React.FC = () => {
 
   return (
     <UserDataProvider uid={firebaseUser.uid}>
-      <div className="min-h-screen w-full flex flex-col bg-[#fcfdfd] dark:bg-slate-950">
+      <div className="min-h-screen w-full flex flex-col bg-[#faf6f0] dark:bg-[#0d1220]">
         <main id="app-main-scroll" ref={mainScrollRef} className="flex-1 overflow-y-auto no-scrollbar pb-24">
           {activeTab === AppTab.Home && (
             <Home user={user} prayerData={prayerData} currentTime={currentTime} onAction={handleTabAction} />
@@ -177,7 +177,7 @@ const App: React.FC = () => {
         </main>
 
         {/* Bottom Navigation */}
-        <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-t border-slate-100 dark:border-slate-800 px-2 pb-safe">
+        <nav className="fixed bottom-0 left-0 right-0 z-50 bg-[#faf6f0]/90 dark:bg-[#0d1220]/90 backdrop-blur-xl border-t border-slate-100 dark:border-slate-800 px-2 pb-safe">
           <div className="flex items-center justify-between max-w-lg mx-auto px-2 py-2">
             {NAV_ITEMS.map((item) => {
               const isActive = activeTab === item.tab;
@@ -189,7 +189,7 @@ const App: React.FC = () => {
                     window.dispatchEvent(new Event('resetLibraryView'));
                   }}
                   className={`flex flex-col items-center justify-center gap-1 flex-1 py-2 rounded-2xl transition-all ${
-                    isActive ? 'text-teal-600' : 'text-slate-400'
+                    isActive ? 'text-[#a8895a] dark:text-[#c9a668]' : 'text-slate-400'
                   }`}
                 >
                   <span className={`text-xl transition-transform ${isActive ? 'scale-110' : ''}`}>{item.icon}</span>

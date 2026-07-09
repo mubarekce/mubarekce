@@ -12,11 +12,19 @@
           extend: {
             colors: {
               emerald: {
-                premium: '#064e3b',
-                light: '#ecfdf5',
+                premium: '#0d1220',
+                light: '#faf6f0',
               },
               gold: {
-                accent: '#fbbf24',
+                accent: '#c9a668',
+              },
+              sanctuary: {
+                50: '#faf6f0',
+                100: '#f2ead9',
+                200: '#e5d6b8',
+                800: '#141a2c',
+                900: '#0d1220',
+                950: '#080b14',
               }
             }
           }
@@ -27,20 +35,20 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
     <style>
         :root {
-          --emerald-premium: #064e3b;
-          --emerald-light: #ecfdf5;
-          --gold-accent: #fbbf24;
+          --emerald-premium: #0d1220;
+          --emerald-light: #faf6f0;
+          --gold-accent: #c9a668;
         }
         body { 
           font-family: 'Plus Jakarta Sans', sans-serif; 
-          background: #fdfdfd;
-          color: #0f172a;
+          background: #faf6f0;
+          color: #1c1a14;
           -webkit-tap-highlight-color: transparent;
           transition: background-color 0.3s ease, color 0.3s ease;
         }
         .dark body {
-          background: #020617;
-          color: #f8fafc;
+          background: #0d1220;
+          color: #f3ede0;
         }
         .serif-text {
           font-family: 'Playfair Display', serif;
@@ -51,23 +59,23 @@
           line-height: 1.6;
         }
         .glass-panel { 
-          background: rgba(255, 255, 255, 0.8); 
+          background: rgba(250, 246, 240, 0.75); 
           backdrop-filter: blur(16px); 
           -webkit-backdrop-filter: blur(16px);
-          border: 1px solid rgba(255, 255, 255, 0.3);
+          border: 1px solid rgba(201, 166, 104, 0.15);
         }
         .dark .glass-panel {
-          background: rgba(15, 23, 42, 0.8);
-          border: 1px solid rgba(255, 255, 255, 0.05);
+          background: rgba(20, 26, 44, 0.8);
+          border: 1px solid rgba(201, 166, 104, 0.08);
         }
         .premium-shadow {
-          box-shadow: 0 20px 50px -12px rgba(6, 78, 59, 0.15);
+          box-shadow: 0 20px 50px -12px rgba(13, 18, 32, 0.12);
         }
         .dark .premium-shadow {
           box-shadow: 0 20px 50px -12px rgba(0, 0, 0, 0.5);
         }
         .active-glow {
-          box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+          box-shadow: 0 0 15px rgba(201, 166, 104, 0.35);
         }
         ::-webkit-scrollbar {
           width: 0px;
@@ -112,7 +120,7 @@
 }
 </script>
 </head>
-<body class="bg-[#fcfdfd] dark:bg-slate-950">
+<body class="bg-[#faf6f0] dark:bg-[#0d1220]">
     <div id="root"></div>
 <script type="module" src="/index.tsx"></script>
 </body>
