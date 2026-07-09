@@ -25,10 +25,10 @@ const SpiritualGarden: React.FC<SpiritualGardenProps> = ({ score, lastActionTrig
 
   // Renk Paleti (Dinamik)
   const colors = {
-    pot: isDead ? '#451a03' : isHealthy ? '#134e4a' : '#1e293b',
-    soil: isDead ? '#78350f' : isHealthy ? '#14532d' : '#451a03',
-    leaf: isDead ? '#a16207' : isHealthy ? '#10b981' : '#4ade80',
-    accent: isGolden ? '#fbbf24' : '#60a5fa'
+    pot: isDead ? '#451a03' : isHealthy ? '#1c2541' : '#141a2c',
+    soil: isDead ? '#78350f' : isHealthy ? '#4a3b26' : '#451a03',
+    leaf: isDead ? '#a16207' : isHealthy ? '#c9a668' : '#dcbe74',
+    accent: isGolden ? '#fbbf24' : '#516d92'
   };
 
   return (
@@ -36,7 +36,7 @@ const SpiritualGarden: React.FC<SpiritualGardenProps> = ({ score, lastActionTrig
       {/* Arka Plan Işığı (Ambient Glow) */}
       <motion.div
         animate={{
-          backgroundColor: isDead ? 'rgba(120, 53, 15, 0.1)' : isGolden ? 'rgba(16, 185, 129, 0.15)' : 'rgba(96, 165, 250, 0.1)',
+          backgroundColor: isDead ? 'rgba(120, 53, 15, 0.1)' : isGolden ? 'rgba(201, 166, 104, 0.18)' : 'rgba(50, 78, 112, 0.12)',
           scale: [1, 1.1, 1]
         }}
         transition={{ duration: 4, repeat: Infinity }}
@@ -119,7 +119,7 @@ const SpiritualGarden: React.FC<SpiritualGardenProps> = ({ score, lastActionTrig
               : isHealthy 
                 ? "M100,148 Q100,100 100,60" // Dik ve Uzun
                 : "M100,148 Q100,120 100,110", // Orta
-            stroke: isDead ? '#78350f' : '#115e59',
+            stroke: isDead ? '#78350f' : '#1c2541',
             strokeWidth: isHealthy ? 5 : 3
           }}
           fill="none"
@@ -197,8 +197,8 @@ const SpiritualGarden: React.FC<SpiritualGardenProps> = ({ score, lastActionTrig
               exit={{ opacity: 0 }}
               transition={{ duration: 1, ease: "easeIn" }}
               d="M100,0 Q105,10 100,15 Q95,10 100,0"
-              fill="#60a5fa"
-              className="drop-shadow-[0_0_10px_rgba(96,165,250,0.8)]"
+              fill="#c9a668"
+              className="drop-shadow-[0_0_10px_rgba(201,166,104,0.8)]"
             />
           )}
         </AnimatePresence>
@@ -210,7 +210,7 @@ const SpiritualGarden: React.FC<SpiritualGardenProps> = ({ score, lastActionTrig
           initial={{ scale: 0, opacity: 0.8 }}
           animate={{ scale: 2, opacity: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="absolute bottom-16 w-20 h-4 rounded-full border border-blue-400 z-0"
+          className="absolute bottom-16 w-20 h-4 rounded-full border border-[#c9a668]/60 z-0"
         />
       )}
     </div>

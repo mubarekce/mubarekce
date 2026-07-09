@@ -255,7 +255,7 @@ const HafizlikModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <button 
                   disabled={currentAyahIdx === ayahs.length - 1}
                   onClick={() => { setCurrentAyahIdx(prev => prev + 1); setCurrentRepeat(0); }}
-                  className="flex-1 py-5 bg-teal-50 dark:bg-teal-950/20 text-teal-600 rounded-3xl font-black text-[10px] uppercase tracking-widest border border-teal-100"
+                  className="flex-1 py-5 bg-gold-50 dark:bg-navy-950/20 text-gold-600 rounded-3xl font-black text-[10px] uppercase tracking-widest border border-gold-100"
                 >
                   SIRADAKİ
                 </button>

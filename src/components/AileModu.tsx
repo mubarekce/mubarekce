@@ -77,7 +77,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
 
   const [familyMembers, setFamilyMembers] = useState<FamilyMember[]>([]);
   const [goals, setGoals] = useState<SharedGoal[]>([
-    { id: 'hatim', title: 'HATİM', target: 30, icon: 'hatim', color: 'bg-teal-500', unit: 'Cüz' },
+    { id: 'hatim', title: 'HATİM', target: 30, icon: 'hatim', color: 'bg-gold-500', unit: 'Cüz' },
     { id: 'sadaka', title: 'SADAKA', target: 1000, icon: 'sadaka', color: 'bg-amber-500', unit: 'TL' },
     { id: 'esma', title: 'ESMA EZBER', target: 99, icon: 'esma', color: 'bg-purple-500', unit: 'İsim' },
   ]);
@@ -118,7 +118,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
           inviteCode: generateInviteCode(),
           familyMembers: [meMember],
           goals: [
-            { id: 'hatim', title: 'HATİM', target: 30, icon: 'hatim', color: 'bg-teal-500', unit: 'Cüz' },
+            { id: 'hatim', title: 'HATİM', target: 30, icon: 'hatim', color: 'bg-gold-500', unit: 'Cüz' },
             { id: 'sadaka', title: 'SADAKA', target: 1000, icon: 'sadaka', color: 'bg-amber-500', unit: 'TL' },
             { id: 'esma', title: 'ESMA EZBER', target: 99, icon: 'esma', color: 'bg-purple-500', unit: 'İsim' },
           ],
@@ -295,7 +295,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
 
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in slide-in-from-right duration-500 overflow-hidden relative">
-      <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-teal-50/40 to-transparent pointer-events-none -z-10"></div>
+      <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-gold-50/40 to-transparent pointer-events-none -z-10"></div>
       
       {/* Header */}
       <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-white/60 backdrop-blur-xl sticky top-0 z-30 border-b border-slate-100/50">
@@ -305,14 +305,14 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
           </button>
           <div>
             <h2 className="text-[19px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Aile Modu</h2>
-            <p className="text-[9px] font-black text-teal-600 uppercase tracking-[0.25em] mt-1">PRO+ ÖZEL PLATFORM</p>
+            <p className="text-[9px] font-black text-gold-600 uppercase tracking-[0.25em] mt-1">PRO+ ÖZEL PLATFORM</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
           <button onClick={() => setShowJoinModal(true)} className="w-11 h-11 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center shadow-sm border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform text-slate-500 dark:text-slate-400 dark:text-slate-500" title="Kod ile Katıl">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
           </button>
-          <button onClick={() => setShowInviteModal(true)} className="w-11 h-11 bg-teal-100/50 rounded-2xl flex items-center justify-center text-xl shadow-inner border border-teal-200/50">🏘️</button>
+          <button onClick={() => setShowInviteModal(true)} className="w-11 h-11 bg-gold-100/50 rounded-2xl flex items-center justify-center text-xl shadow-inner border border-gold-200/50">🏘️</button>
         </div>
       </div>
 
@@ -322,13 +322,13 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
           <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl text-center">
             <div className="space-y-1">
               <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Aileni Davet Et</h3>
-              <p className="text-[9px] font-black text-teal-500 uppercase tracking-widest">Bu kodu paylaştığın kişi kendi telefonundan "Kod ile Katıl" diyerek ailene katılabilir</p>
+              <p className="text-[9px] font-black text-gold-500 uppercase tracking-widest">Bu kodu paylaştığın kişi kendi telefonundan "Kod ile Katıl" diyerek ailene katılabilir</p>
             </div>
-            <div className="bg-teal-50 dark:bg-teal-950/20 border-2 border-dashed border-teal-200 rounded-[2rem] py-8 px-4">
-              <p className="text-4xl font-black text-teal-700 tracking-[0.3em]">{inviteCode}</p>
+            <div className="bg-gold-50 dark:bg-navy-950/20 border-2 border-dashed border-gold-200 rounded-[2rem] py-8 px-4">
+              <p className="text-4xl font-black text-gold-700 tracking-[0.3em]">{inviteCode}</p>
             </div>
             <div className="flex gap-4">
-              <button onClick={() => { if (navigator.clipboard) navigator.clipboard.writeText(inviteCode); }} className="flex-1 py-4 bg-teal-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">KODU KOPYALA</button>
+              <button onClick={() => { if (navigator.clipboard) navigator.clipboard.writeText(inviteCode); }} className="flex-1 py-4 bg-gold-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">KODU KOPYALA</button>
               <button onClick={() => setShowInviteModal(false)} className="flex-1 py-4 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">KAPAT</button>
             </div>
           </div>
@@ -341,7 +341,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
           <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl">
             <div className="text-center space-y-1">
               <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Aileye Katıl</h3>
-              <p className="text-[9px] font-black text-teal-500 uppercase tracking-widest">Sana gönderilen davet kodunu gir</p>
+              <p className="text-[9px] font-black text-gold-500 uppercase tracking-widest">Sana gönderilen davet kodunu gir</p>
               <p className="text-[9px] font-bold text-amber-500 mt-2">Not: Bir aileye katılınca, kendi kurduğun aile verisinden çıkmış olursun.</p>
             </div>
             <div className="space-y-2">
@@ -357,7 +357,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
             </div>
             <div className="flex gap-4">
               <button onClick={() => { setShowJoinModal(false); setJoinError(null); setJoinCodeInput(''); }} className="flex-1 py-4 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">VAZGEÇ</button>
-              <button onClick={handleJoinFamily} disabled={joining} className="flex-1 py-4 bg-teal-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest shadow-lg shadow-teal-200 active:scale-95 transition-all disabled:opacity-60">{joining ? 'KATILIYOR...' : 'KATIL'}</button>
+              <button onClick={handleJoinFamily} disabled={joining} className="flex-1 py-4 bg-gold-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest shadow-lg shadow-gold-200 active:scale-95 transition-all disabled:opacity-60">{joining ? 'KATILIYOR...' : 'KATIL'}</button>
             </div>
           </div>
         </div>
@@ -371,7 +371,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
             <div className="flex justify-between items-center mb-4 px-1">
                <p className="text-sky-500 text-[8px] font-black uppercase tracking-[0.35em]">AİLE İLERLEME MERKEZİ</p>
                <div className="flex items-center gap-1.5 opacity-60">
-                   <span className="w-1 h-1 bg-teal-400 rounded-full animate-pulse"></span>
+                   <span className="w-1 h-1 bg-gold-400 rounded-full animate-pulse"></span>
                    <p className="text-[9px] font-bold text-sky-900 leading-none">{familyMembers.length} Üye</p>
                 </div>
             </div>
@@ -459,16 +459,16 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
               const overallProgress = Math.min(100, Math.round((totalPct / goals.length) * 100));
               
               return (
-                <div key={member.id} className={`pl-4 pr-5 py-3.5 rounded-[1.6rem] border flex items-center justify-between group transition-all shadow-sm ${isMe ? 'bg-teal-50/20 border-teal-100' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 hover:border-teal-50'}`}>
+                <div key={member.id} className={`pl-4 pr-5 py-3.5 rounded-[1.6rem] border flex items-center justify-between group transition-all shadow-sm ${isMe ? 'bg-gold-50/20 border-gold-100' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 hover:border-gold-50'}`}>
                   <div className="flex items-center gap-3.5 flex-1 min-w-0">
-                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center text-base shadow-inner border transition-all flex-shrink-0 ${isMe ? 'bg-teal-600 border-teal-500 text-white' : 'bg-slate-50 dark:bg-slate-900 border-white'}`}>
+                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center text-base shadow-inner border transition-all flex-shrink-0 ${isMe ? 'bg-gold-600 border-gold-500 text-white' : 'bg-slate-50 dark:bg-slate-900 border-white'}`}>
                       {member.avatar}
                     </div>
                     <div className="flex-1 min-w-0 pr-4">
                       <div className="flex items-center gap-2 mb-1">
                         <h5 className="font-black text-slate-900 dark:text-white tracking-tight text-[13px] truncate">{isMe ? 'BEN' : member.name}</h5>
                         <span className={`text-[6px] font-black px-1.5 py-0.5 rounded uppercase border flex-shrink-0 ${
-                          isMe ? 'bg-teal-600 text-white border-teal-500' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'
+                          isMe ? 'bg-gold-600 text-white border-gold-500' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'
                         }`}>
                           {isMe ? 'SİZ' : member.role}
                         </span>
@@ -477,7 +477,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
                       
                       <div className="w-full h-1 bg-slate-50 dark:bg-slate-900 rounded-full overflow-hidden border border-white/50 shadow-inner">
                          <div 
-                           className="h-full bg-teal-500 rounded-full transition-all duration-1000 shadow-[0_0_6px_rgba(20,184,166,0.2)]"
+                           className="h-full bg-gold-500 rounded-full transition-all duration-1000 shadow-[0_0_6px_rgba(20,184,166,0.2)]"
                            style={{ width: `${overallProgress}%` }}
                          ></div>
                       </div>
@@ -485,7 +485,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
                   </div>
                   
                   <div className="flex-shrink-0 text-right">
-                    <div className={`text-[15px] font-black tracking-tighter ${overallProgress > 50 ? 'text-teal-600' : 'text-slate-300 dark:text-slate-600'}`}>
+                    <div className={`text-[15px] font-black tracking-tighter ${overallProgress > 50 ? 'text-gold-600' : 'text-slate-300 dark:text-slate-600'}`}>
                        %{overallProgress}
                     </div>
                   </div>
@@ -498,7 +498,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
         {/* Shared Goals Section */}
         <div className="space-y-4">
           <div className="flex items-center gap-3 ml-2">
-            <div className="w-2 h-2 bg-teal-500 rounded-full shadow-[0_0_8px_rgba(20,184,166,0.3)]"></div>
+            <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_8px_rgba(20,184,166,0.3)]"></div>
             <h4 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">ORTAK AİLE HEDEFLERİ</h4>
           </div>
 
@@ -522,7 +522,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
                         </div>
                         <div>
                           <h5 className="font-black text-slate-900 dark:text-white tracking-tight uppercase text-[14px]">{goal.title}</h5>
-                          <p className={`text-[9px] font-bold uppercase tracking-widest ${isExceeded ? 'text-teal-600' : 'text-slate-400 dark:text-slate-500'}`}>
+                          <p className={`text-[9px] font-bold uppercase tracking-widest ${isExceeded ? 'text-gold-600' : 'text-slate-400 dark:text-slate-500'}`}>
                              {formatProgressLabel(goal, currentProgress)} / {formatTargetLabel(goal, goal.target)}
                           </p>
                         </div>
@@ -552,7 +552,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
                              );
                            })}
                         </div>
-                        <p className="text-[8px] font-black text-teal-600 uppercase tracking-widest">
+                        <p className="text-[8px] font-black text-gold-600 uppercase tracking-widest">
                           {isOpen ? 'KATKILARI GİZLE' : 'KATKIDA BULUN'}
                         </p>
                       </div>
@@ -582,7 +582,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
                                       <p className="text-[11px] font-black text-slate-900 dark:text-white truncate">{isMe ? 'BEN' : member.name}</p>
                                       {isMe && <span className="text-[6px] font-black bg-amber-100 text-amber-600 px-1 py-0.5 rounded uppercase border border-amber-200 flex-shrink-0">SİZ</span>}
                                     </div>
-                                    <p className="text-[9px] font-black text-teal-600 leading-none">{formatProgressLabel(goal, memberContribution)}</p>
+                                    <p className="text-[9px] font-black text-gold-600 leading-none">{formatProgressLabel(goal, memberContribution)}</p>
                                   </div>
                                 </div>
 
@@ -601,7 +601,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
                                     <button 
                                       onClick={() => updateContributionManually(goal.id, member.id)}
                                       disabled={!manualVal}
-                                      className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all border ${manualVal ? 'bg-teal-600 text-white border-teal-500 shadow-md shadow-teal-100 active:scale-90' : 'bg-slate-50 dark:bg-slate-900 text-slate-300 dark:text-slate-600 border-slate-100 dark:border-slate-800'}`}
+                                      className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all border ${manualVal ? 'bg-gold-600 text-white border-gold-500 shadow-md shadow-gold-100 active:scale-90' : 'bg-slate-50 dark:bg-slate-900 text-slate-300 dark:text-slate-600 border-slate-100 dark:border-slate-800'}`}
                                     >
                                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
                                     </button>
@@ -628,13 +628,13 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
         </div>
 
         {/* Daily Family Suggestion Card */}
-        <div className="bg-[#ecfdf5] p-7 rounded-[2.5rem] border border-teal-100 flex items-start gap-5 group hover:bg-[#dcfce7] transition-colors relative overflow-hidden shadow-sm">
+        <div className="bg-[#ecfdf5] p-7 rounded-[2.5rem] border border-gold-100 flex items-start gap-5 group hover:bg-[#dcfce7] transition-colors relative overflow-hidden shadow-sm">
           <div className="absolute bottom-[-10px] right-[-10px] opacity-[0.03] rotate-12">
             <svg width="80" height="80" viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           </div>
-          <div className="w-12 h-12 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-teal-200 shrink-0">🕌</div>
+          <div className="w-12 h-12 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center text-2xl shadow-sm border border-gold-200 shrink-0">🕌</div>
           <div className="space-y-1 relative z-10">
-            <h6 className="text-[10px] font-black text-teal-800 uppercase tracking-widest">GÜNLÜK MANEVİ ÖNERİ</h6>
+            <h6 className="text-[10px] font-black text-navy-800 uppercase tracking-widest">GÜNLÜK MANEVİ ÖNERİ</h6>
             <p className="text-[12px] font-semibold text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-relaxed italic">"Bugün ailece akşam namazından sonra 10 dakika Kur'an-ı Kerim okuma saati yapmaya ne dersiniz?"</p>
           </div>
         </div>
@@ -644,10 +644,10 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
       {showAddMember && (
         <div className="fixed inset-0 z-[500] bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-6 animate-in fade-in duration-300">
           <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3.5rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-2 bg-teal-600"></div>
+            <div className="absolute top-0 left-0 w-full h-2 bg-gold-600"></div>
             <div className="text-center">
               <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Üye Ekle</h3>
-              <p className="text-[10px] font-black text-teal-600 uppercase tracking-[0.25em] mt-1.5">AİLE HALKASINI GENİŞLETİN</p>
+              <p className="text-[10px] font-black text-gold-600 uppercase tracking-[0.25em] mt-1.5">AİLE HALKASINI GENİŞLETİN</p>
             </div>
             <div className="space-y-6">
               <div className="space-y-2">
@@ -658,7 +658,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
                 <label className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest ml-4">AİLE ROLÜ</label>
                 <div className="grid grid-cols-2 gap-2.5">
                   {['Baba', 'Anne', 'Çocuk', 'Dede', 'Nene'].map(role => (
-                    <button key={role} onClick={() => setNewRole(role)} className={`py-4 rounded-2xl text-[10px] font-black border flex items-center justify-center gap-2 ${newRole === role ? 'bg-teal-950 text-white' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}>
+                    <button key={role} onClick={() => setNewRole(role)} className={`py-4 rounded-2xl text-[10px] font-black border flex items-center justify-center gap-2 ${newRole === role ? 'bg-navy-950 text-white' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}>
                       {role.toUpperCase()}
                     </button>
                   ))}
@@ -667,7 +667,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
             </div>
             <div className="flex gap-4 pt-4">
               <button onClick={() => setShowAddMember(false)} className="flex-1 py-5 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase active:scale-95">VAZGEÇ</button>
-              <button onClick={handleAddMember} className="flex-1 py-5 bg-teal-600 text-white font-black rounded-2xl text-[10px] uppercase shadow-xl active:scale-95">KAYDET</button>
+              <button onClick={handleAddMember} className="flex-1 py-5 bg-gold-600 text-white font-black rounded-2xl text-[10px] uppercase shadow-xl active:scale-95">KAYDET</button>
             </div>
           </div>
         </div>
@@ -677,7 +677,7 @@ const AileModu: React.FC<{ user: User; onBack: () => void }> = ({ user, onBack }
       {showEditGoal && (
         <div className="fixed inset-0 z-[500] bg-slate-900/80 backdrop-blur-md flex items-center justify-center p-6 animate-in fade-in duration-300">
            <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl relative overflow-hidden">
-              <div className={`absolute top-0 left-0 w-full h-2 ${showEditGoal === 'hatim' ? 'bg-teal-600' : showEditGoal === 'esma' ? 'bg-purple-600' : 'bg-sky-600'}`}></div>
+              <div className={`absolute top-0 left-0 w-full h-2 ${showEditGoal === 'hatim' ? 'bg-gold-600' : showEditGoal === 'esma' ? 'bg-purple-600' : 'bg-sky-600'}`}></div>
               <div className="text-center">
                  <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Hedefi Belirle</h3>
                  <p className="text-[10px] font-black text-sky-600 uppercase tracking-[0.25em] mt-1.5">{goals.find(g => g.id === showEditGoal)?.title}</p>

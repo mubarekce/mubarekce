@@ -16,7 +16,7 @@ import {
 const Toggle: React.FC<{ checked: boolean; onChange: () => void }> = ({ checked, onChange }) => (
   <button
     onClick={onChange}
-    className={`w-12 h-7 rounded-full flex items-center px-1 transition-colors shrink-0 ${checked ? 'bg-teal-600 justify-end' : 'bg-slate-200 justify-start'}`}
+    className={`w-12 h-7 rounded-full flex items-center px-1 transition-colors shrink-0 ${checked ? 'bg-gold-600 justify-end' : 'bg-slate-200 justify-start'}`}
   >
     <div className="w-5 h-5 bg-white dark:bg-slate-900 rounded-full shadow" />
   </button>
@@ -159,7 +159,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="h-[70px] px-5 flex items-center gap-4 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shrink-0">
         <button onClick={onBack} className="w-9 h-9 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-slate-900 dark:text-white">←</button>
         <h2 className="text-[16px] font-black text-slate-900 dark:text-white uppercase">Yönetim Paneli</h2>
-        {saving && <span className="text-[10px] text-teal-600 font-bold ml-auto">Kaydediliyor…</span>}
+        {saving && <span className="text-[10px] text-gold-600 font-bold ml-auto">Kaydediliyor…</span>}
       </div>
 
       <div className="flex gap-2 px-5 py-3 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shrink-0 overflow-x-auto no-scrollbar">
@@ -172,7 +172,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <button
             key={key}
             onClick={() => setTab(key)}
-            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wide ${tab === key ? 'bg-teal-600 text-white' : 'bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}`}
+            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wide ${tab === key ? 'bg-gold-600 text-white' : 'bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}`}
           >
             {label}
           </button>
@@ -259,7 +259,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="space-y-8">
             <p className="text-[10px] text-slate-400 dark:text-slate-500 ml-1 leading-relaxed">
               Ana sayfadaki hikaye çemberlerinin (AYET / HADİS / DUA / SÜNNET) içeriğini buradan yönetirsin.
-              <span className="font-black text-teal-600"> "Günlük otomatik değişsin"</span> açıksa her gün havuzdaki
+              <span className="font-black text-gold-600"> "Günlük otomatik değişsin"</span> açıksa her gün havuzdaki
               bir sonraki içerik otomatik gösterilir. Kapatırsan, işaretlediğin TEK içerik o kategori için herkese sabit gösterilir.
             </p>
             {STORY_CATEGORIES.map(cat => {
@@ -268,7 +268,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <div key={cat} className="space-y-3">
                   <div className="flex items-center justify-between ml-1">
                     <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em]">{CATEGORY_TITLES[cat]}</p>
-                    {savingStoryCat === cat && <span className="text-[9px] text-teal-600 font-bold">Kaydediliyor…</span>}
+                    {savingStoryCat === cat && <span className="text-[9px] text-gold-600 font-bold">Kaydediliyor…</span>}
                   </div>
 
                   <div className="bg-white dark:bg-slate-900 rounded-[1.5rem] border border-slate-100 dark:border-slate-800 p-5 flex items-center justify-between">
@@ -292,7 +292,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                                 name={`pinned-${cat}`}
                                 checked={data.pinnedId === item.id}
                                 onChange={() => setPinnedItem(cat, item.id)}
-                                className="shrink-0 accent-teal-600"
+                                className="shrink-0 accent-gold-600"
                               />
                             )}
                             <span className="text-[9px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest truncate">
@@ -340,7 +340,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
                   <button
                     onClick={() => addStoryItem(cat)}
-                    className="w-full py-3 bg-teal-50 dark:bg-teal-950/20 text-teal-700 dark:text-teal-400 font-black rounded-xl text-[10px] uppercase tracking-widest border border-dashed border-teal-200 dark:border-teal-800"
+                    className="w-full py-3 bg-gold-50 dark:bg-navy-950/20 text-gold-700 dark:text-gold-400 font-black rounded-xl text-[10px] uppercase tracking-widest border border-dashed border-gold-200 dark:border-navy-800"
                   >
                     + Yeni İçerik Ekle
                   </button>

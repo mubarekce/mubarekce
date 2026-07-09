@@ -93,7 +93,7 @@ import { User } from '../types';
     { 
       id: 'quran', 
       icon: <IconWrapper><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></IconWrapper>, 
-      title: 'Kuran-ı Kerim', desc: 'Sesli, Meal & Arapça', cat: 'Kuran Akademisi', color: 'text-teal-500', glowColor: 'rgba(20,184,166,0.5)' 
+      title: 'Kuran-ı Kerim', desc: 'Sesli, Meal & Arapça', cat: 'Kuran Akademisi', color: 'text-gold-500', glowColor: 'rgba(20,184,166,0.5)' 
     },
     { 
       id: 'tecvid-hoca', 
@@ -108,7 +108,7 @@ import { User } from '../types';
     { 
       id: 'elifba', 
       icon: <IconWrapper><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></IconWrapper>, 
-      title: 'Elif Ba', desc: 'Kuran Öreniyorum', cat: 'Kuran Akademisi', color: 'text-green-600', glowColor: 'rgba(22,163,74,0.5)' 
+      title: 'Elif Ba', desc: 'Kuran Öreniyorum', cat: 'Kuran Akademisi', color: 'text-gold-600', glowColor: 'rgba(22,163,74,0.5)' 
     },
     { 
       id: 'ayet-bul', 
@@ -120,12 +120,12 @@ import { User } from '../types';
     { 
       id: 'zikir', 
       icon: <IconWrapper><circle cx="12" cy="12" r="3"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></IconWrapper>, 
-      title: 'Zikirmatik', desc: 'Akıllı Tesbihat', cat: 'İbadet Merkezi', color: 'text-teal-500', glowColor: 'rgba(20,184,166,0.5)' 
+      title: 'Zikirmatik', desc: 'Akıllı Tesbihat', cat: 'İbadet Merkezi', color: 'text-gold-500', glowColor: 'rgba(20,184,166,0.5)' 
     },
     { 
       id: 'hatim-org', 
       icon: <IconWrapper><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></IconWrapper>, 
-      title: 'Hatim Organizatörü', desc: 'Grup Hatim Yönetimi', cat: 'İbadet Merkezi', color: 'text-teal-500', glowColor: 'rgba(20,184,166,0.5)' 
+      title: 'Hatim Organizatörü', desc: 'Grup Hatim Yönetimi', cat: 'İbadet Merkezi', color: 'text-gold-500', glowColor: 'rgba(20,184,166,0.5)' 
     },
     { 
       id: 'kaza', 
@@ -147,7 +147,7 @@ import { User } from '../types';
     { 
       id: 'sanal-bahce', 
       icon: <IconWrapper><path d="M12 2L12 12"/><path d="M12 22V12"/><path d="M2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10-10-4.48-10-10z"/></IconWrapper>, 
-      title: 'Sanal Bahçem', desc: 'İbadetle Büyüyen Bahçe', cat: 'Manevi Gelişim', color: 'text-green-500', glowColor: 'rgba(34,197,94,0.5)' 
+      title: 'Sanal Bahçem', desc: 'İbadetle Büyüyen Bahçe', cat: 'Manevi Gelişim', color: 'text-gold-500', glowColor: 'rgba(34,197,94,0.5)' 
     },
     { 
       id: 'ruya-tabiri', 
@@ -218,7 +218,7 @@ import { User } from '../types';
     { 
       id: 'camiler', 
       icon: <IconWrapper><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></IconWrapper>, 
-      title: 'Yakın Camiler', desc: 'En Yakın Mescitleri Bul', cat: 'Lokasyon & Media', color: 'text-teal-500', glowColor: 'rgba(20,184,166,0.5)' 
+      title: 'Yakın Camiler', desc: 'En Yakın Mescitleri Bul', cat: 'Lokasyon & Media', color: 'text-gold-500', glowColor: 'rgba(20,184,166,0.5)' 
     },
     { 
       id: 'kabe-canli', 
@@ -302,7 +302,7 @@ import { User } from '../types';
     return (
     <div 
       onClick={() => handleToolClick(tool)}
-      className="flex items-center gap-5 p-5 bg-gradient-to-br from-teal-50/60 to-white dark:from-slate-900 dark:to-slate-900 rounded-[2rem] border border-teal-100/40 dark:border-slate-800 hover:from-teal-50 dark:hover:border-teal-800 hover:border-teal-200 transition-all duration-300 cursor-pointer group active:scale-[0.98]"
+      className="flex items-center gap-5 p-5 bg-gradient-to-br from-gold-50/60 to-white dark:from-slate-900 dark:to-slate-900 rounded-[2rem] border border-gold-100/40 dark:border-slate-800 hover:from-gold-50 dark:hover:border-navy-800 hover:border-gold-200 transition-all duration-300 cursor-pointer group active:scale-[0.98]"
     >
       <div 
         className={`transition-all duration-500 group-hover:scale-110 flex-shrink-0 flex items-center justify-center w-12 h-12 ${tool.color}`}
@@ -311,7 +311,7 @@ import { User } from '../types';
         {tool.icon}
       </div>
       <div className="flex-1">
-        <h4 className="text-sm font-black text-slate-900 dark:text-white group-hover:text-teal-700 transition-colors flex items-center gap-1.5">{tool.title} {locked && <span className="text-amber-500 text-xs">🔒</span>}</h4>
+        <h4 className="text-sm font-black text-slate-900 dark:text-white group-hover:text-gold-700 transition-colors flex items-center gap-1.5">{tool.title} {locked && <span className="text-amber-500 text-xs">🔒</span>}</h4>
         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider opacity-70 mt-0.5">{tool.desc}</p>
       </div>
       <div className="w-8 h-8 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center text-slate-300 dark:text-slate-600 opacity-0 group-hover:opacity-100 transition-all">
@@ -328,7 +328,7 @@ import { User } from '../types';
     return (
     <div 
       onClick={() => handleToolClick(tool)}
-      className="bg-gradient-to-br from-teal-50/60 to-white dark:from-slate-900 dark:to-slate-900 p-6 rounded-[2.5rem] border border-teal-100/40 dark:border-slate-800 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-teal-200 dark:hover:border-teal-800 hover:shadow-xl hover:shadow-teal-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center relative"
+      className="bg-gradient-to-br from-gold-50/60 to-white dark:from-slate-900 dark:to-slate-900 p-6 rounded-[2.5rem] border border-gold-100/40 dark:border-slate-800 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-gold-200 dark:hover:border-navy-800 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center relative"
     >
       {locked && <span className="absolute top-4 right-4 text-amber-500 text-xs">🔒</span>}
       <div 
@@ -337,7 +337,7 @@ import { User } from '../types';
       >
         <div className="scale-125">{tool.icon}</div>
       </div>
-      <h4 className="text-sm font-black text-slate-900 dark:text-white mb-1 group-hover:text-teal-700 transition-colors">{tool.title}</h4>
+      <h4 className="text-sm font-black text-slate-900 dark:text-white mb-1 group-hover:text-gold-700 transition-colors">{tool.title}</h4>
       <p className="text-[9px] font-bold text-slate-400 leading-tight uppercase tracking-wider opacity-70 line-clamp-2">{tool.desc}</p>
     </div>
   );
@@ -398,9 +398,9 @@ import { User } from '../types';
              "{selectedTool.title}" özelliği çok yakında Pro+ üyeleri için aktif edilecektir.
            </p>
            <div className="mt-8 flex gap-2.5">
-             <div className="w-2.5 h-2.5 bg-teal-400 rounded-full animate-pulse"></div>
-             <div className="w-2.5 h-2.5 bg-teal-400 rounded-full animate-pulse delay-75"></div>
-             <div className="w-2.5 h-2.5 bg-teal-400 rounded-full animate-pulse delay-150"></div>
+             <div className="w-2.5 h-2.5 bg-gold-400 rounded-full animate-pulse"></div>
+             <div className="w-2.5 h-2.5 bg-gold-400 rounded-full animate-pulse delay-75"></div>
+             <div className="w-2.5 h-2.5 bg-gold-400 rounded-full animate-pulse delay-150"></div>
            </div>
         </div>
       </div>
@@ -416,7 +416,7 @@ import { User } from '../types';
         </div>
         <button 
           onClick={() => setLayoutMode(prev => prev === 'list' ? 'grid' : 'list')}
-          className="w-12 h-12 bg-teal-50 dark:bg-teal-950/40 rounded-2xl flex items-center justify-center text-teal-600 dark:text-teal-400 active:scale-90 transition-transform"
+          className="w-12 h-12 bg-gold-50 dark:bg-navy-950/40 rounded-2xl flex items-center justify-center text-gold-600 dark:text-gold-400 active:scale-90 transition-transform"
         >
           {layoutMode === 'list' ? (
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -431,7 +431,7 @@ import { User } from '../types';
       </div>
 
       <div className="relative group">
-        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-teal-500 transition-colors">
+        <div className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 group-focus-within:text-gold-500 transition-colors">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
           </svg>
@@ -441,7 +441,7 @@ import { User } from '../types';
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="İçerik, dua veya araç ara..."
-          className="w-full bg-slate-50 dark:bg-slate-900 border-2 border-transparent focus:border-teal-100 dark:focus:border-teal-800 focus:bg-white dark:focus:bg-slate-900 rounded-[1.8rem] pl-14 pr-6 py-4.5 outline-none font-bold text-sm text-slate-900 dark:text-white text-slate-900 transition-all placeholder:text-slate-300 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]"
+          className="w-full bg-slate-50 dark:bg-slate-900 border-2 border-transparent focus:border-gold-100 dark:focus:border-navy-800 focus:bg-white dark:focus:bg-slate-900 rounded-[1.8rem] pl-14 pr-6 py-4.5 outline-none font-bold text-sm text-slate-900 dark:text-white text-slate-900 transition-all placeholder:text-slate-300 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]"
         />
       </div>
 
@@ -450,7 +450,7 @@ import { User } from '../types';
           categories.map(cat => (
             <div key={cat} className="space-y-4">
               <div className="flex items-center gap-3 ml-2 mb-4">
-                <div className="w-2 h-2 bg-teal-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(20,184,166,0.5)]"></div>
+                <div className="w-2 h-2 bg-gold-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(20,184,166,0.5)]"></div>
                 <h3 className="text-[10px] font-black text-slate-900/40 uppercase tracking-[0.4em]">{cat}</h3>
               </div>
               <div className={layoutMode === 'list' ? "flex flex-col gap-3" : "grid grid-cols-2 gap-4"}>
@@ -496,7 +496,7 @@ import { User } from '../types';
             </p>
             <button
               onClick={() => { setLockedAttempt(null); setShowRamadanLocked(false); }}
-              className="w-full py-4 bg-teal-600 text-white font-black rounded-2xl text-xs uppercase tracking-widest mt-2"
+              className="w-full py-4 bg-gold-600 text-white font-black rounded-2xl text-xs uppercase tracking-widest mt-2"
             >
               Anladım
             </button>

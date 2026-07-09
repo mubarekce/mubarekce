@@ -215,13 +215,13 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="animate-in slide-in-from-bottom-8 duration-700 space-y-6 pb-20">
              {/* Result Card */}
              <div className={`p-8 rounded-[2.8rem] text-center relative overflow-hidden border shadow-xl ${
-               result.status === 'HELAL' ? 'bg-teal-50 dark:bg-teal-950/20 border-teal-100 text-teal-950 shadow-teal-900/5' :
+               result.status === 'HELAL' ? 'bg-gold-50 dark:bg-navy-950/20 border-gold-100 text-navy-950 shadow-navy-900/5' :
                result.status === 'HARAM' ? 'bg-rose-50 dark:bg-rose-950/20 border-rose-100 text-rose-950 shadow-rose-900/5' :
                'bg-amber-50 dark:bg-amber-950/20 border-amber-100 text-amber-950 shadow-amber-900/5'
              }`}>
                 <div className="relative z-10 space-y-6">
                    <div className={`inline-block px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.3em] shadow-sm ${
-                     result.status === 'HELAL' ? 'bg-teal-600 text-white' :
+                     result.status === 'HELAL' ? 'bg-gold-600 text-white' :
                      result.status === 'HARAM' ? 'bg-rose-600 text-white' :
                      'bg-amber-600 text-white'
                    }`}>

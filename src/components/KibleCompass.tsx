@@ -35,7 +35,7 @@ const KibleCompass: React.FC<KibleCompassProps> = ({ lat, lng }) => {
 
       <div className="relative w-80 h-80 flex items-center justify-center">
         {/* Background Radial Glow */}
-        <div className={`absolute inset-0 rounded-full blur-3xl opacity-20 transition-colors duration-700 ${isTargeted ? 'bg-teal-400' : 'bg-slate-300'}`}></div>
+        <div className={`absolute inset-0 rounded-full blur-3xl opacity-20 transition-colors duration-700 ${isTargeted ? 'bg-gold-400' : 'bg-slate-300'}`}></div>
         
         {/* Compass Dial */}
         <div 
@@ -73,7 +73,7 @@ const KibleCompass: React.FC<KibleCompassProps> = ({ lat, lng }) => {
       <div className="w-full space-y-6">
         <div className={`p-6 rounded-[2rem] border transition-all duration-700 text-center ${
           isTargeted 
-            ? 'bg-teal-600 border-teal-500 text-white shadow-xl shadow-teal-200' 
+            ? 'bg-gold-600 border-gold-500 text-white shadow-xl shadow-gold-200' 
             : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500'
         }`}>
           <p className="text-[10px] font-black uppercase tracking-[0.4em] mb-1">Durum</p>

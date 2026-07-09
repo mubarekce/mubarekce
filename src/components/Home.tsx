@@ -252,7 +252,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
   ];
 
   return (
-    <div className="flex-1 overflow-y-auto px-5 pb-36 pt-6 space-y-6 animate-in fade-in duration-700 no-scrollbar relative">
+    <div className="flex-1 overflow-y-auto px-5 pb-36 pt-2 space-y-6 animate-in fade-in duration-700 no-scrollbar relative">
       
       {/* BACKGROUND DECORATIVE LAYERS */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden -z-10">
@@ -273,7 +273,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
       </div>
 
       {/* Ay-yıldız süslemesi - üstte ince bir manevi ayraç */}
-      <div className="flex items-center justify-center gap-3 relative z-10 -mt-1 mb-1">
+      <div className="flex items-center justify-center gap-3 relative z-10 mb-0">
         <div className="w-10 h-[1px] bg-gradient-to-r from-transparent to-[#c9a668]/50" />
         <span className="text-[#c9a668] text-sm">☾</span>
         <div className="w-10 h-[1px] bg-gradient-to-l from-transparent to-[#c9a668]/50" />

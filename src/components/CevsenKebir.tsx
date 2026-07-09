@@ -256,12 +256,12 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <div className="w-16 h-[0.5px] bg-indigo-900"></div>
              </div>
              
-             <div className="bg-teal-50/40 p-10 rounded-[3.5rem] border border-teal-100 text-center space-y-8 relative overflow-hidden group">
+             <div className="bg-gold-50/40 p-10 rounded-[3.5rem] border border-gold-100 text-center space-y-8 relative overflow-hidden group">
                 <div className="absolute left-[-10%] bottom-[-10%] opacity-[0.04] text-[10rem] pointer-events-none group-hover:scale-110 transition-transform">💎</div>
-                <div className="inline-block px-5 py-2 bg-teal-100 text-teal-700 rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-2 border border-teal-200">NAKARAT</div>
-                <p className="arabic-text text-3xl text-teal-950 font-bold leading-relaxed bg-transparent" dir="rtl">{REFRAIN.arabic}</p>
-                <div className="h-px w-12 bg-teal-200/50 mx-auto"></div>
-                <p className="text-[14px] font-bold text-teal-800/70 leading-relaxed px-6 italic bg-transparent">
+                <div className="inline-block px-5 py-2 bg-gold-100 text-gold-700 rounded-full text-[10px] font-black uppercase tracking-[0.3em] mb-2 border border-gold-200">NAKARAT</div>
+                <p className="arabic-text text-3xl text-navy-950 font-bold leading-relaxed bg-transparent" dir="rtl">{REFRAIN.arabic}</p>
+                <div className="h-px w-12 bg-gold-200/50 mx-auto"></div>
+                <p className="text-[14px] font-bold text-navy-800/70 leading-relaxed px-6 italic bg-transparent">
                   "{REFRAIN.translation}"
                 </p>
              </div>

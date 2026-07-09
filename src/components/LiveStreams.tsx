@@ -21,7 +21,7 @@ const STREAMS: StreamInfo[] = [
     embedUrl: 'https://www.youtube.com/embed/6iW_pWvV-sM?autoplay=1&mute=0',
     description: 'Yeryüzünün kalbi, müminlerin kıblesi Kabe-i Muazzama’dan 7/24 kesintisiz canlı yayın. Rabbimizin evini her an kalbinizde hissedin.',
     icon: '🕋',
-    color: 'bg-teal-600'
+    color: 'bg-gold-600'
   },
   {
     id: 'medine',
@@ -31,7 +31,7 @@ const STREAMS: StreamInfo[] = [
     embedUrl: 'https://www.youtube.com/embed/M_n-X9lY70M?autoplay=1&mute=0',
     description: 'Peygamber Efendimiz (sav)’in huzuru, Ravza-i Mutahhara ve Mescid-i Nebevi’den canlı yayın. Gönüllerin sığınağına manevi bir yolculuk yapın.',
     icon: '🕌',
-    color: 'bg-teal-600'
+    color: 'bg-gold-600'
   }
 ];
 
@@ -42,7 +42,7 @@ const LiveStreams: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in duration-500 overflow-hidden relative">
       {/* Background Glow */}
-      <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-teal-50/50 to-transparent pointer-events-none -z-10"></div>
+      <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-gold-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Premium Header */}
       <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-[#faf6f0]/80 dark:bg-[#0d1220]/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
@@ -55,10 +55,10 @@ const LiveStreams: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           </button>
           <div>
             <h2 className="text-[17px] font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Canlı Yayın</h2>
-            <p className="text-[8px] font-black text-teal-600 uppercase tracking-[0.25em] mt-1">Haremeyn-i Şerifeyn</p>
+            <p className="text-[8px] font-black text-gold-600 uppercase tracking-[0.25em] mt-1">Haremeyn-i Şerifeyn</p>
           </div>
         </div>
-        <div className="w-10 h-10 bg-teal-50 dark:bg-teal-950/20 rounded-xl flex items-center justify-center text-lg border border-teal-100 text-teal-600 animate-pulse">📡</div>
+        <div className="w-10 h-10 bg-gold-50 dark:bg-navy-950/20 rounded-xl flex items-center justify-center text-lg border border-gold-100 text-gold-600 animate-pulse">📡</div>
       </div>
 
       <div className="flex-1 overflow-y-auto px-5 pb-32 no-scrollbar pt-6 space-y-8">
@@ -69,7 +69,7 @@ const LiveStreams: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <button 
               key={stream.id} 
               onClick={() => setActiveTab(stream.id)}
-              className={`flex-1 py-3 text-[10px] font-black uppercase tracking-widest rounded-[1.6rem] transition-all duration-300 flex items-center justify-center gap-2 ${activeTab === stream.id ? 'bg-teal-600 text-white shadow-lg border border-teal-500' : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500'}`}
+              className={`flex-1 py-3 text-[10px] font-black uppercase tracking-widest rounded-[1.6rem] transition-all duration-300 flex items-center justify-center gap-2 ${activeTab === stream.id ? 'bg-gold-600 text-white shadow-lg border border-gold-500' : 'text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:text-slate-500'}`}
             >
               <span className="text-base">{stream.icon}</span>
               {stream.title}
@@ -104,7 +104,7 @@ const LiveStreams: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="relative z-10 space-y-4">
              <div className="space-y-1">
                 <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tighter">{currentStream.title}</h3>
-                <p className="text-[10px] font-black text-teal-600 uppercase tracking-[0.4em]">{currentStream.subTitle}</p>
+                <p className="text-[10px] font-black text-gold-600 uppercase tracking-[0.4em]">{currentStream.subTitle}</p>
              </div>
              
              <div className="h-px w-full bg-slate-50 dark:bg-slate-900"></div>
@@ -115,8 +115,8 @@ const LiveStreams: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
              {/* Spiritual Actions at the Bottom */}
              <div className="pt-4 grid grid-cols-2 gap-3">
-                <div className="bg-teal-50/50 p-5 rounded-3xl border border-teal-100/50 text-center hover:bg-teal-50 dark:bg-teal-950/20 transition-colors">
-                   <p className="text-[9px] font-black text-teal-600 uppercase tracking-widest mb-1.5">MANEVİ NOT</p>
+                <div className="bg-gold-50/50 p-5 rounded-3xl border border-gold-100/50 text-center hover:bg-gold-50 dark:bg-navy-950/20 transition-colors">
+                   <p className="text-[9px] font-black text-gold-600 uppercase tracking-widest mb-1.5">MANEVİ NOT</p>
                    <p className="text-[11px] font-bold text-slate-600 dark:text-slate-400 dark:text-slate-500 leading-tight">İbadetlerin en hayırlısı huzurla yapılandır.</p>
                 </div>
                 <div className="bg-sky-50/50 p-5 rounded-3xl border border-sky-100/50 text-center hover:bg-sky-50 dark:bg-sky-950/20 transition-colors">
@@ -128,17 +128,17 @@ const LiveStreams: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
 
         {/* Prayer Quote Card */}
-        <div className="bg-teal-950 rounded-[2.5rem] p-10 text-white relative overflow-hidden shadow-2xl shadow-teal-950/20 text-center">
+        <div className="bg-navy-950 rounded-[2.5rem] p-10 text-white relative overflow-hidden shadow-2xl shadow-navy-950/20 text-center">
            <div className="absolute inset-0 opacity-[0.05] pointer-events-none flex items-center justify-center">
               <svg width="240" height="240" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" /></svg>
            </div>
            <div className="relative z-10 space-y-4">
-              <p className="text-teal-400 text-[9px] font-black uppercase tracking-[0.6em]">TEFEKKÜR VAKTİ</p>
+              <p className="text-gold-400 text-[9px] font-black uppercase tracking-[0.6em]">TEFEKKÜR VAKTİ</p>
               <h4 className="text-xl font-medium serif-text italic leading-relaxed px-2">
                 "Kabe'ye bakmak ibadettir. Bakarken yapılan dualar geri çevrilmez."
               </h4>
               <div className="h-px w-12 bg-white/20 mx-auto"></div>
-              <p className="text-[8px] font-black text-teal-500 uppercase tracking-widest">HAYIRLI TEFEKKÜRLER</p>
+              <p className="text-[8px] font-black text-gold-500 uppercase tracking-widest">HAYIRLI TEFEKKÜRLER</p>
            </div>
         </div>
 

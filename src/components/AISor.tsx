@@ -47,7 +47,7 @@ const AISor: React.FC = () => {
   return (
     <div className="flex flex-col h-full bg-gray-50">
       <div className="p-4 bg-white dark:bg-slate-900 border-b border-gray-200">
-        <h2 className="text-xl font-bold text-teal-800">Dini Asistan</h2>
+        <h2 className="text-xl font-bold text-navy-800">Dini Asistan</h2>
         <p className="text-xs text-gray-500">Aklınıza takılan dini soruları sorabilirsiniz.</p>
       </div>
 
@@ -61,7 +61,7 @@ const AISor: React.FC = () => {
                 <button 
                   key={q} 
                   onClick={() => setInput(q)}
-                  className="bg-white dark:bg-slate-900 border border-teal-100 text-teal-700 text-xs px-3 py-2 rounded-full hover:bg-teal-50 dark:bg-teal-950/20 transition-colors"
+                  className="bg-white dark:bg-slate-900 border border-gold-100 text-gold-700 text-xs px-3 py-2 rounded-full hover:bg-gold-50 dark:bg-navy-950/20 transition-colors"
                 >
                   {q}
                 </button>
@@ -71,7 +71,7 @@ const AISor: React.FC = () => {
         )}
         {messages.map((m, i) => (
           <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[80%] p-3 rounded-2xl shadow-sm text-sm ${m.role === 'user' ? 'bg-teal-600 text-white rounded-tr-none' : 'bg-white dark:bg-slate-900 border border-gray-100 text-gray-800 rounded-tl-none'}`}>
+            <div className={`max-w-[80%] p-3 rounded-2xl shadow-sm text-sm ${m.role === 'user' ? 'bg-gold-600 text-white rounded-tr-none' : 'bg-white dark:bg-slate-900 border border-gray-100 text-gray-800 rounded-tl-none'}`}>
               {m.text}
             </div>
           </div>
@@ -80,9 +80,9 @@ const AISor: React.FC = () => {
           <div className="flex justify-start">
             <div className="bg-white dark:bg-slate-900 p-3 rounded-2xl border border-gray-100 rounded-tl-none">
               <div className="flex gap-1">
-                <div className="w-2 h-2 bg-teal-400 rounded-full animate-bounce"></div>
-                <div className="w-2 h-2 bg-teal-400 rounded-full animate-bounce delay-75"></div>
-                <div className="w-2 h-2 bg-teal-400 rounded-full animate-bounce delay-150"></div>
+                <div className="w-2 h-2 bg-gold-400 rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-gold-400 rounded-full animate-bounce delay-75"></div>
+                <div className="w-2 h-2 bg-gold-400 rounded-full animate-bounce delay-150"></div>
               </div>
             </div>
           </div>
@@ -97,12 +97,12 @@ const AISor: React.FC = () => {
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && handleSend()}
             placeholder="Sorunuzu buraya yazın..."
-            className="flex-1 bg-gray-100 border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-teal-500 outline-none"
+            className="flex-1 bg-gray-100 border-none rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-gold-500 outline-none"
           />
           <button 
             onClick={handleSend}
             disabled={loading}
-            className="bg-teal-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-teal-700 active:scale-95 transition-all shadow-md"
+            className="bg-gold-600 text-white w-10 h-10 rounded-full flex items-center justify-center hover:bg-gold-700 active:scale-95 transition-all shadow-md"
           >
             ✈️
           </button>

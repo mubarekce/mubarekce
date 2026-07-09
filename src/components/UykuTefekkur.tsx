@@ -14,7 +14,7 @@ interface AmbientSound {
 
 const SOUNDS: AmbientSound[] = [
   { id: 'rain', name: 'Rahmet Yağmuru', icon: '🌧️', color: 'bg-blue-50 dark:bg-blue-950/20 text-blue-500', url: 'https://assets.mixkit.co/active_storage/sfx/2407/2407-preview.mp3', desc: 'Derin odaklanma ve huzur' },
-  { id: 'night', name: 'Gece Ormanı', icon: '🌲', color: 'bg-teal-50 dark:bg-teal-950/20 text-teal-600', url: 'https://assets.mixkit.co/active_storage/sfx/1118/1118-preview.mp3', desc: 'Doğanın sakinleştirici sesi' },
+  { id: 'night', name: 'Gece Ormanı', icon: '🌲', color: 'bg-gold-50 dark:bg-navy-950/20 text-gold-600', url: 'https://assets.mixkit.co/active_storage/sfx/1118/1118-preview.mp3', desc: 'Doğanın sakinleştirici sesi' },
   { id: 'wind', name: 'Sakin Rüzgar', icon: '🌬️', color: 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 dark:text-slate-500', url: 'https://assets.mixkit.co/active_storage/sfx/2443/2443-preview.mp3', desc: 'Zihni boşaltan esinti' },
   { id: 'ocean', name: 'Derin Deniz', icon: '🌊', color: 'bg-cyan-50 dark:bg-cyan-950/20 text-cyan-600', url: 'https://assets.mixkit.co/active_storage/sfx/2412/2412-preview.mp3', desc: 'Ruhsal dinginlik ve ritim' },
   { id: 'fire', name: 'Huzur Ateşi', icon: '🔥', color: 'bg-orange-50 dark:bg-orange-950/20 text-orange-600', url: 'https://assets.mixkit.co/active_storage/sfx/2400/2400-preview.mp3', desc: 'Sıcak ve güvenli atmosfer' },

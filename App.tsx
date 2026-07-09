@@ -150,7 +150,7 @@ const App: React.FC = () => {
   if (!authChecked) {
     return (
       <div className="min-h-screen w-full flex items-center justify-center bg-[#faf6f0] dark:bg-[#0d1220]">
-        <div className="w-10 h-10 border-4 border-teal-600 border-t-transparent rounded-full animate-spin" />
+        <div className="w-10 h-10 border-4 border-gold-600 border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }

@@ -241,9 +241,9 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 {activeTab === 'lessons' && (
                   <div className="space-y-3 animate-in fade-in slide-in-from-bottom-2">
                      {selectedProphet.lessons.map((l, i) => (
-                       <div key={i} className="bg-teal-50/30 p-5 rounded-3xl border border-teal-100 flex items-start gap-4">
-                          <div className="w-7 h-7 rounded-lg bg-white dark:bg-slate-900 flex items-center justify-center text-[10px] font-black text-teal-600 shadow-sm shrink-0 border border-teal-100">{i+1}</div>
-                          <p className="text-[13.5px] font-bold text-teal-950 leading-relaxed">{l}</p>
+                       <div key={i} className="bg-gold-50/30 p-5 rounded-3xl border border-gold-100 flex items-start gap-4">
+                          <div className="w-7 h-7 rounded-lg bg-white dark:bg-slate-900 flex items-center justify-center text-[10px] font-black text-gold-600 shadow-sm shrink-0 border border-gold-100">{i+1}</div>
+                          <p className="text-[13.5px] font-bold text-navy-950 leading-relaxed">{l}</p>
                        </div>
                      ))}
                   </div>

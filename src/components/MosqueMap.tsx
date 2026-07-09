@@ -127,7 +127,7 @@ const MosqueMap: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     // Cami Marker'ları
     const mosqueIcon = L.divIcon({
       className: 'm-marker',
-      html: `<div style="width:40px;height:40px;background:#059669;border:3px solid white;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 10px 20px rgba(0,0,0,0.15);">🕌</div>`,
+      html: `<div style="width:40px;height:40px;background:#8a6f45;border:3px solid white;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;box-shadow:0 10px 20px rgba(0,0,0,0.15);">🕌</div>`,
       iconSize: [40, 40], iconAnchor: [20, 40]
     });
 
@@ -153,15 +153,15 @@ const MosqueMap: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       {/* Premium Header */}
       <div className="h-[75px] shrink-0 bg-white dark:bg-slate-900 z-50 flex items-center justify-between px-6 border-b border-slate-100 dark:border-slate-800 shadow-sm">
         <div className="flex items-center gap-4">
-          <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-all text-teal-700">
+          <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-all text-gold-700">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div className="space-y-0.5">
             <h2 className="text-[18px] font-black text-slate-900 dark:text-white leading-none uppercase">Cami Bulucu</h2>
-            <p className="text-[9px] font-black text-teal-600 uppercase tracking-widest">Çevrendeki İbadethaneler</p>
+            <p className="text-[9px] font-black text-gold-600 uppercase tracking-widest">Çevrendeki İbadethaneler</p>
           </div>
         </div>
-        <div className="w-10 h-10 bg-teal-50 dark:bg-teal-950/20 rounded-xl flex items-center justify-center text-xl border border-teal-100 text-teal-600">📍</div>
+        <div className="w-10 h-10 bg-gold-50 dark:bg-navy-950/20 rounded-xl flex items-center justify-center text-xl border border-gold-100 text-gold-600">📍</div>
       </div>
 
       {/* Harita Alanı (%40) */}
@@ -177,7 +177,7 @@ const MosqueMap: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="flex-1 overflow-y-auto bg-[#F8FAFC] z-10 pb-32 no-scrollbar shadow-[0_-20px_40px_rgba(0,0,0,0.05)] rounded-t-[3rem]">
         <div className="p-6 space-y-6">
           <div className="flex items-center gap-3 px-2">
-            <div className="w-2 h-2 bg-teal-500 rounded-full shadow-[0_0_10px_rgba(20,184,166,0.5)] animate-pulse"></div>
+            <div className="w-2 h-2 bg-gold-500 rounded-full shadow-[0_0_10px_rgba(20,184,166,0.5)] animate-pulse"></div>
             <h4 className="text-[11px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">Yakındaki {mosques.length} Mekan</h4>
           </div>
 
@@ -196,14 +196,14 @@ const MosqueMap: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
                   <div className="flex-1 flex flex-col justify-between py-1 min-w-0">
                     <div className="space-y-1">
-                      <h3 className="text-[16px] font-black text-teal-900 leading-tight truncate uppercase">{m.name}</h3>
+                      <h3 className="text-[16px] font-black text-navy-900 leading-tight truncate uppercase">{m.name}</h3>
                       <p className="text-[11px] font-medium text-slate-400 dark:text-slate-500 line-clamp-1">{m.address}</p>
                     </div>
                     
                     <div className="flex items-center gap-3">
-                       <div className="flex items-center gap-1.5 bg-teal-50 dark:bg-teal-950/20 px-2.5 py-1 rounded-lg border border-teal-100">
+                       <div className="flex items-center gap-1.5 bg-gold-50 dark:bg-navy-950/20 px-2.5 py-1 rounded-lg border border-gold-100">
                           <span className="text-[10px]">🚶</span>
-                          <span className="text-[10px] font-black text-teal-700 uppercase">{m.walkingTime}</span>
+                          <span className="text-[10px] font-black text-gold-700 uppercase">{m.walkingTime}</span>
                        </div>
                        <div className="flex items-center gap-1.5 bg-slate-50 dark:bg-slate-900 px-2.5 py-1 rounded-lg border border-slate-100 dark:border-slate-800">
                           <span className="text-[10px] font-black text-slate-500 dark:text-slate-400 dark:text-slate-500 uppercase">{m.distance}</span>
@@ -216,7 +216,7 @@ const MosqueMap: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <div className="px-5 pb-5 pt-0">
                    <button 
                      onClick={() => handleNavigate(m)}
-                     className="w-full py-4 bg-teal-600 hover:bg-teal-700 text-white rounded-[1.6rem] font-black text-[11px] uppercase tracking-[0.2em] shadow-lg shadow-teal-900/10 transition-all flex items-center justify-center gap-3 active:scale-95 border-b-4 border-teal-800"
+                     className="w-full py-4 bg-gold-600 hover:bg-gold-700 text-white rounded-[1.6rem] font-black text-[11px] uppercase tracking-[0.2em] shadow-lg shadow-navy-900/10 transition-all flex items-center justify-center gap-3 active:scale-95 border-b-4 border-navy-800"
                    >
                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
                      YOL TARİFİ AL

@@ -122,7 +122,7 @@ const Auth: React.FC = () => {
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
         <div className="absolute top-[-20%] right-[-20%] w-[80%] aspect-square bg-sky-200 rounded-full blur-[150px]"></div>
-        <div className="absolute bottom-[-20%] left-[-20%] w-[80%] aspect-square bg-teal-200 rounded-full blur-[150px]"></div>
+        <div className="absolute bottom-[-20%] left-[-20%] w-[80%] aspect-square bg-gold-200 rounded-full blur-[150px]"></div>
       </div>
 
       <div className="w-full max-w-[420px] z-10">
@@ -171,7 +171,7 @@ const Auth: React.FC = () => {
               </div>
             )}
             {infoMsg && (
-              <div className="mb-4 px-4 py-2.5 rounded-xl bg-teal-50 dark:bg-teal-950/20 border border-teal-100 text-teal-700 text-[11px] font-bold text-center">
+              <div className="mb-4 px-4 py-2.5 rounded-xl bg-gold-50 dark:bg-navy-950/20 border border-gold-100 text-gold-700 text-[11px] font-bold text-center">
                 {infoMsg}
               </div>
             )}
@@ -205,7 +205,7 @@ const Auth: React.FC = () => {
                 <div className="flex items-center justify-between ml-4 mr-1">
                   <label className="text-[9px] font-black text-sky-400 uppercase tracking-widest">Şifre</label>
                   {isLogin && (
-                    <button type="button" onClick={handleForgotPassword} className="text-[9px] font-black text-teal-600 uppercase tracking-widest">
+                    <button type="button" onClick={handleForgotPassword} className="text-[9px] font-black text-gold-600 uppercase tracking-widest">
                       Unuttum
                     </button>
                   )}
@@ -224,7 +224,7 @@ const Auth: React.FC = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-teal-600 hover:bg-teal-700 disabled:opacity-60 text-white font-black py-3.5 rounded-[1.5rem] shadow-lg shadow-teal-900/10 active:scale-[0.98] transition-all mt-4 uppercase tracking-[0.2em] text-[11px]"
+                className="w-full bg-gold-600 hover:bg-gold-700 disabled:opacity-60 text-white font-black py-3.5 rounded-[1.5rem] shadow-lg shadow-navy-900/10 active:scale-[0.98] transition-all mt-4 uppercase tracking-[0.2em] text-[11px]"
               >
                 {loading ? 'Lütfen bekleyin...' : isLogin ? 'Oturum Aç' : 'Hesap Oluştur'}
               </button>
@@ -240,7 +240,7 @@ const Auth: React.FC = () => {
                   className="w-full flex items-center justify-center gap-3 py-2.5 px-5 rounded-xl bg-white dark:bg-slate-900 border border-sky-100 hover:bg-sky-50 dark:bg-sky-950/20 hover:shadow-sm transition-all group disabled:opacity-60"
                 >
                   <img src="https://www.svgrepo.com/show/355037/google.svg" className="w-4 h-4" alt="Google" />
-                  <span className="text-[10px] font-black text-slate-600 dark:text-slate-400 dark:text-slate-500 group-hover:text-teal-900 uppercase tracking-widest">Google ile devam et</span>
+                  <span className="text-[10px] font-black text-slate-600 dark:text-slate-400 dark:text-slate-500 group-hover:text-navy-900 uppercase tracking-widest">Google ile devam et</span>
                 </button>
               </div>
             </div>
