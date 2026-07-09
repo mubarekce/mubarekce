@@ -8,8 +8,6 @@ import AdminPanel from './AdminPanel';
 interface ProfileProps {
   user: User;
   onUpdateUser: (user: User) => void;
-  isDark: boolean;
-  setIsDark: (dark: boolean) => void;
   onLogout: () => void;
 }
 
@@ -40,7 +38,7 @@ const NOTIF_SOUNDS: SoundItem[] = [
   { id: 'ding', name: 'Klasik Ding', sub: 'Yalın Bildirim', icon: '🔔', category: 'klasik', url: 'https://assets.mixkit.co/active_storage/sfx/2358/2358-preview.mp3' },
 ];
 
-const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark, onLogout }) => {
+const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
   const { getField, setField } = useUserData();
   const [currentView, setCurrentView] = useState<ProfileView>('main');
 
@@ -97,9 +95,8 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
     ...(isAdminEmail(user.email) ? [{ id: 'admin' as SettingType, label: 'Yönetim Paneli', icon: '🛠️', color: 'bg-gold-700', val: '', options: [] }] : []),
     { id: 'notifications' as SettingType, label: 'Ses & Bildirim', icon: '🔔', color: 'bg-gold-500', val: selectedSoundId, options: [] },
     { id: 'language' as SettingType, label: 'Dil Seçimi', icon: '🌍', color: 'bg-gold-500', val: languagePref, options: ['Türkçe', 'English', 'Arabic', 'Urdu'] },
-    { id: 'theme' as SettingType, label: 'Gece Modu', icon: '🌙', color: 'bg-slate-800', val: isDark ? 'Açık' : 'Kapalı', options: [] },
     { id: 'rate' as SettingType, label: 'Bizi Puanlayın', icon: '⭐', color: 'bg-amber-500', val: 'V5.0', isLink: true, options: [] },
-  ], [selectedSoundId, languagePref, isDark, user.email]);
+  ], [selectedSoundId, languagePref, user.email]);
 
   // Added handleStartPurchase function for line 389 fix
   const handleStartPurchase = () => {
@@ -409,8 +406,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
              <div 
                key={item.id} 
                onClick={() => { 
-                 if (item.id === 'theme') { setIsDark(!isDark); if (window.navigator.vibrate) window.navigator.vibrate(20); } 
-                 else if (item.id === 'notifications') { setCurrentView('notif_detail'); }
+                 if (item.id === 'notifications') { setCurrentView('notif_detail'); }
                  else if (item.id === 'admin') { setShowAdminPanel(true); }
                  else if ('isLink' in item && item.isLink) alert("Desteğiniz için teşekkürler!"); 
                  else { setActiveModal(item.id); } 
@@ -422,8 +418,8 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, isDark, setIsDark
                   <span className="text-[14px] font-bold text-slate-700 dark:text-slate-200">{item.label}</span>
                </div>
                <div className="flex items-center gap-3">
-                  <span className={`text-[10px] font-black uppercase tracking-wider ${item.id === 'theme' && isDark ? 'text-gold-500' : 'text-slate-400'}`}>{item.val}</span>
-                  {item.id !== 'theme' && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" className="text-slate-200 dark:text-slate-800"><polyline points="9 18 15 12 9 6"/></svg>}
+                  <span className="text-[10px] font-black uppercase tracking-wider text-slate-400">{item.val}</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" className="text-slate-200 dark:text-slate-800"><polyline points="9 18 15 12 9 6"/></svg>
                </div>
              </div>
            ))}
