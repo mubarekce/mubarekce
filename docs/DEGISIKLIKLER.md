@@ -1,5 +1,22 @@
 # Değişiklikler
 
+## 10.07.2026 (3)
+
+- **Ana sayfadaki tüm "Hızlı Erişim" kısayol butonları** (Kıble, Zikirmatik, Kuran,
+  Camiler, Zekat, Hatim Organizatörü, Esmaül Hüsna, Cevşen, Sanal Bahçem, Kaza Takibi,
+  Aile Modu, Radyo, Helal Tarayıcı, Namaz Rehberi — 13 buton) koyu modda hep aynı koyu
+  yeşile (`#0f2b26`) gidiyordu; bu `src/data/homeShortcuts.ts` dosyasındaydı ve önceki
+  taramalarda gözden kaçmıştı. Artık hepsi lacivert (`#141a2c`) ile bitiyor.
+- Ayrıca birkaç kartın/butonun gölge (shadow) renginde saklı kalmış yeşil tonlar
+  bulundu ve düzeltildi: Anasayfa hikaye ikonları, Kütüphane'deki "Elif Ba" ve
+  "Sanal Bahçem" ikon parıltıları, Profil'deki cami/cuma sessiz mod göstergesi,
+  Giriş ekranı ve birkaç büyük kartın (Kaza Takibi, Hatim Organizatörü) gölgesi —
+  hepsi altın/lacivert tonuna çekildi.
+- Uygulamanın tamamı (51 dosya) tek tek tarandı: artık hiçbir yerde yeşil/turkuaz
+  Tailwind sınıfı, hex renk veya gölge rengi kalmadı; metin/ikon okunabilirliği
+  (koyu kartlarda beyaz/altın metin, açık kartlarda koyu lacivert metin) korunarak
+  tema bütünlüğü sağlandı.
+
 ## 10.07.2026 (2)
 
 - Ana kabuktaki (App.tsx) yeni açık lacivert degrade beğenildiği için **tüm sayfalara**

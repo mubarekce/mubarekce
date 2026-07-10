@@ -109,7 +109,7 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                <p className="text-xs text-gold-700/60 font-medium mb-6">Toplam {LESSONS.length} dersten {completedLessons.length} tanesini tamamladın.</p>
                <div className="w-full h-2.5 bg-white/50 rounded-full overflow-hidden border border-gold-100">
                   <div 
-                    className="h-full bg-gold-500 shadow-[0_0_10px_rgba(34,197,94,0.3)] transition-all duration-1000"
+                    className="h-full bg-gold-500 shadow-[0_0_10px_rgba(201,166,104,0.3)] transition-all duration-1000"
                     style={{ width: `${(completedLessons.length / LESSONS.length) * 100}%` }}
                   ></div>
                </div>

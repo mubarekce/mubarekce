@@ -266,7 +266,7 @@ const KazaTakibi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         ) : (
           <div className="py-6 space-y-8 animate-in fade-in duration-500">
              {/* Total Oruç Stats Card */}
-             <div className="bg-navy-950 rounded-[2.8rem] p-10 text-white relative overflow-hidden group shadow-[0_25px_60px_-15px_rgba(10,31,26,0.3)]">
+             <div className="bg-navy-950 rounded-[2.8rem] p-10 text-white relative overflow-hidden group shadow-[0_25px_60px_-15px_rgba(13,18,32,0.3)]">
                 <div className="absolute right-[-10%] top-[-10%] p-8 opacity-[0.05] group-hover:scale-110 transition-transform text-[10rem] pointer-events-none rotate-6">🌙</div>
                 <div className="relative z-10">
                    <p className="text-gold-300 text-[10px] font-black uppercase tracking-[0.25em] mb-2 leading-relaxed">TOPLAM ORUÇ BORCU</p>

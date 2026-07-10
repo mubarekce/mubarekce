@@ -306,7 +306,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
       <div className="flex-1 overflow-y-auto px-6 pb-32 no-scrollbar">
         {activeTab === 'halkalar' ? (
           <div className="py-6 space-y-8 animate-in fade-in duration-500">
-            <div className="bg-[#141a2c] rounded-[2.8rem] p-10 text-white relative overflow-hidden group shadow-[0_25px_60px_-15px_rgba(10,31,26,0.3)]">
+            <div className="bg-[#141a2c] rounded-[2.8rem] p-10 text-white relative overflow-hidden group shadow-[0_25px_60px_-15px_rgba(13,18,32,0.3)]">
                <div className="absolute right-[-10%] top-[-10%] p-8 opacity-[0.08] group-hover:scale-110 transition-transform text-[12rem] pointer-events-none rotate-6">🕌</div>
                <div className="relative z-10">
                   <h3 className="text-2xl font-black tracking-tighter mb-2">Yeni Hatim Başlat</h3>

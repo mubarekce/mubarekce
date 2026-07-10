@@ -600,7 +600,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
                 <div className="p-6 bg-white/5 backdrop-blur-md rounded-[2rem] border border-white/10 space-y-4">
                    <p className="text-[12px] font-medium leading-relaxed">Bu mod, camiye girdiğinizde veya belirli vakitlerde telefonunuzu otomatik olarak sessize alarak ibadetinize odaklanmanızı sağlar.</p>
                    <div className="flex items-center gap-3">
-                      <div className={`w-2.5 h-2.5 rounded-full animate-pulse ${mosqueGeofencing || fridaySilence ? 'bg-gold-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]' : 'bg-slate-400'}`}></div>
+                      <div className={`w-2.5 h-2.5 rounded-full animate-pulse ${mosqueGeofencing || fridaySilence ? 'bg-gold-400 shadow-[0_0_10px_rgba(201,166,104,0.8)]' : 'bg-slate-400'}`}></div>
                       <span className="text-[9px] font-black uppercase tracking-widest">{mosqueGeofencing || fridaySilence ? 'SİSTEM AKTİF' : 'BEKLEMEDE'}</span>
                    </div>
                 </div>

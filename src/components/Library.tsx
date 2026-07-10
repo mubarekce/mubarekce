@@ -108,7 +108,7 @@ import { User } from '../types';
     { 
       id: 'elifba', 
       icon: <IconWrapper><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></IconWrapper>, 
-      title: 'Elif Ba', desc: 'Kuran Öreniyorum', cat: 'Kuran Akademisi', color: 'text-gold-600', glowColor: 'rgba(22,163,74,0.5)' 
+      title: 'Elif Ba', desc: 'Kuran Öreniyorum', cat: 'Kuran Akademisi', color: 'text-gold-600', glowColor: 'rgba(168,137,90,0.5)' 
     },
     { 
       id: 'ayet-bul', 
@@ -147,7 +147,7 @@ import { User } from '../types';
     { 
       id: 'sanal-bahce', 
       icon: <IconWrapper><path d="M12 2L12 12"/><path d="M12 22V12"/><path d="M2 12C2 6.48 6.48 2 12 2s10 4.48 10 10-4.48 10-10 10-10-4.48-10-10z"/></IconWrapper>, 
-      title: 'Sanal Bahçem', desc: 'İbadetle Büyüyen Bahçe', cat: 'Manevi Gelişim', color: 'text-gold-500', glowColor: 'rgba(34,197,94,0.5)' 
+      title: 'Sanal Bahçem', desc: 'İbadetle Büyüyen Bahçe', cat: 'Manevi Gelişim', color: 'text-gold-500', glowColor: 'rgba(201,166,104,0.5)' 
     },
     { 
       id: 'ruya-tabiri', 

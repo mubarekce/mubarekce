@@ -208,7 +208,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
         </svg>
       ), 
       color: 'border-[#1c2541]/40 dark:border-[#c9a668]/40',
-      glow: 'shadow-[0_0_15px_rgba(21,58,51,0.25)]',
+      glow: 'shadow-[0_0_15px_rgba(28,37,65,0.25)]',
       iconColor: 'text-[#1c2541] dark:text-[#c9a668]'
     },
     { 
@@ -233,7 +233,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
         </svg>
       ), 
       color: 'border-[#1c2541]/30 dark:border-[#c9a668]/30',
-      glow: 'shadow-[0_0_15px_rgba(21,58,51,0.2)]',
+      glow: 'shadow-[0_0_15px_rgba(28,37,65,0.2)]',
       iconColor: 'text-[#1c2541]/80 dark:text-[#c9a668]/90'
     },
     { 
@@ -273,7 +273,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
       </div>
 
       {/* MAIN CARD - Artık uygulamanın genel fildişi/lacivert huzur temasıyla aynı, ayrı bir renk bloğu değil */}
-      <div className="relative overflow-hidden rounded-[2rem] bg-white/70 dark:bg-[#141a2c]/70 backdrop-blur-xl text-slate-900 dark:text-[#fbf6ea] shadow-[0_10px_30px_-15px_rgba(10,31,26,0.15)] border border-[#c9a668]/20 dark:border-[#c9a668]/10 z-10 transition-transform duration-300 active:scale-[0.99]">
+      <div className="relative overflow-hidden rounded-[2rem] bg-white/70 dark:bg-[#141a2c]/70 backdrop-blur-xl text-slate-900 dark:text-[#fbf6ea] shadow-[0_10px_30px_-15px_rgba(13,18,32,0.15)] border border-[#c9a668]/20 dark:border-[#c9a668]/10 z-10 transition-transform duration-300 active:scale-[0.99]">
         
         {/* Mosque Background Silhouette - altın tonuyla, çok sönük */}
         <div className="absolute right-[-15px] bottom-2 opacity-[0.05] pointer-events-none transition-all duration-1000">
@@ -530,7 +530,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
         <SectionHeader title="GÜNÜN MANEVİYATI" />
 
         {/* Günün Maneviyatı - tek, kompakt, sekmeli kart */}
-        <div className="bg-white/70 dark:bg-[#141a2c]/70 backdrop-blur-xl rounded-[2rem] border border-[#c9a668]/20 dark:border-[#c9a668]/10 shadow-[0_8px_30px_-15px_rgba(10,31,26,0.12)] overflow-hidden">
+        <div className="bg-white/70 dark:bg-[#141a2c]/70 backdrop-blur-xl rounded-[2rem] border border-[#c9a668]/20 dark:border-[#c9a668]/10 shadow-[0_8px_30px_-15px_rgba(13,18,32,0.12)] overflow-hidden">
           <div className="flex p-1.5 gap-1 border-b border-slate-100 dark:border-white/5">
             {([
               { key: 'ayet', label: 'AYET' },
