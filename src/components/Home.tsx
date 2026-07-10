@@ -168,7 +168,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
     return (
       <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] relative animate-in fade-in zoom-in duration-300">
         <div className="absolute top-12 left-6 z-50">
-          <button onClick={() => setActiveOverlay('none')} className="w-10 h-10 bg-white/80 dark:bg-slate-900/80 backdrop-blur rounded-xl flex items-center justify-center shadow-sm border border-slate-100 dark:border-slate-800 text-slate-900 dark:text-white">←</button>
+          <button onClick={() => setActiveOverlay('none')} className="w-10 h-10 bg-white/80 dark:bg-navy-800/80 backdrop-blur rounded-xl flex items-center justify-center shadow-sm border border-slate-100 dark:border-navy-900 text-slate-900 dark:text-white">←</button>
         </div>
         <AISor />
       </div>
@@ -484,8 +484,8 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
               onClick={() => story.special ? setActiveOverlay('ai') : openStory(story.label)}
               className="flex flex-col items-center gap-1.5 flex-shrink-0 cursor-pointer group"
             >
-              <div className={`w-[52px] h-[52px] rounded-full p-[2px] border-2 ${story.color} ${story.glow} group-active:scale-90 transition-all duration-300 bg-white dark:bg-slate-900 shadow-sm`}>
-                <div className={`w-full h-full bg-white dark:bg-slate-900 rounded-full flex items-center justify-center ${story.iconColor} group-hover:scale-110 transition-transform`}>
+              <div className={`w-[52px] h-[52px] rounded-full p-[2px] border-2 ${story.color} ${story.glow} group-active:scale-90 transition-all duration-300 bg-white dark:bg-navy-800 shadow-sm`}>
+                <div className={`w-full h-full bg-white dark:bg-navy-800 rounded-full flex items-center justify-center ${story.iconColor} group-hover:scale-110 transition-transform`}>
                   {story.icon}
                 </div>
               </div>
@@ -594,11 +594,11 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
       {/* FULL IMSAKIYE MODAL */}
       {showImsakiyeModal && (
         <div className="fixed inset-0 z-[600] bg-[#f3f7e9] dark:bg-[#0a1f1a] animate-in slide-in-from-bottom duration-500 flex flex-col overflow-hidden">
-           <div className="px-6 pt-12 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 sticky top-0 bg-[#f3f7e9] dark:bg-[#0a1f1a] z-10">
+           <div className="px-6 pt-12 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-navy-900 sticky top-0 bg-[#f3f7e9] dark:bg-[#0a1f1a] z-10">
               <div className="flex items-center gap-4">
                  <button 
                    onClick={() => setShowImsakiyeModal(false)}
-                   className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
+                   className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform"
                  >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="text-slate-900 dark:text-white"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
                  </button>
@@ -630,7 +630,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
                        {FULL_IMSAKIYE.map((day) => (
                           <tr 
                             key={day.day} 
-                            className="transition-all rounded-2xl bg-slate-50/50 dark:bg-slate-900/50 hover:bg-[#c9a668]/5 dark:hover:bg-[#c9a668]/5 group"
+                            className="transition-all rounded-2xl bg-slate-50/50 dark:bg-navy-800/50 hover:bg-[#c9a668]/5 dark:hover:bg-[#c9a668]/5 group"
                           >
                              <td className="px-4 py-4 rounded-l-2xl">
                                 <p className="text-[10px] font-black text-slate-900 dark:text-white">{day.day}. Gün</p>
@@ -648,7 +648,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
               </div>
            </div>
            
-           <div className="p-8 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 text-center">
+           <div className="p-8 bg-slate-50 dark:bg-navy-800 border-t border-slate-100 dark:border-navy-900 text-center">
               <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 leading-relaxed italic">
                  "Vakitler Diyanet İşleri Başkanlığı verileriyle uyumludur."
               </p>

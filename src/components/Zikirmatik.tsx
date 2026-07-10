@@ -208,7 +208,7 @@ const Zikirmatik: React.FC = () => {
     return (
       <div 
         onClick={() => setActiveZikirId(zikir.id)} 
-        className="bg-white dark:bg-slate-900 p-6 rounded-[2.2rem] border border-slate-100 dark:border-slate-800 shadow-[0_8px_25px_-12px_rgba(0,0,0,0.06)] cursor-pointer active:scale-[0.99] group transition-all"
+        className="bg-white dark:bg-navy-800 p-6 rounded-[2.2rem] border border-slate-100 dark:border-navy-900 shadow-[0_8px_25px_-12px_rgba(0,0,0,0.06)] cursor-pointer active:scale-[0.99] group transition-all"
       >
         <div className="flex justify-between items-start mb-4">
           <h4 className="text-[14px] font-black text-slate-900 dark:text-white tracking-tight">{zikir.name}</h4>
@@ -217,7 +217,7 @@ const Zikirmatik: React.FC = () => {
           </div>
         </div>
         <div className="flex items-center gap-5">
-          <div className="flex-1 h-2 bg-slate-50 dark:bg-slate-900 rounded-full overflow-hidden border border-slate-100 dark:border-slate-800">
+          <div className="flex-1 h-2 bg-slate-50 dark:bg-navy-800 rounded-full overflow-hidden border border-slate-100 dark:border-navy-900">
             <div className="h-full bg-gold-500 transition-all duration-700 shadow-[0_0_10px_rgba(201,166,104,0.3)]" style={{ width: `${percent}%` }}></div>
           </div>
           <span className="text-[11px] font-black text-slate-400 dark:text-slate-500 tabular-nums min-w-[50px] text-right">{zikir.count}/{zikir.target}</span>
@@ -307,7 +307,7 @@ const Zikirmatik: React.FC = () => {
               className="w-24 h-24 rounded-full border-[8px] border-white/5 flex items-center justify-center bg-white/5 backdrop-blur-xl active:scale-90 transition-all pointer-events-auto shadow-2xl group"
             >
               <div className="w-8 h-8 bg-gold-50 dark:bg-navy-950/20 rounded-full border-2 border-white/20 shadow-[0_0_20px_rgba(201,166,104,0.6)] group-hover:scale-110 transition-transform flex items-center justify-center">
-                 <div className={`w-3 h-3 rounded-full ${isCompleted ? 'bg-white dark:bg-slate-900' : 'bg-gold-500'} transition-colors`}></div>
+                 <div className={`w-3 h-3 rounded-full ${isCompleted ? 'bg-white dark:bg-navy-800' : 'bg-gold-500'} transition-colors`}></div>
               </div>
             </button>
 
@@ -333,15 +333,15 @@ const Zikirmatik: React.FC = () => {
   }
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-white dark:bg-slate-900 overflow-hidden animate-in fade-in duration-500">
-      <div className="pt-12 px-6 flex flex-col items-center gap-4 bg-white dark:bg-slate-900 z-20">
+    <div className="flex-1 flex flex-col h-full bg-white dark:bg-navy-800 overflow-hidden animate-in fade-in duration-500">
+      <div className="pt-12 px-6 flex flex-col items-center gap-4 bg-white dark:bg-navy-800 z-20">
         <div className="w-full flex justify-between items-center">
           <button 
             onClick={() => {
               // Eğer kütüphane içindeysek navigasyonu sıfırla
               window.dispatchEvent(new CustomEvent('resetLibraryView'));
             }} 
-            className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-all"
+            className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-all"
           >
              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
@@ -352,9 +352,9 @@ const Zikirmatik: React.FC = () => {
           <div className="w-10 h-10 opacity-0"></div>
         </div>
 
-        <div className="w-full bg-slate-100/60 p-1 rounded-2xl flex border border-slate-100 dark:border-slate-800">
+        <div className="w-full bg-slate-100/60 p-1 rounded-2xl flex border border-slate-100 dark:border-navy-900">
           {['zikirlerim', 'tesbihler', 'gecmis'].map(id => (
-            <button key={id} onClick={() => setActiveTab(id as MainTab)} className={`flex-1 py-2.5 text-[9px] font-black tracking-widest rounded-xl transition-all ${activeTab === id ? 'bg-white dark:bg-slate-900 text-gold-700 shadow-md border border-slate-100 dark:border-slate-800' : 'text-slate-400 dark:text-slate-500'}`}>
+            <button key={id} onClick={() => setActiveTab(id as MainTab)} className={`flex-1 py-2.5 text-[9px] font-black tracking-widest rounded-xl transition-all ${activeTab === id ? 'bg-white dark:bg-navy-800 text-gold-700 shadow-md border border-slate-100 dark:border-navy-900' : 'text-slate-400 dark:text-slate-500'}`}>
               {id === 'zikirlerim' ? 'ZİKİRLERİM' : id === 'tesbihler' ? 'TESBİHLER' : 'GEÇMİŞ'}
             </button>
           ))}
@@ -369,20 +369,20 @@ const Zikirmatik: React.FC = () => {
                 <p className="text-[9px] font-black text-gold-400 uppercase tracking-[0.4em]">HIZLI SAYAÇ</p>
                 <h3 className="text-xl font-black text-navy-950">Serbest Zikir</h3>
               </div>
-              <div className="w-16 h-16 bg-white dark:bg-slate-900 rounded-3xl flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform">
+              <div className="w-16 h-16 bg-white dark:bg-navy-800 rounded-3xl flex items-center justify-center shadow-inner group-hover:scale-105 transition-transform">
                 <span className="text-3xl font-black text-navy-950 tabular-nums">{serbestZikir}</span>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              <button onClick={() => setShowAddModal(true)} className="bg-white dark:bg-slate-900 border-2 border-dashed border-gold-100 rounded-[2.5rem] p-8 flex flex-col items-center justify-center gap-3 group active:scale-95 transition-all">
+              <button onClick={() => setShowAddModal(true)} className="bg-white dark:bg-navy-800 border-2 border-dashed border-gold-100 rounded-[2.5rem] p-8 flex flex-col items-center justify-center gap-3 group active:scale-95 transition-all">
                 <div className="w-12 h-12 bg-gold-50 dark:bg-navy-950/20 rounded-full flex items-center justify-center text-gold-600 font-black text-3xl group-hover:bg-gold-600 group-hover:text-white transition-all shadow-sm">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                 </div>
                 <span className="text-[10px] font-black text-gold-500 uppercase tracking-[0.15em]">YENİ EKLE</span>
               </button>
               
-              <div className="bg-[#f8fafc] border border-slate-100 dark:border-slate-800 rounded-[2.5rem] p-8 flex flex-col items-center justify-center shadow-sm relative overflow-hidden">
+              <div className="bg-[#f8fafc] border border-slate-100 dark:border-navy-900 rounded-[2.5rem] p-8 flex flex-col items-center justify-center shadow-sm relative overflow-hidden">
                 <div className="relative z-10 flex flex-col items-center">
                   <p className="text-[9px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-[0.2em] mb-1">TOPLAM</p>
                   <span className="text-4xl font-black text-slate-900 dark:text-white tabular-nums">{zikirler.reduce((acc, curr) => acc + curr.count, 0) + serbestZikir}</span>
@@ -420,7 +420,7 @@ const Zikirmatik: React.FC = () => {
           <div className="grid grid-cols-2 gap-5 py-2 animate-in fade-in duration-500">
             {SKINS.map(skin => (
               <div key={skin.id} onClick={() => setActiveSkinId(skin.id)} className={`p-1.5 rounded-[2.8rem] transition-all cursor-pointer ${activeSkinId === skin.id ? 'bg-gold-500 shadow-xl shadow-gold-500/10' : 'bg-transparent'}`}>
-                <div className="p-4 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 flex flex-col items-center shadow-sm h-full">
+                <div className="p-4 rounded-[2.5rem] bg-white dark:bg-navy-800 border border-slate-100 dark:border-navy-900 flex flex-col items-center shadow-sm h-full">
                   <div className={`w-full aspect-[4/3] rounded-[1.8rem] mb-3 flex items-center justify-center gap-1.5 ${skin.bg} shadow-inner group overflow-hidden`}>
                      {skin.id === 'standard' ? (
                        <div className="w-14 h-10 bg-slate-800/50 rounded-xl border-2 border-slate-700/50 flex flex-col items-center justify-center gap-0.5"><div className="w-10 h-3.5 bg-gold-500/10 rounded-sm flex items-center justify-center"><span className="text-gold-500 font-black text-[9px] tracking-widest">00</span></div><div className="w-2 h-2 rounded-full bg-gold-600/30"></div></div>
@@ -441,10 +441,10 @@ const Zikirmatik: React.FC = () => {
             {history.length > 0 ? (
               <>
                 {history.map((record) => (
-                  <div key={record.id} className="bg-white dark:bg-slate-900 p-6 rounded-[2.2rem] border border-slate-100 dark:border-slate-800 shadow-sm flex items-center justify-between group">
+                  <div key={record.id} className="bg-white dark:bg-navy-800 p-6 rounded-[2.2rem] border border-slate-100 dark:border-navy-900 shadow-sm flex items-center justify-between group">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2">
-                        <span className={`text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full ${record.status === 'completed' ? 'bg-gold-100 text-gold-600' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 dark:text-slate-500'}`}>
+                        <span className={`text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded-full ${record.status === 'completed' ? 'bg-gold-100 text-gold-600' : 'bg-slate-100 dark:bg-navy-900 text-slate-500 dark:text-slate-400 dark:text-slate-500'}`}>
                           {record.status === 'completed' ? 'TAMAMLANDI' : 'YARIM KALDI'}
                         </span>
                         <span className="text-[8px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest">{record.time} - {record.date}</span>
@@ -452,7 +452,7 @@ const Zikirmatik: React.FC = () => {
                       <h4 className="text-sm font-black text-slate-900 dark:text-white">{record.name}</h4>
                       <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500">{record.count} / {record.target} Tekrar</p>
                     </div>
-                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${record.status === 'completed' ? 'bg-gold-50 dark:bg-navy-950/20 text-gold-500' : 'bg-slate-50 dark:bg-slate-900 text-slate-300 dark:text-slate-600'}`}>
+                    <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${record.status === 'completed' ? 'bg-gold-50 dark:bg-navy-950/20 text-gold-500' : 'bg-slate-50 dark:bg-navy-800 text-slate-300 dark:text-slate-600'}`}>
                       {record.status === 'completed' ? (
                          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="20 6 9 17 4 12"/></svg>
                       ) : (
@@ -483,14 +483,14 @@ const Zikirmatik: React.FC = () => {
 
       {showAddModal && (
         <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
-          <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl">
+          <div className="bg-white dark:bg-navy-800 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl">
              <h3 className="text-xl font-black text-slate-900 dark:text-white text-center tracking-tight">Yeni Zikir</h3>
              <div className="space-y-6">
-                <div className="space-y-2"><label className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest ml-4">ZİKİR ADI</label><input type="text" value={newName} onChange={e => setNewName(e.target.value)} placeholder="Örn: Ya Şafi" className="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600 shadow-inner" /></div>
-                <div className="space-y-2"><label className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest ml-4">HEDEF SAYI</label><input type="number" value={newTarget} onChange={e => setNewTarget(Number(e.target.value))} className="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white shadow-inner" /></div>
+                <div className="space-y-2"><label className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest ml-4">ZİKİR ADI</label><input type="text" value={newName} onChange={e => setNewName(e.target.value)} placeholder="Örn: Ya Şafi" className="w-full bg-slate-50 dark:bg-navy-800 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600 shadow-inner" /></div>
+                <div className="space-y-2"><label className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest ml-4">HEDEF SAYI</label><input type="number" value={newTarget} onChange={e => setNewTarget(Number(e.target.value))} className="w-full bg-slate-50 dark:bg-navy-800 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white shadow-inner" /></div>
              </div>
              <div className="flex gap-4">
-                <button onClick={() => setShowAddModal(false)} className="flex-1 py-4 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">İPTAL</button>
+                <button onClick={() => setShowAddModal(false)} className="flex-1 py-4 bg-slate-100 dark:bg-navy-900 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">İPTAL</button>
                 <button onClick={handleAddZikir} className="flex-1 py-4 bg-gold-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest shadow-lg shadow-gold-200 active:scale-95 transition-all">KAYDET</button>
              </div>
           </div>

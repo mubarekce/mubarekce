@@ -94,7 +94,7 @@ const HafizlikModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
   if (loading && !selectedSurah) {
     return (
-      <div className="flex-1 flex flex-col items-center justify-center bg-white dark:bg-slate-900 p-8 h-full">
+      <div className="flex-1 flex flex-col items-center justify-center bg-white dark:bg-navy-800 p-8 h-full">
         <div className="w-16 h-16 border-4 border-gold-600 border-t-transparent rounded-full animate-spin"></div>
         <p className="mt-4 text-navy-900 font-black uppercase tracking-widest text-xs">Sureler Hazırlanıyor</p>
       </div>
@@ -102,10 +102,10 @@ const HafizlikModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   }
 
   return (
-    <div className="flex-1 flex flex-col bg-white dark:bg-slate-900 h-full relative animate-in fade-in duration-500 overflow-hidden">
+    <div className="flex-1 flex flex-col bg-white dark:bg-navy-800 h-full relative animate-in fade-in duration-500 overflow-hidden">
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50 dark:border-slate-800">
-        <button onClick={selectedSurah ? () => { setSelectedSurah(null); setIsAutoPlaying(false); audioRef.current.pause(); } : onBack} className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center">←</button>
+      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50 dark:border-navy-900">
+        <button onClick={selectedSurah ? () => { setSelectedSurah(null); setIsAutoPlaying(false); audioRef.current.pause(); } : onBack} className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center">←</button>
         <div>
           <h2 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Hafızlık Modu</h2>
           <p className="text-[10px] font-bold text-gold-600 uppercase tracking-widest">Akıllı Ezber Algoritması</p>
@@ -116,7 +116,7 @@ const HafizlikModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {!selectedSurah ? (
           <div className="py-6 space-y-4">
             <div className="bg-gold-50 dark:bg-navy-950/20 rounded-[2.5rem] p-8 text-center border border-gold-100 mb-8">
-              <div className="w-16 h-16 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl shadow-sm">📖</div>
+              <div className="w-16 h-16 bg-white dark:bg-navy-800 rounded-2xl flex items-center justify-center mx-auto mb-4 text-3xl shadow-sm">📖</div>
               <h3 className="text-lg font-black text-navy-900 mb-2">Ezber Başlat</h3>
               <p className="text-xs text-gold-600/60 font-medium leading-relaxed">Ezberlemek istediğiniz sureyi seçin, algoritma size en uygun tekrar sayısını sunsun.</p>
             </div>
@@ -126,10 +126,10 @@ const HafizlikModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <div 
                   key={s.number}
                   onClick={() => handleSurahSelect(s)}
-                  className="p-5 rounded-[2.2rem] border border-slate-100 dark:border-slate-800 flex items-center justify-between hover:bg-gold-50 dark:bg-navy-950/20 hover:border-gold-200 transition-all cursor-pointer group active:scale-[0.98]"
+                  className="p-5 rounded-[2.2rem] border border-slate-100 dark:border-navy-900 flex items-center justify-between hover:bg-gold-50 dark:bg-navy-950/20 hover:border-gold-200 transition-all cursor-pointer group active:scale-[0.98]"
                 >
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-xs font-black text-slate-400 dark:text-slate-500 group-hover:bg-gold-600 group-hover:text-white transition-all">{s.number}</div>
+                    <div className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center text-xs font-black text-slate-400 dark:text-slate-500 group-hover:bg-gold-600 group-hover:text-white transition-all">{s.number}</div>
                     <div>
                       <h4 className="font-black text-slate-900 dark:text-white text-sm">{s.englishName}</h4>
                       <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">{s.numberOfAyahs} Ayet</p>
@@ -153,7 +153,7 @@ const HafizlikModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <span className="text-[9px] font-black text-gold-600 uppercase tracking-widest">{selectedSurah.englishName}</span>
                 <span className="text-[10px] font-black text-slate-900 dark:text-white">%{Math.round(((currentAyahIdx + 1) / ayahs.length) * 100)}</span>
               </div>
-              <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-white">
+              <div className="w-full h-2 bg-slate-100 dark:bg-navy-900 rounded-full overflow-hidden border border-white">
                 <div 
                   className="h-full bg-gold-500 rounded-full transition-all duration-500 shadow-[0_0_10px_rgba(201,166,104,0.3)]"
                   style={{ width: `${((currentAyahIdx + 1) / ayahs.length) * 100}%` }}
@@ -196,21 +196,21 @@ const HafizlikModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
             {/* Control Center */}
             <div className="grid grid-cols-1 gap-4">
-              <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-900 p-6 rounded-[2rem] border border-slate-100 dark:border-slate-800">
+              <div className="flex items-center justify-between bg-slate-50 dark:bg-navy-800 p-6 rounded-[2rem] border border-slate-100 dark:border-navy-900">
                 <div className="space-y-1">
                   <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">TEKRAR SAYISI</p>
                   <p className="text-lg font-black text-slate-900 dark:text-white">{repeatCount} Kez</p>
                 </div>
                 <div className="flex gap-2">
-                  <button onClick={() => setRepeatCount(Math.max(1, repeatCount - 1))} className="w-10 h-10 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center font-bold text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">-</button>
-                  <button onClick={() => setRepeatCount(repeatCount + 1)} className="w-10 h-10 bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center font-bold text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">+</button>
+                  <button onClick={() => setRepeatCount(Math.max(1, repeatCount - 1))} className="w-10 h-10 bg-white dark:bg-navy-800 rounded-xl shadow-sm border border-slate-200 dark:border-navy-700 flex items-center justify-center font-bold text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">-</button>
+                  <button onClick={() => setRepeatCount(repeatCount + 1)} className="w-10 h-10 bg-white dark:bg-navy-800 rounded-xl shadow-sm border border-slate-200 dark:border-navy-700 flex items-center justify-center font-bold text-slate-400 dark:text-slate-500 active:scale-90 transition-transform">+</button>
                 </div>
               </div>
 
               <div className="flex gap-3">
                 <button 
                   onClick={() => setShowArabic(!showArabic)}
-                  className={`flex-1 flex flex-col items-center gap-2 py-6 rounded-[2rem] border transition-all duration-300 active:scale-95 ${showArabic ? 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500' : 'bg-gold-600 border-gold-500 text-white shadow-xl shadow-gold-200'}`}
+                  className={`flex-1 flex flex-col items-center gap-2 py-6 rounded-[2rem] border transition-all duration-300 active:scale-95 ${showArabic ? 'bg-white dark:bg-navy-800 border-slate-100 dark:border-navy-900 text-slate-400 dark:text-slate-500' : 'bg-gold-600 border-gold-500 text-white shadow-xl shadow-gold-200'}`}
                 >
                   <div className={showArabic ? 'text-slate-400 dark:text-slate-500' : 'text-white drop-shadow-[0_0_5px_rgba(255,255,255,0.6)]'}>
                     {showArabic ? (
@@ -237,7 +237,7 @@ const HafizlikModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   </div>
                   <span className="text-xs uppercase tracking-[0.2em]">{isAutoPlaying ? 'DURDUR' : 'AKILLI TEKRAR'}</span>
                   {isAutoPlaying && (
-                    <div className="ml-2 bg-white dark:bg-slate-900 text-rose-500 w-6 h-6 rounded-full flex items-center justify-center text-[10px]">
+                    <div className="ml-2 bg-white dark:bg-navy-800 text-rose-500 w-6 h-6 rounded-full flex items-center justify-center text-[10px]">
                       {currentRepeat + 1}
                     </div>
                   )}
@@ -248,7 +248,7 @@ const HafizlikModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <button 
                   disabled={currentAyahIdx === 0}
                   onClick={() => { setCurrentAyahIdx(prev => prev - 1); setCurrentRepeat(0); }}
-                  className="flex-1 py-5 bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 rounded-3xl font-black text-[10px] uppercase tracking-widest disabled:opacity-30 border border-slate-100 dark:border-slate-800"
+                  className="flex-1 py-5 bg-slate-50 dark:bg-navy-800 text-slate-400 dark:text-slate-500 rounded-3xl font-black text-[10px] uppercase tracking-widest disabled:opacity-30 border border-slate-100 dark:border-navy-900"
                 >
                   ÖNCEKİ
                 </button>
@@ -263,7 +263,7 @@ const HafizlikModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             </div>
 
             {/* Algorithm Info */}
-            <div className="p-6 bg-slate-50/50 dark:bg-slate-900/50 rounded-[2.2rem] border border-dashed border-slate-200 dark:border-slate-700 flex items-center gap-4">
+            <div className="p-6 bg-slate-50/50 dark:bg-navy-800/50 rounded-[2.2rem] border border-dashed border-slate-200 dark:border-navy-700 flex items-center gap-4">
                <div className="text-gold-500 flex-shrink-0">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="drop-shadow-[0_0_8px_rgba(201,166,104,0.8)]">
                     <circle cx="12" cy="12" r="10" />

@@ -49,7 +49,7 @@ const LiveStreams: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         <div className="flex items-center gap-4">
           <button 
             onClick={onBack}
-            className="w-10 h-10 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 shadow-sm active:scale-90 transition-transform"
+            className="w-10 h-10 bg-white dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 shadow-sm active:scale-90 transition-transform"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
@@ -78,7 +78,7 @@ const LiveStreams: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
 
         {/* Video Player Container */}
-        <div className="relative aspect-video w-full rounded-[2.5rem] overflow-hidden bg-slate-900 shadow-2xl ring-4 ring-white border border-slate-100 dark:border-slate-800 group">
+        <div className="relative aspect-video w-full rounded-[2.5rem] overflow-hidden bg-slate-900 shadow-2xl ring-4 ring-white border border-slate-100 dark:border-navy-900 group">
           <iframe 
             src={currentStream.embedUrl}
             title={currentStream.title}
@@ -91,14 +91,14 @@ const LiveStreams: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           {/* Overlay info that disappears on hover if possible, but keeping it simple for now */}
           <div className="absolute top-4 left-4 pointer-events-none">
              <div className="bg-rose-600 text-white px-3 py-1 rounded-full flex items-center gap-1.5 shadow-lg border border-rose-500">
-                <span className="w-2 h-2 bg-white dark:bg-slate-900 rounded-full animate-ping"></span>
+                <span className="w-2 h-2 bg-white dark:bg-navy-800 rounded-full animate-ping"></span>
                 <span className="text-[9px] font-black uppercase tracking-widest">CANLI</span>
              </div>
           </div>
         </div>
 
         {/* Stream Info Card */}
-        <div className="bg-white dark:bg-slate-900 rounded-[2.8rem] p-8 border border-slate-100 dark:border-slate-800 shadow-xl shadow-slate-900/5 space-y-6 relative overflow-hidden group">
+        <div className="bg-white dark:bg-navy-800 rounded-[2.8rem] p-8 border border-slate-100 dark:border-navy-900 shadow-xl shadow-slate-900/5 space-y-6 relative overflow-hidden group">
           <div className="absolute right-[-10%] top-[-5%] opacity-[0.03] text-[10rem] pointer-events-none rotate-12 transition-transform group-hover:scale-110">🕋</div>
           
           <div className="relative z-10 space-y-4">
@@ -107,7 +107,7 @@ const LiveStreams: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <p className="text-[10px] font-black text-gold-600 uppercase tracking-[0.4em]">{currentStream.subTitle}</p>
              </div>
              
-             <div className="h-px w-full bg-slate-50 dark:bg-slate-900"></div>
+             <div className="h-px w-full bg-slate-50 dark:bg-navy-800"></div>
              
              <p className="text-[14px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-[1.8] italic">
                "{currentStream.description}"

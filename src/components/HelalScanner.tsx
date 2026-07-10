@@ -115,13 +115,13 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-white dark:bg-slate-900 animate-in fade-in duration-500 overflow-hidden relative">
+    <div className="flex-1 flex flex-col h-full bg-white dark:bg-navy-800 animate-in fade-in duration-500 overflow-hidden relative">
       {/* Premium Header */}
       <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={result ? () => setResult(null) : onBack}
-            className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
+            className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
@@ -161,8 +161,8 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               TARAMAYI BAŞLAT
             </button>
             
-            <div className="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl p-6 flex items-center gap-4 max-w-[320px]">
-               <div className="w-10 h-10 bg-white dark:bg-slate-900 rounded-xl flex items-center justify-center text-xl shadow-sm">💎</div>
+            <div className="bg-slate-50 dark:bg-navy-800 border border-slate-100 dark:border-navy-900 rounded-3xl p-6 flex items-center gap-4 max-w-[320px]">
+               <div className="w-10 h-10 bg-white dark:bg-navy-800 rounded-xl flex items-center justify-center text-xl shadow-sm">💎</div>
                <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-tight uppercase tracking-wider">
                  Bu özellik Pro+ üyeleri için sınırsızdır.
                </p>
@@ -187,7 +187,7 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   <button onClick={stopCamera} className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-white text-sm">✕</button>
                   <button 
                     onClick={captureImage}
-                    className="w-20 h-20 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center p-1"
+                    className="w-20 h-20 bg-white dark:bg-navy-800 rounded-full flex items-center justify-center p-1"
                   >
                     <div className="w-full h-full border-4 border-black rounded-full bg-gold-500"></div>
                   </button>

@@ -43,7 +43,7 @@ const RuyaTabiri: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in slide-in-from-right duration-300 overflow-hidden relative">
       {/* Header */}
       <div className="px-6 pt-12 pb-6 flex items-center gap-5 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-30 border-b border-fuchsia-50/50">
-        <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
+        <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform">
            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
         </button>
         <div>
@@ -78,7 +78,7 @@ const RuyaTabiri: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 value={dreamText}
                 onChange={(e) => setDreamText(e.target.value)}
                 placeholder="Rüyanızı buraya yazın..."
-                className="w-full min-h-[200px] bg-slate-50 dark:bg-slate-900 border-2 border-transparent focus:border-fuchsia-100 focus:bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 outline-none font-bold text-sm text-slate-700 dark:text-slate-300 dark:text-slate-600 transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600 shadow-inner resize-none"
+                className="w-full min-h-[200px] bg-slate-50 dark:bg-navy-800 border-2 border-transparent focus:border-fuchsia-100 focus:bg-white dark:bg-navy-800 rounded-[2.5rem] p-8 outline-none font-bold text-sm text-slate-700 dark:text-slate-300 dark:text-slate-600 transition-all placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600 shadow-inner resize-none"
                 disabled={loading}
               ></textarea>
               <div className="absolute bottom-6 right-8 flex items-center gap-2">
@@ -129,7 +129,7 @@ const RuyaTabiri: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <h5 className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.45em]">RÜYA TABİRİ</h5>
              </div>
 
-             <div className="bg-white dark:bg-slate-900 rounded-[3rem] p-10 border border-slate-50 dark:border-slate-800 shadow-xl shadow-fuchsia-900/5 relative overflow-hidden group">
+             <div className="bg-white dark:bg-navy-800 rounded-[3rem] p-10 border border-slate-50 dark:border-navy-900 shadow-xl shadow-fuchsia-900/5 relative overflow-hidden group">
                 <div className="absolute right-[-5%] top-[-5%] p-8 opacity-[0.03] group-hover:scale-110 transition-transform text-[10rem] pointer-events-none rotate-6 text-fuchsia-900">✨</div>
                 
                 <div className="relative z-10 space-y-6">
@@ -140,7 +140,7 @@ const RuyaTabiri: React.FC<{ onBack: () => void }> = ({ onBack }) => {
              </div>
 
              <div className="bg-gold-50/50 p-8 rounded-[2.5rem] border border-dashed border-gold-200 flex items-start gap-5">
-                <div className="w-12 h-12 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center text-xl shadow-sm shrink-0">🛡️</div>
+                <div className="w-12 h-12 bg-white dark:bg-navy-800 rounded-2xl flex items-center justify-center text-xl shadow-sm shrink-0">🛡️</div>
                 <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed italic">
                   "Rüya anlatırken yalan söylemekten sakınınız. Görülen rüyalar müjdecidir veya birer uyarıdır. Hayra yormak esastır."
                 </p>

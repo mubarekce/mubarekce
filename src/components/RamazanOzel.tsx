@@ -168,7 +168,7 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
         <div className="relative z-10 space-y-7">
           <div className="flex flex-col items-center gap-3">
-            <div className="w-14 h-14 bg-white dark:bg-slate-900 rounded-3xl flex items-center justify-center text-3xl shadow-md mb-1 border border-white">{status.icon}</div>
+            <div className="w-14 h-14 bg-white dark:bg-navy-800 rounded-3xl flex items-center justify-center text-3xl shadow-md mb-1 border border-white">{status.icon}</div>
             <p className="text-gold-600 text-[10px] font-black uppercase tracking-[0.5em] leading-none">{status.label}</p>
           </div>
           <div className="flex justify-center items-center gap-5">
@@ -182,7 +182,7 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <p className="text-[11px] font-black text-navy-800 uppercase tracking-widest">HEDEF VAKİT: {status.target}</p>
             <button 
               onClick={() => setShowFullImsakiye(true)}
-              className="bg-white/60 hover:bg-white dark:bg-slate-900 text-gold-600 px-6 py-2.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em] shadow-sm border border-gold-100 transition-all active:scale-95 flex items-center gap-2"
+              className="bg-white/60 hover:bg-white dark:bg-navy-800 text-gold-600 px-6 py-2.5 rounded-full text-[9px] font-black uppercase tracking-[0.2em] shadow-sm border border-gold-100 transition-all active:scale-95 flex items-center gap-2"
             >
               TAM İMSAKİYE LİSTESİ <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </button>
@@ -198,9 +198,9 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           { label: 'ÖĞLE', time: imsakiye.ogle, icon: '🌤️', color: 'bg-gold-50 dark:bg-navy-950/20 text-gold-500' },
           { label: 'İKİNDİ', time: imsakiye.ikindi, icon: '🌥️', color: 'bg-amber-50 dark:bg-amber-950/20 text-amber-500' },
           { label: 'AKŞAM', time: imsakiye.aksam, icon: '🌙', color: 'bg-gold-50 dark:bg-navy-950/20 text-gold-500' },
-          { label: 'YATSI', time: imsakiye.yatsi, icon: '✨', color: 'bg-slate-50 dark:bg-slate-900 text-slate-500 dark:text-slate-400 dark:text-slate-500' },
+          { label: 'YATSI', time: imsakiye.yatsi, icon: '✨', color: 'bg-slate-50 dark:bg-navy-800 text-slate-500 dark:text-slate-400 dark:text-slate-500' },
         ].map((item, idx) => (
-          <div key={idx} className="bg-white dark:bg-slate-900 p-5 rounded-[2.2rem] border border-slate-50 dark:border-slate-800 shadow-sm flex items-center justify-between group active:scale-95 cursor-pointer">
+          <div key={idx} className="bg-white dark:bg-navy-800 p-5 rounded-[2.2rem] border border-slate-50 dark:border-navy-900 shadow-sm flex items-center justify-between group active:scale-95 cursor-pointer">
             <div className="space-y-1">
               <p className="text-[8px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest group-hover:text-gold-400">{item.label}</p>
               <p className="text-xl font-black text-slate-900 dark:text-white tabular-nums tracking-tight">{item.time}</p>
@@ -216,7 +216,7 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           {aiLoading ? <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin"></div> : <><span>✨</span> AI REHBERE SOR</>}
         </button>
         {aiResponse && (
-          <div className="bg-white dark:bg-slate-900 p-8 rounded-[3rem] border border-gold-100 shadow-2xl shadow-navy-900/10 animate-in slide-in-from-top-4 duration-700">
+          <div className="bg-white dark:bg-navy-800 p-8 rounded-[3rem] border border-gold-100 shadow-2xl shadow-navy-900/10 animate-in slide-in-from-top-4 duration-700">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-1.5 h-1.5 bg-gold-500 rounded-full animate-pulse"></div>
               <p className="text-[10px] font-black text-gold-600 uppercase tracking-widest">GÜNÜN MANEVİ NOTU</p>
@@ -236,12 +236,12 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       </div>
       
       {RAMADAN_PRAYERS.map((prayer) => (
-        <div key={prayer.id} className="bg-white dark:bg-slate-900 p-8 rounded-[3rem] border border-slate-50 dark:border-slate-800 shadow-xl shadow-slate-900/5 space-y-6 relative overflow-hidden group">
+        <div key={prayer.id} className="bg-white dark:bg-navy-800 p-8 rounded-[3rem] border border-slate-50 dark:border-navy-900 shadow-xl shadow-slate-900/5 space-y-6 relative overflow-hidden group">
           <div className="absolute right-[-5%] top-[-5%] opacity-[0.03] text-[8rem] group-hover:scale-110 transition-transform pointer-events-none">🤲</div>
           <div className="relative z-10 space-y-5">
             <div className="inline-block px-4 py-1.5 bg-gold-50 dark:bg-navy-950/20 text-gold-600 rounded-full text-[9px] font-black uppercase tracking-widest border border-gold-100">{prayer.title}</div>
             <p className="arabic-text text-3xl text-right leading-[2.2] text-slate-900 dark:text-white" dir="rtl">{prayer.arabic}</p>
-            <div className="h-px w-full bg-slate-50 dark:bg-slate-900"></div>
+            <div className="h-px w-full bg-slate-50 dark:bg-navy-800"></div>
             <p className="text-[13px] font-black text-gold-700 tracking-tight leading-relaxed italic">"{prayer.translation}"</p>
             <p className="text-[14px] font-medium text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed">{prayer.meaning}</p>
           </div>
@@ -253,7 +253,7 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   const renderAmel = () => (
     <div className="space-y-10 animate-in fade-in slide-in-from-bottom-4 duration-500">
       {/* Daily Checklist Integrated */}
-      <div className="bg-white dark:bg-slate-900 rounded-[3rem] p-8 border border-slate-50 dark:border-slate-800 shadow-xl shadow-slate-900/5 space-y-6">
+      <div className="bg-white dark:bg-navy-800 rounded-[3rem] p-8 border border-slate-50 dark:border-navy-900 shadow-xl shadow-slate-900/5 space-y-6">
         <div className="flex items-center justify-between mb-2">
           <div className="flex items-center gap-3">
             <div className="w-1.5 h-1.5 bg-gold-500 rounded-full animate-pulse"></div>
@@ -263,12 +263,12 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
         <div className="space-y-3">
           {dailyTasks.map((task) => (
-            <div key={task.id} onClick={() => toggleTask(task.id)} className={`flex items-center justify-between p-5 rounded-[1.8rem] transition-all duration-500 cursor-pointer border ${task.completed ? 'bg-gold-50/50 border-gold-100' : 'bg-slate-50/30 border-slate-100 dark:border-slate-800 hover:border-gold-100'}`}>
+            <div key={task.id} onClick={() => toggleTask(task.id)} className={`flex items-center justify-between p-5 rounded-[1.8rem] transition-all duration-500 cursor-pointer border ${task.completed ? 'bg-gold-50/50 border-gold-100' : 'bg-slate-50/30 border-slate-100 dark:border-navy-900 hover:border-gold-100'}`}>
               <div className="flex items-center gap-4">
                 <span className={`text-xl transition-transform ${task.completed ? 'scale-110' : 'grayscale opacity-40'}`}>{task.icon}</span>
                 <span className={`text-[13px] font-black uppercase tracking-tight ${task.completed ? 'text-navy-900' : 'text-slate-400 dark:text-slate-500'}`}>{task.label}</span>
               </div>
-              <div className={`w-8 h-8 rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${task.completed ? 'bg-gold-500 border-gold-500 text-white shadow-lg' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800'}`}>
+              <div className={`w-8 h-8 rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${task.completed ? 'bg-gold-500 border-gold-500 text-white shadow-lg' : 'bg-white dark:bg-navy-800 border-slate-100 dark:border-navy-900'}`}>
                 {task.completed && <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><polyline points="20 6 9 17 4 12"></polyline></svg>}
               </div>
             </div>
@@ -286,7 +286,7 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             </div>
             <div className="grid grid-cols-1 gap-4">
               {group.items.map((item, i) => (
-                <div key={i} className="bg-white dark:bg-slate-900 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 flex items-start gap-5 shadow-sm group hover:border-gold-100 transition-all">
+                <div key={i} className="bg-white dark:bg-navy-800 p-6 rounded-[2.5rem] border border-slate-100 dark:border-navy-900 flex items-start gap-5 shadow-sm group hover:border-gold-100 transition-all">
                   <div className="w-14 h-14 bg-gold-50 dark:bg-navy-950/20 rounded-2xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-inner border border-gold-100/50">{item.icon}</div>
                   <div className="space-y-1 pt-1">
                     <h5 className="text-[15px] font-black text-slate-900 dark:text-white tracking-tight leading-none">{item.title}</h5>
@@ -306,9 +306,9 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-gold-100/30 via-gold-50/10 to-transparent pointer-events-none -z-10"></div>
       
       {/* Header */}
-      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl sticky top-0 z-50 border-b border-slate-100/50">
+      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/70 dark:bg-navy-900/70 backdrop-blur-xl sticky top-0 z-50 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
-          <button onClick={onBack} className="w-10 h-10 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 shadow-sm active:scale-90 transition-transform text-gold-600">
+          <button onClick={onBack} className="w-10 h-10 bg-white dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 shadow-sm active:scale-90 transition-transform text-gold-600">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div className="space-y-0.5">
@@ -342,12 +342,12 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Full Imsakiye Modal */}
       {showFullImsakiye && (
-        <div className="fixed inset-0 z-[600] bg-white dark:bg-slate-900 animate-in slide-in-from-bottom duration-500 flex flex-col overflow-hidden">
-           <div className="px-6 pt-12 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-slate-800 sticky top-0 bg-white dark:bg-slate-900 z-10">
+        <div className="fixed inset-0 z-[600] bg-white dark:bg-navy-800 animate-in slide-in-from-bottom duration-500 flex flex-col overflow-hidden">
+           <div className="px-6 pt-12 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-navy-900 sticky top-0 bg-white dark:bg-navy-800 z-10">
               <div className="flex items-center gap-4">
                  <button 
                    onClick={() => setShowFullImsakiye(false)}
-                   className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
+                   className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform"
                  >
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
                  </button>
@@ -379,7 +379,7 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                        {FULL_IMSAKIYE.map((day) => (
                           <tr 
                             key={day.day} 
-                            className={`transition-all rounded-2xl ${day.day === fastingDays + 1 ? 'bg-gold-600 text-white shadow-xl scale-[1.02] relative z-20' : 'bg-slate-50/50 dark:bg-slate-900/50 hover:bg-gold-50 dark:bg-navy-950/20'}`}
+                            className={`transition-all rounded-2xl ${day.day === fastingDays + 1 ? 'bg-gold-600 text-white shadow-xl scale-[1.02] relative z-20' : 'bg-slate-50/50 dark:bg-navy-800/50 hover:bg-gold-50 dark:bg-navy-950/20'}`}
                           >
                              <td className="px-4 py-4 rounded-l-2xl">
                                 <p className={`text-[10px] font-black ${day.day === fastingDays + 1 ? 'text-white' : 'text-slate-900 dark:text-white'}`}>{day.day}. Gün</p>
@@ -397,7 +397,7 @@ const RamazanOzel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               </div>
            </div>
            
-           <div className="p-8 bg-slate-50 dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 text-center">
+           <div className="p-8 bg-slate-50 dark:bg-navy-800 border-t border-slate-100 dark:border-navy-900 text-center">
               <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 leading-relaxed italic">
                  "Vakitler Diyanet İşleri Başkanlığı verileriyle uyumludur."
               </p>

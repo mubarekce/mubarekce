@@ -71,7 +71,7 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         <div className="flex items-center gap-4">
           <button 
             onClick={onBack}
-            className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
+            className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
@@ -120,7 +120,7 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
            
            <div className="grid grid-cols-1 gap-3">
               {assets.map(asset => (
-                <div key={asset.id} className="bg-white dark:bg-slate-900 p-5 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm flex items-center justify-between group focus-within:border-gold-200 transition-all">
+                <div key={asset.id} className="bg-white dark:bg-navy-800 p-5 rounded-[2rem] border border-slate-100 dark:border-navy-900 shadow-sm flex items-center justify-between group focus-within:border-gold-200 transition-all">
                    <div className="space-y-1">
                       <p className="text-[10px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest">{asset.name}</p>
                       <div className="flex items-center gap-2">
@@ -163,7 +163,7 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
            </button>
 
            {aiResponse && (
-             <div className="bg-white dark:bg-slate-900 p-7 rounded-[2.5rem] border border-gold-100 shadow-lg animate-in slide-in-from-top-4 duration-500">
+             <div className="bg-white dark:bg-navy-800 p-7 rounded-[2.5rem] border border-gold-100 shadow-lg animate-in slide-in-from-top-4 duration-500">
                 <div className="flex items-center gap-2 mb-4">
                    <div className="w-1.5 h-1.5 bg-gold-500 rounded-full animate-pulse"></div>
                    <p className="text-[9px] font-black text-gold-600 uppercase tracking-widest">AI REHBER NOTU</p>
@@ -176,7 +176,7 @@ const ZekatHesapla: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
 
         {/* Information Table */}
-        <div className="bg-slate-50 dark:bg-slate-900 p-6 rounded-[2rem] border border-dashed border-slate-200 dark:border-slate-700 space-y-4">
+        <div className="bg-slate-50 dark:bg-navy-800 p-6 rounded-[2rem] border border-dashed border-slate-200 dark:border-navy-700 space-y-4">
            <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest text-center">GÜNCEL REFERANS VERİLERİ</p>
            <div className="grid grid-cols-2 gap-4">
               <div className="text-center">

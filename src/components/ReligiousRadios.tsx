@@ -85,7 +85,7 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         <div className="flex items-center gap-4">
           <button 
             onClick={onBack}
-            className="w-10 h-10 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 shadow-sm active:scale-90 transition-transform"
+            className="w-10 h-10 bg-white dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 shadow-sm active:scale-90 transition-transform"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
@@ -116,7 +116,7 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <div 
               key={station.id}
               onClick={() => togglePlay(station)}
-              className={`p-5 rounded-[2.2rem] border flex items-center justify-between transition-all duration-500 cursor-pointer active:scale-[0.98] group ${playingId === station.id ? 'bg-pink-50/50 border-pink-200 shadow-md ring-2 ring-pink-500/10' : 'bg-white dark:bg-slate-900 border-slate-50 dark:border-slate-800 hover:border-pink-100 hover:bg-slate-50/30'}`}
+              className={`p-5 rounded-[2.2rem] border flex items-center justify-between transition-all duration-500 cursor-pointer active:scale-[0.98] group ${playingId === station.id ? 'bg-pink-50/50 border-pink-200 shadow-md ring-2 ring-pink-500/10' : 'bg-white dark:bg-navy-800 border-slate-50 dark:border-navy-900 hover:border-pink-100 hover:bg-slate-50/30'}`}
             >
               <div className="flex items-center gap-5">
                  <div className={`w-14 h-14 rounded-3xl flex items-center justify-center text-2xl transition-all duration-500 shadow-inner border border-white/50 ${station.color} text-white group-hover:scale-110`}>
@@ -132,7 +132,7 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                  {playingId === station.id && loading && (
                     <div className="w-5 h-5 border-2 border-pink-200 border-t-pink-600 rounded-full animate-spin"></div>
                  )}
-                 <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${playingId === station.id ? 'bg-pink-600 text-white shadow-lg rotate-[360deg]' : 'bg-slate-50 dark:bg-slate-900 text-slate-300 dark:text-slate-600'}`}>
+                 <div className={`w-10 h-10 rounded-full flex items-center justify-center transition-all ${playingId === station.id ? 'bg-pink-600 text-white shadow-lg rotate-[360deg]' : 'bg-slate-50 dark:bg-navy-800 text-slate-300 dark:text-slate-600'}`}>
                     {playingId === station.id ? (
                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
                     ) : (
@@ -145,7 +145,7 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
 
         {/* Tip Card */}
-        <div className="bg-white dark:bg-slate-900 border border-dashed border-pink-200 rounded-[2.5rem] p-8 flex items-start gap-5">
+        <div className="bg-white dark:bg-navy-800 border border-dashed border-pink-200 rounded-[2.5rem] p-8 flex items-start gap-5">
            <div className="w-12 h-12 bg-pink-50 dark:bg-pink-950/20 rounded-2xl flex items-center justify-center text-2xl shadow-sm shrink-0 border border-pink-100">💡</div>
            <div className="space-y-1">
               <h6 className="text-[10px] font-black text-pink-600 uppercase tracking-widest">REHBER NOTU</h6>
@@ -159,7 +159,7 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Floating Player Bar */}
       {playingId && currentStation && (
-        <div className="fixed bottom-[110px] left-5 right-5 z-[50] bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl rounded-[2.8rem] p-4.5 flex items-center justify-between shadow-[0_20px_50px_rgba(236,72,153,0.15)] border border-pink-100 animate-in slide-in-from-bottom-10 duration-500">
+        <div className="fixed bottom-[110px] left-5 right-5 z-[50] bg-white/95 dark:bg-navy-900/95 backdrop-blur-xl rounded-[2.8rem] p-4.5 flex items-center justify-between shadow-[0_20px_50px_rgba(236,72,153,0.15)] border border-pink-100 animate-in slide-in-from-bottom-10 duration-500">
            <div className="flex items-center gap-4 ml-2">
               <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-xl animate-pulse shadow-sm border border-white/50 ${currentStation.color} text-white`}>
                  {currentStation.logo}

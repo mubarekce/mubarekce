@@ -229,7 +229,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
            <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-none uppercase">Bahçem</h2>
            <p className="text-slate-400 text-[10px] font-black uppercase tracking-[0.3em]">Manevi Tekmil Defteri</p>
          </div>
-         <button onClick={onUpdateLocation} className="w-12 h-12 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center text-xl shadow-sm border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">📍</button>
+         <button onClick={onUpdateLocation} className="w-12 h-12 bg-white dark:bg-navy-800 rounded-2xl flex items-center justify-center text-xl shadow-sm border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform">📍</button>
       </div>
 
       <div className="bg-slate-100/60 p-1.5 rounded-[2.2rem] flex border border-slate-200/50 shadow-inner">
@@ -255,7 +255,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
 
       {mainTab === 'garden' ? (
         <div className="space-y-10 animate-in fade-in duration-700">
-          <div className="bg-white dark:bg-slate-900 p-8 rounded-[3rem] border border-slate-100 dark:border-slate-800 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] space-y-10 relative overflow-hidden group">
+          <div className="bg-white dark:bg-navy-800 p-8 rounded-[3rem] border border-slate-100 dark:border-navy-900 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] space-y-10 relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-8 opacity-[0.03] text-9xl group-hover:scale-110 transition-transform pointer-events-none rotate-12">📈</div>
             
             <div className="flex justify-between items-start relative z-10">
@@ -271,14 +271,14 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
 
             <div className="grid grid-cols-1 gap-10 relative z-10">
               <div className="space-y-6">
-                <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em] border-b border-slate-50 dark:border-slate-800 pb-2">GÜNLÜK AMEL</p>
+                <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em] border-b border-slate-50 dark:border-navy-900 pb-2">GÜNLÜK AMEL</p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-slate-500">
                       <span>Vakit Namazları</span>
                       <span className="text-gold-600">{(Object.values(prayerStatuses) as PrayerStatus[]).filter(s => s !== 'not_yet' && s !== 'missed').length} / 5</span>
                     </div>
-                    <div className="h-3 bg-slate-50 dark:bg-slate-800/60 rounded-full overflow-hidden border border-slate-100 dark:border-slate-800 p-0.5">
+                    <div className="h-3 bg-slate-50 dark:bg-navy-900/60 rounded-full overflow-hidden border border-slate-100 dark:border-navy-900 p-0.5">
                       <div 
                         className="h-full bg-gold-500 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(201,166,104,0.3)]" 
                         style={{ width: `${((Object.values(prayerStatuses) as PrayerStatus[]).filter(s => s !== 'not_yet' && s !== 'missed').length / 5) * 100}%` }}
@@ -291,7 +291,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                       <span>Alışkanlıklar</span>
                       <span className="text-gold-600">{completedHabits.length} / {allHabits.length}</span>
                     </div>
-                    <div className="h-3 bg-slate-50 dark:bg-slate-800/60 rounded-full overflow-hidden border border-slate-100 dark:border-slate-800 p-0.5">
+                    <div className="h-3 bg-slate-50 dark:bg-navy-900/60 rounded-full overflow-hidden border border-slate-100 dark:border-navy-900 p-0.5">
                       <div 
                         className="h-full bg-gold-500 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(201,166,104,0.3)]" 
                         style={{ width: `${(completedHabits.length / allHabits.length) * 100}%` }}
@@ -302,7 +302,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
               </div>
 
               <div className="space-y-8">
-                <div className="flex items-center justify-between border-b border-slate-50 dark:border-slate-800 pb-2">
+                <div className="flex items-center justify-between border-b border-slate-50 dark:border-navy-900 pb-2">
                    <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em]">BORÇ YÜKÜ</p>
                 </div>
                 
@@ -313,7 +313,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                        <span className="text-[11px] font-black text-orange-600 tabular-nums">{totalKaza} VAKİT</span>
                     </div>
                   </div>
-                  <div className="h-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-full overflow-hidden border border-slate-100 dark:border-slate-800 shadow-inner p-0.5">
+                  <div className="h-3.5 bg-slate-50 dark:bg-navy-900/60 rounded-full overflow-hidden border border-slate-100 dark:border-navy-900 shadow-inner p-0.5">
                     <div 
                       className={`h-full transition-all duration-1000 rounded-full ${totalKaza > 100 ? 'bg-rose-500' : 'bg-orange-500'} shadow-[0_0_10px_rgba(249,115,22,0.3)]`} 
                       style={{ width: `${Math.min(100, (totalKaza / 500) * 100)}%` }} 
@@ -326,7 +326,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                     <span>ORUÇ BORÇLARIM</span>
                     <span className={totalOruc > 10 ? "text-rose-500" : "text-gold-500"}>{totalOruc} GÜN</span>
                   </div>
-                  <div className="h-3.5 bg-slate-50 dark:bg-slate-800/60 rounded-full overflow-hidden border border-slate-100 dark:border-slate-800 shadow-inner p-0.5">
+                  <div className="h-3.5 bg-slate-50 dark:bg-navy-900/60 rounded-full overflow-hidden border border-slate-100 dark:border-navy-900 shadow-inner p-0.5">
                     <div 
                       className={`h-full transition-all duration-1000 rounded-full ${totalOruc > 30 ? 'bg-rose-600' : 'bg-gold-500'} shadow-[0_0_10px_rgba(201,166,104,0.3)]`} 
                       style={{ width: `${Math.min(100, (totalOruc / 60) * 100)}%` }}
@@ -364,10 +364,10 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
             {prayers.map((p) => {
               const status = prayerStatuses[p.name] || 'not_yet';
               return (
-                <div key={p.name} className="bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-50 dark:border-slate-800 p-6 shadow-sm space-y-5 transition-all hover:border-gold-100">
+                <div key={p.name} className="bg-white dark:bg-navy-800 rounded-[2.5rem] border border-slate-50 dark:border-navy-900 p-6 shadow-sm space-y-5 transition-all hover:border-gold-100">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-slate-50 dark:bg-slate-800/60 rounded-2xl flex items-center justify-center text-2xl shadow-inner border border-slate-100 dark:border-slate-800">{p.icon}</div>
+                      <div className="w-12 h-12 bg-slate-50 dark:bg-navy-900/60 rounded-2xl flex items-center justify-center text-2xl shadow-inner border border-slate-100 dark:border-navy-900">{p.icon}</div>
                       <div>
                         <p className="text-[15px] font-black text-slate-900 dark:text-white tracking-tight">{p.name} Namazı</p>
                         <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{prayerData?.times[p.key as keyof PrayerTimes] || '--:--'}</p>
@@ -378,17 +378,17 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                       status === 'done' ? 'bg-gold-100 text-gold-700' :
                       status === 'late' ? 'bg-orange-100 text-orange-700' :
                       status === 'missed' ? 'bg-rose-100 text-rose-700' :
-                      'bg-slate-50 dark:bg-slate-800/60 text-slate-300 border border-slate-100 dark:border-slate-800'
+                      'bg-slate-50 dark:bg-navy-900/60 text-slate-300 border border-slate-100 dark:border-navy-900'
                     }`}>
                       {status === 'congregation' ? 'CEMAAT' : status === 'done' ? 'TEK' : status === 'late' ? 'GEÇ' : status === 'missed' ? 'KAZA' : 'BEKLİYOR'}
                     </div>
                   </div>
                   
                   <div className="grid grid-cols-4 gap-2">
-                     <button onClick={() => updatePrayerStatus(p.name, 'done')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'done' ? 'bg-gold-500 border-gold-400 text-white shadow-md' : 'bg-slate-50 dark:bg-slate-800/60 border-slate-50 dark:border-slate-800 text-slate-400'}`}>TEK</button>
-                     <button onClick={() => updatePrayerStatus(p.name, 'congregation')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'congregation' ? 'bg-gold-600 border-gold-500 text-white shadow-md' : 'bg-slate-50 dark:bg-slate-800/60 border-slate-50 dark:border-slate-800 text-slate-400'}`}>CEMAAT</button>
-                     <button onClick={() => updatePrayerStatus(p.name, 'late')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'late' ? 'bg-orange-500 border-orange-400 text-white shadow-md' : 'bg-slate-50 dark:bg-slate-800/60 border-slate-50 dark:border-slate-800 text-slate-400'}`}>GEÇ</button>
-                     <button onClick={() => updatePrayerStatus(p.name, 'missed')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'missed' ? 'bg-rose-500 border-rose-400 text-white shadow-md' : 'bg-slate-50 dark:bg-slate-800/60 border-slate-50 dark:border-slate-800 text-slate-400'}`}>KAZA</button>
+                     <button onClick={() => updatePrayerStatus(p.name, 'done')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'done' ? 'bg-gold-500 border-gold-400 text-white shadow-md' : 'bg-slate-50 dark:bg-navy-900/60 border-slate-50 dark:border-navy-900 text-slate-400'}`}>TEK</button>
+                     <button onClick={() => updatePrayerStatus(p.name, 'congregation')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'congregation' ? 'bg-gold-600 border-gold-500 text-white shadow-md' : 'bg-slate-50 dark:bg-navy-900/60 border-slate-50 dark:border-navy-900 text-slate-400'}`}>CEMAAT</button>
+                     <button onClick={() => updatePrayerStatus(p.name, 'late')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'late' ? 'bg-orange-500 border-orange-400 text-white shadow-md' : 'bg-slate-50 dark:bg-navy-900/60 border-slate-50 dark:border-navy-900 text-slate-400'}`}>GEÇ</button>
+                     <button onClick={() => updatePrayerStatus(p.name, 'missed')} className={`py-3.5 rounded-2xl text-[9px] font-black transition-all border ${status === 'missed' ? 'bg-rose-500 border-rose-400 text-white shadow-md' : 'bg-slate-50 dark:bg-navy-900/60 border-slate-50 dark:border-navy-900 text-slate-400'}`}>KAZA</button>
                   </div>
                 </div>
               );
@@ -421,10 +421,10 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                   <div 
                     key={h.id}
                     onClick={() => toggleHabit(h.id)}
-                    className={`p-6 rounded-[2.5rem] border flex items-center justify-between transition-all cursor-pointer group active:scale-[0.98] ${isDone ? 'bg-gold-50/50 border-gold-100' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}`}
+                    className={`p-6 rounded-[2.5rem] border flex items-center justify-between transition-all cursor-pointer group active:scale-[0.98] ${isDone ? 'bg-gold-50/50 border-gold-100' : 'bg-white dark:bg-navy-800 border-slate-100 dark:border-navy-900 shadow-sm'}`}
                   >
                     <div className="flex items-center gap-5 flex-1 overflow-hidden">
-                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl transition-all ${isDone ? 'bg-white dark:bg-slate-900 shadow-sm' : 'bg-slate-50 dark:bg-slate-800/60 grayscale opacity-40'}`}>
+                      <div className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl transition-all ${isDone ? 'bg-white dark:bg-navy-800 shadow-sm' : 'bg-slate-50 dark:bg-navy-900/60 grayscale opacity-40'}`}>
                         {h.icon}
                       </div>
                       <div className="min-w-0 flex-1">
@@ -442,7 +442,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                         <p className="text-[9px] font-bold text-slate-300 uppercase tracking-widest">{isCustom ? 'ÖZEL HEDEF' : h.category === 'ilm' ? 'İlim Tahsili' : h.category === 'ihsan' ? 'Manevi İhsan' : h.category === 'zikir' ? 'Zikr-i Daim' : 'Sosyal Sorumluluk'}</p>
                       </div>
                     </div>
-                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${isDone ? 'bg-gold-500 border-gold-500 text-white shadow-lg' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-200'}`}>
+                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center transition-all duration-500 border-2 ${isDone ? 'bg-gold-500 border-gold-500 text-white shadow-lg' : 'bg-white dark:bg-navy-800 border-slate-100 dark:border-navy-900 text-slate-200'}`}>
                       {isDone ? (
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><polyline points="20 6 9 17 4 12"/></svg>
                       ) : (
@@ -454,7 +454,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
               })}
             </div>
           ) : (
-            <div className="bg-white dark:bg-slate-900 p-8 rounded-[3rem] border border-slate-100 dark:border-slate-800 shadow-xl shadow-slate-900/5 space-y-8 animate-in slide-in-from-bottom-4 duration-500">
+            <div className="bg-white dark:bg-navy-800 p-8 rounded-[3rem] border border-slate-100 dark:border-navy-900 shadow-xl shadow-slate-900/5 space-y-8 animate-in slide-in-from-bottom-4 duration-500">
                <div className="text-center space-y-1">
                   <h4 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Yeni Hedef Oluştur</h4>
                   <p className="text-[10px] font-black text-gold-500 uppercase tracking-widest">Kişisel Alışkanlık Ekle</p>
@@ -468,7 +468,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                        value={newHabitLabel}
                        onChange={(e) => setNewHabitLabel(e.target.value)}
                        placeholder="Örn: 1 Sayfa Tefsir" 
-                       className="w-full bg-slate-50 dark:bg-slate-800/60 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white placeholder:text-slate-300 shadow-inner focus:ring-2 focus:ring-gold-100 transition-all" 
+                       className="w-full bg-slate-50 dark:bg-navy-900/60 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white placeholder:text-slate-300 shadow-inner focus:ring-2 focus:ring-gold-100 transition-all" 
                      />
                   </div>
 
@@ -479,7 +479,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
                           <button 
                             key={icon}
                             onClick={() => setNewHabitIcon(icon)}
-                            className={`aspect-square rounded-xl flex items-center justify-center text-xl transition-all border ${newHabitIcon === icon ? 'bg-gold-600 border-gold-500 shadow-lg scale-110' : 'bg-slate-50 dark:bg-slate-800/60 border-slate-100 dark:border-slate-800 hover:bg-slate-100'}`}
+                            className={`aspect-square rounded-xl flex items-center justify-center text-xl transition-all border ${newHabitIcon === icon ? 'bg-gold-600 border-gold-500 shadow-lg scale-110' : 'bg-slate-50 dark:bg-navy-900/60 border-slate-100 dark:border-navy-900 hover:bg-slate-100'}`}
                           >
                             {icon}
                           </button>
@@ -514,7 +514,7 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
           </div>
 
           {worshipLogs.length === 0 ? (
-            <div className="bg-white dark:bg-slate-900 p-12 rounded-[3rem] border border-slate-100 dark:border-slate-800 border-dashed text-center space-y-4">
+            <div className="bg-white dark:bg-navy-800 p-12 rounded-[3rem] border border-slate-100 dark:border-navy-900 border-dashed text-center space-y-4">
                <div className="text-4xl opacity-20">📜</div>
                <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.3em] leading-relaxed">Henüz bir ibadet kaydı bulunmuyor.<br/>İbadetlerinizi yaptıkça burada listelenecektir.</p>
             </div>
@@ -522,9 +522,9 @@ const Worship: React.FC<WorshipProps> = ({ location, prayerData, onUpdateLocatio
             Object.keys(groupedLogs).map((date) => (
               <div key={date} className="space-y-2">
                 <p className="text-[10px] font-black text-slate-300 uppercase tracking-[0.4em] ml-2 mb-2">{date}</p>
-                <div className="divide-y divide-slate-50 border border-slate-100 dark:border-slate-800 rounded-3xl bg-white dark:bg-slate-900 overflow-hidden shadow-sm">
+                <div className="divide-y divide-slate-50 border border-slate-100 dark:border-navy-900 rounded-3xl bg-white dark:bg-navy-800 overflow-hidden shadow-sm">
                   {groupedLogs[date].map(log => (
-                    <div key={log.id} className="p-4 flex items-center justify-between group active:bg-slate-50 dark:bg-slate-800/60 transition-colors">
+                    <div key={log.id} className="p-4 flex items-center justify-between group active:bg-slate-50 dark:bg-navy-900/60 transition-colors">
                        <div className="flex items-center gap-4">
                           <div className={`w-10 h-10 rounded-xl flex items-center justify-center text-lg shadow-inner border border-slate-50/50 ${log.type === 'prayer' ? 'bg-gold-50 text-gold-600' : 'bg-gold-50 text-gold-600'}`}>
                             {log.type === 'prayer' ? '🕌' : '✨'}

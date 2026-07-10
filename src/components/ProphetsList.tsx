@@ -82,11 +82,11 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-gold-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Header */}
-      <div className="px-6 pt-12 pb-4 flex items-center justify-between bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl sticky top-0 z-40 border-b border-gold-100/50">
+      <div className="px-6 pt-12 pb-4 flex items-center justify-between bg-white/70 dark:bg-navy-900/70 backdrop-blur-xl sticky top-0 z-40 border-b border-gold-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={selectedProphet ? () => { setSelectedProphet(null); setAiResponse(''); setAiQuestion(''); } : onBack} 
-            className="w-10 h-10 bg-white dark:bg-slate-900 rounded-xl flex items-center justify-center shadow-sm border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform text-gold-700"
+            className="w-10 h-10 bg-white dark:bg-navy-800 rounded-xl flex items-center justify-center shadow-sm border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform text-gold-700"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
@@ -131,7 +131,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 placeholder="Peygamber ara..."
-                className="w-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 focus:bg-white dark:bg-slate-900 focus:border-gold-200 rounded-[1.4rem] pl-12 pr-4 py-3.5 outline-none font-bold text-sm text-slate-700 dark:text-slate-300 dark:text-slate-600 shadow-sm transition-all"
+                className="w-full bg-white dark:bg-navy-800 border border-slate-100 dark:border-navy-900 focus:bg-white dark:bg-navy-800 focus:border-gold-200 rounded-[1.4rem] pl-12 pr-4 py-3.5 outline-none font-bold text-sm text-slate-700 dark:text-slate-300 dark:text-slate-600 shadow-sm transition-all"
               />
               <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gold-400">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -150,7 +150,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   <div 
                     key={p.id}
                     onClick={() => setSelectedProphet(p)}
-                    className="p-4 bg-white dark:bg-slate-900 rounded-3xl border border-slate-100 dark:border-slate-800 flex items-center justify-between hover:bg-gold-50/50 hover:border-gold-100 transition-all cursor-pointer group active:scale-[0.98] shadow-sm"
+                    className="p-4 bg-white dark:bg-navy-800 rounded-3xl border border-slate-100 dark:border-navy-900 flex items-center justify-between hover:bg-gold-50/50 hover:border-gold-100 transition-all cursor-pointer group active:scale-[0.98] shadow-sm"
                   >
                     <div className="flex items-center gap-4">
                        <div className="w-11 h-11 rounded-2xl bg-gold-50 dark:bg-navy-950/20 text-gold-600 flex items-center justify-center text-lg font-serif font-black shadow-inner border border-gold-100/50 group-hover:scale-110 transition-transform">
@@ -207,7 +207,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
              <div className="min-h-[300px]">
                 {activeTab === 'info' && (
                   <div className="space-y-6 animate-in fade-in slide-in-from-bottom-2">
-                     <div className="bg-white dark:bg-slate-900 p-7 rounded-[2.2rem] border border-slate-100 dark:border-slate-800 shadow-sm leading-relaxed">
+                     <div className="bg-white dark:bg-navy-800 p-7 rounded-[2.2rem] border border-slate-100 dark:border-navy-900 shadow-sm leading-relaxed">
                         <div className="flex items-center gap-2 mb-4">
                            <div className="w-1 h-1 bg-gold-400 rounded-full"></div>
                            <h5 className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">KISSASI</h5>
@@ -230,7 +230,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 {activeTab === 'miracles' && (
                   <div className="space-y-3 animate-in fade-in slide-in-from-bottom-2">
                      {selectedProphet.miracles.map((m, i) => (
-                       <div key={i} className="bg-white dark:bg-slate-900 p-5 rounded-3xl border border-slate-100 dark:border-slate-800 flex items-center gap-4 transition-all shadow-sm">
+                       <div key={i} className="bg-white dark:bg-navy-800 p-5 rounded-3xl border border-slate-100 dark:border-navy-900 flex items-center gap-4 transition-all shadow-sm">
                           <div className="w-10 h-10 bg-gold-50 dark:bg-navy-950/20 text-gold-500 rounded-2xl flex items-center justify-center text-lg shadow-inner">✨</div>
                           <p className="text-[14px] font-black text-slate-700 dark:text-slate-300 dark:text-slate-600 tracking-tight">{m}</p>
                        </div>
@@ -242,7 +242,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   <div className="space-y-3 animate-in fade-in slide-in-from-bottom-2">
                      {selectedProphet.lessons.map((l, i) => (
                        <div key={i} className="bg-gold-50/30 p-5 rounded-3xl border border-gold-100 flex items-start gap-4">
-                          <div className="w-7 h-7 rounded-lg bg-white dark:bg-slate-900 flex items-center justify-center text-[10px] font-black text-gold-600 shadow-sm shrink-0 border border-gold-100">{i+1}</div>
+                          <div className="w-7 h-7 rounded-lg bg-white dark:bg-navy-800 flex items-center justify-center text-[10px] font-black text-gold-600 shadow-sm shrink-0 border border-gold-100">{i+1}</div>
                           <p className="text-[13.5px] font-bold text-navy-950 leading-relaxed">{l}</p>
                        </div>
                      ))}
@@ -256,7 +256,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                           value={aiQuestion}
                           onChange={(e) => setAiQuestion(e.target.value)}
                           placeholder="Merak ettiğiniz bir detayı sorun..."
-                          className="w-full min-h-[120px] bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 focus:bg-white dark:bg-slate-900 focus:border-gold-200 rounded-[1.8rem] p-6 outline-none font-bold text-sm text-slate-800 dark:text-slate-100 shadow-inner resize-none"
+                          className="w-full min-h-[120px] bg-slate-50 dark:bg-navy-800 border border-slate-100 dark:border-navy-900 focus:bg-white dark:bg-navy-800 focus:border-gold-200 rounded-[1.8rem] p-6 outline-none font-bold text-sm text-slate-800 dark:text-slate-100 shadow-inner resize-none"
                         />
                         <button 
                           onClick={askAi}
@@ -268,7 +268,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                      </div>
 
                      {aiResponse && (
-                       <div className="bg-white dark:bg-slate-900 p-7 rounded-[2.2rem] border border-slate-100 dark:border-slate-800 shadow-xl animate-in slide-in-from-top-2">
+                       <div className="bg-white dark:bg-navy-800 p-7 rounded-[2.2rem] border border-slate-100 dark:border-navy-900 shadow-xl animate-in slide-in-from-top-2">
                           <div className="flex items-center gap-2 mb-4">
                              <div className="w-1 h-1 bg-gold-400 rounded-full animate-pulse"></div>
                              <h4 className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">REHBER YORUMU</h4>

@@ -183,12 +183,12 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
     const percent = Math.round((completedCount / 30) * 100);
 
     return (
-      <div className="fixed inset-0 z-[260] bg-white dark:bg-slate-900 flex flex-col animate-in slide-in-from-right duration-500 overflow-hidden">
-        <div className="px-6 pt-12 pb-6 border-b border-slate-50 dark:border-slate-800 flex items-center justify-between bg-white dark:bg-slate-900 sticky top-0 z-20">
+      <div className="fixed inset-0 z-[260] bg-white dark:bg-navy-800 flex flex-col animate-in slide-in-from-right duration-500 overflow-hidden">
+        <div className="px-6 pt-12 pb-6 border-b border-slate-50 dark:border-navy-900 flex items-center justify-between bg-white dark:bg-navy-800 sticky top-0 z-20">
           <div className="flex items-center gap-4">
             <button 
               onClick={() => setSelectedHalkalaId(null)}
-              className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
+              className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
             </button>
@@ -242,7 +242,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
                         ? 'bg-[#fef3c7] border-[#fbbf24] text-[#92400e] shadow-sm'
                         : assignment.status === 'reserved' 
                           ? 'bg-gold-50 dark:bg-navy-950/20 border-gold-200 text-gold-700 shadow-sm' 
-                          : 'bg-white dark:bg-slate-900 border-slate-50 dark:border-slate-800 text-slate-300 dark:text-slate-600 hover:border-gold-200 hover:bg-gold-50 dark:bg-navy-950/20 hover:text-gold-600'
+                          : 'bg-white dark:bg-navy-800 border-slate-50 dark:border-navy-900 text-slate-300 dark:text-slate-600 hover:border-gold-200 hover:bg-gold-50 dark:bg-navy-950/20 hover:text-gold-600'
                   }`}
                 >
                   <span className="text-[13px] font-black">{i + 1}</span>
@@ -271,9 +271,9 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
     <div className="flex-1 flex flex-col bg-[#FCFDFD] h-full relative animate-in fade-in duration-500 overflow-hidden">
       {selectedHalkalaId && renderHalkalaDetail()}
       
-      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-white dark:bg-slate-900 border-b border-slate-100/50 sticky top-0 z-20">
+      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-white dark:bg-navy-800 border-b border-slate-100/50 sticky top-0 z-20">
         <div className="flex items-center gap-5">
-          <button onClick={onBack} className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
+          <button onClick={onBack} className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform">
              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
@@ -287,16 +287,16 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
       </div>
 
       <div className="px-6 pt-6 pb-2">
-        <div className="bg-slate-100/80 p-1.5 rounded-[1.8rem] flex border border-slate-100 dark:border-slate-800 shadow-sm">
+        <div className="bg-slate-100/80 p-1.5 rounded-[1.8rem] flex border border-slate-100 dark:border-navy-900 shadow-sm">
           <button 
             onClick={() => setActiveTab('halkalar')}
-            className={`flex-1 py-3.5 rounded-[1.4rem] text-[10px] font-black uppercase tracking-widest transition-all relative overflow-hidden ${activeTab === 'halkalar' ? 'bg-white dark:bg-slate-900 text-gold-700 shadow-md ring-1 ring-gold-500/10' : 'text-slate-400 dark:text-slate-500'}`}
+            className={`flex-1 py-3.5 rounded-[1.4rem] text-[10px] font-black uppercase tracking-widest transition-all relative overflow-hidden ${activeTab === 'halkalar' ? 'bg-white dark:bg-navy-800 text-gold-700 shadow-md ring-1 ring-gold-500/10' : 'text-slate-400 dark:text-slate-500'}`}
           >
             Halkalarım
           </button>
           <button 
             onClick={() => setActiveTab('istatistik')}
-            className={`flex-1 py-3.5 rounded-[1.4rem] text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'istatistik' ? 'bg-white dark:bg-slate-900 text-gold-700 shadow-md ring-1 ring-gold-500/10' : 'text-slate-400 dark:text-slate-500'}`}
+            className={`flex-1 py-3.5 rounded-[1.4rem] text-[10px] font-black uppercase tracking-widest transition-all ${activeTab === 'istatistik' ? 'bg-white dark:bg-navy-800 text-gold-700 shadow-md ring-1 ring-gold-500/10' : 'text-slate-400 dark:text-slate-500'}`}
           >
             İstatistikler
           </button>
@@ -329,7 +329,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
               </div>
 
               {halkalar.length === 0 ? (
-                <div className="bg-white dark:bg-slate-900 p-12 rounded-[2.8rem] border border-slate-100 dark:border-slate-800 border-dashed text-center space-y-4">
+                <div className="bg-white dark:bg-navy-800 p-12 rounded-[2.8rem] border border-slate-100 dark:border-navy-900 border-dashed text-center space-y-4">
                    <div className="text-4xl opacity-20">📿</div>
                    <p className="text-xs font-bold text-slate-400 dark:text-slate-500 leading-relaxed uppercase tracking-widest">Henüz aktif bir halkanız yok.<br/>Yukarıdan hemen oluşturun!</p>
                 </div>
@@ -338,7 +338,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
                   <div 
                     key={halkala.id}
                     onClick={() => setSelectedHalkalaId(halkala.id)}
-                    className="bg-white dark:bg-slate-900 p-7 rounded-[2.8rem] border border-slate-100 dark:border-slate-800 shadow-[0_12px_45px_-12px_rgba(0,0,0,0.06)] hover:border-gold-100 transition-all cursor-pointer group active:scale-[0.98] relative overflow-hidden"
+                    className="bg-white dark:bg-navy-800 p-7 rounded-[2.8rem] border border-slate-100 dark:border-navy-900 shadow-[0_12px_45px_-12px_rgba(0,0,0,0.06)] hover:border-gold-100 transition-all cursor-pointer group active:scale-[0.98] relative overflow-hidden"
                   >
                     <div className="flex justify-between items-start mb-6">
                        <div className="space-y-1">
@@ -355,7 +355,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
                     </div>
                     
                     <div className="flex items-center gap-5">
-                       <div className="flex-1 h-2 bg-slate-50 dark:bg-slate-900 rounded-full overflow-hidden border border-slate-100 dark:border-slate-800 shadow-inner">
+                       <div className="flex-1 h-2 bg-slate-50 dark:bg-navy-800 rounded-full overflow-hidden border border-slate-100 dark:border-navy-900 shadow-inner">
                           <div 
                             className="h-full bg-gold-500 rounded-full transition-all duration-1000 shadow-[0_0_10px_rgba(201,166,104,0.3)]"
                             style={{ width: `${(halkala.completedParts / halkala.totalParts) * 100}%` }}
@@ -371,11 +371,11 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
         ) : (
           <div className="py-8 space-y-6 animate-in fade-in duration-500">
              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-white dark:bg-slate-900 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm text-center space-y-1">
+                <div className="bg-white dark:bg-navy-800 p-6 rounded-[2.5rem] border border-slate-100 dark:border-navy-900 shadow-sm text-center space-y-1">
                    <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">TOPLAM CÜZ</p>
                    <p className="text-3xl font-black text-gold-700 tracking-tighter">{stats.totalJuz}</p>
                 </div>
-                <div className="bg-white dark:bg-slate-900 p-6 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm text-center space-y-1">
+                <div className="bg-white dark:bg-navy-800 p-6 rounded-[2.5rem] border border-slate-100 dark:border-navy-900 shadow-sm text-center space-y-1">
                    <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">AKTİF HALKA</p>
                    <p className="text-3xl font-black text-gold-700 tracking-tighter">{stats.activeCircles}</p>
                 </div>
@@ -398,7 +398,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
                 </div>
              </div>
 
-             <div className="bg-white dark:bg-slate-900 p-8 rounded-[2.8rem] border border-slate-100 dark:border-slate-800 space-y-4">
+             <div className="bg-white dark:bg-navy-800 p-8 rounded-[2.8rem] border border-slate-100 dark:border-navy-900 space-y-4">
                 <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-4">HALKA BAZLI DAĞILIM</p>
                 {halkalar.length === 0 ? (
                   <p className="text-xs text-center text-slate-300 dark:text-slate-600 py-10">Henüz veri bulunmuyor.</p>
@@ -417,7 +417,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
 
       {showCreateModal && (
         <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
-          <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl">
+          <div className="bg-white dark:bg-navy-800 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl">
              <div className="text-center space-y-1">
                 <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Yeni Hatim Halkası</h3>
                 <p className="text-[9px] font-black text-gold-500 uppercase tracking-widest">Halkayı Kur ve Başlat</p>
@@ -431,7 +431,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
                      value={newHalkaName} 
                      onChange={e => setNewHalkaName(e.target.value)} 
                      placeholder="Örn: Ramazan Hazırlık" 
-                     className="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600 shadow-inner" 
+                     className="w-full bg-slate-50 dark:bg-navy-800 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600 shadow-inner" 
                    />
                 </div>
                 
@@ -454,13 +454,13 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
                      disabled={noTargetDate}
                      value={newHalkaDate} 
                      onChange={e => setNewHalkaDate(e.target.value)} 
-                     className="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white shadow-inner disabled:opacity-30" 
+                     className="w-full bg-slate-50 dark:bg-navy-800 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white shadow-inner disabled:opacity-30" 
                    />
                 </div>
              </div>
 
              <div className="flex gap-4">
-                <button onClick={() => setShowCreateModal(false)} className="flex-1 py-4 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">İPTAL</button>
+                <button onClick={() => setShowCreateModal(false)} className="flex-1 py-4 bg-slate-100 dark:bg-navy-900 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">İPTAL</button>
                 <button onClick={handleCreateHalka} className="flex-1 py-4 bg-gold-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest shadow-lg shadow-gold-200 active:scale-95 transition-all">KAYDET</button>
              </div>
           </div>
@@ -469,7 +469,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
 
       {showAssignModal && selectedHalkala && (
         <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
-          <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl max-h-[80vh] flex flex-col">
+          <div className="bg-white dark:bg-navy-800 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl max-h-[80vh] flex flex-col">
              <div className="text-center space-y-1">
                 <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">{showAssignModal.juzIndex + 1}. Cüz Dağıtımı</h3>
                 <p className="text-[9px] font-black text-gold-500 uppercase tracking-widest">Hoca / Katılımcı Seçin</p>
@@ -481,7 +481,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
                   className="w-full flex items-center justify-between p-5 bg-[#fef3c7] border border-[#fbbf24] rounded-2xl group active:scale-[0.98] transition-all"
                 >
                    <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 bg-white dark:bg-slate-900 rounded-xl flex items-center justify-center text-lg shadow-sm border border-[#fbbf24]">👤</div>
+                      <div className="w-10 h-10 bg-white dark:bg-navy-800 rounded-xl flex items-center justify-center text-lg shadow-sm border border-[#fbbf24]">👤</div>
                       <span className="font-black text-sm text-[#92400e]">BEN (KENDİM)</span>
                    </div>
                    <span className="text-[10px] font-black text-[#d97706] uppercase tracking-widest">SEÇ</span>
@@ -491,10 +491,10 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
                   <button 
                     key={idx}
                     onClick={() => handleAssignJuz(p)}
-                    className="w-full flex items-center justify-between p-5 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl group active:scale-[0.98] transition-all hover:bg-gold-50 dark:bg-navy-950/20 hover:border-gold-200"
+                    className="w-full flex items-center justify-between p-5 bg-slate-50 dark:bg-navy-800 border border-slate-100 dark:border-navy-900 rounded-2xl group active:scale-[0.98] transition-all hover:bg-gold-50 dark:bg-navy-950/20 hover:border-gold-200"
                   >
                      <div className="flex items-center gap-4">
-                        <div className="w-10 h-10 bg-white dark:bg-slate-900 rounded-xl flex items-center justify-center text-xs font-bold text-gold-600 shadow-sm border border-slate-100 dark:border-slate-800">{p[0]}</div>
+                        <div className="w-10 h-10 bg-white dark:bg-navy-800 rounded-xl flex items-center justify-center text-xs font-bold text-gold-600 shadow-sm border border-slate-100 dark:border-navy-900">{p[0]}</div>
                         <span className="font-bold text-sm text-slate-700 dark:text-slate-300 dark:text-slate-600">{p}</span>
                      </div>
                      <span className="text-[10px] font-black text-gold-600 opacity-0 group-hover:opacity-100 transition-all uppercase tracking-widest">SEÇ</span>
@@ -510,7 +510,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
              </div>
 
              <div className="flex gap-4">
-                <button onClick={() => setShowAssignModal(null)} className="flex-1 py-4 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">VAZGEÇ</button>
+                <button onClick={() => setShowAssignModal(null)} className="flex-1 py-4 bg-slate-100 dark:bg-navy-900 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">VAZGEÇ</button>
              </div>
           </div>
         </div>
@@ -518,7 +518,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
 
       {showActionMenu && (
         <div className="fixed inset-0 z-[450] bg-slate-900/70 backdrop-blur-md flex items-end justify-center p-6 animate-in fade-in duration-300">
-           <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in slide-in-from-bottom-20 duration-500 shadow-2xl">
+           <div className="bg-white dark:bg-navy-800 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in slide-in-from-bottom-20 duration-500 shadow-2xl">
               <div className="text-center space-y-2">
                  <div className="w-16 h-16 bg-gold-50 dark:bg-navy-950/20 rounded-2xl flex items-center justify-center mx-auto text-3xl shadow-inner border border-gold-100">
                     {showActionMenu.assignment.isMe ? '👤' : '📖'}
@@ -550,7 +550,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
 
               <button 
                 onClick={() => setShowActionMenu(null)}
-                className="w-full py-4 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all"
+                className="w-full py-4 bg-slate-100 dark:bg-navy-900 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all"
               >
                 KAPAT
               </button>
@@ -560,7 +560,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
 
       {showParticipantsModal && selectedHalkala && (
         <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
-           <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl max-h-[85vh] flex flex-col">
+           <div className="bg-white dark:bg-navy-800 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl max-h-[85vh] flex flex-col">
               <div className="text-center space-y-1">
                  <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Katılımcı Yönetimi</h3>
                  <p className="text-[9px] font-black text-gold-500 uppercase tracking-widest">Halka İçin Havuz Oluşturun</p>
@@ -575,7 +575,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
                          value={tempParticipantName} 
                          onChange={e => setTempParticipantName(e.target.value)} 
                          placeholder="Örn: Hatice Çelik" 
-                         className="flex-1 bg-slate-50 dark:bg-slate-900 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white shadow-inner" 
+                         className="flex-1 bg-slate-50 dark:bg-navy-800 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white shadow-inner" 
                        />
                        <button 
                          onClick={handleAddParticipantToPool}
@@ -590,9 +590,9 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
               <div className="flex-1 overflow-y-auto pr-2 no-scrollbar space-y-3">
                  <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest ml-2 mb-2">HAVUZDAKİLER ({selectedHalkala.participants.length})</p>
                  {selectedHalkala.participants.map((p, idx) => (
-                   <div key={idx} className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800">
+                   <div key={idx} className="flex items-center justify-between p-4 bg-slate-50 dark:bg-navy-800 rounded-2xl border border-slate-100 dark:border-navy-900">
                       <div className="flex items-center gap-3">
-                         <div className="w-8 h-8 rounded-full bg-white dark:bg-slate-900 flex items-center justify-center text-[10px] font-black text-gold-600 border border-slate-100 dark:border-slate-800">
+                         <div className="w-8 h-8 rounded-full bg-white dark:bg-navy-800 flex items-center justify-center text-[10px] font-black text-gold-600 border border-slate-100 dark:border-navy-900">
                             {p[0]}
                          </div>
                          <p className="text-xs font-black text-slate-900 dark:text-white">{p}</p>
@@ -622,7 +622,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
 
       {showInviteModal && selectedHalkala && (
         <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
-          <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 shadow-2xl text-center">
+          <div className="bg-white dark:bg-navy-800 w-full max-w-sm rounded-[3rem] p-10 space-y-8 shadow-2xl text-center">
             <div className="space-y-1">
               <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Halkaya Davet Et</h3>
               <p className="text-[9px] font-black text-gold-500 uppercase tracking-widest">Bu kodu paylaştığın kişi "Kod ile Katıl" diyerek halkana katılabilir</p>
@@ -632,7 +632,7 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
             </div>
             <div className="flex gap-4">
               <button onClick={() => { if (navigator.clipboard) navigator.clipboard.writeText(selectedHalkala.inviteCode); }} className="flex-1 py-4 bg-gold-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest">KODU KOPYALA</button>
-              <button onClick={() => setShowInviteModal(false)} className="flex-1 py-4 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest">KAPAT</button>
+              <button onClick={() => setShowInviteModal(false)} className="flex-1 py-4 bg-slate-100 dark:bg-navy-900 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest">KAPAT</button>
             </div>
           </div>
         </div>
@@ -640,17 +640,17 @@ const HatimOrganizatoru: React.FC<{ user: User; onBack: () => void }> = ({ user,
 
       {showJoinModal && (
         <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-6 animate-in fade-in duration-300">
-          <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 shadow-2xl">
+          <div className="bg-white dark:bg-navy-800 w-full max-w-sm rounded-[3rem] p-10 space-y-8 shadow-2xl">
             <div className="text-center space-y-1">
               <h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Kod ile Katıl</h3>
               <p className="text-[9px] font-black text-gold-500 uppercase tracking-widest">Sana gönderilen davet kodunu gir</p>
             </div>
             <div className="space-y-2">
-              <input type="text" value={joinCodeInput} onChange={(e) => { setJoinCodeInput(e.target.value); setJoinError(null); }} placeholder="Örn: A1B2C3" maxLength={6} className="w-full bg-slate-50 dark:bg-slate-900 border-none rounded-2xl px-6 py-4 outline-none font-black text-center text-slate-900 dark:text-white uppercase tracking-[0.3em]" />
+              <input type="text" value={joinCodeInput} onChange={(e) => { setJoinCodeInput(e.target.value); setJoinError(null); }} placeholder="Örn: A1B2C3" maxLength={6} className="w-full bg-slate-50 dark:bg-navy-800 border-none rounded-2xl px-6 py-4 outline-none font-black text-center text-slate-900 dark:text-white uppercase tracking-[0.3em]" />
               {joinError && <p className="text-[10px] font-bold text-rose-500 text-center">{joinError}</p>}
             </div>
             <div className="flex gap-4">
-              <button onClick={() => { setShowJoinModal(false); setJoinError(null); setJoinCodeInput(''); }} className="flex-1 py-4 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest">VAZGEÇ</button>
+              <button onClick={() => { setShowJoinModal(false); setJoinError(null); setJoinCodeInput(''); }} className="flex-1 py-4 bg-slate-100 dark:bg-navy-900 text-slate-400 dark:text-slate-500 font-black rounded-2xl text-[10px] uppercase tracking-widest">VAZGEÇ</button>
               <button onClick={handleJoinByCode} disabled={joining} className="flex-1 py-4 bg-gold-600 text-white font-black rounded-2xl text-[10px] uppercase tracking-widest disabled:opacity-60">{joining ? 'KATILIYOR...' : 'KATIL'}</button>
             </div>
           </div>

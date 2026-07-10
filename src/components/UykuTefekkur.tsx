@@ -15,7 +15,7 @@ interface AmbientSound {
 const SOUNDS: AmbientSound[] = [
   { id: 'rain', name: 'Rahmet Yağmuru', icon: '🌧️', color: 'bg-gold-50 dark:bg-navy-950/20 text-gold-500', url: 'https://assets.mixkit.co/active_storage/sfx/2407/2407-preview.mp3', desc: 'Derin odaklanma ve huzur' },
   { id: 'night', name: 'Gece Ormanı', icon: '🌲', color: 'bg-gold-50 dark:bg-navy-950/20 text-gold-600', url: 'https://assets.mixkit.co/active_storage/sfx/1118/1118-preview.mp3', desc: 'Doğanın sakinleştirici sesi' },
-  { id: 'wind', name: 'Sakin Rüzgar', icon: '🌬️', color: 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 dark:text-slate-500', url: 'https://assets.mixkit.co/active_storage/sfx/2443/2443-preview.mp3', desc: 'Zihni boşaltan esinti' },
+  { id: 'wind', name: 'Sakin Rüzgar', icon: '🌬️', color: 'bg-slate-100 dark:bg-navy-900 text-slate-500 dark:text-slate-400 dark:text-slate-500', url: 'https://assets.mixkit.co/active_storage/sfx/2443/2443-preview.mp3', desc: 'Zihni boşaltan esinti' },
   { id: 'ocean', name: 'Derin Deniz', icon: '🌊', color: 'bg-gold-50 dark:bg-navy-950/20 text-gold-600', url: 'https://assets.mixkit.co/active_storage/sfx/2412/2412-preview.mp3', desc: 'Ruhsal dinginlik ve ritim' },
   { id: 'fire', name: 'Huzur Ateşi', icon: '🔥', color: 'bg-orange-50 dark:bg-orange-950/20 text-orange-600', url: 'https://assets.mixkit.co/active_storage/sfx/2400/2400-preview.mp3', desc: 'Sıcak ve güvenli atmosfer' },
   { id: 'tilawat', name: 'Sakin Tilavet', icon: '📖', color: 'bg-gold-50 dark:bg-navy-950/20 text-gold-600', url: 'https://server7.mp3quran.net/s_gmd/001.mp3', desc: 'Kalbi yumuşatan tilavet' },
@@ -174,9 +174,9 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       </div>
 
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-xl border-b border-slate-100 dark:border-slate-800 relative z-20">
+      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-xl border-b border-slate-100 dark:border-navy-900 relative z-20">
         <div className="flex items-center gap-4">
-          <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-all">
+          <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-navy-800 hover:bg-slate-100 dark:bg-navy-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-all">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
@@ -209,7 +209,7 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {activeTab === 'sesler' && (
           <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
             {/* Volume Control Card */}
-            <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 border border-slate-100 dark:border-slate-800 flex flex-col gap-6 shadow-sm mt-4">
+            <div className="bg-white dark:bg-navy-800 rounded-[2.5rem] p-8 border border-slate-100 dark:border-navy-900 flex flex-col gap-6 shadow-sm mt-4">
                <div className="flex justify-between items-center px-1">
                   <div className="flex items-center gap-2">
                     <div className="w-1.5 h-1.5 bg-gold-500 rounded-full animate-pulse"></div>
@@ -223,7 +223,7 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                     type="range" min="0" max="1" step="0.01" 
                     value={volume} 
                     onChange={e => setVolume(parseFloat(e.target.value))}
-                    className="flex-1 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full appearance-none cursor-pointer accent-gold-500" 
+                    className="flex-1 h-1.5 bg-slate-100 dark:bg-navy-900 rounded-full appearance-none cursor-pointer accent-gold-500" 
                   />
                   <span className="text-lg opacity-40">🔊</span>
                </div>
@@ -235,7 +235,7 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <div 
                   key={sound.id}
                   onClick={() => toggleSound(sound)}
-                  className={`p-6 rounded-[2.5rem] border transition-all duration-500 cursor-pointer active:scale-95 group relative overflow-hidden ${playingSoundId === sound.id ? 'bg-gold-50/50 border-gold-200 shadow-md ring-2 ring-gold-500/10' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 hover:border-gold-100 hover:bg-slate-50/30'}`}
+                  className={`p-6 rounded-[2.5rem] border transition-all duration-500 cursor-pointer active:scale-95 group relative overflow-hidden ${playingSoundId === sound.id ? 'bg-gold-50/50 border-gold-200 shadow-md ring-2 ring-gold-500/10' : 'bg-white dark:bg-navy-800 border-slate-100 dark:border-navy-900 hover:border-gold-100 hover:bg-slate-50/30'}`}
                 >
                   {playingSoundId === sound.id && (
                     <div className="absolute bottom-0 left-0 h-1 bg-gold-500 w-full animate-pulse"></div>
@@ -252,7 +252,7 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             </div>
 
             {/* Timer Selection */}
-            <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] p-8 border border-slate-100 dark:border-slate-800 shadow-sm">
+            <div className="bg-white dark:bg-navy-800 rounded-[2.5rem] p-8 border border-slate-100 dark:border-navy-900 shadow-sm">
                 <div className="flex items-center gap-2 mb-6 ml-1">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c9a668" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
                     <p className="text-[10px] font-black text-gold-500 uppercase tracking-widest">Kapanış Zamanlayıcı</p>
@@ -265,7 +265,7 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                                 setTimer(timer === mins ? null : mins);
                                 if (window.navigator.vibrate) window.navigator.vibrate(20);
                             }}
-                            className={`py-4 rounded-2xl font-black text-[10px] transition-all duration-300 border ${timer === mins ? 'bg-gold-600 border-gold-500 text-white shadow-lg' : 'bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:bg-slate-800'}`}
+                            className={`py-4 rounded-2xl font-black text-[10px] transition-all duration-300 border ${timer === mins ? 'bg-gold-600 border-gold-500 text-white shadow-lg' : 'bg-slate-50 dark:bg-navy-800 border-slate-100 dark:border-navy-900 text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:bg-navy-900'}`}
                         >
                             {mins} DK
                         </button>
@@ -273,9 +273,9 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 </div>
                 {timeLeft !== null && timer !== null && (
                     <div className="mt-8 flex items-center justify-center gap-4 animate-in fade-in zoom-in">
-                        <div className="h-px flex-1 bg-slate-100 dark:bg-slate-800"></div>
+                        <div className="h-px flex-1 bg-slate-100 dark:bg-navy-900"></div>
                         <p className="text-[10px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-[0.4em]">KALAN: <span className="text-gold-600 text-xl tabular-nums tracking-tight ml-1.5">{formatTime(timeLeft)}</span></p>
-                        <div className="h-px flex-1 bg-slate-100 dark:bg-slate-800"></div>
+                        <div className="h-px flex-1 bg-slate-100 dark:bg-navy-900"></div>
                     </div>
                 )}
             </div>
@@ -372,7 +372,7 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                     <div className="text-2xl">👃</div>
                     <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-tight">4 SN<br/>NEFES AL</p>
                 </div>
-                <div className="text-center space-y-2 border-x border-slate-100 dark:border-slate-800">
+                <div className="text-center space-y-2 border-x border-slate-100 dark:border-navy-900">
                     <div className="text-2xl">⏸️</div>
                     <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest leading-tight">7 SN<br/>TUT</p>
                 </div>
@@ -388,30 +388,30 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <div className="space-y-6 animate-in fade-in duration-700 pt-4">
             <p className="text-[11px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em] ml-2 mb-4">Günün Tefekkür Kartları</p>
             {TEFEKKUR_CARDS.map((card, i) => (
-                <div key={i} className="bg-white dark:bg-slate-900 p-10 rounded-[3.5rem] border border-slate-100 dark:border-slate-800 shadow-sm relative overflow-hidden group transition-all duration-500 hover:shadow-md hover:border-gold-100">
+                <div key={i} className="bg-white dark:bg-navy-800 p-10 rounded-[3.5rem] border border-slate-100 dark:border-navy-900 shadow-sm relative overflow-hidden group transition-all duration-500 hover:shadow-md hover:border-gold-100">
                    <div className="absolute right-[-10%] top-[-10%] opacity-[0.03] text-[10rem] group-hover:scale-110 transition-transform duration-1000 rotate-6 text-navy-900 pointer-events-none">✨</div>
                    <div className="relative z-10 space-y-8 text-center">
                         <p className="text-xl font-medium leading-relaxed serif-text italic text-slate-700 dark:text-slate-300 dark:text-slate-600 px-2">
                             "{card.text}"
                         </p>
                         <div className="flex items-center justify-center gap-6">
-                            <div className="w-10 h-px bg-slate-100 dark:bg-slate-800"></div>
-                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300 dark:text-slate-600 whitespace-nowrap bg-slate-50 dark:bg-slate-900 px-3 py-1 rounded-full border border-slate-100 dark:border-slate-800">{card.source}</span>
-                            <div className="w-10 h-px bg-slate-100 dark:bg-slate-800"></div>
+                            <div className="w-10 h-px bg-slate-100 dark:bg-navy-900"></div>
+                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-300 dark:text-slate-600 whitespace-nowrap bg-slate-50 dark:bg-navy-800 px-3 py-1 rounded-full border border-slate-100 dark:border-navy-900">{card.source}</span>
+                            <div className="w-10 h-px bg-slate-100 dark:bg-navy-900"></div>
                         </div>
                    </div>
                 </div>
             ))}
             
             <div className="bg-gold-50/50 rounded-[3.5rem] p-10 border border-gold-100 text-center space-y-8 mt-10 relative overflow-hidden group">
-                <div className="w-16 h-16 bg-white dark:bg-slate-900 rounded-[1.8rem] flex items-center justify-center mx-auto text-3xl shadow-sm border border-gold-50 transition-transform group-hover:scale-110 shadow-gold-100">📿</div>
+                <div className="w-16 h-16 bg-white dark:bg-navy-800 rounded-[1.8rem] flex items-center justify-center mx-auto text-3xl shadow-sm border border-gold-50 transition-transform group-hover:scale-110 shadow-gold-100">📿</div>
                 <div className="space-y-4">
                     <h4 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Gece Tilaveti</h4>
                     <p className="text-[15px] font-semibold text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed px-4 italic">
                         "Bakara suresinin son iki ayetini geceleyin okuyan kimseye onlar yeter."
                     </p>
                     <div className="pt-2">
-                      <span className="text-[10px] font-black text-gold-500 uppercase tracking-widest bg-white dark:bg-slate-900 px-4 py-1.5 rounded-full border border-gold-100 shadow-sm">RIYÂZÜ’S-SÂLIHÎN, 1017</span>
+                      <span className="text-[10px] font-black text-gold-500 uppercase tracking-widest bg-white dark:bg-navy-800 px-4 py-1.5 rounded-full border border-gold-100 shadow-sm">RIYÂZÜ’S-SÂLIHÎN, 1017</span>
                     </div>
                 </div>
             </div>
@@ -421,7 +421,7 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
       {/* Persistent Audio Bar */}
       {playingSoundId && (
-        <div className="fixed bottom-[110px] left-5 right-5 z-[50] bg-white dark:bg-slate-900 rounded-[2.8rem] p-4.5 flex items-center justify-between shadow-[0_15px_45px_rgba(0,0,0,0.12)] border border-slate-100 dark:border-slate-800 animate-in slide-in-from-bottom-10 duration-500">
+        <div className="fixed bottom-[110px] left-5 right-5 z-[50] bg-white dark:bg-navy-800 rounded-[2.8rem] p-4.5 flex items-center justify-between shadow-[0_15px_45px_rgba(0,0,0,0.12)] border border-slate-100 dark:border-navy-900 animate-in slide-in-from-bottom-10 duration-500">
            <div className="flex items-center gap-4 ml-2">
               <div className="w-12 h-12 bg-gold-50 dark:bg-navy-950/20 rounded-2xl flex items-center justify-center text-2xl animate-pulse shadow-sm border border-gold-100/50">
                 {SOUNDS.find(s => s.id === playingSoundId)?.icon}

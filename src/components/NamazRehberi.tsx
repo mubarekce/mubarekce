@@ -191,9 +191,9 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
   return (
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in duration-500 overflow-hidden relative">
-      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/70 dark:bg-slate-950/70 backdrop-blur-xl sticky top-0 z-50 border-b border-slate-100/50">
+      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/70 dark:bg-navy-900/70 backdrop-blur-xl sticky top-0 z-50 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
-          <button onClick={selectedPrayer ? () => setSelectedPrayer(null) : onBack} className="w-10 h-10 bg-white dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 shadow-sm active:scale-90 transition-transform text-gold-600">
+          <button onClick={selectedPrayer ? () => setSelectedPrayer(null) : onBack} className="w-10 h-10 bg-white dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 shadow-sm active:scale-90 transition-transform text-gold-600">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div className="space-y-0.5">
@@ -204,7 +204,7 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       </div>
 
       {!selectedPrayer && (
-        <div className="px-6 py-4 bg-white/50 border-b border-slate-50 dark:border-slate-800 flex justify-center gap-2 overflow-x-auto no-scrollbar">
+        <div className="px-6 py-4 bg-white/50 border-b border-slate-50 dark:border-navy-900 flex justify-center gap-2 overflow-x-auto no-scrollbar">
           {[
             { id: 'rehber', label: 'REHBER' },
             { id: 'faydalari', label: 'FAYDALARI' },
@@ -214,7 +214,7 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <button 
               key={tab.id} 
               onClick={() => setActiveTab(tab.id as RehberTab)}
-              className={`px-4 py-2.5 rounded-full text-[9px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${activeTab === tab.id ? 'bg-gold-600 border-gold-500 text-white shadow-lg shadow-gold-200' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500'}`}
+              className={`px-4 py-2.5 rounded-full text-[9px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${activeTab === tab.id ? 'bg-gold-600 border-gold-500 text-white shadow-lg shadow-gold-200' : 'bg-white dark:bg-navy-800 border-slate-100 dark:border-navy-900 text-slate-400 dark:text-slate-500'}`}
             >
               {tab.label}
             </button>
@@ -231,7 +231,7 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                   <div 
                     key={p.id}
                     onClick={() => { setSelectedPrayer(p); setCurrentStep(0); if (window.navigator.vibrate) window.navigator.vibrate(20); }}
-                    className="bg-white dark:bg-slate-900 p-3 rounded-[1.4rem] border border-slate-50 dark:border-slate-800 shadow-sm flex items-center justify-between hover:bg-slate-50 dark:bg-slate-900 transition-all cursor-pointer group active:scale-[0.98]"
+                    className="bg-white dark:bg-navy-800 p-3 rounded-[1.4rem] border border-slate-50 dark:border-navy-900 shadow-sm flex items-center justify-between hover:bg-slate-50 dark:bg-navy-800 transition-all cursor-pointer group active:scale-[0.98]"
                   >
                     <div className="flex items-center gap-3.5 flex-1 min-w-0">
                       <div className="w-8 h-8 bg-gold-50 dark:bg-navy-950/20 text-gold-600 rounded-[1rem] flex items-center justify-center shadow-inner border border-gold-100/50 group-hover:scale-105 transition-transform shrink-0">
@@ -255,13 +255,13 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 {NAMAZ_FAYDALARI.map((f, i) => {
                   const isOpen = expandedBenefit === i;
                   return (
-                    <div key={i} onClick={() => setExpandedBenefit(isOpen ? null : i)} className={`bg-white dark:bg-slate-900 rounded-[1.4rem] border transition-all duration-300 overflow-hidden cursor-pointer ${isOpen ? 'border-gold-200 shadow-md' : 'border-slate-50 dark:border-slate-800 shadow-sm'}`}>
+                    <div key={i} onClick={() => setExpandedBenefit(isOpen ? null : i)} className={`bg-white dark:bg-navy-800 rounded-[1.4rem] border transition-all duration-300 overflow-hidden cursor-pointer ${isOpen ? 'border-gold-200 shadow-md' : 'border-slate-50 dark:border-navy-900 shadow-sm'}`}>
                       <div className="p-3 flex items-center justify-between">
                         <div className="flex items-center gap-3.5">
                           <div className="w-8 h-8 bg-gold-50 dark:bg-navy-950/20 text-gold-600 rounded-[1rem] flex items-center justify-center shadow-inner border border-gold-100/50 shrink-0">{f.icon}</div>
                           <h5 className="font-bold text-slate-800 dark:text-slate-100 text-[11.5px] uppercase tracking-wide">{f.t}</h5>
                         </div>
-                        <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-transform ${isOpen ? 'rotate-180 bg-gold-50 dark:bg-navy-950/20 text-gold-600' : 'bg-slate-50 dark:bg-slate-900 text-slate-300 dark:text-slate-600'}`}>
+                        <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-transform ${isOpen ? 'rotate-180 bg-gold-50 dark:bg-navy-950/20 text-gold-600' : 'bg-slate-50 dark:bg-navy-800 text-slate-300 dark:text-slate-600'}`}>
                           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
                         </div>
                       </div>
@@ -276,7 +276,7 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         ) : (
           <div className="animate-in slide-in-from-right duration-500 space-y-8">
             {selectedPrayer.steps && selectedPrayer.steps.length > 0 ? (
-              <div className="rounded-[3.5rem] p-10 text-center border transition-all duration-700 relative overflow-hidden group shadow-2xl bg-white dark:bg-slate-900 border-gold-50 text-slate-900 dark:text-white">
+              <div className="rounded-[3.5rem] p-10 text-center border transition-all duration-700 relative overflow-hidden group shadow-2xl bg-white dark:bg-navy-800 border-gold-50 text-slate-900 dark:text-white">
                 <div className="absolute top-6 left-10 opacity-10 font-black text-6xl pointer-events-none">{selectedPrayer.steps[currentStep].icon}</div>
                 <div className="relative z-10 space-y-10">
                   <div className="space-y-2">
@@ -297,7 +297,7 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 </div>
               </div>
             ) : (
-              <div className="p-12 text-center bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-100 dark:border-slate-800 shadow-sm">
+              <div className="p-12 text-center bg-white dark:bg-navy-800 rounded-[2.5rem] border border-slate-100 dark:border-navy-900 shadow-sm">
                 <p className="text-slate-400 dark:text-slate-500 text-sm font-bold uppercase tracking-widest">Bu vakit için rehber henüz hazır değil.</p>
                 <button onClick={() => setSelectedPrayer(null)} className="mt-4 text-gold-600 font-black text-xs uppercase underline">GERİ DÖN</button>
               </div>
@@ -305,7 +305,7 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             
             {selectedPrayer.steps && selectedPrayer.steps.length > 0 && (
               <div className="grid grid-cols-2 gap-4">
-                <button disabled={currentStep === 0} onClick={prevStep} className="py-5 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-[2.2rem] font-black text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest active:scale-95 disabled:opacity-30 transition-all shadow-sm">ÖNCEKİ ADIM</button>
+                <button disabled={currentStep === 0} onClick={prevStep} className="py-5 bg-white dark:bg-navy-800 border border-slate-100 dark:border-navy-900 rounded-[2.2rem] font-black text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest active:scale-95 disabled:opacity-30 transition-all shadow-sm">ÖNCEKİ ADIM</button>
                 <button disabled={currentStep === selectedPrayer.steps.length - 1} onClick={nextStep} className="py-5 bg-gold-600 text-white rounded-[2.2rem] font-black text-[10px] uppercase tracking-widest active:scale-95 disabled:opacity-30 transition-all shadow-xl shadow-navy-900/10">SONRAKİ ADIM</button>
               </div>
             )}

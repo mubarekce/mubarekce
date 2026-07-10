@@ -80,12 +80,12 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col bg-white dark:bg-slate-900 h-full relative animate-in fade-in duration-500 overflow-hidden">
+    <div className="flex-1 flex flex-col bg-white dark:bg-navy-800 h-full relative animate-in fade-in duration-500 overflow-hidden">
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50 dark:border-slate-800">
+      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50 dark:border-navy-900">
         <button 
           onClick={selectedLesson ? () => setSelectedLesson(null) : onBack} 
-          className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform"
+          className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform"
         >
           ←
         </button>
@@ -121,9 +121,9 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <div 
                   key={lesson.id}
                   onClick={() => setSelectedLesson(lesson)}
-                  className="p-5 bg-white dark:bg-slate-900 rounded-[2.2rem] border border-slate-100 dark:border-slate-800 flex items-center gap-5 hover:bg-gold-50 dark:bg-navy-950/20 hover:border-gold-100 transition-all cursor-pointer group active:scale-[0.98]"
+                  className="p-5 bg-white dark:bg-navy-800 rounded-[2.2rem] border border-slate-100 dark:border-navy-900 flex items-center gap-5 hover:bg-gold-50 dark:bg-navy-950/20 hover:border-gold-100 transition-all cursor-pointer group active:scale-[0.98]"
                 >
-                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-black text-sm transition-all ${completedLessons.includes(lesson.id) ? 'bg-gold-500 text-white' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 group-hover:bg-gold-100'}`}>
+                  <div className={`w-12 h-12 rounded-2xl flex items-center justify-center font-black text-sm transition-all ${completedLessons.includes(lesson.id) ? 'bg-gold-500 text-white' : 'bg-slate-50 dark:bg-navy-800 text-slate-400 dark:text-slate-500 group-hover:bg-gold-100'}`}>
                     {completedLessons.includes(lesson.id) ? "✓" : lesson.id}
                   </div>
                   <div className="flex-1">
@@ -138,7 +138,7 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 </div>
               ))}
               
-              <div className="p-8 bg-slate-50 dark:bg-slate-900 border border-dashed border-slate-200 dark:border-slate-700 rounded-[2.5rem] text-center opacity-60">
+              <div className="p-8 bg-slate-50 dark:bg-navy-800 border border-dashed border-slate-200 dark:border-navy-700 rounded-[2.5rem] text-center opacity-60">
                  <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em]">Diğer dersler yakında eklenecek</p>
               </div>
             </div>
@@ -150,7 +150,7 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 <div 
                   key={idx}
                   onClick={() => playSound(item.ar)}
-                  className="aspect-square bg-[#fcfdfd] rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col items-center justify-center gap-2 hover:border-gold-200 hover:bg-gold-50 dark:bg-navy-950/20 transition-all cursor-pointer active:scale-90 group"
+                  className="aspect-square bg-[#fcfdfd] rounded-[2rem] border border-slate-100 dark:border-navy-900 shadow-sm flex flex-col items-center justify-center gap-2 hover:border-gold-200 hover:bg-gold-50 dark:bg-navy-950/20 transition-all cursor-pointer active:scale-90 group"
                 >
                   <span className="arabic-text text-3xl font-bold text-slate-800 dark:text-slate-100 group-hover:text-gold-700 transition-colors">{item.ar}</span>
                   <span className="text-[9px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest group-hover:text-gold-600 transition-colors">{item.tr}</span>
@@ -161,14 +161,14 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <div className="pt-10">
                <button 
                  onClick={() => { toggleComplete(selectedLesson.id); setSelectedLesson(null); }}
-                 className={`w-full py-5 rounded-[2rem] font-black text-xs uppercase tracking-[0.2em] transition-all shadow-xl active:scale-[0.98] ${completedLessons.includes(selectedLesson.id) ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500' : 'bg-gold-600 text-white shadow-gold-200'}`}
+                 className={`w-full py-5 rounded-[2rem] font-black text-xs uppercase tracking-[0.2em] transition-all shadow-xl active:scale-[0.98] ${completedLessons.includes(selectedLesson.id) ? 'bg-slate-100 dark:bg-navy-900 text-slate-400 dark:text-slate-500' : 'bg-gold-600 text-white shadow-gold-200'}`}
                >
                  {completedLessons.includes(selectedLesson.id) ? "Ders Tamamlandı Olarak İşaretlendi" : "Dersi Bitirdim"}
                </button>
             </div>
 
             <div className="p-6 bg-gold-50/50 rounded-[2.2rem] border border-dashed border-gold-200 flex items-center gap-4">
-               <div className="w-10 h-10 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center shadow-sm text-gold-500">💡</div>
+               <div className="w-10 h-10 bg-white dark:bg-navy-800 rounded-full flex items-center justify-center shadow-sm text-gold-500">💡</div>
                <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400 dark:text-slate-500 leading-relaxed">
                  <span className="text-gold-600">Öneri:</span> Harflerin çıkış yerlerine (mahreç) dikkat ederek tekrar etmen, Kuran tilavetini daha güzel kılacaktır.
                </p>

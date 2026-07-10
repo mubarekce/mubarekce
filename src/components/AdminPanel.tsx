@@ -18,7 +18,7 @@ const Toggle: React.FC<{ checked: boolean; onChange: () => void }> = ({ checked,
     onClick={onChange}
     className={`w-12 h-7 rounded-full flex items-center px-1 transition-colors shrink-0 ${checked ? 'bg-gold-600 justify-end' : 'bg-slate-200 justify-start'}`}
   >
-    <div className="w-5 h-5 bg-white dark:bg-slate-900 rounded-full shadow" />
+    <div className="w-5 h-5 bg-white dark:bg-navy-800 rounded-full shadow" />
   </button>
 );
 
@@ -155,14 +155,14 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   );
 
   return (
-    <div className="min-h-screen w-full bg-[#F8FAFC] dark:bg-slate-950 flex flex-col">
-      <div className="h-[70px] px-5 flex items-center gap-4 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shrink-0">
-        <button onClick={onBack} className="w-9 h-9 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center text-slate-900 dark:text-white">←</button>
+    <div className="min-h-screen w-full bg-[#F8FAFC] dark:bg-navy-900 flex flex-col">
+      <div className="h-[70px] px-5 flex items-center gap-4 bg-white dark:bg-navy-800 border-b border-slate-100 dark:border-navy-900 shrink-0">
+        <button onClick={onBack} className="w-9 h-9 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center text-slate-900 dark:text-white">←</button>
         <h2 className="text-[16px] font-black text-slate-900 dark:text-white uppercase">Yönetim Paneli</h2>
         {saving && <span className="text-[10px] text-gold-600 font-bold ml-auto">Kaydediliyor…</span>}
       </div>
 
-      <div className="flex gap-2 px-5 py-3 bg-white dark:bg-slate-900 border-b border-slate-100 dark:border-slate-800 shrink-0 overflow-x-auto no-scrollbar">
+      <div className="flex gap-2 px-5 py-3 bg-white dark:bg-navy-800 border-b border-slate-100 dark:border-navy-900 shrink-0 overflow-x-auto no-scrollbar">
         {([
           ['genel', 'Genel'],
           ['bolumler', 'Bölümler'],
@@ -172,7 +172,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <button
             key={key}
             onClick={() => setTab(key)}
-            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wide ${tab === key ? 'bg-gold-600 text-white' : 'bg-slate-50 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}`}
+            className={`shrink-0 px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wide ${tab === key ? 'bg-gold-600 text-white' : 'bg-slate-50 dark:bg-navy-900 text-slate-500 dark:text-slate-400'}`}
           >
             {label}
           </button>
@@ -184,7 +184,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <>
             <div>
               <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em] mb-3 ml-1">Ramazan Modu</p>
-              <div className="bg-white dark:bg-slate-900 rounded-[1.5rem] border border-slate-100 dark:border-slate-800 p-5 flex items-center justify-between">
+              <div className="bg-white dark:bg-navy-800 rounded-[1.5rem] border border-slate-100 dark:border-navy-900 p-5 flex items-center justify-between">
                 <div>
                   <h4 className="text-sm font-black text-slate-900 dark:text-white">Ramazan Özel Bölümü</h4>
                   <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">
@@ -197,7 +197,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
             <div>
               <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em] mb-3 ml-1">Kilitli Kategoriler (Premium)</p>
-              <div className="bg-white dark:bg-slate-900 rounded-[1.5rem] border border-slate-100 dark:border-slate-800 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden">
+              <div className="bg-white dark:bg-navy-800 rounded-[1.5rem] border border-slate-100 dark:border-navy-900 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden">
                 {LIBRARY_CATEGORIES.map(cat => {
                   const locked = config.lockedCategories.includes(cat);
                   return (
@@ -226,7 +226,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             {LIBRARY_CATEGORIES.map(cat => (
               <div key={cat}>
                 <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.3em] mb-3 ml-1">{cat}</p>
-                <div className="bg-white dark:bg-slate-900 rounded-[1.5rem] border border-slate-100 dark:border-slate-800 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden">
+                <div className="bg-white dark:bg-navy-800 rounded-[1.5rem] border border-slate-100 dark:border-navy-900 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden">
                   {LIBRARY_TOOLS.filter(t => t.cat === cat).map(t => {
                     const locked = config.lockedTools.includes(t.id);
                     const hidden = config.hiddenTools.includes(t.id);
@@ -271,7 +271,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                     {savingStoryCat === cat && <span className="text-[9px] text-gold-600 font-bold">Kaydediliyor…</span>}
                   </div>
 
-                  <div className="bg-white dark:bg-slate-900 rounded-[1.5rem] border border-slate-100 dark:border-slate-800 p-5 flex items-center justify-between">
+                  <div className="bg-white dark:bg-navy-800 rounded-[1.5rem] border border-slate-100 dark:border-navy-900 p-5 flex items-center justify-between">
                     <div>
                       <h4 className="text-sm font-black text-slate-900 dark:text-white">Günlük Otomatik Değişsin</h4>
                       <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5">
@@ -281,7 +281,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                     <Toggle checked={data.autoRotate} onChange={() => toggleAutoRotate(cat)} />
                   </div>
 
-                  <div className="bg-white dark:bg-slate-900 rounded-[1.5rem] border border-slate-100 dark:border-slate-800 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden">
+                  <div className="bg-white dark:bg-navy-800 rounded-[1.5rem] border border-slate-100 dark:border-navy-900 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden">
                     {data.items.map(item => (
                       <div key={item.id} className="p-4 px-5 space-y-2.5">
                         <div className="flex items-center justify-between gap-3">
@@ -313,7 +313,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                             onBlur={() => commitStoryItems(cat)}
                             placeholder="Arapça metin (opsiyonel)"
                             dir="rtl"
-                            className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm outline-none text-slate-900 dark:text-white"
+                            className="w-full bg-slate-50 dark:bg-navy-900 border border-slate-100 dark:border-navy-700 rounded-xl px-4 py-2.5 text-sm outline-none text-slate-900 dark:text-white"
                           />
                         )}
                         <textarea
@@ -322,14 +322,14 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                           onBlur={() => commitStoryItems(cat)}
                           placeholder="Türkçe metin / anlamı"
                           rows={2}
-                          className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm outline-none resize-none text-slate-900 dark:text-white"
+                          className="w-full bg-slate-50 dark:bg-navy-900 border border-slate-100 dark:border-navy-700 rounded-xl px-4 py-2.5 text-sm outline-none resize-none text-slate-900 dark:text-white"
                         />
                         <input
                           value={item.source}
                           onChange={e => updateStoryItem(cat, item.id, 'source', e.target.value)}
                           onBlur={() => commitStoryItems(cat)}
                           placeholder="Kaynak (örn. Bakara, 45)"
-                          className="w-full bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl px-4 py-2.5 text-sm outline-none text-slate-900 dark:text-white"
+                          className="w-full bg-slate-50 dark:bg-navy-900 border border-slate-100 dark:border-navy-700 rounded-xl px-4 py-2.5 text-sm outline-none text-slate-900 dark:text-white"
                         />
                       </div>
                     ))}
@@ -356,7 +356,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               value={userSearch}
               onChange={e => setUserSearch(e.target.value)}
               placeholder="İsim veya e-posta ara…"
-              className="w-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl px-4 py-3 text-sm outline-none"
+              className="w-full bg-white dark:bg-navy-800 border border-slate-100 dark:border-navy-900 rounded-2xl px-4 py-3 text-sm outline-none"
             />
             {usersLoading && <p className="text-center text-xs text-slate-400 dark:text-slate-500 py-10">Kullanıcılar yükleniyor…</p>}
             {usersError && (
@@ -366,7 +366,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               </div>
             )}
             {!usersLoading && !usersError && (
-              <div className="bg-white dark:bg-slate-900 rounded-[1.5rem] border border-slate-100 dark:border-slate-800 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden">
+              <div className="bg-white dark:bg-navy-800 rounded-[1.5rem] border border-slate-100 dark:border-navy-900 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden">
                 {filteredUsers.length === 0 && <p className="text-center text-xs text-slate-300 dark:text-slate-600 py-10">Kullanıcı bulunamadı</p>}
                 {filteredUsers.map(u => (
                   <div key={u.uid} className="p-4 px-5 flex items-center justify-between gap-3">
@@ -376,7 +376,7 @@ const AdminPanel: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                     </div>
                     <button
                       onClick={() => togglePremium(u)}
-                      className={`shrink-0 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-wide ${u.isPremium ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 dark:text-slate-500'}`}
+                      className={`shrink-0 px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-wide ${u.isPremium ? 'bg-amber-100 text-amber-700' : 'bg-slate-100 dark:bg-navy-900 text-slate-500 dark:text-slate-400 dark:text-slate-500'}`}
                     >
                       {u.isPremium ? '★ Premium' : 'Standart'}
                     </button>

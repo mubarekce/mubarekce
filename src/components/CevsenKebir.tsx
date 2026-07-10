@@ -168,7 +168,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       {/* Header */}
       <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-30 border-b border-gold-50/50">
         <div className="flex items-center gap-5">
-          <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
+          <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
@@ -185,16 +185,16 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       </div>
 
       {/* Control Bar */}
-      <div className="px-6 py-4 flex gap-2 overflow-x-auto no-scrollbar bg-white/50 border-b border-slate-50 dark:border-slate-800">
+      <div className="px-6 py-4 flex gap-2 overflow-x-auto no-scrollbar bg-white/50 border-b border-slate-50 dark:border-navy-900">
         <button 
           onClick={() => setShowPronunciation(!showPronunciation)}
-          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showPronunciation ? 'bg-gold-600 text-white border-gold-500 shadow-lg shadow-gold-100' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}
+          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showPronunciation ? 'bg-gold-600 text-white border-gold-500 shadow-lg shadow-gold-100' : 'bg-white dark:bg-navy-800 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-navy-900'}`}
         >
           Okunuş {showPronunciation ? 'Açık' : 'Kapalı'}
         </button>
         <button 
           onClick={() => setShowTranslation(!showTranslation)}
-          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showTranslation ? 'bg-gold-600 text-white border-gold-500 shadow-lg shadow-gold-100' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}
+          className={`px-5 py-3 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${showTranslation ? 'bg-gold-600 text-white border-gold-500 shadow-lg shadow-gold-100' : 'bg-white dark:bg-navy-800 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-navy-900'}`}
         >
           Meal {showTranslation ? 'Açık' : 'Kapalı'}
         </button>
@@ -215,7 +215,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {/* Content Displays - Visual fixes (bg-transparent added to p tags) */}
         <div className="space-y-12 pb-20">
           {/* Arabic Display */}
-          <div className="bg-white dark:bg-slate-900 p-10 rounded-[3.5rem] border border-slate-50 dark:border-slate-800 shadow-2xl shadow-navy-900/5 relative overflow-hidden group">
+          <div className="bg-white dark:bg-navy-800 p-10 rounded-[3.5rem] border border-slate-50 dark:border-navy-900 shadow-2xl shadow-navy-900/5 relative overflow-hidden group">
              <div className="absolute right-[-15%] top-[-10%] p-8 opacity-[0.03] group-hover:scale-110 transition-transform text-[12rem] pointer-events-none rotate-6 text-navy-900">🛡️</div>
              <p className="arabic-text text-4xl text-slate-900 dark:text-white text-center leading-[2.5] drop-shadow-sm font-semibold bg-transparent" dir="rtl">
                {currentBab.arabic}
@@ -237,7 +237,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
           {/* Translation Card */}
           {showTranslation && (
-            <div className="bg-white dark:bg-slate-900 p-8 rounded-[3rem] border border-slate-100 dark:border-slate-800 shadow-sm animate-in fade-in slide-in-from-bottom-2 duration-500 delay-100">
+            <div className="bg-white dark:bg-navy-800 p-8 rounded-[3rem] border border-slate-100 dark:border-navy-900 shadow-sm animate-in fade-in slide-in-from-bottom-2 duration-500 delay-100">
                <div className="flex items-center gap-3 mb-5 ml-1">
                   <div className="w-1.5 h-1.5 bg-slate-300 rounded-full"></div>
                   <p className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.2em]">ANLAMI VE MEALİ</p>
@@ -278,7 +278,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         <button 
           onClick={handlePrev}
           disabled={currentBabIndex === 0}
-          className="w-18 h-18 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500 rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/5 active:scale-90 transition-all disabled:opacity-30 disabled:scale-95 flex-shrink-0"
+          className="w-18 h-18 bg-white dark:bg-navy-800 border border-slate-100 dark:border-navy-900 text-slate-400 dark:text-slate-500 rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/5 active:scale-90 transition-all disabled:opacity-30 disabled:scale-95 flex-shrink-0"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
@@ -292,7 +292,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         <button 
           onClick={handleNext}
           disabled={currentBabIndex >= 99}
-          className="w-18 h-18 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 text-gold-600 rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/5 active:scale-90 transition-all disabled:opacity-30 disabled:scale-95 flex-shrink-0"
+          className="w-18 h-18 bg-white dark:bg-navy-800 border border-slate-100 dark:border-navy-900 text-gold-600 rounded-[2rem] flex items-center justify-center shadow-2xl shadow-black/5 active:scale-90 transition-all disabled:opacity-30 disabled:scale-95 flex-shrink-0"
         >
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
@@ -301,7 +301,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       {/* Bab Selection Modal */}
       {showBabList && (
         <div className="fixed inset-0 z-[500] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-6 animate-in fade-in duration-300">
-           <div className="bg-white dark:bg-slate-900 w-full max-w-[440px] rounded-[3.5rem] p-10 space-y-10 animate-in zoom-in duration-300 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
+           <div className="bg-white dark:bg-navy-800 w-full max-w-[440px] rounded-[3.5rem] p-10 space-y-10 animate-in zoom-in duration-300 shadow-2xl overflow-hidden flex flex-col max-h-[85vh]">
               <div className="text-center space-y-2 flex-shrink-0">
                  <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Cevşen Fihristi</h3>
                  <p className="text-[10px] font-black text-gold-500 uppercase tracking-[0.4em]">100 BÖLÜM LİSTESİ</p>
@@ -313,7 +313,7 @@ const CevsenKebir: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                       <button 
                         key={i}
                         onClick={() => { setCurrentBabIndex(i); setShowBabList(false); if (window.navigator.vibrate) window.navigator.vibrate(20); }}
-                        className={`aspect-square rounded-[1.4rem] flex items-center justify-center text-sm font-black transition-all active:scale-90 border-2 ${i === currentBabIndex ? 'bg-gold-600 text-white border-gold-500 shadow-xl scale-105' : 'bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800 hover:bg-gold-50 dark:bg-navy-950/20 hover:text-gold-600'}`}
+                        className={`aspect-square rounded-[1.4rem] flex items-center justify-center text-sm font-black transition-all active:scale-90 border-2 ${i === currentBabIndex ? 'bg-gold-600 text-white border-gold-500 shadow-xl scale-105' : 'bg-slate-50 dark:bg-navy-800 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-navy-900 hover:bg-gold-50 dark:bg-navy-950/20 hover:text-gold-600'}`}
                       >
                         {i + 1}
                       </button>

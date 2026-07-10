@@ -142,7 +142,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in slide-in-from-right duration-300 overflow-hidden relative">
       {/* Header */}
       <div className="px-6 pt-12 pb-6 flex items-center gap-5 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-30 border-b border-slate-50/50">
-        <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
+        <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform">
            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
         </button>
         <div>
@@ -158,7 +158,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           <input 
             type="text" 
             placeholder="İsim veya anlam ara..."
-            className="w-full bg-[#f1f5f9] border-none rounded-[1.6rem] pl-14 pr-6 py-5 outline-none font-bold text-[14px] text-slate-700 dark:text-slate-300 dark:text-slate-600 placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600 transition-all focus:bg-white dark:bg-slate-900 focus:ring-4 focus:ring-purple-50 shadow-inner"
+            className="w-full bg-[#f1f5f9] border-none rounded-[1.6rem] pl-14 pr-6 py-5 outline-none font-bold text-[14px] text-slate-700 dark:text-slate-300 dark:text-slate-600 placeholder:text-slate-300 dark:placeholder:text-slate-600 dark:text-slate-600 transition-all focus:bg-white dark:bg-navy-800 focus:ring-4 focus:ring-purple-50 shadow-inner"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -170,7 +170,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         {filtered.map((esma) => (
           <div 
             key={esma.id} 
-            className="bg-[#f1f5f9]/50 rounded-[2.8rem] p-8 border border-slate-50 dark:border-slate-800 shadow-sm hover:border-purple-100 hover:bg-white dark:bg-slate-900 transition-all group relative overflow-hidden active:scale-[0.99]"
+            className="bg-[#f1f5f9]/50 rounded-[2.8rem] p-8 border border-slate-50 dark:border-navy-900 shadow-sm hover:border-purple-100 hover:bg-white dark:bg-navy-800 transition-all group relative overflow-hidden active:scale-[0.99]"
             onClick={() => startDhikr(esma.id)}
           >
             {/* Pill Number - Top Left as in screenshot */}
@@ -224,7 +224,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
            <div className="w-full px-6 pt-12 pb-6 flex items-center justify-between">
               <button 
                 onClick={() => setActiveDhikrId(null)}
-                className="w-12 h-12 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
+                className="w-12 h-12 bg-slate-50 dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform"
               >
                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><polyline points="15 18 9 12 15 6"/></svg>
               </button>
@@ -234,7 +234,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               </div>
               <button 
                 onClick={() => setCounter(0)}
-                className="w-12 h-12 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
+                className="w-12 h-12 bg-slate-50 dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform"
               >
                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="rotate-45"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
               </button>
@@ -251,7 +251,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
               <div 
                 onClick={handleIncrement}
-                className="relative w-72 h-72 rounded-full bg-slate-50 dark:bg-slate-900 border-[12px] border-white shadow-2xl flex flex-col items-center justify-center cursor-pointer active:scale-95 transition-all group overflow-hidden"
+                className="relative w-72 h-72 rounded-full bg-slate-50 dark:bg-navy-800 border-[12px] border-white shadow-2xl flex flex-col items-center justify-center cursor-pointer active:scale-95 transition-all group overflow-hidden"
               >
                  {/* Wave effect background */}
                  <div 
@@ -279,7 +279,7 @@ const EsmaulHusna: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                  <p className="text-[10px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-[0.5em] animate-bounce">EKRANA DOKUNUN</p>
                  <div className="mt-8 flex gap-2 justify-center">
                     {[...Array(5)].map((_, i) => (
-                      <div key={i} className={`w-1.5 h-1.5 rounded-full ${i < (counter % 5) + 1 ? 'bg-purple-500' : 'bg-slate-100 dark:bg-slate-800'}`}></div>
+                      <div key={i} className={`w-1.5 h-1.5 rounded-full ${i < (counter % 5) + 1 ? 'bg-purple-500' : 'bg-slate-100 dark:bg-navy-900'}`}></div>
                     ))}
                  </div>
               </div>

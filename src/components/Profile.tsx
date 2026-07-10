@@ -164,8 +164,8 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
   const renderNotifDetail = () => (
     <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] animate-in slide-in-from-right duration-500 overflow-hidden">
        {/* Compact Header */}
-       <div className="px-6 pt-12 pb-4 flex items-center gap-5 border-b border-slate-50 dark:border-slate-900 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-30">
-          <button onClick={() => { setCurrentView('main'); audioRef.current.pause(); setPreviewingId(null); }} className="w-10 h-10 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
+       <div className="px-6 pt-12 pb-4 flex items-center gap-5 border-b border-slate-50 dark:border-navy-800 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-30">
+          <button onClick={() => { setCurrentView('main'); audioRef.current.pause(); setPreviewingId(null); }} className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform">
              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
@@ -177,14 +177,14 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
        <div className="flex-1 overflow-y-auto px-6 pt-6 pb-40 space-y-10 no-scrollbar">
           
           {/* Main Toggle Card */}
-          <div className={`p-6 rounded-[2.5rem] border transition-all duration-500 flex items-center justify-between ${notifMaster ? 'bg-gold-600 border-gold-500 shadow-xl shadow-navy-900/20 text-white' : 'bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400'}`}>
+          <div className={`p-6 rounded-[2.5rem] border transition-all duration-500 flex items-center justify-between ${notifMaster ? 'bg-gold-600 border-gold-500 shadow-xl shadow-navy-900/20 text-white' : 'bg-slate-50 dark:bg-navy-800 border-slate-100 dark:border-navy-900 text-slate-400'}`}>
              <div className="space-y-1">
                 <h4 className="text-[15px] font-black tracking-tight leading-none uppercase">Bildirimleri Yönet</h4>
                 <p className={`text-[9px] font-bold uppercase tracking-widest ${notifMaster ? 'opacity-70' : 'opacity-40'}`}>Tüm Uygulama Sesleri</p>
              </div>
              <button 
                onClick={() => setNotifMaster(!notifMaster)}
-               className={`w-14 h-8 rounded-full transition-all relative ${notifMaster ? 'bg-white' : 'bg-slate-200 dark:bg-slate-800'}`}
+               className={`w-14 h-8 rounded-full transition-all relative ${notifMaster ? 'bg-white' : 'bg-slate-200 dark:bg-navy-900'}`}
              >
                 <div className={`absolute top-1 w-6 h-6 rounded-full transition-all ${notifMaster ? 'right-1 bg-gold-600 shadow-md' : 'left-1 bg-white opacity-40'}`}></div>
              </button>
@@ -209,10 +209,10 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
                                <div 
                                  key={sound.id}
                                  onClick={() => selectSound(sound.id)}
-                                 className={`p-4 rounded-[1.8rem] border-2 transition-all duration-300 flex items-center justify-between group active:scale-[0.99] ${isSelected ? 'bg-white dark:bg-slate-900 border-gold-500 shadow-lg ring-4 ring-gold-500/5' : 'bg-white dark:bg-slate-900 border-slate-50 dark:border-slate-800'}`}
+                                 className={`p-4 rounded-[1.8rem] border-2 transition-all duration-300 flex items-center justify-between group active:scale-[0.99] ${isSelected ? 'bg-white dark:bg-navy-800 border-gold-500 shadow-lg ring-4 ring-gold-500/5' : 'bg-white dark:bg-navy-800 border-slate-50 dark:border-navy-900'}`}
                                >
                                   <div className="flex items-center gap-4">
-                                     <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-xl transition-all ${isSelected ? 'bg-gold-50 dark:bg-navy-950/30 shadow-inner' : 'bg-slate-50 dark:bg-slate-800/50 opacity-50'}`}>
+                                     <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-xl transition-all ${isSelected ? 'bg-gold-50 dark:bg-navy-950/30 shadow-inner' : 'bg-slate-50 dark:bg-navy-900/50 opacity-50'}`}>
                                         {sound.icon}
                                      </div>
                                      <div>
@@ -224,7 +224,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
                                   <div className="flex items-center gap-2">
                                      <button 
                                        onClick={(e) => { e.stopPropagation(); togglePreview(sound); }}
-                                       className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${isPlaying ? 'bg-rose-500 text-white animate-pulse' : 'bg-slate-50 dark:bg-slate-800 text-slate-400 dark:text-slate-500 hover:text-gold-500'}`}
+                                       className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${isPlaying ? 'bg-rose-500 text-white animate-pulse' : 'bg-slate-50 dark:bg-navy-900 text-slate-400 dark:text-slate-500 hover:text-gold-500'}`}
                                      >
                                         {isPlaying ? (
                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
@@ -249,10 +249,10 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
              {/* Haptic & Feedback */}
              <div className="space-y-4">
                 <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em] ml-2">GERİ BİLDİRİM</p>
-                <div className="bg-white dark:bg-slate-900 rounded-[2.2rem] border border-slate-50 dark:border-slate-800 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden shadow-sm">
+                <div className="bg-white dark:bg-navy-800 rounded-[2.2rem] border border-slate-50 dark:border-navy-900 divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden shadow-sm">
                    <div className="flex items-center justify-between p-5 px-6">
                       <div className="flex items-center gap-4"><div className="w-9 h-9 bg-gold-50 dark:bg-navy-900/10 text-gold-500 rounded-xl flex items-center justify-center text-lg">📳</div><span className="text-[13px] font-bold text-slate-700 dark:text-slate-200">Titreşimle Uyarma</span></div>
-                      <input type="checkbox" checked={notifVibrate} onChange={() => setNotifVibrate(!notifVibrate)} className="w-5 h-5 rounded-lg border-slate-300 dark:border-slate-700 text-gold-600 focus:ring-gold-500 dark:bg-slate-800" />
+                      <input type="checkbox" checked={notifVibrate} onChange={() => setNotifVibrate(!notifVibrate)} className="w-5 h-5 rounded-lg border-slate-300 dark:border-navy-700 text-gold-600 focus:ring-gold-500 dark:bg-navy-900" />
                    </div>
                 </div>
              </div>
@@ -280,7 +280,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
         className={`aspect-[1.58/1] w-full rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl transition-all duration-300 border group cursor-pointer active:scale-[0.98] ${
           isPremium 
             ? 'bg-gradient-to-br from-gold-500 via-gold-600 to-gold-700 text-white border-white/10 shadow-navy-900/30' 
-            : 'bg-gradient-to-br from-gold-50 via-gold-50 to-white dark:from-slate-800 dark:via-slate-800 dark:to-slate-900 text-navy-950 dark:text-white border-gold-100 dark:border-slate-700 shadow-navy-900/5'
+            : 'bg-gradient-to-br from-gold-50 via-gold-50 to-white dark:from-navy-900 dark:via-navy-900 dark:to-navy-800 text-navy-950 dark:text-white border-gold-100 dark:border-navy-700 shadow-navy-900/5'
         }`}
       >
         {/* Cami Silüeti */}
@@ -301,7 +301,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
         
         <div className="relative z-10 h-full flex flex-col justify-between">
           <div className="flex justify-between items-start">
-            <div className={`w-14 h-14 backdrop-blur-md rounded-2xl flex items-center justify-center border shadow-xl transition-all duration-700 ${isPremium ? 'bg-white/10 border-white/20 ring-2 ring-amber-400/40' : 'bg-white dark:bg-slate-900 border-gold-100 dark:border-slate-700 ring-2 ring-gold-100 dark:ring-slate-700'}`}>
+            <div className={`w-14 h-14 backdrop-blur-md rounded-2xl flex items-center justify-center border shadow-xl transition-all duration-700 ${isPremium ? 'bg-white/10 border-white/20 ring-2 ring-amber-400/40' : 'bg-white dark:bg-navy-800 border-gold-100 dark:border-navy-700 ring-2 ring-gold-100 dark:ring-navy-700'}`}>
                <span className={`text-2xl font-black ${isPremium ? 'text-amber-400' : 'text-gold-600 dark:text-gold-400'}`}>{user.avatar || user.name[0]?.toUpperCase()}</span>
             </div>
             {isPremium ? (
@@ -327,7 +327,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
             )}
           </div>
 
-          <button onClick={() => setIsEditModalOpen(true)} className={`absolute bottom-0 right-0 w-11 h-11 backdrop-blur-lg border rounded-2xl flex items-center justify-center transition-all active:scale-90 group/edit shadow-lg ${isPremium ? 'bg-white/10 border-white/20 text-white/80 hover:text-white hover:bg-white/20' : 'bg-white dark:bg-slate-900 border-gold-100 dark:border-slate-700 text-gold-600 dark:text-gold-400 hover:bg-gold-50 dark:hover:bg-slate-800'}`}>
+          <button onClick={() => setIsEditModalOpen(true)} className={`absolute bottom-0 right-0 w-11 h-11 backdrop-blur-lg border rounded-2xl flex items-center justify-center transition-all active:scale-90 group/edit shadow-lg ${isPremium ? 'bg-white/10 border-white/20 text-white/80 hover:text-white hover:bg-white/20' : 'bg-white dark:bg-navy-800 border-gold-100 dark:border-navy-700 text-gold-600 dark:text-gold-400 hover:bg-gold-50 dark:hover:bg-navy-900'}`}>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/edit:rotate-12 transition-transform"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
           </button>
           
@@ -337,15 +337,15 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
 
       {/* MANEVİ İSTATİSTİKLER */}
       <div className="grid grid-cols-3 gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-         <div className="bg-gradient-to-br from-gold-50 to-white dark:from-slate-900 dark:to-slate-900 p-5 rounded-[2rem] shadow-sm border border-gold-100/70 dark:border-slate-800 text-center space-y-1">
+         <div className="bg-gradient-to-br from-gold-50 to-white dark:from-navy-800 dark:to-navy-800 p-5 rounded-[2rem] shadow-sm border border-gold-100/70 dark:border-navy-900 text-center space-y-1">
             <p className="text-[18px] font-black text-gold-600 tracking-tighter tabular-nums">7</p>
             <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">İSTİKRAR</p>
          </div>
-         <div className="bg-gradient-to-br from-gold-50 to-white dark:from-slate-900 dark:to-slate-900 p-5 rounded-[2rem] shadow-sm border border-gold-100/70 dark:border-slate-800 text-center space-y-1">
+         <div className="bg-gradient-to-br from-gold-50 to-white dark:from-navy-800 dark:to-navy-800 p-5 rounded-[2rem] shadow-sm border border-gold-100/70 dark:border-navy-900 text-center space-y-1">
             <p className="text-[18px] font-black text-gold-600 tracking-tighter tabular-nums">%12</p>
             <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">HATİM</p>
          </div>
-         <div className="bg-gradient-to-br from-amber-50 to-white dark:from-slate-900 dark:to-slate-900 p-5 rounded-[2rem] shadow-sm border border-amber-100/70 dark:border-slate-800 text-center space-y-1">
+         <div className="bg-gradient-to-br from-amber-50 to-white dark:from-navy-800 dark:to-navy-800 p-5 rounded-[2rem] shadow-sm border border-amber-100/70 dark:border-navy-900 text-center space-y-1">
             <p className="text-[18px] font-black text-amber-600 tracking-tighter tabular-nums">{zikirCount}</p>
             <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">ZİKİR</p>
          </div>
@@ -361,7 +361,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
             { emoji: '📖', label: 'Kuran Dostu', active: false },
             { emoji: '🕌', label: 'Cemaat Eri', active: false },
           ].map((badge, i) => (
-            <div key={i} className={`shrink-0 w-[86px] flex flex-col items-center gap-2 p-4 rounded-[1.75rem] border text-center transition-all ${badge.active ? 'bg-gradient-to-br from-amber-50 to-white dark:from-amber-950/30 dark:to-slate-900 border-amber-200 dark:border-amber-900/40' : 'bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-slate-800 grayscale opacity-50'}`}>
+            <div key={i} className={`shrink-0 w-[86px] flex flex-col items-center gap-2 p-4 rounded-[1.75rem] border text-center transition-all ${badge.active ? 'bg-gradient-to-br from-amber-50 to-white dark:from-amber-950/30 dark:to-navy-800 border-amber-200 dark:border-amber-900/40' : 'bg-slate-50 dark:bg-navy-800 border-slate-100 dark:border-navy-900 grayscale opacity-50'}`}>
               <span className="text-2xl">{badge.emoji}</span>
               <span className="text-[8px] font-black text-slate-600 dark:text-slate-300 uppercase tracking-wide leading-tight">{badge.label}</span>
             </div>
@@ -401,7 +401,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
       {/* AYARLAR MENÜSÜ */}
       <div className="space-y-3 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
         <p className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em] ml-4">GENEL AYARLAR</p>
-        <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] border border-slate-50 dark:border-slate-800 shadow-sm divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden">
+        <div className="bg-white dark:bg-navy-800 rounded-[2.5rem] border border-slate-50 dark:border-navy-900 shadow-sm divide-y divide-slate-50 dark:divide-slate-800 overflow-hidden">
            {settingItems.map((item) => (
              <div 
                key={item.id} 
@@ -411,7 +411,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
                  else if ('isLink' in item && item.isLink) alert("Desteğiniz için teşekkürler!"); 
                  else { setActiveModal(item.id); } 
                }} 
-               className="flex items-center justify-between p-4 px-5 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors cursor-pointer active:bg-slate-100"
+               className="flex items-center justify-between p-4 px-5 hover:bg-slate-50 dark:hover:bg-navy-900/50 transition-colors cursor-pointer active:bg-slate-100"
              >
                <div className="flex items-center gap-4">
                   <div className={`w-9 h-9 ${item.color} rounded-xl flex items-center justify-center text-white shadow-sm`}>{item.icon}</div>
@@ -449,7 +449,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
               <div className="flex items-center justify-between">
                 <button 
                   onClick={() => setShowPremiumPage(false)} 
-                  className="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-xl flex items-center justify-center text-slate-500 active:scale-90 shadow-sm"
+                  className="w-10 h-10 bg-slate-100 dark:bg-navy-900 rounded-xl flex items-center justify-center text-slate-500 active:scale-90 shadow-sm"
                 >
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
                 </button>
@@ -467,20 +467,20 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
            {/* 2. COMPACT ELITE PRICING CARDS */}
            <div className="px-6 flex-1 flex flex-col justify-center gap-2 py-4">
               <p className="text-[9px] font-black text-slate-300 dark:text-slate-700 uppercase tracking-[0.4em] ml-1 mb-1">PAKETİNİZİ BELİRLEYİN</p>
-              <div onClick={() => setSelectedPlan('6m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer relative overflow-hidden flex items-center justify-between px-5 ${selectedPlan === '6m' ? 'bg-[#153a33] border-[#153a33] shadow-xl shadow-navy-900/20 ring-4 ring-gold-500/5' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}`}>
+              <div onClick={() => setSelectedPlan('6m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer relative overflow-hidden flex items-center justify-between px-5 ${selectedPlan === '6m' ? 'bg-[#153a33] border-[#153a33] shadow-xl shadow-navy-900/20 ring-4 ring-gold-500/5' : 'bg-white dark:bg-navy-800 border-slate-100 dark:border-navy-900 shadow-sm'}`}>
                 <div className="absolute top-0 right-6 bg-[#fbbf24] text-[#153a33] text-[6.5px] font-black px-3 py-0.5 rounded-b-lg uppercase tracking-widest z-10 shadow-md">EN ÇOK TERCİH EDİLEN</div>
                 <div className="space-y-0.5">
                   <p className={`text-[9px] font-black uppercase tracking-widest ${selectedPlan === '6m' ? 'text-gold-300' : 'text-gold-600'}`}>6 AYLIK PLAN</p>
                   <h4 className={`text-2xl font-black tracking-tighter ${selectedPlan === '6m' ? 'text-white' : 'text-slate-900 dark:text-white'}`}>₺149</h4>
                 </div>
-                <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${selectedPlan === '6m' ? 'border-white bg-white text-gold-700' : 'border-slate-100 dark:border-slate-700'}`}>{selectedPlan === '6m' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="5"><polyline points="20 6 9 17 4 12"/></svg>}</div>
+                <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${selectedPlan === '6m' ? 'border-white bg-white text-gold-700' : 'border-slate-100 dark:border-navy-700'}`}>{selectedPlan === '6m' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="5"><polyline points="20 6 9 17 4 12"/></svg>}</div>
               </div>
-              <div onClick={() => setSelectedPlan('3m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer flex items-center justify-between px-5 ${selectedPlan === '3m' ? 'bg-[#153a33] border-[#153a33] shadow-xl' : 'bg-white dark:bg-slate-900 border-slate-100 dark:border-slate-800 shadow-sm'}`}>
+              <div onClick={() => setSelectedPlan('3m')} className={`h-[88px] rounded-[1.8rem] border-2 transition-all cursor-pointer flex items-center justify-between px-5 ${selectedPlan === '3m' ? 'bg-[#153a33] border-[#153a33] shadow-xl' : 'bg-white dark:bg-navy-800 border-slate-100 dark:border-navy-900 shadow-sm'}`}>
                 <div className="space-y-0.5">
                   <p className={`text-[9px] font-black uppercase tracking-widest ${selectedPlan === '3m' ? 'text-gold-300' : 'text-gold-600'}`}>3 AYLIK PLAN</p>
                   <h4 className={`text-2xl font-black tracking-tighter ${selectedPlan === '3m' ? 'text-white' : 'text-slate-900 dark:text-white'}`}>₺99</h4>
                 </div>
-                <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${selectedPlan === '3m' ? 'border-white bg-white text-gold-700' : 'border-slate-100 dark:border-slate-700'}`}>{selectedPlan === '3m' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="5"><polyline points="20 6 9 17 4 12"/></svg>}</div>
+                <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center transition-all ${selectedPlan === '3m' ? 'border-white bg-white text-gold-700' : 'border-slate-100 dark:border-navy-700'}`}>{selectedPlan === '3m' && <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="5"><polyline points="20 6 9 17 4 12"/></svg>}</div>
               </div>
            </div>
 
@@ -497,12 +497,12 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
       {/* Modals for settings */}
       {activeModal !== 'none' && (
         <div className="fixed inset-0 z-[500] bg-slate-950/80 backdrop-blur-md flex items-end justify-center animate-in fade-in duration-300">
-           <div className="bg-white dark:bg-slate-900 w-full max-w-md rounded-t-[3.5rem] p-10 space-y-8 animate-in slide-in-from-bottom-20 duration-500 shadow-2xl border-t border-white/5">
-              <div className="flex justify-center mb-2"><div className="w-12 h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full"></div></div>
+           <div className="bg-white dark:bg-navy-800 w-full max-w-md rounded-t-[3.5rem] p-10 space-y-8 animate-in slide-in-from-bottom-20 duration-500 shadow-2xl border-t border-white/5">
+              <div className="flex justify-center mb-2"><div className="w-12 h-1.5 bg-slate-100 dark:bg-navy-900 rounded-full"></div></div>
               <div className="text-center"><h3 className="text-xl font-black text-slate-900 dark:text-white tracking-tight uppercase">{settingItems.find(s => s.id === activeModal)?.label}</h3></div>
               <div className="grid grid-cols-1 gap-2.5 pb-8">
                  {settingItems.find(s => s.id === activeModal)?.options?.map(opt => (
-                   <button key={opt} onClick={() => { if (activeModal === 'language') setLanguagePref(opt); setActiveModal('none'); }} className={`p-5 rounded-[1.8rem] border-2 text-left flex items-center justify-between transition-all active:scale-95 bg-slate-50 dark:bg-slate-800/50 border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-400`}><span className="font-black text-[11px] uppercase tracking-widest">{opt}</span></button>
+                   <button key={opt} onClick={() => { if (activeModal === 'language') setLanguagePref(opt); setActiveModal('none'); }} className={`p-5 rounded-[1.8rem] border-2 text-left flex items-center justify-between transition-all active:scale-95 bg-slate-50 dark:bg-navy-900/50 border-slate-100 dark:border-navy-900 text-slate-600 dark:text-slate-400`}><span className="font-black text-[11px] uppercase tracking-widest">{opt}</span></button>
                  ))}
               </div>
               <button onClick={() => setActiveModal('none')} className="w-full py-5 bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black rounded-3xl text-[11px] uppercase tracking-widest shadow-lg">KAPAT</button>
@@ -513,23 +513,23 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
       {/* Edit Profile Modal */}
       {isEditModalOpen && (
         <div className="fixed inset-0 z-[500] bg-slate-950/80 backdrop-blur-xl flex items-center justify-center p-6 animate-in fade-in duration-300">
-          <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3.5rem] p-8 space-y-7 animate-in zoom-in duration-300 shadow-2xl relative border border-white/10 max-h-[85vh] overflow-y-auto no-scrollbar">
+          <div className="bg-white dark:bg-navy-800 w-full max-w-sm rounded-[3.5rem] p-8 space-y-7 animate-in zoom-in duration-300 shadow-2xl relative border border-white/10 max-h-[85vh] overflow-y-auto no-scrollbar">
             <div className="text-center space-y-5">
               <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Kimliği Düzenle</h3>
               {/* Canlı avatar önizlemesi */}
-              <div className="w-24 h-24 mx-auto rounded-[2rem] bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center text-5xl shadow-xl shadow-navy-900/20 border-4 border-white dark:border-slate-800 ring-2 ring-gold-100 dark:ring-navy-900/40">
+              <div className="w-24 h-24 mx-auto rounded-[2rem] bg-gradient-to-br from-gold-500 to-gold-700 flex items-center justify-center text-5xl shadow-xl shadow-navy-900/20 border-4 border-white dark:border-navy-900 ring-2 ring-gold-100 dark:ring-navy-900/40">
                 {editAvatar}
               </div>
             </div>
 
             <div className="space-y-2">
               <p className="text-[9px] font-black text-slate-400 uppercase tracking-[0.3em] ml-2">Profil Fotoğrafı Seç</p>
-              <div className="grid grid-cols-5 gap-2.5 bg-slate-50 dark:bg-slate-800/50 p-3 rounded-[1.8rem]">
+              <div className="grid grid-cols-5 gap-2.5 bg-slate-50 dark:bg-navy-900/50 p-3 rounded-[1.8rem]">
                 {AVATAR_OPTIONS.map(ava => (
                   <button
                     key={ava}
                     onClick={() => { setEditAvatar(ava); if (window.navigator.vibrate) window.navigator.vibrate(15); }}
-                    className={`aspect-square rounded-2xl flex items-center justify-center text-2xl transition-all border-2 ${editAvatar === ava ? 'bg-white dark:bg-slate-900 border-gold-600 scale-105 shadow-lg' : 'bg-white/60 dark:bg-slate-900/40 border-transparent opacity-50 hover:opacity-90'}`}
+                    className={`aspect-square rounded-2xl flex items-center justify-center text-2xl transition-all border-2 ${editAvatar === ava ? 'bg-white dark:bg-navy-800 border-gold-600 scale-105 shadow-lg' : 'bg-white/60 dark:bg-navy-800/40 border-transparent opacity-50 hover:opacity-90'}`}
                   >
                     {ava}
                   </button>
@@ -542,13 +542,13 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
               <div className="space-y-2.5">
                 <div className="relative">
                   <span className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 text-sm">👤</span>
-                  <input type="text" value={editName} onChange={e => setEditName(e.target.value)} className="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-2xl pl-12 pr-6 py-4 outline-none font-bold text-slate-900 dark:text-white shadow-inner text-sm" placeholder="İsim..." />
+                  <input type="text" value={editName} onChange={e => setEditName(e.target.value)} className="w-full bg-slate-50 dark:bg-navy-900 border-none rounded-2xl pl-12 pr-6 py-4 outline-none font-bold text-slate-900 dark:text-white shadow-inner text-sm" placeholder="İsim..." />
                 </div>
                 <div className="relative">
                   <span className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-300 text-sm">✉️</span>
-                  <div className="w-full bg-slate-100 dark:bg-slate-800/60 border-none rounded-2xl pl-12 pr-6 py-4 font-bold text-slate-400 dark:text-slate-500 shadow-inner text-sm flex items-center justify-between gap-2">
+                  <div className="w-full bg-slate-100 dark:bg-navy-900/60 border-none rounded-2xl pl-12 pr-6 py-4 font-bold text-slate-400 dark:text-slate-500 shadow-inner text-sm flex items-center justify-between gap-2">
                     <span className="truncate">{user.email}</span>
-                    <span className="text-[8px] font-black uppercase tracking-widest bg-slate-200 dark:bg-slate-700 text-slate-500 px-2 py-1 rounded-lg shrink-0">Sabit</span>
+                    <span className="text-[8px] font-black uppercase tracking-widest bg-slate-200 dark:bg-navy-700 text-slate-500 px-2 py-1 rounded-lg shrink-0">Sabit</span>
                   </div>
                 </div>
               </div>
@@ -561,13 +561,13 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
                 onChange={e => setEditBio(e.target.value.slice(0, 80))}
                 rows={2}
                 placeholder="Kendini birkaç kelimeyle tanıt…"
-                className="w-full bg-slate-50 dark:bg-slate-800 border-none rounded-2xl px-5 py-4 outline-none font-medium text-slate-900 dark:text-white shadow-inner text-sm resize-none"
+                className="w-full bg-slate-50 dark:bg-navy-900 border-none rounded-2xl px-5 py-4 outline-none font-medium text-slate-900 dark:text-white shadow-inner text-sm resize-none"
               />
               <p className="text-[9px] text-slate-300 text-right pr-1">{editBio.length}/80</p>
             </div>
 
             <div className="flex gap-3 pt-1">
-              <button onClick={() => setIsEditModalOpen(false)} className="flex-1 py-4.5 bg-slate-100 dark:bg-slate-800 text-slate-400 font-black rounded-3xl text-[10px] uppercase">İPTAL</button>
+              <button onClick={() => setIsEditModalOpen(false)} className="flex-1 py-4.5 bg-slate-100 dark:bg-navy-900 text-slate-400 font-black rounded-3xl text-[10px] uppercase">İPTAL</button>
               <button onClick={handleSaveProfile} className="flex-[2] py-4.5 bg-gold-600 text-white font-black rounded-3xl text-[10px] uppercase shadow-xl">GÜNCELLE</button>
             </div>
           </div>
@@ -578,8 +578,8 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
 
   const renderMosqueDetail = () => (
     <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] animate-in slide-in-from-right duration-500">
-       <div className="px-6 pt-12 pb-6 flex items-center gap-5 border-b border-slate-100 dark:border-slate-800">
-          <button onClick={() => setCurrentView('main')} className="w-11 h-11 bg-slate-50 dark:bg-slate-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform">
+       <div className="px-6 pt-12 pb-6 flex items-center gap-5 border-b border-slate-100 dark:border-navy-900">
+          <button onClick={() => setCurrentView('main')} className="w-11 h-11 bg-slate-50 dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform">
              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
           <div>
@@ -612,7 +612,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
              <p className="text-[9px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em] ml-2">AKILLI ÖZELLİKLER</p>
              
              {/* GPS Geofencing Feature */}
-             <div className={`p-8 rounded-[2.8rem] border-2 transition-all group ${mosqueGeofencing ? 'bg-white dark:bg-slate-900 border-gold-500 shadow-xl shadow-navy-900/5' : 'bg-slate-50/50 dark:bg-slate-900/50 border-slate-100 dark:border-slate-800 grayscale opacity-60'}`}>
+             <div className={`p-8 rounded-[2.8rem] border-2 transition-all group ${mosqueGeofencing ? 'bg-white dark:bg-navy-800 border-gold-500 shadow-xl shadow-navy-900/5' : 'bg-slate-50/50 dark:bg-navy-800/50 border-slate-100 dark:border-navy-900 grayscale opacity-60'}`}>
                 <div className="flex justify-between items-start mb-6">
                    <div className="flex items-center gap-4">
                       <div className="w-14 h-14 bg-gold-50 dark:bg-navy-950/30 text-gold-600 rounded-3xl flex items-center justify-center text-3xl shadow-inner border border-gold-100/50">📍</div>
@@ -626,7 +626,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
                         if (!mosqueGeofencing) requestLocation();
                         setMosqueGeofencing(!mosqueGeofencing);
                      }}
-                     className={`w-14 h-8 rounded-full transition-all relative ${mosqueGeofencing ? 'bg-gold-600' : 'bg-slate-200 dark:bg-slate-800'}`}
+                     className={`w-14 h-8 rounded-full transition-all relative ${mosqueGeofencing ? 'bg-gold-600' : 'bg-slate-200 dark:bg-navy-900'}`}
                    >
                       <div className={`absolute top-1 w-6 h-6 rounded-full transition-all ${mosqueGeofencing ? 'right-1 bg-white shadow-md' : 'left-1 bg-white opacity-40'}`}></div>
                    </button>
@@ -641,7 +641,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
              </div>
 
              {/* Friday Silence Feature */}
-             <div className={`p-8 rounded-[2.8rem] border-2 transition-all group ${fridaySilence ? 'bg-white dark:bg-slate-900 border-gold-500 shadow-xl shadow-navy-900/5' : 'bg-slate-50/50 dark:bg-slate-900/50 border-slate-100 dark:border-slate-800 grayscale opacity-60'}`}>
+             <div className={`p-8 rounded-[2.8rem] border-2 transition-all group ${fridaySilence ? 'bg-white dark:bg-navy-800 border-gold-500 shadow-xl shadow-navy-900/5' : 'bg-slate-50/50 dark:bg-navy-800/50 border-slate-100 dark:border-navy-900 grayscale opacity-60'}`}>
                 <div className="flex justify-between items-start mb-6">
                    <div className="flex items-center gap-4">
                       <div className="w-14 h-14 bg-gold-50 dark:bg-navy-950/30 text-gold-600 rounded-3xl flex items-center justify-center text-3xl shadow-inner border border-gold-100/50">🕊️</div>
@@ -652,7 +652,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
                    </div>
                    <button 
                      onClick={() => setFridaySilence(!fridaySilence)}
-                     className={`w-14 h-8 rounded-full transition-all relative ${fridaySilence ? 'bg-gold-600' : 'bg-slate-200 dark:bg-slate-800'}`}
+                     className={`w-14 h-8 rounded-full transition-all relative ${fridaySilence ? 'bg-gold-600' : 'bg-slate-200 dark:bg-navy-900'}`}
                    >
                       <div className={`absolute top-1 w-6 h-6 rounded-full transition-all ${fridaySilence ? 'right-1 bg-white shadow-md' : 'left-1 bg-white opacity-40'}`}></div>
                    </button>
@@ -661,8 +661,8 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
              </div>
           </div>
 
-          <div className="p-8 bg-slate-50 dark:bg-slate-900 rounded-[2.5rem] border border-dashed border-slate-200 dark:border-slate-800 flex items-start gap-5">
-             <div className="w-12 h-12 bg-white dark:bg-slate-800 rounded-2xl flex items-center justify-center text-2xl shadow-sm shrink-0">💎</div>
+          <div className="p-8 bg-slate-50 dark:bg-navy-800 rounded-[2.5rem] border border-dashed border-slate-200 dark:border-navy-900 flex items-start gap-5">
+             <div className="w-12 h-12 bg-white dark:bg-navy-900 rounded-2xl flex items-center justify-center text-2xl shadow-sm shrink-0">💎</div>
              <div className="space-y-1">
                 <h6 className="text-[10px] font-black text-gold-600 dark:text-gold-400 uppercase tracking-widest">BİLGİ NOTU</h6>
                 <p className="text-[11px] font-semibold text-slate-500 dark:text-slate-400 leading-relaxed italic">

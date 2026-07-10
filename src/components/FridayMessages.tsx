@@ -98,7 +98,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         <div className="flex items-center gap-4">
           <button 
             onClick={onBack}
-            className="w-9 h-9 bg-slate-50 dark:bg-slate-900 rounded-xl flex items-center justify-center border border-slate-100 dark:border-slate-800 active:scale-90 transition-transform"
+            className="w-9 h-9 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
@@ -116,12 +116,12 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       </div>
 
       {/* Tighter Category Tabs */}
-      <div className="px-5 py-2 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 sticky top-[66px] z-30 overflow-x-auto no-scrollbar flex gap-1.5 border-b border-slate-50 dark:border-slate-800">
+      <div className="px-5 py-2 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 sticky top-[66px] z-30 overflow-x-auto no-scrollbar flex gap-1.5 border-b border-slate-50 dark:border-navy-900">
         {CATEGORIES.map(cat => (
           <button 
             key={cat.id}
             onClick={() => setActiveCat(cat.id)}
-            className={`px-4 py-1.5 rounded-full text-[8.5px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${activeCat === cat.id ? 'bg-gold-600 text-white border-gold-500 shadow-md' : 'bg-white dark:bg-slate-900 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-slate-800'}`}
+            className={`px-4 py-1.5 rounded-full text-[8.5px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${activeCat === cat.id ? 'bg-gold-600 text-white border-gold-500 shadow-md' : 'bg-white dark:bg-navy-800 text-slate-400 dark:text-slate-500 border-slate-100 dark:border-navy-900'}`}
           >
             {cat.label}
           </button>
@@ -145,7 +145,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
           {filteredMessages.map((msg) => (
             <div 
               key={msg.id}
-              className="bg-white dark:bg-slate-900 rounded-[2.2rem] overflow-hidden border border-slate-100 dark:border-slate-800 shadow-xl shadow-slate-900/5 group relative"
+              className="bg-white dark:bg-navy-800 rounded-[2.2rem] overflow-hidden border border-slate-100 dark:border-navy-900 shadow-xl shadow-slate-900/5 group relative"
             >
               <div className="aspect-[16/11] w-full relative overflow-hidden">
                 <img src={msg.imageUrl} alt="Cuma Mesajı" className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
@@ -162,15 +162,15 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                 )}
               </div>
               
-              <div className="px-4 py-3 flex items-center justify-between bg-white dark:bg-slate-900">
+              <div className="px-4 py-3 flex items-center justify-between bg-white dark:bg-navy-800">
                 <div className="flex items-center gap-2">
-                   <div className="w-7 h-7 rounded-full bg-slate-50 dark:bg-slate-900 flex items-center justify-center text-[10px] text-slate-300 dark:text-slate-600">🖼️</div>
+                   <div className="w-7 h-7 rounded-full bg-slate-50 dark:bg-navy-800 flex items-center justify-center text-[10px] text-slate-300 dark:text-slate-600">🖼️</div>
                    <p className="text-[7px] font-black text-slate-300 dark:text-slate-600 uppercase tracking-widest">{msg.category}</p>
                 </div>
                 <div className="flex gap-1.5">
                   <button 
                     onClick={() => { navigator.clipboard.writeText(msg.content); alert("Kopyalandı!"); }}
-                    className="w-8 h-8 bg-slate-50 dark:bg-slate-900 text-slate-400 dark:text-slate-500 rounded-lg flex items-center justify-center active:scale-90 transition-all hover:bg-gold-50 dark:bg-navy-950/20 hover:text-gold-600"
+                    className="w-8 h-8 bg-slate-50 dark:bg-navy-800 text-slate-400 dark:text-slate-500 rounded-lg flex items-center justify-center active:scale-90 transition-all hover:bg-gold-50 dark:bg-navy-950/20 hover:text-gold-600"
                   >
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
                   </button>
@@ -198,7 +198,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       {/* AI Generate Modal */}
       {showAiModal && (
         <div className="fixed inset-0 z-[500] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-6 animate-in fade-in duration-300">
-           <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[2.5rem] p-8 space-y-6 animate-in zoom-in duration-300 shadow-2xl relative overflow-hidden">
+           <div className="bg-white dark:bg-navy-800 w-full max-w-sm rounded-[2.5rem] p-8 space-y-6 animate-in zoom-in duration-300 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1.5 bg-gold-600"></div>
               <div className="text-center space-y-1">
                  <div className="w-12 h-12 bg-gold-50 dark:bg-navy-950/20 rounded-xl flex items-center justify-center mx-auto text-2xl shadow-inner border border-gold-100">✨</div>
@@ -214,7 +214,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                          <button 
                            key={t}
                            onClick={() => setAiTheme(t)}
-                           className={`py-2.5 rounded-xl text-[8px] font-black border transition-all ${aiTheme === t ? 'bg-gold-600 border-gold-500 text-white shadow-md' : 'bg-slate-50 dark:bg-slate-900 border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500'}`}
+                           className={`py-2.5 rounded-xl text-[8px] font-black border transition-all ${aiTheme === t ? 'bg-gold-600 border-gold-500 text-white shadow-md' : 'bg-slate-50 dark:bg-navy-800 border-slate-100 dark:border-navy-900 text-slate-400 dark:text-slate-500'}`}
                          >
                            {t.toUpperCase()}
                          </button>
@@ -224,7 +224,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
 
                  {aiLoading ? (
                     <div className="py-6 flex flex-col items-center gap-3">
-                       <div className="w-6 h-6 border-2 border-slate-100 dark:border-slate-800 border-t-gold-600 rounded-full animate-spin"></div>
+                       <div className="w-6 h-6 border-2 border-slate-100 dark:border-navy-900 border-t-gold-600 rounded-full animate-spin"></div>
                        <p className="text-[8px] font-black text-gold-400 uppercase tracking-widest animate-pulse">MESAJ YAZILIYOR...</p>
                     </div>
                  ) : aiResult ? (
@@ -244,7 +244,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
               <div className="flex gap-2">
                  <button 
                    onClick={() => { setShowAiModal(false); setAiResult(null); }}
-                   className="flex-1 py-3.5 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black rounded-xl text-[8px] uppercase active:scale-95"
+                   className="flex-1 py-3.5 bg-slate-100 dark:bg-navy-900 text-slate-400 dark:text-slate-500 font-black rounded-xl text-[8px] uppercase active:scale-95"
                  >
                    {aiResult ? 'VAZGEÇ' : 'KAPAT'}
                  </button>

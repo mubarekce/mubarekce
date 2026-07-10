@@ -166,7 +166,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
             className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-[10px] font-black uppercase tracking-widest transition-all whitespace-nowrap border ${
               selectedCat === cat.id 
                 ? 'bg-gold-600 text-white border-gold-500 shadow-lg shadow-gold-100' 
-                : 'bg-white dark:bg-slate-900 text-slate-400 border-slate-100 dark:border-slate-800 hover:bg-slate-50 dark:bg-slate-800/60'
+                : 'bg-white dark:bg-navy-800 text-slate-400 border-slate-100 dark:border-navy-900 hover:bg-slate-50 dark:bg-navy-900/60'
             }`}
           >
             <span>{cat.icon}</span>
@@ -178,7 +178,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
       {/* Dua Feed */}
       <div className="space-y-6">
         {filteredRequests.map(req => (
-          <div key={req.id} className="bg-white dark:bg-slate-900 p-7 rounded-[2.8rem] border border-slate-100 dark:border-slate-800 shadow-xl shadow-slate-900/5 space-y-5 animate-in slide-in-from-bottom-4 duration-500 relative overflow-hidden group">
+          <div key={req.id} className="bg-white dark:bg-navy-800 p-7 rounded-[2.8rem] border border-slate-100 dark:border-navy-900 shadow-xl shadow-slate-900/5 space-y-5 animate-in slide-in-from-bottom-4 duration-500 relative overflow-hidden group">
             <div className="flex justify-between items-start">
               <div className="flex items-center gap-3.5">
                 <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-xl font-black border-2 ${
@@ -198,7 +198,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
                 </div>
               </div>
               <button 
-                className="w-9 h-9 rounded-xl bg-slate-50 dark:bg-slate-800/60 text-slate-300 flex items-center justify-center hover:bg-gold-50 hover:text-gold-500 transition-colors"
+                className="w-9 h-9 rounded-xl bg-slate-50 dark:bg-navy-900/60 text-slate-300 flex items-center justify-center hover:bg-gold-50 hover:text-gold-500 transition-colors"
                 onClick={() => alert("Yakında...")}
               >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
@@ -230,7 +230,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
               </div>
             )}
 
-            <div className="pt-5 border-t border-slate-50 dark:border-slate-800 flex items-center justify-between gap-3">
+            <div className="pt-5 border-t border-slate-50 dark:border-navy-900 flex items-center justify-between gap-3">
               <div className="flex gap-2">
                 <button 
                   onClick={() => handleAmin(req.id)}
@@ -251,7 +251,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/><path d="M12 7v5l3 3"/></svg>
                 </button>
               </div>
-              <button className="w-11 h-11 bg-slate-50 dark:bg-slate-800/60 text-slate-300 rounded-2xl flex items-center justify-center active:scale-90 transition-all hover:bg-gold-50 hover:text-gold-500">
+              <button className="w-11 h-11 bg-slate-50 dark:bg-navy-900/60 text-slate-300 rounded-2xl flex items-center justify-center active:scale-90 transition-all hover:bg-gold-50 hover:text-gold-500">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
               </button>
             </div>
@@ -275,7 +275,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
 
       {showModal && (
         <div className="fixed inset-0 z-[400] bg-slate-900/60 backdrop-blur-md flex items-center justify-center p-6 animate-in fade-in duration-300">
-          <div className="bg-white dark:bg-slate-900 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl relative overflow-hidden">
+          <div className="bg-white dark:bg-navy-800 w-full max-w-sm rounded-[3rem] p-10 space-y-8 animate-in zoom-in duration-300 shadow-2xl relative overflow-hidden">
              <div className="absolute top-0 left-0 w-full h-2 bg-gold-600"></div>
              <div className="text-center space-y-1">
                 <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight">Dua İsteği Paylaş</h3>
@@ -291,7 +291,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
                          key={cat.id}
                          onClick={() => setNewRequest({...newRequest, category: cat.id})}
                          className={`py-3 rounded-2xl text-[9px] font-black transition-all border ${
-                           newRequest.category === cat.id ? 'bg-gold-600 text-white border-gold-500 shadow-md' : 'bg-slate-50 dark:bg-slate-800/60 text-slate-400 border-slate-100 dark:border-slate-800'
+                           newRequest.category === cat.id ? 'bg-gold-600 text-white border-gold-500 shadow-md' : 'bg-slate-50 dark:bg-navy-900/60 text-slate-400 border-slate-100 dark:border-navy-900'
                          }`}
                        >
                          {cat.label}
@@ -305,7 +305,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
                   <input 
                     type="text" 
                     placeholder="Örn: Şifa Bekliyoruz" 
-                    className="w-full bg-slate-50 dark:bg-slate-800/60 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white placeholder:text-slate-300 shadow-inner"
+                    className="w-full bg-slate-50 dark:bg-navy-900/60 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white placeholder:text-slate-300 shadow-inner"
                     value={newRequest.title}
                     onChange={e => setNewRequest({...newRequest, title: e.target.value})}
                   />
@@ -316,7 +316,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
                   <textarea 
                     placeholder="Duanızı buraya yazın..." 
                     rows={4}
-                    className="w-full bg-slate-50 dark:bg-slate-800/60 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white placeholder:text-slate-300 shadow-inner resize-none"
+                    className="w-full bg-slate-50 dark:bg-navy-900/60 border-none rounded-2xl px-6 py-4 outline-none font-bold text-slate-900 dark:text-white placeholder:text-slate-300 shadow-inner resize-none"
                     value={newRequest.content}
                     onChange={e => setNewRequest({...newRequest, content: e.target.value})}
                   ></textarea>
@@ -324,7 +324,7 @@ const Social: React.FC<SocialProps> = ({ user }) => {
              </div>
 
              <div className="flex gap-4">
-               <button onClick={() => setShowModal(false)} className="flex-1 bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500 font-black py-4 rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">VAZGEÇ</button>
+               <button onClick={() => setShowModal(false)} className="flex-1 bg-slate-100 dark:bg-navy-900 text-slate-400 dark:text-slate-500 font-black py-4 rounded-2xl text-[10px] uppercase tracking-widest active:scale-95 transition-all">VAZGEÇ</button>
                <button onClick={handlePost} disabled={posting} className="flex-1 bg-gold-600 disabled:opacity-60 text-white font-black py-4 rounded-2xl text-[10px] uppercase tracking-widest shadow-xl shadow-navy-900/10 active:scale-95 transition-all">{posting ? 'PAYLAŞILIYOR...' : 'PAYLAŞ'}</button>
              </div>
           </div>

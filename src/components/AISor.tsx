@@ -46,7 +46,7 @@ const AISor: React.FC = () => {
 
   return (
     <div className="flex flex-col h-full bg-gray-50">
-      <div className="p-4 bg-white dark:bg-slate-900 border-b border-gray-200">
+      <div className="p-4 bg-white dark:bg-navy-800 border-b border-gray-200">
         <h2 className="text-xl font-bold text-navy-800">Dini Asistan</h2>
         <p className="text-xs text-gray-500">Aklınıza takılan dini soruları sorabilirsiniz.</p>
       </div>
@@ -61,7 +61,7 @@ const AISor: React.FC = () => {
                 <button 
                   key={q} 
                   onClick={() => setInput(q)}
-                  className="bg-white dark:bg-slate-900 border border-gold-100 text-gold-700 text-xs px-3 py-2 rounded-full hover:bg-gold-50 dark:bg-navy-950/20 transition-colors"
+                  className="bg-white dark:bg-navy-800 border border-gold-100 text-gold-700 text-xs px-3 py-2 rounded-full hover:bg-gold-50 dark:bg-navy-950/20 transition-colors"
                 >
                   {q}
                 </button>
@@ -71,14 +71,14 @@ const AISor: React.FC = () => {
         )}
         {messages.map((m, i) => (
           <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[80%] p-3 rounded-2xl shadow-sm text-sm ${m.role === 'user' ? 'bg-gold-600 text-white rounded-tr-none' : 'bg-white dark:bg-slate-900 border border-gray-100 text-gray-800 rounded-tl-none'}`}>
+            <div className={`max-w-[80%] p-3 rounded-2xl shadow-sm text-sm ${m.role === 'user' ? 'bg-gold-600 text-white rounded-tr-none' : 'bg-white dark:bg-navy-800 border border-gray-100 text-gray-800 rounded-tl-none'}`}>
               {m.text}
             </div>
           </div>
         ))}
         {loading && (
           <div className="flex justify-start">
-            <div className="bg-white dark:bg-slate-900 p-3 rounded-2xl border border-gray-100 rounded-tl-none">
+            <div className="bg-white dark:bg-navy-800 p-3 rounded-2xl border border-gray-100 rounded-tl-none">
               <div className="flex gap-1">
                 <div className="w-2 h-2 bg-gold-400 rounded-full animate-bounce"></div>
                 <div className="w-2 h-2 bg-gold-400 rounded-full animate-bounce delay-75"></div>
@@ -89,7 +89,7 @@ const AISor: React.FC = () => {
         )}
       </div>
 
-      <div className="p-4 bg-white dark:bg-slate-900 border-t border-gray-200">
+      <div className="p-4 bg-white dark:bg-navy-800 border-t border-gray-200">
         <div className="flex gap-2">
           <input 
             type="text"
