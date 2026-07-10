@@ -302,7 +302,7 @@ import { User } from '../types';
     return (
     <div 
       onClick={() => handleToolClick(tool)}
-      className="flex items-center gap-5 p-5 bg-gradient-to-br from-gold-50/60 to-white dark:from-navy-800 dark:to-navy-900 rounded-[2rem] border border-gold-100/40 dark:border-navy-700 hover:from-gold-50 dark:hover:border-gold-600/40 hover:border-gold-200 transition-all duration-300 cursor-pointer group active:scale-[0.98]"
+      className="flex items-center gap-5 p-5 bg-gradient-to-br from-gold-50/50 to-white/70 dark:from-navy-800/70 dark:to-navy-900/70 backdrop-blur-md rounded-[2rem] border border-gold-100/40 dark:border-navy-700/60 hover:from-gold-50 dark:hover:border-gold-600/40 hover:border-gold-200 transition-all duration-300 cursor-pointer group active:scale-[0.98]"
     >
       <div 
         className={`transition-all duration-500 group-hover:scale-110 flex-shrink-0 flex items-center justify-center w-12 h-12 ${tool.color}`}
@@ -328,7 +328,7 @@ import { User } from '../types';
     return (
     <div 
       onClick={() => handleToolClick(tool)}
-      className="bg-gradient-to-br from-gold-50/60 to-white dark:from-navy-800 dark:to-navy-900 p-6 rounded-[2.5rem] border border-gold-100/40 dark:border-navy-700 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-gold-200 dark:hover:border-gold-600/40 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center relative"
+      className="bg-gradient-to-br from-gold-50/50 to-white/70 dark:from-navy-800/70 dark:to-navy-900/70 backdrop-blur-md p-6 rounded-[2.5rem] border border-gold-100/40 dark:border-navy-700/60 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.03)] hover:border-gold-200 dark:hover:border-gold-600/40 hover:shadow-xl hover:shadow-navy-900/5 transition-all duration-300 cursor-pointer group active:scale-95 text-center flex flex-col items-center relative"
     >
       {locked && <span className="absolute top-4 right-4 text-amber-500 text-xs">🔒</span>}
       <div 
@@ -345,13 +345,13 @@ import { User } from '../types';
 
   if (view === 'quran') return <QuranReader onBack={() => setView('grid')} />;
   if (view === 'zikir') return (
-    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] relative">
+    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0f2b26] relative">
       <button onClick={() => setView('grid')} className="absolute top-12 left-6 z-50 w-10 h-10 bg-white/80 dark:bg-navy-800/80 backdrop-blur shadow-sm rounded-xl flex items-center justify-center border border-slate-100 dark:border-navy-700 text-slate-900 dark:text-white">←</button>
       <Zikirmatik />
     </div>
   );
   if (view === 'kible') return (
-    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] relative">
+    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0f2b26] relative">
       <button onClick={() => setView('grid')} className="absolute top-12 left-6 z-50 w-10 h-10 bg-white/80 dark:bg-navy-800/80 backdrop-blur shadow-sm rounded-xl flex items-center justify-center border border-slate-100 dark:border-navy-700 text-slate-900 dark:text-white">←</button>
       <KibleCompass lat={location?.latitude ?? 41.0082} lng={location?.longitude ?? 28.9784} />
     </div>
@@ -382,7 +382,7 @@ import { User } from '../types';
 
   if (view === 'detail' && selectedTool) {
     return (
-      <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] p-8 animate-in slide-in-from-right duration-300 overflow-y-auto">
+      <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0f2b26] p-8 animate-in slide-in-from-right duration-300 overflow-y-auto">
         <button onClick={() => setView('grid')} className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center mb-8 text-slate-900 dark:text-white">←</button>
         <div className="text-center space-y-4">
           <div className={`w-24 h-24 mx-auto flex items-center justify-center ${selectedTool.color}`} style={{ filter: `drop-shadow(0 0 15px ${selectedTool.glowColor})` }}>
@@ -408,7 +408,7 @@ import { User } from '../types';
   }
 
   return (
-    <div className="flex-1 overflow-y-auto px-6 pb-36 pt-12 space-y-8 bg-[#f3f7e9] dark:bg-[#0a1f1a] animate-in fade-in duration-500">
+    <div className="flex-1 overflow-y-auto px-6 pb-36 pt-12 space-y-8 bg-[#f3f7e9] dark:bg-[#0f2b26] animate-in fade-in duration-500">
       <div className="flex justify-between items-end">
         <div className="space-y-2">
           <h2 className="text-4xl font-black text-slate-900 dark:text-white tracking-tight">Kütüphane</h2>

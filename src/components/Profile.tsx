@@ -162,9 +162,9 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
   };
 
   const renderNotifDetail = () => (
-    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] animate-in slide-in-from-right duration-500 overflow-hidden">
+    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0f2b26] animate-in slide-in-from-right duration-500 overflow-hidden">
        {/* Compact Header */}
-       <div className="px-6 pt-12 pb-4 flex items-center gap-5 border-b border-slate-50 dark:border-navy-800 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-30">
+       <div className="px-6 pt-12 pb-4 flex items-center gap-5 border-b border-slate-50 dark:border-navy-800 bg-[#f3f7e9]/80 dark:bg-[#0f2b26]/80 backdrop-blur-md sticky top-0 z-30">
           <button onClick={() => { setCurrentView('main'); audioRef.current.pause(); setPreviewingId(null); }} className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform">
              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>
           </button>
@@ -267,7 +267,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
   );
 
   const renderMainView = () => (
-    <div className="flex-1 overflow-y-auto px-6 pt-12 pb-40 space-y-8 bg-[#f3f7e9] dark:bg-[#0a1f1a] transition-colors duration-300 no-scrollbar relative animate-in fade-in duration-500">
+    <div className="flex-1 overflow-y-auto px-6 pt-12 pb-40 space-y-8 bg-[#f3f7e9] dark:bg-[#0f2b26] transition-colors duration-300 no-scrollbar relative animate-in fade-in duration-500">
       <div className="flex justify-between items-center">
         <h2 className="text-3xl font-black text-slate-900 dark:text-white tracking-tight uppercase">Hesabım</h2>
         <div className="w-10 h-10 bg-gold-50 dark:bg-navy-950/30 rounded-xl flex items-center justify-center border border-gold-100 dark:border-navy-800">
@@ -280,7 +280,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
         className={`aspect-[1.58/1] w-full rounded-[2.5rem] p-8 relative overflow-hidden shadow-2xl transition-all duration-300 border group cursor-pointer active:scale-[0.98] ${
           isPremium 
             ? 'bg-gradient-to-br from-gold-500 via-gold-600 to-gold-700 text-white border-white/10 shadow-navy-900/30' 
-            : 'bg-gradient-to-br from-gold-50 via-gold-50 to-white dark:from-navy-900 dark:via-navy-900 dark:to-navy-800 text-navy-950 dark:text-white border-gold-100 dark:border-navy-700 shadow-navy-900/5'
+            : 'bg-gradient-to-br from-gold-100 via-gold-50 to-white dark:from-navy-700 dark:via-navy-800 dark:to-navy-950 text-navy-950 dark:text-white border-gold-200 dark:border-navy-600 shadow-navy-900/10'
         }`}
       >
         {/* Cami Silüeti */}
@@ -295,7 +295,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
             <circle cx="50" cy="27" r="2" />
           </svg>
         </div>
-        <div className="absolute inset-0 opacity-[0.07] pointer-events-none mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L35 25L60 30L35 35L30 60L25 35L0 30L25 25Z' fill='%23${isPremium ? 'ffffff' : 'c9a668'}'/%3E%3C/svg%3E")`, backgroundSize: '40px 40px' }} />
+        <div className="absolute inset-0 opacity-[0.16] pointer-events-none mix-blend-overlay" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L35 25L60 30L35 35L30 60L25 35L0 30L25 25Z' fill='%23${isPremium ? 'ffffff' : 'c9a668'}'/%3E%3C/svg%3E")`, backgroundSize: '40px 40px' }} />
         <div className={`absolute -top-1/2 -left-1/2 w-[200%] h-[200%] bg-gradient-to-tr from-transparent to-transparent rotate-45 pointer-events-none transition-transform duration-1000 group-hover:translate-x-20 ${isPremium ? 'via-white/10' : 'via-gold-200/30 dark:via-gold-400/10'}`}></div>
         <div className={`absolute left-0 top-0 bottom-0 w-1.5 transition-colors duration-700 ${isPremium ? 'bg-amber-400 opacity-30' : 'bg-gold-400 opacity-40'}`}></div>
         
@@ -337,15 +337,15 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
 
       {/* MANEVİ İSTATİSTİKLER */}
       <div className="grid grid-cols-3 gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
-         <div className="bg-gradient-to-br from-gold-50 to-white dark:from-navy-800 dark:to-navy-800 p-5 rounded-[2rem] shadow-sm border border-gold-100/70 dark:border-navy-900 text-center space-y-1">
+         <div className="bg-gradient-to-br from-gold-50/70 to-white/60 dark:from-navy-800/70 dark:to-navy-900/60 backdrop-blur-md p-5 rounded-[2rem] shadow-sm border border-gold-100/70 dark:border-navy-700/60 text-center space-y-1">
             <p className="text-[18px] font-black text-gold-600 tracking-tighter tabular-nums">7</p>
             <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">İSTİKRAR</p>
          </div>
-         <div className="bg-gradient-to-br from-gold-50 to-white dark:from-navy-800 dark:to-navy-800 p-5 rounded-[2rem] shadow-sm border border-gold-100/70 dark:border-navy-900 text-center space-y-1">
+         <div className="bg-gradient-to-br from-gold-50/70 to-white/60 dark:from-navy-800/70 dark:to-navy-900/60 backdrop-blur-md p-5 rounded-[2rem] shadow-sm border border-gold-100/70 dark:border-navy-700/60 text-center space-y-1">
             <p className="text-[18px] font-black text-gold-600 tracking-tighter tabular-nums">%12</p>
             <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">HATİM</p>
          </div>
-         <div className="bg-gradient-to-br from-amber-50 to-white dark:from-navy-800 dark:to-navy-800 p-5 rounded-[2rem] shadow-sm border border-amber-100/70 dark:border-navy-900 text-center space-y-1">
+         <div className="bg-gradient-to-br from-amber-50/70 to-white/60 dark:from-navy-800/70 dark:to-navy-900/60 backdrop-blur-md p-5 rounded-[2rem] shadow-sm border border-amber-100/70 dark:border-navy-700/60 text-center space-y-1">
             <p className="text-[18px] font-black text-amber-600 tracking-tighter tabular-nums">{zikirCount}</p>
             <p className="text-[8px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">ZİKİR</p>
          </div>
@@ -433,7 +433,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
 
       {/* PREMIUM PURCHASE PAGE */}
       {showPremiumPage && (
-        <div className="fixed inset-0 z-[1000] bg-[#f3f7e9] dark:bg-[#0a1f1a] flex flex-col h-full overflow-hidden pb-[max(1.5rem,env(safe-area-inset-bottom))] animate-in slide-in-from-bottom duration-500">
+        <div className="fixed inset-0 z-[1000] bg-[#f3f7e9] dark:bg-[#0f2b26] flex flex-col h-full overflow-hidden pb-[max(1.5rem,env(safe-area-inset-bottom))] animate-in slide-in-from-bottom duration-500">
            {/* Success Overlay */}
            {purchaseSuccess && (
              <div className="absolute inset-0 bg-gold-700 z-[1100] flex flex-col items-center justify-center text-white p-10 animate-in fade-in zoom-in duration-500 text-center">
@@ -577,7 +577,7 @@ const Profile: React.FC<ProfileProps> = ({ user, onUpdateUser, onLogout }) => {
   );
 
   const renderMosqueDetail = () => (
-    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] animate-in slide-in-from-right duration-500">
+    <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0f2b26] animate-in slide-in-from-right duration-500">
        <div className="px-6 pt-12 pb-6 flex items-center gap-5 border-b border-slate-100 dark:border-navy-900">
           <button onClick={() => setCurrentView('main')} className="w-11 h-11 bg-slate-50 dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-transform">
              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>

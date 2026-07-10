@@ -118,7 +118,7 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#f3f7e9] dark:bg-[#0a1f1a] flex flex-col justify-center items-center p-8 relative overflow-hidden transition-colors duration-300">
+    <div className="min-h-screen w-full bg-[#f3f7e9] dark:bg-[#0f2b26] flex flex-col justify-center items-center p-8 relative overflow-hidden transition-colors duration-300">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
         <div className="absolute top-[-20%] right-[-20%] w-[80%] aspect-square bg-gold-200 rounded-full blur-[150px]"></div>

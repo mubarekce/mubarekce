@@ -166,7 +166,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
 
   if (activeOverlay === 'ai') {
     return (
-      <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0a1f1a] relative animate-in fade-in zoom-in duration-300">
+      <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0f2b26] relative animate-in fade-in zoom-in duration-300">
         <div className="absolute top-12 left-6 z-50">
           <button onClick={() => setActiveOverlay('none')} className="w-10 h-10 bg-white/80 dark:bg-navy-800/80 backdrop-blur rounded-xl flex items-center justify-center shadow-sm border border-slate-100 dark:border-navy-900 text-slate-900 dark:text-white">←</button>
         </div>
@@ -593,8 +593,8 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
 
       {/* FULL IMSAKIYE MODAL */}
       {showImsakiyeModal && (
-        <div className="fixed inset-0 z-[600] bg-[#f3f7e9] dark:bg-[#0a1f1a] animate-in slide-in-from-bottom duration-500 flex flex-col overflow-hidden">
-           <div className="px-6 pt-12 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-navy-900 sticky top-0 bg-[#f3f7e9] dark:bg-[#0a1f1a] z-10">
+        <div className="fixed inset-0 z-[600] bg-[#f3f7e9] dark:bg-[#0f2b26] animate-in slide-in-from-bottom duration-500 flex flex-col overflow-hidden">
+           <div className="px-6 pt-12 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-navy-900 sticky top-0 bg-[#f3f7e9] dark:bg-[#0f2b26] z-10">
               <div className="flex items-center gap-4">
                  <button 
                    onClick={() => setShowImsakiyeModal(false)}

@@ -193,7 +193,7 @@ const App: React.FC = () => {
         </main>
 
         {/* Bottom Navigation */}
-        <nav className="fixed bottom-0 left-0 right-0 z-50 bg-[#0a1f1a]/90 backdrop-blur-xl border-t border-gold-500/10 px-2 pb-safe">
+        <nav className="fixed bottom-0 left-0 right-0 z-50 bg-[#0f2b26]/85 backdrop-blur-xl border-t border-gold-500/10 px-2 pb-safe">
           <div className="flex items-center justify-between max-w-lg mx-auto px-2 py-2">
             {NAV_ITEMS.map((item) => {
               const isActive = activeTab === item.tab;
