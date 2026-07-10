@@ -441,7 +441,7 @@ import { User } from '../types';
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder="İçerik, dua veya araç ara..."
-          className="w-full bg-slate-50 dark:bg-slate-900 border-2 border-transparent focus:border-gold-100 dark:focus:border-navy-800 focus:bg-white dark:focus:bg-slate-900 rounded-[1.8rem] pl-14 pr-6 py-4.5 outline-none font-bold text-sm text-slate-900 dark:text-white text-slate-900 transition-all placeholder:text-slate-300 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]"
+          className="w-full bg-slate-50 dark:bg-slate-900 border-2 border-transparent focus:border-gold-100 dark:focus:border-navy-800 focus:bg-white dark:focus:bg-slate-900 rounded-[1.8rem] pl-14 pr-6 py-4.5 outline-none font-bold text-sm text-slate-900 dark:text-white transition-all placeholder:text-slate-300 shadow-[0_10px_30px_-15px_rgba(0,0,0,0.05)]"
         />
       </div>
 
@@ -451,7 +451,7 @@ import { User } from '../types';
             <div key={cat} className="space-y-4">
               <div className="flex items-center gap-3 ml-2 mb-4">
                 <div className="w-2 h-2 bg-gold-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(201,166,104,0.5)]"></div>
-                <h3 className="text-[10px] font-black text-slate-900/40 uppercase tracking-[0.4em]">{cat}</h3>
+                <h3 className="text-[10px] font-black text-slate-900/40 dark:text-white/40 uppercase tracking-[0.4em]">{cat}</h3>
               </div>
               <div className={layoutMode === 'list' ? "flex flex-col gap-3" : "grid grid-cols-2 gap-4"}>
                 {tools.filter(t => t.cat === cat && !appConfig.hiddenTools.includes(t.id)).map((tool, i) => (
