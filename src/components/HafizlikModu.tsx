@@ -104,7 +104,7 @@ const HafizlikModu: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col bg-white dark:bg-navy-800 h-full relative animate-in fade-in duration-500 overflow-hidden">
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50 dark:border-navy-900">
+      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-[#fbf6ea]/80 dark:bg-[#141a2c]/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50 dark:border-navy-900">
         <button onClick={selectedSurah ? () => { setSelectedSurah(null); setIsAutoPlaying(false); audioRef.current.pause(); } : onBack} className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center">←</button>
         <div>
           <h2 className="text-xl font-black text-slate-900 dark:text-white tracking-tight">Hafızlık Modu</h2>

@@ -1,5 +1,29 @@
 # Değişiklikler
 
+## 10.07.2026 (2)
+
+- Ana kabuktaki (App.tsx) yeni açık lacivert degrade beğenildiği için **tüm sayfalara**
+  uygulandı: daha önce düz tek renk (`bg-[#fbf6ea]` açık modda / `bg-[#141a2c]` koyu modda,
+  veya bazı ekranlarda sabit `#fdfdfd` beyaz) olan 22 dosyadaki 34 sayfa/panel arka planı,
+  aynı yumuşak geçişli gradyanla değiştirildi:
+  - Açık mod: beyazdan başlayıp krem ve hafif altın tonuna yumuşakça geçen bir degrade.
+  - Koyu mod: App.tsx'teki gradyanla birebir aynı (açık lacivertten koyu laciverte).
+  - Bonus: Daha önce koyu mod desteği hiç olmayan bazı alt araç ekranları (Ryya Tabiri,
+    Kütüb-i Sitte, Kırk Hadis, Peygamberler, Zekat Hesapla, Namaz Rehberi vb.) artık koyu
+    modda da düzgün görünüyor.
+
+## 10.07.2026
+
+- **Arka plan degradesi düzeltildi:** Uygulamanın tamamının arkasındaki (yükleme ekranı +
+  ana kabuk) koyu yeşil, tek noktadan yayılan radyal degrade (`radial-gradient ... at 50% 35%`)
+  kaldırıldı. Yerine yukarıdan aşağıya, ekranın tamamına yayılan (boydan boya) daha açık
+  lacivert tonlarında bir `linear-gradient` kondu.
+- Taramada aynı koyu/açık yeşil renk çiftinin (`#f3f7e9` açık yeşil / `#0a1f1a`, `#0f2b26`,
+  `#153a33` koyu yeşil) neredeyse **her ekranın üst başlık çubuğunda ve birkaç büyük kartta**
+  (Home, Profile, HatimOrganizatoru, SpiritualGarden, Library ve 20+ dosya daha) tekrar
+  ettiği görüldü — toplam 95 yerde krem (`#fbf6ea`) / lacivert (`#141a2c`, `#1c2541`) /
+  altın (`#a8895a`) karşılıklarıyla değiştirildi.
+
 ## 09.07.2026 (2)
 
 - Ana sayfanın en üstündeki gereksiz boşluk azaltıldı (pt-6 → pt-2, ay-yıldız ayracının

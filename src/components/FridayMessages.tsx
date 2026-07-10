@@ -90,11 +90,11 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in duration-500 overflow-hidden relative">
+    <div className="flex-1 flex flex-col h-full bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] animate-in fade-in duration-500 overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-gold-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Compact Header */}
-      <div className="px-5 pt-8 pb-3 flex items-center justify-between bg-[#f3f7e9]/90 dark:bg-[#0a1f1a]/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50 shadow-sm">
+      <div className="px-5 pt-8 pb-3 flex items-center justify-between bg-[#fbf6ea]/90 dark:bg-[#141a2c]/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50 shadow-sm">
         <div className="flex items-center gap-4">
           <button 
             onClick={onBack}
@@ -116,7 +116,7 @@ const FridayMessages: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       </div>
 
       {/* Tighter Category Tabs */}
-      <div className="px-5 py-2 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 sticky top-[66px] z-30 overflow-x-auto no-scrollbar flex gap-1.5 border-b border-slate-50 dark:border-navy-900">
+      <div className="px-5 py-2 bg-[#fbf6ea]/80 dark:bg-[#141a2c]/80 sticky top-[66px] z-30 overflow-x-auto no-scrollbar flex gap-1.5 border-b border-slate-50 dark:border-navy-900">
         {CATEGORIES.map(cat => (
           <button 
             key={cat.id}

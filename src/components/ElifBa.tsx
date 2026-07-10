@@ -82,7 +82,7 @@ const ElifBa: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col bg-white dark:bg-navy-800 h-full relative animate-in fade-in duration-500 overflow-hidden">
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50 dark:border-navy-900">
+      <div className="px-6 pt-12 pb-6 flex items-center gap-4 bg-[#fbf6ea]/80 dark:bg-[#141a2c]/80 backdrop-blur-md sticky top-0 z-20 border-b border-slate-50 dark:border-navy-900">
         <button 
           onClick={selectedLesson ? () => setSelectedLesson(null) : onBack} 
           className="w-10 h-10 bg-slate-50 dark:bg-navy-800 rounded-xl flex items-center justify-center text-slate-400 dark:text-slate-500 active:scale-90 transition-transform"

@@ -166,7 +166,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
 
   if (activeOverlay === 'ai') {
     return (
-      <div className="flex-1 flex flex-col h-full bg-[#f3f7e9] dark:bg-[#0f2b26] relative animate-in fade-in zoom-in duration-300">
+      <div className="flex-1 flex flex-col h-full bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] relative animate-in fade-in zoom-in duration-300">
         <div className="absolute top-12 left-6 z-50">
           <button onClick={() => setActiveOverlay('none')} className="w-10 h-10 bg-white/80 dark:bg-navy-800/80 backdrop-blur rounded-xl flex items-center justify-center shadow-sm border border-slate-100 dark:border-navy-900 text-slate-900 dark:text-white">←</button>
         </div>
@@ -207,9 +207,9 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
           <line x1="10" y1="9" x2="8" y2="9"></line>
         </svg>
       ), 
-      color: 'border-[#153a33]/40 dark:border-[#c9a668]/40',
+      color: 'border-[#1c2541]/40 dark:border-[#c9a668]/40',
       glow: 'shadow-[0_0_15px_rgba(21,58,51,0.25)]',
-      iconColor: 'text-[#153a33] dark:text-[#c9a668]'
+      iconColor: 'text-[#1c2541] dark:text-[#c9a668]'
     },
     { 
       label: 'DUA', 
@@ -232,9 +232,9 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
           <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
         </svg>
       ), 
-      color: 'border-[#153a33]/30 dark:border-[#c9a668]/30',
+      color: 'border-[#1c2541]/30 dark:border-[#c9a668]/30',
       glow: 'shadow-[0_0_15px_rgba(21,58,51,0.2)]',
-      iconColor: 'text-[#153a33]/80 dark:text-[#c9a668]/90'
+      iconColor: 'text-[#1c2541]/80 dark:text-[#c9a668]/90'
     },
     { 
       label: 'AI HOCAM', 
@@ -269,11 +269,11 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
         <div className="fixed top-[-150px] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-[#c9a668]/15 blur-[110px] rounded-full pointer-events-none z-0" />
 
         {/* 3. Bottom Ambient Glow - derin lacivert huzur tonu */}
-        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[500px] h-[400px] bg-[#153a33]/10 dark:bg-[#c9a668]/5 blur-[110px] rounded-full transition-all duration-1000" />
+        <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 w-[500px] h-[400px] bg-[#1c2541]/10 dark:bg-[#c9a668]/5 blur-[110px] rounded-full transition-all duration-1000" />
       </div>
 
       {/* MAIN CARD - Artık uygulamanın genel fildişi/lacivert huzur temasıyla aynı, ayrı bir renk bloğu değil */}
-      <div className="relative overflow-hidden rounded-[2rem] bg-white/70 dark:bg-[#0f2b26]/70 backdrop-blur-xl text-slate-900 dark:text-[#eef6ee] shadow-[0_10px_30px_-15px_rgba(10,31,26,0.15)] border border-[#c9a668]/20 dark:border-[#c9a668]/10 z-10 transition-transform duration-300 active:scale-[0.99]">
+      <div className="relative overflow-hidden rounded-[2rem] bg-white/70 dark:bg-[#141a2c]/70 backdrop-blur-xl text-slate-900 dark:text-[#fbf6ea] shadow-[0_10px_30px_-15px_rgba(10,31,26,0.15)] border border-[#c9a668]/20 dark:border-[#c9a668]/10 z-10 transition-transform duration-300 active:scale-[0.99]">
         
         {/* Mosque Background Silhouette - altın tonuyla, çok sönük */}
         <div className="absolute right-[-15px] bottom-2 opacity-[0.05] pointer-events-none transition-all duration-1000">
@@ -311,7 +311,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
           </div>
           
           {/* SIRADAKİ VAKİT - Geri Sayımlı Ana Panel */}
-          <div className="relative overflow-hidden rounded-[1.6rem] bg-gradient-to-br from-[#153a33] to-[#0a1f1a] p-4 mb-2.5 shadow-lg shadow-black/10">
+          <div className="relative overflow-hidden rounded-[1.6rem] bg-gradient-to-br from-[#1c2541] to-[#141a2c] p-4 mb-2.5 shadow-lg shadow-black/10">
             <div className="absolute right-[-10px] top-[-14px] text-6xl opacity-[0.08] pointer-events-none select-none">🕌</div>
             <div className="flex items-center justify-between relative z-10">
               <div>
@@ -432,7 +432,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
           onClick={() => setShowShortcutEditor(false)}
         >
           <div
-            className="w-full max-w-lg bg-[#f3f7e9] dark:bg-[#0f2b26] rounded-t-[2.5rem] p-6 pb-10 max-h-[80vh] overflow-y-auto no-scrollbar animate-in slide-in-from-bottom duration-300"
+            className="w-full max-w-lg bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] rounded-t-[2.5rem] p-6 pb-10 max-h-[80vh] overflow-y-auto no-scrollbar animate-in slide-in-from-bottom duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-1">
@@ -499,7 +499,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
       <div className="px-1 relative z-10">
          <div 
            onClick={() => setActiveOverlay('camiler')}
-           className="bg-[#0a1f1a] rounded-[2rem] p-5 flex items-center justify-between border border-[#c9a668]/15 shadow-xl shadow-black/10 cursor-pointer group active:scale-[0.98] transition-all overflow-hidden relative"
+           className="bg-[#141a2c] rounded-[2rem] p-5 flex items-center justify-between border border-[#c9a668]/15 shadow-xl shadow-black/10 cursor-pointer group active:scale-[0.98] transition-all overflow-hidden relative"
          >
             {/* Map Texture Overlay - Refined according to user prompt */}
             <div 
@@ -530,7 +530,7 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
         <SectionHeader title="GÜNÜN MANEVİYATI" />
 
         {/* Günün Maneviyatı - tek, kompakt, sekmeli kart */}
-        <div className="bg-white/70 dark:bg-[#0f2b26]/70 backdrop-blur-xl rounded-[2rem] border border-[#c9a668]/20 dark:border-[#c9a668]/10 shadow-[0_8px_30px_-15px_rgba(10,31,26,0.12)] overflow-hidden">
+        <div className="bg-white/70 dark:bg-[#141a2c]/70 backdrop-blur-xl rounded-[2rem] border border-[#c9a668]/20 dark:border-[#c9a668]/10 shadow-[0_8px_30px_-15px_rgba(10,31,26,0.12)] overflow-hidden">
           <div className="flex p-1.5 gap-1 border-b border-slate-100 dark:border-white/5">
             {([
               { key: 'ayet', label: 'AYET' },
@@ -593,8 +593,8 @@ const Home: React.FC<HomeProps> = ({ user, prayerData, currentTime, onAction }) 
 
       {/* FULL IMSAKIYE MODAL */}
       {showImsakiyeModal && (
-        <div className="fixed inset-0 z-[600] bg-[#f3f7e9] dark:bg-[#0f2b26] animate-in slide-in-from-bottom duration-500 flex flex-col overflow-hidden">
-           <div className="px-6 pt-12 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-navy-900 sticky top-0 bg-[#f3f7e9] dark:bg-[#0f2b26] z-10">
+        <div className="fixed inset-0 z-[600] bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] animate-in slide-in-from-bottom duration-500 flex flex-col overflow-hidden">
+           <div className="px-6 pt-12 pb-6 flex items-center justify-between border-b border-slate-100 dark:border-navy-900 sticky top-0 bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] z-10">
               <div className="flex items-center gap-4">
                  <button 
                    onClick={() => setShowImsakiyeModal(false)}

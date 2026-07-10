@@ -117,7 +117,7 @@ const HelalScanner: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   return (
     <div className="flex-1 flex flex-col h-full bg-white dark:bg-navy-800 animate-in fade-in duration-500 overflow-hidden relative">
       {/* Premium Header */}
-      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
+      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-[#fbf6ea]/80 dark:bg-[#141a2c]/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={result ? () => setResult(null) : onBack}

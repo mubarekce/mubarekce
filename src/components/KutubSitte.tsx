@@ -108,7 +108,7 @@ const KutubSitte: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in slide-in-from-right duration-500 overflow-hidden relative">
+    <div className="flex-1 flex flex-col h-full bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] animate-in fade-in slide-in-from-right duration-500 overflow-hidden relative">
       {/* Premium Header */}
       <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/95 dark:bg-navy-900/95 backdrop-blur-xl sticky top-0 z-40 border-b border-gold-100/50">
         <div className="flex items-center gap-4">

@@ -190,7 +190,7 @@ const NamazRehberi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in duration-500 overflow-hidden relative">
+    <div className="flex-1 flex flex-col h-full bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] animate-in fade-in duration-500 overflow-hidden relative">
       <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-white/70 dark:bg-navy-900/70 backdrop-blur-xl sticky top-0 z-50 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button onClick={selectedPrayer ? () => setSelectedPrayer(null) : onBack} className="w-10 h-10 bg-white dark:bg-navy-800 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 shadow-sm active:scale-90 transition-transform text-gold-600">

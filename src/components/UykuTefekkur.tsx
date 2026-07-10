@@ -166,7 +166,7 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-[#fcfcfd] text-slate-900 dark:text-white animate-in fade-in duration-500 overflow-hidden relative">
+    <div className="flex-1 flex flex-col h-full bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] text-slate-900 dark:text-white animate-in fade-in duration-500 overflow-hidden relative">
       {/* Soft Background Decor */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-[5%] right-[-10%] w-[60%] aspect-square bg-gold-50 dark:bg-navy-950/20 blur-[100px] rounded-full opacity-60"></div>
@@ -174,7 +174,7 @@ const UykuTefekkur: React.FC<{ onBack: () => void }> = ({ onBack }) => {
       </div>
 
       {/* Header */}
-      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-xl border-b border-slate-100 dark:border-navy-900 relative z-20">
+      <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-[#fbf6ea]/80 dark:bg-[#141a2c]/80 backdrop-blur-xl border-b border-slate-100 dark:border-navy-900 relative z-20">
         <div className="flex items-center gap-4">
           <button onClick={onBack} className="w-11 h-11 bg-slate-50 dark:bg-navy-800 hover:bg-slate-100 dark:bg-navy-900 rounded-2xl flex items-center justify-center border border-slate-100 dark:border-navy-900 active:scale-90 transition-all">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="M19 12H5"/><polyline points="12 19 5 12 12 5"/></svg>

@@ -78,7 +78,7 @@ const ProphetsList: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in slide-in-from-right duration-500 overflow-hidden relative">
+    <div className="flex-1 flex flex-col h-full bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] animate-in fade-in slide-in-from-right duration-500 overflow-hidden relative">
       <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-gold-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Header */}

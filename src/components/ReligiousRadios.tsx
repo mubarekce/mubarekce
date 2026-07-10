@@ -76,12 +76,12 @@ const ReligiousRadios: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   const currentStation = STATIONS.find(s => s.id === playingId);
 
   return (
-    <div className="flex-1 flex flex-col h-full bg-[#fdfdfd] animate-in fade-in duration-500 overflow-hidden relative">
+    <div className="flex-1 flex flex-col h-full bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] animate-in fade-in duration-500 overflow-hidden relative">
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-80 bg-gradient-to-b from-pink-50/50 to-transparent pointer-events-none -z-10"></div>
       
       {/* Header */}
-      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-[#f3f7e9]/80 dark:bg-[#0a1f1a]/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
+      <div className="px-5 pt-12 pb-4 flex items-center justify-between bg-[#fbf6ea]/80 dark:bg-[#141a2c]/80 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-100/50">
         <div className="flex items-center gap-4">
           <button 
             onClick={onBack}

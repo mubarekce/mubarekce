@@ -118,7 +118,7 @@ const Auth: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full bg-[#f3f7e9] dark:bg-[#0f2b26] flex flex-col justify-center items-center p-8 relative overflow-hidden transition-colors duration-300">
+    <div className="min-h-screen w-full bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] flex flex-col justify-center items-center p-8 relative overflow-hidden transition-colors duration-300">
       {/* Decorative Background Elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5 pointer-events-none">
         <div className="absolute top-[-20%] right-[-20%] w-[80%] aspect-square bg-gold-200 rounded-full blur-[150px]"></div>
@@ -132,7 +132,7 @@ const Auth: React.FC = () => {
         </div>
 
         {/* Form Card */}
-        <div className="bg-[#fbf6ea] dark:bg-[#0f2b26] rounded-[2.5rem] p-8 md:p-10 shadow-[0_30px_60px_-12px_rgba(10,31,26,0.15)] border border-gold-100/50 dark:border-navy-800 relative overflow-hidden transition-colors duration-300">
+        <div className="bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] rounded-[2.5rem] p-8 md:p-10 shadow-[0_30px_60px_-12px_rgba(10,31,26,0.15)] border border-gold-100/50 dark:border-navy-800 relative overflow-hidden transition-colors duration-300">
           <div className="absolute left-0 bottom-0 w-full h-full pointer-events-none opacity-[0.03] flex items-end justify-center">
             <svg width="100%" height="55%" viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet" fill="currentColor" className="text-navy-900">
               <path d="M0,100 L100,100 L100,85 Q80,75 70,85 L70,100 Z" />

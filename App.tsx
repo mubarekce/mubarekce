@@ -145,7 +145,7 @@ const App: React.FC = () => {
         className="min-h-screen w-full flex items-center justify-center"
         style={{
           background:
-            'radial-gradient(ellipse 80% 60% at 50% 35%, #1c4739 0%, #123328 35%, #0a1f1a 65%, #06140f 100%)',
+            'linear-gradient(180deg, #3e5878 0%, #243a58 45%, #141a2c 100%)',
         }}
       >
         <div className="w-10 h-10 border-4 border-gold-600 border-t-transparent rounded-full animate-spin" />
@@ -163,10 +163,10 @@ const App: React.FC = () => {
         className="min-h-screen w-full flex flex-col relative"
         style={{
           background:
-            'radial-gradient(ellipse 80% 55% at 50% 30%, #1c4739 0%, #123328 35%, #0a1f1a 65%, #06140f 100%)',
+            'linear-gradient(180deg, #3e5878 0%, #243a58 45%, #141a2c 100%)',
         }}
       >
-        {/* Uygulamanın standart teması: koyu yeşil zeminde ortadan yayılan ışık degradesi + altın geometrik desen */}
+        {/* Uygulamanın standart teması: yukarıdan aşağıya, boydan boya akan açık-koyu lacivert degrade zemin + altın geometrik desen */}
         <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
           {/* İnce altın geometrik desen */}
           <div
@@ -193,7 +193,7 @@ const App: React.FC = () => {
         </main>
 
         {/* Bottom Navigation */}
-        <nav className="fixed bottom-0 left-0 right-0 z-50 bg-[#0f2b26]/85 backdrop-blur-xl border-t border-gold-500/10 px-2 pb-safe">
+        <nav className="fixed bottom-0 left-0 right-0 z-50 bg-[#141a2c]/85 backdrop-blur-xl border-t border-gold-500/10 px-2 pb-safe">
           <div className="flex items-center justify-between max-w-lg mx-auto px-2 py-2">
             {NAV_ITEMS.map((item) => {
               const isActive = activeTab === item.tab;

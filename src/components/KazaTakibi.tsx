@@ -134,7 +134,7 @@ const KazaTakibi: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   }, [maxDebt, dailyPayment]);
 
   return (
-    <div className="flex-1 flex flex-col bg-[#FCFDFD] h-full relative animate-in fade-in duration-500 overflow-hidden">
+    <div className="flex-1 flex flex-col bg-gradient-to-b from-white via-[#fbf6ea] to-[#f5ead0] dark:from-[#3e5878] dark:via-[#243a58] dark:to-[#141a2c] h-full relative animate-in fade-in duration-500 overflow-hidden">
       {/* Header */}
       <div className="px-6 pt-12 pb-6 flex items-center justify-between bg-white dark:bg-navy-800 border-b border-slate-100/50 sticky top-0 z-20">
         <div className="flex items-center gap-5">
